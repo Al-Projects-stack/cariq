@@ -1,6 +1,6 @@
 # CarIQ — South African Used Car Market Intelligence
 
-**Live Demo:** [https://cariq.onrender.com](https://cariq.onrender.com) *(update after Render deployment)*
+
 
 Ask plain-English questions about used car prices, reliability, and known faults in the South African market. Get grounded, sourced answers in seconds.
 
