@@ -1,0 +1,56 @@
+{
+  "make": "Mazda",
+  "model": "3",
+  "variants": ["1.6 Active", "2.0 Dynamic", "2.0 Individual", "2.0 Astina", "2.5 Astina"],
+  "years_covered": "2014-2024",
+  "sa_market_summary": "The Mazda 3 (BM generation 2014-2018, BP generation 2019+) is an excellent used car choice in South Africa for buyers who prioritise build quality and driving pleasure over brand prestige. Mazda's KODO design language gives the car premium looks and the SkyActiv engines deliver both performance and efficiency. Strong reliability record with fewer electronics-related faults than German competitors. Parts availability is reasonable in major cities. A frequently overlooked gem in the used hatchback and sedan market.",
+  "reliability_score": 8.2,
+  "price_ranges": [
+    { "year_from": 2021, "year_to": 2024, "low_zar": 350000, "mid_zar": 420000, "high_zar": 510000 },
+    { "year_from": 2018, "year_to": 2020, "low_zar": 230000, "mid_zar": 285000, "high_zar": 345000 },
+    { "year_from": 2015, "year_to": 2017, "low_zar": 150000, "mid_zar": 190000, "high_zar": 240000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "Infotainment screen touch sensitivity failure (BM generation)",
+      "affects_variants": ["2.0 Dynamic", "2.0 Individual", "2.0 Astina"],
+      "mileage_range": "Any mileage, age-related",
+      "severity": "LOW",
+      "description": "The touchscreen infotainment system on 2014-2018 Mazda 3 models can lose touch sensitivity over time, reverting to the rotary Mazda Connect controller only. Screen replacement resolves this.",
+      "what_to_inspect": "Test the touchscreen functionality for responsiveness across all corners of the screen.",
+      "estimated_repair_zar": "R3,000 - R8,000 (screen replacement)",
+      "source": "Mazda SA owner reports, Cars.co.za reviews"
+    },
+    {
+      "fault": "SkyActiv-G fuel injector deposits",
+      "affects_variants": ["2.0 Dynamic", "2.0 Individual", "2.5 Astina"],
+      "mileage_range": "80,000km+",
+      "severity": "LOW",
+      "description": "SkyActiv engines with port and direct injection are generally resistant to carbon buildup, but injector deposits can cause rough idle on very high mileage examples if fuel quality has been poor.",
+      "what_to_inspect": "Use quality fuel consistently. Request fuel injector cleaning records on high-mileage examples.",
+      "estimated_repair_zar": "R1,500 - R4,000",
+      "source": "Mazda SA technical reports, SA fuel quality analysis"
+    },
+    {
+      "fault": "Premature front brake pad wear",
+      "affects_variants": ["2.0 Dynamic", "2.0 Individual", "2.0 Astina", "2.5 Astina"],
+      "mileage_range": "40,000km - 60,000km",
+      "severity": "LOW",
+      "description": "Some owners report front brake pads wearing faster than expected, particularly in urban stop-start driving. This is manageable with regular brake inspections.",
+      "what_to_inspect": "Check front brake pad thickness. Listen for any squealing. Confirm when last brake service was performed.",
+      "estimated_repair_zar": "R1,800 - R3,500 (pads and discs)",
+      "source": "SA Mazda owner community, Cars.co.za service cost data"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Test infotainment touchscreen on all BM (2014-2018) models",
+    "Check service history — Mazda service intervals are 10,000km or annually",
+    "Inspect paint condition — KODO era Mazda paint is excellent quality but check for touch-ups",
+    "Test all driver assistance features on BP (2019+) models — lane keep, adaptive cruise",
+    "Check tyre condition and remaining life",
+    "Confirm no accident history via e-Natis or CarHistory check",
+    "Listen for any rattles from the dashboard on rough road surfaces"
+  ],
+  "owner_sentiment": "Very positive. Mazda 3 owners frequently cite build quality and driving enjoyment as the primary reasons for loyalty. Lower running costs than German equivalents. Parts can be slightly harder to source outside of Johannesburg, Cape Town, and Durban. Overall one of the best value used cars in its segment.",
+  "sources": ["Mazda SA dealer network", "Cars.co.za Mazda 3 reviews", "AutoTrader SA", "SA Mazda owners community", "WeBuyCars market data"]
+}

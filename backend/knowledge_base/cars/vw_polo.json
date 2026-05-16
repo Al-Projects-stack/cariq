@@ -1,0 +1,78 @@
+{
+  "make": "Volkswagen",
+  "model": "Polo",
+  "variants": ["1.0 TSI", "1.4", "1.6 Comfortline", "Vivo 1.4", "Vivo 1.6", "GTI 2.0 TSI"],
+  "years_covered": "2010-2024",
+  "sa_market_summary": "The VW Polo is one of the best-selling used cars in South Africa. Extremely high demand from private buyers and fleet operators keeps prices firm. Parts availability is excellent at both VW dealers and independent specialists. The Polo Vivo (based on the Mk5 platform) offers budget-friendly motoring with low running costs. The newer Mk6 Polo (2018+) brings more tech but also more complexity. A sound choice for city and highway driving, especially in Johannesburg and Cape Town.",
+  "reliability_score": 7.5,
+  "price_ranges": [
+    { "year_from": 2021, "year_to": 2024, "low_zar": 260000, "mid_zar": 310000, "high_zar": 380000 },
+    { "year_from": 2018, "year_to": 2020, "low_zar": 180000, "mid_zar": 220000, "high_zar": 270000 },
+    { "year_from": 2015, "year_to": 2017, "low_zar": 100000, "mid_zar": 135000, "high_zar": 165000 },
+    { "year_from": 2010, "year_to": 2014, "low_zar": 60000, "mid_zar": 85000, "high_zar": 115000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "DSG gearbox hesitation and shudder",
+      "affects_variants": ["1.0 TSI", "1.4", "GTI 2.0 TSI"],
+      "mileage_range": "50,000km - 100,000km",
+      "severity": "MEDIUM",
+      "description": "The DSG dual-clutch gearbox can hesitate, shudder, or jerk at low speeds. Particularly common in stop-start Johannesburg traffic. The mechatronic unit is a common failure point.",
+      "what_to_inspect": "Test drive extensively in heavy traffic. Request full DSG service history — it must be serviced every 40,000km with VW-approved DSG fluid. Listen for any shudder pulling away from standstill.",
+      "estimated_repair_zar": "R5,000 - R18,000 (fluid service to full mechatronic replacement)",
+      "source": "MyBroadband VW forum, Cars.co.za owner reviews, SA VW technician reports"
+    },
+    {
+      "fault": "Carbon buildup on intake valves (TSI engines)",
+      "affects_variants": ["1.0 TSI"],
+      "mileage_range": "80,000km+",
+      "severity": "MEDIUM",
+      "description": "TSI direct-injection engines do not wash intake valves with fuel. Carbon deposits build up over time causing rough idle, misfires, and reduced performance.",
+      "what_to_inspect": "Ask for walnut blasting service record. Check for rough idle on startup. Request a borescope inspection if mileage is above 80,000km.",
+      "estimated_repair_zar": "R3,500 - R6,000",
+      "source": "SA automotive technician reports, VW specialist workshops"
+    },
+    {
+      "fault": "Wheel arch and underbody rust (Mk5 and Polo Vivo)",
+      "affects_variants": ["Vivo 1.4", "Vivo 1.6"],
+      "mileage_range": "Any mileage, age-related",
+      "severity": "MEDIUM",
+      "description": "Polo Vivo models (2010-2017) are prone to rust on the rear wheel arches, particularly in coastal cities like Durban and Cape Town. Underbody rust is also common.",
+      "what_to_inspect": "Physically inspect rear wheel arches by folding back the rubber seal. Check underbody with a flashlight. Coastal cars are highest risk.",
+      "estimated_repair_zar": "R2,000 - R8,000 (panel beating and rust treatment)",
+      "source": "SA body shop reports, AutoTrader SA buyer guides"
+    },
+    {
+      "fault": "Ignition coil failure",
+      "affects_variants": ["1.4", "1.0 TSI"],
+      "mileage_range": "60,000km - 120,000km",
+      "severity": "LOW",
+      "description": "Ignition coils fail intermittently causing misfires and a flashing engine management light. Common on higher mileage TSI and FSI engines.",
+      "what_to_inspect": "Check for any flashing EML. Request a diagnostic scan to reveal coil fault codes P030x.",
+      "estimated_repair_zar": "R800 - R2,500 per coil",
+      "source": "VW SA dealer service records, MyBroadband forum"
+    },
+    {
+      "fault": "Water pump failure (1.0 TSI)",
+      "affects_variants": ["1.0 TSI"],
+      "mileage_range": "70,000km - 100,000km",
+      "severity": "HIGH",
+      "description": "The plastic impeller water pump on the 1.0 TSI EA211 engine is known to fail, causing overheating. Failure can lead to engine damage if not caught in time.",
+      "what_to_inspect": "Check coolant level and colour. Ask if water pump has been replaced. Check for any history of overheating.",
+      "estimated_repair_zar": "R3,000 - R6,000",
+      "source": "VW technical service bulletins, SA specialist reports"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Check DSG service history — must be done every 40,000km",
+    "Inspect rear wheel arches for rust, especially on Polo Vivo and pre-2015 models",
+    "Test all electric windows and central locking — common failure points",
+    "Check for water ingress in the boot and footwells (sunroof drain blockages)",
+    "Request a VAG diagnostic scan to check for stored fault codes",
+    "Test DSG in stop-start traffic for any hesitation or shudder",
+    "Check timing belt/chain service history on older 1.4 models",
+    "Inspect for signs of accident repair — check panel gap consistency"
+  ],
+  "owner_sentiment": "Generally positive for value and running costs. Polo Vivo owners praise low cost of ownership. Newer 1.0 TSI owners value fuel economy (5-6L/100km) but some report expensive dealer servicing. Main complaints are DSG unreliability in older models and high parts prices at VW dealers vs independents.",
+  "sources": ["MyBroadband SA forums", "Cars.co.za listings and reviews", "AutoTrader SA", "SA VW owner communities", "WeBuyCars price data"]
+}

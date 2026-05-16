@@ -1,0 +1,38 @@
+from fastapi import APIRouter
+from app.models.schemas import HealthResponse
+from app.services.pinecone_client import PineconeClient
+from app.services.claude_client import ClaudeClient
+from app.db.database import engine
+from sqlalchemy import text
+
+router = APIRouter(tags=["health"])
+
+
+@router.get("/health", response_model=HealthResponse)
+def health_check():
+    pinecone_status = "disconnected"
+    claude_status = "disconnected"
+    db_status = "disconnected"
+
+    try:
+        PineconeClient().ping()
+        pinecone_status = "connected"
+    except Exception:
+        pass
+
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+        db_status = "connected"
+    except Exception:
+        pass
+
+    # Skip live Claude ping to avoid spending tokens on health checks
+    claude_status = "configured"
+
+    return HealthResponse(
+        status="ok",
+        pinecone=pinecone_status,
+        claude=claude_status,
+        database=db_status,
+    )

@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ui-pro-max: Fira Code + Fira Sans — dashboard/analytics typography */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --glow-orange: 0 0 12px rgba(249, 115, 22, 0.35);
+    --glow-blue:   0 0 12px rgba(59, 130, 246, 0.35);
+  }
+
+  html {
+    font-size: 16px; /* ui-pro-max: min 16px body */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: 'Fira Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  /* ui-pro-max: visible focus rings for keyboard nav */
+  :focus-visible {
+    @apply outline-none ring-2 ring-orange-500 ring-offset-2 ring-offset-gray-950;
+  }
+
+  /* ui-pro-max: cursor-pointer on all interactive elements */
+  button, [role="button"], a, select, label[for] {
+    cursor: pointer;
+  }
+
+  /* ui-pro-max: prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .font-mono {
+    font-family: 'Fira Code', monospace;
+  }
+
+  /* ui-pro-max: minimal glow on key CTA elements */
+  .glow-orange {
+    box-shadow: var(--glow-orange);
+  }
+  .glow-orange:hover {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+  }
+
+  .glow-blue {
+    box-shadow: var(--glow-blue);
+  }
+
+  /* Premium card style */
+  .card-dark {
+    @apply rounded-xl border border-gray-800 bg-gray-900 transition-all duration-200;
+  }
+  .card-dark:hover {
+    @apply border-gray-700;
+  }
+
+  /* Step connector line for How It Works */
+  .step-line::after {
+    content: '';
+    @apply absolute top-6 left-6 w-0.5 h-full bg-gradient-to-b from-orange-500/40 to-transparent;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.gray.700') transparent;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out both;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out both;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.6; }
+  }
+}

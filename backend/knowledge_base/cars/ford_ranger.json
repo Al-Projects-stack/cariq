@@ -1,0 +1,78 @@
+{
+  "make": "Ford",
+  "model": "Ranger",
+  "variants": ["2.2 TDCi XL", "2.2 TDCi XLS", "2.2 TDCi XLT", "3.2 TDCi Wildtrak", "3.2 TDCi XLT", "2.0 BiTurbo Wildtrak", "2.0 BiTurbo Raptor"],
+  "years_covered": "2011-2024",
+  "sa_market_summary": "The Ford Ranger is South Africa's second best-selling vehicle and the Hilux's closest rival. Built at Ford's Silverton plant in Pretoria, making it a locally assembled product with strong parts support. The T6 platform (2011-2022) established the Ranger's reputation for toughness and payload capability. The next-generation Ranger (2022+) upgraded technology significantly. The 3.2 TDCi five-cylinder diesel is regarded as one of the most robust engines in the bakkie segment. Excellent choice for both work and leisure.",
+  "reliability_score": 8.5,
+  "price_ranges": [
+    { "year_from": 2022, "year_to": 2024, "low_zar": 590000, "mid_zar": 690000, "high_zar": 820000 },
+    { "year_from": 2019, "year_to": 2021, "low_zar": 420000, "mid_zar": 510000, "high_zar": 620000 },
+    { "year_from": 2016, "year_to": 2018, "low_zar": 290000, "mid_zar": 370000, "high_zar": 460000 },
+    { "year_from": 2012, "year_to": 2015, "low_zar": 170000, "mid_zar": 230000, "high_zar": 300000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "EGR valve failure (2.2 TDCi and 3.2 TDCi)",
+      "affects_variants": ["2.2 TDCi XL", "2.2 TDCi XLS", "2.2 TDCi XLT", "3.2 TDCi Wildtrak", "3.2 TDCi XLT"],
+      "mileage_range": "80,000km - 150,000km",
+      "severity": "MEDIUM",
+      "description": "EGR (Exhaust Gas Recirculation) valve failure is a common maintenance item on both 2.2 and 3.2 TDCi Rangers. Symptoms include rough idle, black smoke, and reduced power.",
+      "what_to_inspect": "Check for black exhaust smoke at idle. Request an EGR cleaning or replacement history. A scan tool will reveal EGR fault codes.",
+      "estimated_repair_zar": "R2,000 - R7,000 (cleaning to replacement)",
+      "source": "Ford SA dealer reports, SA Ranger owners forums, AutoTrader SA buyer guides"
+    },
+    {
+      "fault": "Dual mass flywheel (DMF) wear",
+      "affects_variants": ["2.2 TDCi XL", "2.2 TDCi XLS", "2.2 TDCi XLT"],
+      "mileage_range": "100,000km - 150,000km",
+      "severity": "HIGH",
+      "description": "Manual transmission Rangers use a dual mass flywheel that wears at higher mileage, particularly under heavy towing or off-road use. A rattling or shuddering on startup/shutdown is a classic symptom.",
+      "what_to_inspect": "Listen for a rattle from the gearbox area on startup and shutdown. Feel for shudder on clutch engagement. Request clutch and DMF replacement history.",
+      "estimated_repair_zar": "R14,000 - R28,000 (DMF + clutch kit)",
+      "source": "SA Ranger forum, Ford SA dealer service records, SA gearbox workshops"
+    },
+    {
+      "fault": "Water pump failure (2.2 TDCi)",
+      "affects_variants": ["2.2 TDCi XL", "2.2 TDCi XLS", "2.2 TDCi XLT"],
+      "mileage_range": "80,000km - 120,000km",
+      "severity": "HIGH",
+      "description": "The 2.2 TDCi water pump has a known weak point in the impeller shaft seal. Coolant leaks and overheating result if not caught early.",
+      "what_to_inspect": "Check for coolant level drops. Inspect hose connections for white residue indicating a seeping water pump. Replace proactively on high mileage examples.",
+      "estimated_repair_zar": "R3,500 - R8,000",
+      "source": "Ford SA technical service bulletins, SA diesel specialist reports"
+    },
+    {
+      "fault": "Synchromesh wear (manual 6-speed gearbox)",
+      "affects_variants": ["2.2 TDCi XL", "2.2 TDCi XLS"],
+      "mileage_range": "120,000km+",
+      "severity": "MEDIUM",
+      "description": "The 6-speed manual gearbox synchros wear at high mileage, causing crunching when changing into second and third gear. Aggressive driving or overloading accelerates wear.",
+      "what_to_inspect": "Test downshift into second gear under normal driving. Any crunching or resistance points to synchromesh wear.",
+      "estimated_repair_zar": "R8,000 - R20,000 (gearbox rebuild)",
+      "source": "SA gearbox specialist workshops, Ranger owners forum"
+    },
+    {
+      "fault": "Cracked chassis (heavy commercial use)",
+      "affects_variants": ["2.2 TDCi XL", "2.2 TDCi XLS", "2.2 TDCi XLT", "3.2 TDCi Wildtrak"],
+      "mileage_range": "Any mileage, use-dependent",
+      "severity": "HIGH",
+      "description": "Rangers used for overloading, constant heavy towing, or severe off-road use can develop hairline chassis cracks around the rear crossmember. This is a safety issue.",
+      "what_to_inspect": "Physical underbody inspection with a flashlight around the rear crossmember and body mounts. Particularly important for ex-fleet, farm, or construction vehicles.",
+      "estimated_repair_zar": "R5,000 - R20,000+ (chassis welding and reinforcement)",
+      "source": "SA 4x4 forum, Ford SA chassis inspection bulletins"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Underbody inspection for chassis cracks — non-negotiable on commercial-use bakkies",
+    "Check EGR condition with a diagnostic scan",
+    "For manual transmissions, test clutch engagement and listen for DMF rattle",
+    "Confirm water pump replacement history on 2.2 TDCi models above 80,000km",
+    "Test 4WD system engagement and transfer case operation",
+    "Check for rust on chassis and load bay floor",
+    "Request full Ford SA service history",
+    "Inspect canopy or accessories for quality and secure fitment"
+  ],
+  "owner_sentiment": "Very positive. Ranger owners value the combination of work capability and on-road comfort. 3.2 TDCi owners particularly loyal to the five-cylinder engine. Main concerns are EGR maintenance costs and DMF expense on high-mileage manual examples. The 2.0 BiTurbo models (2019+) are praised for performance but some owners report higher servicing costs.",
+  "sources": ["Ford SA dealer network", "SA Ranger Owners Forum", "Cars.co.za", "AutoTrader SA", "4x4 Community SA", "WeBuyCars price data"]
+}

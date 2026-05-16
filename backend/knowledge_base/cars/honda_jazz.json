@@ -1,0 +1,66 @@
+{
+  "make": "Honda",
+  "model": "Jazz",
+  "variants": ["1.2 Comfort", "1.5 Comfort", "1.5 Elegance", "1.5 Executive"],
+  "years_covered": "2009-2022",
+  "sa_market_summary": "The Honda Jazz is one of the most practical and reliable small cars available in the South African used market. Its Magic Seat folding rear bench creates extraordinary cargo flexibility that rivals cars twice its size. The Jazz has an outstanding reputation for durability — well-maintained examples comfortably reach 250,000km+ without major mechanical intervention. Parts are readily available from Honda SA dealers and independent importers. Particularly popular among older buyers and those wanting maximum practicality from a compact package.",
+  "reliability_score": 9.0,
+  "price_ranges": [
+    { "year_from": 2019, "year_to": 2022, "low_zar": 200000, "mid_zar": 245000, "high_zar": 290000 },
+    { "year_from": 2015, "year_to": 2018, "low_zar": 120000, "mid_zar": 155000, "high_zar": 195000 },
+    { "year_from": 2010, "year_to": 2014, "low_zar": 65000, "mid_zar": 90000, "high_zar": 125000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "CVT gearbox shudder (automatic models)",
+      "affects_variants": ["1.5 Comfort", "1.5 Elegance", "1.5 Executive"],
+      "mileage_range": "60,000km - 100,000km",
+      "severity": "MEDIUM",
+      "description": "The continuously variable transmission (CVT) on automatic Jazz models can shudder or vibrate under acceleration, particularly when the CVT fluid has not been changed on schedule. Honda specifies CVT fluid replacement every 40,000km.",
+      "what_to_inspect": "Request CVT fluid change history. Test drive at various speeds — any juddering under moderate acceleration indicates CVT wear or fluid degradation.",
+      "estimated_repair_zar": "R1,500 (fluid change) to R25,000+ (CVT rebuild)",
+      "source": "Honda SA dealer reports, SA automatic transmission specialists"
+    },
+    {
+      "fault": "Timing chain stretch (1.5 engines, older models)",
+      "affects_variants": ["1.5 Comfort", "1.5 Elegance"],
+      "mileage_range": "120,000km+",
+      "severity": "MEDIUM",
+      "description": "The timing chain on older L15 engines (2010-2013) can stretch at very high mileage, causing a rattling sound on cold start. Well-maintained examples are far less affected.",
+      "what_to_inspect": "Listen for cold start rattle that settles within 10 seconds. Request timing chain inspection on any example above 150,000km.",
+      "estimated_repair_zar": "R5,000 - R12,000",
+      "source": "Honda SA technical bulletins, SA Honda specialist workshops"
+    },
+    {
+      "fault": "Air conditioning evaporator odour",
+      "affects_variants": ["1.2 Comfort", "1.5 Comfort", "1.5 Elegance", "1.5 Executive"],
+      "mileage_range": "Any mileage, age-related",
+      "severity": "LOW",
+      "description": "A musty or mouldy smell from the air conditioning vents is common on Jazz models in humid South African climates (Durban, Cape Town). Evaporator cleaning resolves the issue.",
+      "what_to_inspect": "Turn on AC to full cold — check for musty smell. This is a comfort issue, not a mechanical fault.",
+      "estimated_repair_zar": "R800 - R2,000 (evaporator cleaning and treatment)",
+      "source": "SA AC specialist reports, Honda SA owner feedback"
+    },
+    {
+      "fault": "Electric power steering pump noise",
+      "affects_variants": ["1.2 Comfort", "1.5 Comfort"],
+      "mileage_range": "80,000km+",
+      "severity": "LOW",
+      "description": "The electric power steering motor can develop a whirring or clicking noise at low speeds on older Jazz models. Usually a motor bearing or rack issue.",
+      "what_to_inspect": "Turn the steering slowly from lock to lock at low speed — listen for any whirring, clicking, or resistance.",
+      "estimated_repair_zar": "R3,000 - R8,000",
+      "source": "SA steering specialist workshops, Honda Jazz owner forum"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Test the Magic Seat system — all four rear seat configurations should work smoothly",
+    "For automatic models, check CVT fluid condition and change history",
+    "Test air conditioning for musty odours",
+    "Check electric power steering operation at low speed",
+    "Verify service history — Honda recommends oil changes every 10,000km",
+    "Inspect for rust around the rear wheel arches on older models",
+    "Test all electronic items including the infotainment and Bluetooth"
+  ],
+  "owner_sentiment": "Consistently positive. Jazz owners are loyal and often replace their Jazz with another Jazz. The Magic Seat system and reliability are the most cited reasons. Main criticism is the relatively plain interior on older models and limited performance from the 1.2 engine. Running costs are among the lowest in its class.",
+  "sources": ["Honda SA dealer network", "Cars.co.za Jazz reviews", "AutoTrader SA", "SA Honda owners community", "WeBuyCars market data"]
+}

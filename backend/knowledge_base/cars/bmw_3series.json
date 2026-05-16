@@ -1,0 +1,89 @@
+{
+  "make": "BMW",
+  "model": "3 Series",
+  "variants": ["316i", "318i", "320i", "320d", "328i", "330i", "335i", "M3"],
+  "years_covered": "2012-2022",
+  "sa_market_summary": "The BMW 3 Series (F30 2012-2018, G20 2019+) is the quintessential used premium sedan in South Africa. The F30 generation is the most commonly traded used BMW on platforms like AutoTrader and Cars.co.za. It offers genuine German engineering at a used price point that many South Africans find accessible. However, ownership costs can be significantly higher than Japanese alternatives — servicing, parts, and tyres all command a premium. Buyer must budget properly. Best bought from a BMW dealer with a certified pre-owned warranty.",
+  "reliability_score": 6.5,
+  "price_ranges": [
+    { "year_from": 2020, "year_to": 2022, "low_zar": 420000, "mid_zar": 520000, "high_zar": 680000 },
+    { "year_from": 2017, "year_to": 2019, "low_zar": 280000, "mid_zar": 360000, "high_zar": 460000 },
+    { "year_from": 2014, "year_to": 2016, "low_zar": 180000, "mid_zar": 240000, "high_zar": 310000 },
+    { "year_from": 2012, "year_to": 2013, "low_zar": 130000, "mid_zar": 170000, "high_zar": 220000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "Timing chain and tensioner failure (N20 engine)",
+      "affects_variants": ["320i", "328i"],
+      "mileage_range": "80,000km - 120,000km",
+      "severity": "HIGH",
+      "description": "The N20 4-cylinder engine (320i, 328i F30) has a well-documented timing chain tensioner problem. A stretched chain causes rattling on cold start and can ultimately lead to catastrophic engine failure. This is the single biggest mechanical risk on F30 3 Series in SA.",
+      "what_to_inspect": "Listen for a cold start rattle that disappears after 10-20 seconds. Request a BMW diagnostic scan. Any history of this fault is a red flag. Budget for preemptive replacement on examples above 80,000km.",
+      "estimated_repair_zar": "R12,000 - R22,000",
+      "source": "BMW SA dealer technical bulletins, MyBroadband BMW forum, SA BMW specialist workshops"
+    },
+    {
+      "fault": "Electric water pump failure (N20/N26)",
+      "affects_variants": ["320i", "328i", "316i"],
+      "mileage_range": "60,000km - 100,000km",
+      "severity": "HIGH",
+      "description": "BMW's electric water pump on N-series engines fails regularly and can cause sudden overheating. Unlike a belt-driven pump, there is no visual warning before failure — the car simply overheats. Engine damage follows rapidly if not caught immediately.",
+      "what_to_inspect": "Request water pump replacement history. On any F30 with 60,000km+, budget for water pump replacement as a service item regardless. Check coolant level and condition.",
+      "estimated_repair_zar": "R4,500 - R9,000",
+      "source": "BMW SA technical service records, BMW specialist workshops nationwide"
+    },
+    {
+      "fault": "High pressure fuel pump failure (N54/N55)",
+      "affects_variants": ["335i"],
+      "mileage_range": "60,000km - 100,000km",
+      "severity": "HIGH",
+      "description": "The twin-turbocharged N54 and N55 engines are known for high-pressure fuel pump (HPFP) failures. Symptoms include rough running, difficulty starting, and engine misfires.",
+      "what_to_inspect": "Check for any previous HPFP replacement in service records. Test start reliability. Request a BMW factory scan for fuel rail pressure data.",
+      "estimated_repair_zar": "R8,000 - R18,000",
+      "source": "BMW SA technical bulletins, N54 enthusiast community, SA BMW specialist workshops"
+    },
+    {
+      "fault": "Valve cover gasket oil leak",
+      "affects_variants": ["320i", "328i", "316i", "318i"],
+      "mileage_range": "60,000km+",
+      "severity": "MEDIUM",
+      "description": "The valve cover gasket on N-series engines is a known seeping point at higher mileage. Oil mist around the valve cover and a slight burning smell after driving are common symptoms.",
+      "what_to_inspect": "Check the top of the engine for oil residue around the valve cover edge. This is a common but manageable repair.",
+      "estimated_repair_zar": "R2,500 - R5,500",
+      "source": "SA BMW workshop service data, MyBroadband SA BMW thread"
+    },
+    {
+      "fault": "Iridium spark plug wear (turbocharged engines)",
+      "affects_variants": ["328i", "335i", "320i"],
+      "mileage_range": "60,000km - 80,000km",
+      "severity": "LOW",
+      "description": "BMW's iridium spark plugs should be replaced every 60,000km but are often neglected. Old plugs cause misfires, rough idle, and reduced performance particularly noticeable on cold mornings.",
+      "what_to_inspect": "Request spark plug replacement history. Plugs are a standard service item — their absence in service records suggests cost-cutting maintenance.",
+      "estimated_repair_zar": "R2,000 - R4,500",
+      "source": "BMW SA dealer service checklist, SA BMW owners reports"
+    },
+    {
+      "fault": "Sunroof drain blockage causing water ingress",
+      "affects_variants": ["320i", "328i", "330i", "335i"],
+      "mileage_range": "Any mileage",
+      "severity": "MEDIUM",
+      "description": "Blocked sunroof drains cause water to collect under the headliner and leak into the footwells. Can cause mould, electrical faults, and ECU damage if severe.",
+      "what_to_inspect": "Check footwells and boot for moisture. Lift rear seat for damp carpet. Check under the headliner at the sunroof edges.",
+      "estimated_repair_zar": "R500 (drain cleaning) to R8,000+ (electrical damage repair)",
+      "source": "BMW SA owner reports, SA auto electricians"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Cold start engine rattle check — timing chain issue on N20 engines is critical",
+    "Full BMW factory diagnostic scan — non-negotiable",
+    "Request water pump and thermostat replacement history",
+    "Check for any overheating history in service records",
+    "Inspect all door seals and sunroof drains for water ingress",
+    "Test all iDrive functions, heated seats, and electric windows",
+    "Verify BMW SA service stamps — essential for warranty claims and resale",
+    "Check tyre condition — BMW fitment tyres (Michelin, Bridgestone runflats) cost R3,000-R5,000 each",
+    "Confirm the car has not been mapped or modified — increases mechanical risk"
+  ],
+  "owner_sentiment": "Mixed. F30 3 Series owners love the driving dynamics and prestige but consistently report higher-than-expected ownership costs. Common complaint: servicing at BMW SA dealers is expensive (R4,000-R8,000 per service). Many move to independent BMW specialists after warranty. The 320d diesel is preferred for long-distance SA driving due to fuel economy.",
+  "sources": ["BMW SA dealer network", "MyBroadband BMW forum", "Cars.co.za BMW listings", "AutoTrader SA", "SA BMW specialist workshops", "WeBuyCars price data"]
+}

@@ -1,0 +1,66 @@
+{
+  "make": "Hyundai",
+  "model": "i20",
+  "variants": ["1.2 Motion", "1.4 Fluid", "1.4 Fluid Auto", "1.4 Sport", "1.0 T-GDi Fluid", "1.0 T-GDi Active"],
+  "years_covered": "2014-2024",
+  "sa_market_summary": "The Hyundai i20 is one of the most popular compact hatchbacks in South Africa, competing directly with the VW Polo. It offers excellent value for money, generous standard equipment, and low running costs. The second generation i20 (2015-2019) established strong reliability credentials, and the third generation (2020+) added modern technology. Hyundai's 5-year/100,000km warranty on new vehicles transfers to the first used buyer, making certified pre-owned examples especially attractive. Parts are widely available at Hyundai dealers and independent motor spares shops.",
+  "reliability_score": 8.0,
+  "price_ranges": [
+    { "year_from": 2021, "year_to": 2024, "low_zar": 230000, "mid_zar": 280000, "high_zar": 330000 },
+    { "year_from": 2018, "year_to": 2020, "low_zar": 155000, "mid_zar": 185000, "high_zar": 225000 },
+    { "year_from": 2015, "year_to": 2017, "low_zar": 90000, "mid_zar": 120000, "high_zar": 155000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "Turbocharger wear (1.0 T-GDi engine)",
+      "affects_variants": ["1.0 T-GDi Fluid", "1.0 T-GDi Active"],
+      "mileage_range": "80,000km - 120,000km",
+      "severity": "MEDIUM",
+      "description": "The turbocharged 1.0 T-GDi three-cylinder engine can experience turbocharger wear if oil change intervals are not strictly observed. The small turbo operates at higher temperatures relative to its size.",
+      "what_to_inspect": "Check for blue smoke under acceleration. Listen for turbo whine. Verify strict oil change history (every 10,000km or annually with correct 5W-30 oil).",
+      "estimated_repair_zar": "R8,000 - R18,000",
+      "source": "Hyundai SA technical reports, SA independent workshop data"
+    },
+    {
+      "fault": "Infotainment unit software freezes",
+      "affects_variants": ["1.4 Fluid Auto", "1.4 Sport", "1.0 T-GDi Fluid"],
+      "mileage_range": "Any mileage, age-related",
+      "severity": "LOW",
+      "description": "The infotainment system on 2015-2019 i20 models can freeze or reboot intermittently. Hyundai SA has released software updates for most affected units.",
+      "what_to_inspect": "Test infotainment on startup and confirm it boots within 30 seconds. Request a software update record.",
+      "estimated_repair_zar": "R0 (software update at dealer) to R4,000 (unit replacement)",
+      "source": "Hyundai SA service bulletins, owner community reports"
+    },
+    {
+      "fault": "Idle vibration (1.0 T-GDi three-cylinder)",
+      "affects_variants": ["1.0 T-GDi Fluid", "1.0 T-GDi Active"],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "Three-cylinder engines have an inherent vibration at idle. The i20 1.0 T-GDi exhibits more vibration than four-cylinder alternatives. This is a characteristic, not a defect, but can be disconcerting.",
+      "what_to_inspect": "Evaluate idle vibration levels personally and decide if it is acceptable. Check if engine mounts have been replaced — worn mounts worsen the vibration.",
+      "estimated_repair_zar": "R1,500 - R3,000 (engine mount replacement)",
+      "source": "SA owner reports, Cars.co.za i20 reviews"
+    },
+    {
+      "fault": "Air conditioning compressor failure",
+      "affects_variants": ["1.2 Motion", "1.4 Fluid", "1.4 Fluid Auto"],
+      "mileage_range": "80,000km+",
+      "severity": "MEDIUM",
+      "description": "AC compressor failure reported on higher mileage 2015-2017 i20 models. A clicking noise from the AC compressor when activated is the early warning sign.",
+      "what_to_inspect": "Test air conditioning performance — it should cool the cabin within 60 seconds on a hot day. Listen for any compressor rattle or clicking.",
+      "estimated_repair_zar": "R6,000 - R12,000",
+      "source": "SA AC specialist workshops, Hyundai SA owner forums"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Verify remaining Hyundai warranty coverage — 5-year/100,000km if still within limits",
+    "Test air conditioning performance thoroughly",
+    "Check infotainment for freezing and request software update history",
+    "Inspect for rust on lower door edges and sills (particularly older 2015-2016 models)",
+    "Test all electric windows and mirrors",
+    "Request full Hyundai SA service history with dealer stamps",
+    "Check tyre condition and size — non-standard tyres void warranty claims"
+  ],
+  "owner_sentiment": "Positive. i20 owners appreciate the value proposition and low running costs. The 5-year warranty is a strong selling point for first-time buyers. Main concerns are the 1.0 T-GDi vibration and reliability of the infotainment on older models. Hyundai SA after-sales service is generally rated well.",
+  "sources": ["Hyundai SA dealer network", "Cars.co.za i20 reviews", "AutoTrader SA", "SA Hyundai owners community", "WeBuyCars market data"]
+}
