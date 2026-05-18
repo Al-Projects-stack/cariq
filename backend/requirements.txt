@@ -4,7 +4,7 @@ pydantic==2.7.1
 pydantic-settings==2.2.1
 anthropic==0.26.0
 pinecone==6.0.0
-sentence-transformers==3.3.1
+fastembed==0.3.6
 sqlalchemy==2.0.30
 slowapi==0.1.9
 python-dotenv==1.0.1
