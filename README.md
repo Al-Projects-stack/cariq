@@ -1,4 +1,5 @@
-# CarIQ — South African Used Car Market Intelligence
+# CarIQ
+South African Used Car Market Intelligence
 
 
 
