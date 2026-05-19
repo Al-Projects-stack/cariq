@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 /**
  * Visual explainer of the CarIQ RAG pipeline.
  * ui-pro-max: dark OLED, Fira Code tech labels, SVG icons (no emoji),
@@ -5,7 +6,7 @@
  */
 
 type Step = {
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   description: string;
   tech: string;
@@ -194,7 +195,7 @@ const STEPS: Step[] = [
     icon: <IconVector />,
     label: "Embed Query",
     description: "The question is converted into a 384-dimension semantic vector using MiniLM-L6-v2.",
-    tech: "sentence-transformers",
+    tech: "fastembed · ONNX",
     highlight: false,
   },
   {
