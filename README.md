@@ -1,5 +1,7 @@
 # CarIQ
 South African Used Car Market Intelligence
+<img width="1082" height="617" alt="image" src="https://github.com/user-attachments/assets/0a747dfa-cca9-4266-99c5-efd1c71ab4df" />
+
 
 **Live:** https://cariq-frontend.onrender.com
 
