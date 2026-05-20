@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="7" fill="#030712"/>
+  <!-- "C" in orange -->
+  <text x="3" y="23" font-family="'Fira Code', 'Courier New', monospace" font-weight="700" font-size="20" fill="#f97316">C</text>
+  <!-- "Q" in white -->
+  <text x="15" y="23" font-family="'Fira Code', 'Courier New', monospace" font-weight="700" font-size="20" fill="#f1f5f9">Q</text>
+  <!-- Orange underline accent -->
+  <rect x="3" y="25.5" width="26" height="2.5" rx="1.25" fill="#f97316" opacity="0.7"/>
+</svg>
