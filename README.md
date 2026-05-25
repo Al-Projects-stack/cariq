@@ -68,17 +68,17 @@ FastAPI Backend (Python)
 
 ## How the RAG Pipeline Works
 
-1. **Ingestion** — JSON files in \`backend/knowledge_base/cars/\` are chunked into meaningful units: one chunk per known fault, one per price range, one inspection checklist, one market summary per model. Each chunk is embedded using \`BAAI/bge-small-en-v1.5\` and upserted into Pinecone with rich metadata.
+1. **Ingestion** JSON files in \`backend/knowledge_base/cars/\` are chunked into meaningful units: one chunk per known fault, one per price range, one inspection checklist, one market summary per model. Each chunk is embedded using \`BAAI/bge-small-en-v1.5\` and upserted into Pinecone with rich metadata.
 
-2. **Query** — The user's question is embedded using the same model, producing a 384-dim vector.
+2. **Query** The user's question is embedded using the same model, producing a 384-dim vector.
 
-3. **Retrieval** — Pinecone retrieves the top 5 most semantically relevant chunks using cosine similarity.
+3. **Retrieval** Pinecone retrieves the top 5 most semantically relevant chunks using cosine similarity.
 
-4. **Augmentation** — Retrieved chunks are formatted into a structured context block and passed to Claude alongside the question.
+4. **Augmentation** Retrieved chunks are formatted into a structured context block and passed to Claude alongside the question.
 
-5. **Generation** — Claude answers using only the provided context: no fabricated prices, verdicts from approved vocabulary only, all costs in ZAR, all answers sourced.
+5. **Generation** Claude answers using only the provided context: no fabricated prices, verdicts from approved vocabulary only, all costs in ZAR, all answers sourced.
 
-6. **Parsing** — The backend parses Claude's response and chunk metadata to extract structured \`PriceIntelligence\`, \`KnownFaults\`, and \`Sources\` objects for the frontend panels.
+6. **Parsing** The backend parses Claude's response and chunk metadata to extract structured \`PriceIntelligence\`, \`KnownFaults\`, and \`Sources\` objects for the frontend panels.
 
 ---
 
@@ -88,7 +88,7 @@ FastAPI Backend (Python)
 - Python 3.11+
 - Node.js 20+
 - An Anthropic API key
-- A Pinecone account (free tier) — create an index named \`cariq-kb\`, 384 dimensions, cosine metric
+- A Pinecone account (free tier) create an index named \`cariq-kb\`, 384 dimensions, cosine metric
 
 ### 1. Clone and configure
 
@@ -139,16 +139,16 @@ Lives in \`backend/knowledge_base/cars/\`. Each JSON file covers price ranges, k
 
 - Input validation via Pydantic schemas
 - Prompt injection screening before embedding or generating
-- Rate limiting — 10 queries per minute per IP
+- Rate limiting 10 queries per minute per IP
 - Security headers on every response
 - CORS locked to \`FRONTEND_URL\` in production
-- No secrets committed — environment variables only
+- No secrets committed environment variables only
 
 ---
 
 ## Known Limitations
 
-- Knowledge base is manually curated — no real-time listings data
+- Knowledge base is manually curated no real-time listings data
 - Prices reflect SA market conditions as of early 2025
 - Questions about models not yet in the knowledge base will say so
 - English only
