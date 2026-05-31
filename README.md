@@ -155,7 +155,7 @@ Lives in \`backend/knowledge_base/cars/\`. Each JSON file covers price ranges, k
 
 ---
 
-*Built by Al Mujati · 2025*
+*Built by Al Mujati · 2025-ongoing 
 
 ## What I Learned
 
