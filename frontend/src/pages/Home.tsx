@@ -9,16 +9,49 @@ import { HowItWorks } from "../components/HowItWorks";
 import { queryCarIQ, listModels } from "../api";
 import type { QueryResponse, CarVariant } from "../types";
 
+const LOADING_MESSAGES = [
+  "Give it a second, it's coming now now...",
+  "Has anyone told you that you look beautiful today?",
+  "Did you know pandas are becoming extinct? Just a random fact whilst you wait.",
+  "Warming up the engines...",
+  "Good things take time. Bad things too, but let's stay positive.",
+  "We're fetching your cars, not stealing them. Promise.",
+  "Fun fact: a group of flamingos is called a flamboyance. You're welcome.",
+  "Almost there. Probably.",
+  "Loading... please do not tap the glass.",
+  "Phew... it's done. Just kidding. Almost though.",
+  "Your patience is appreciated. Genuinely.",
+  "Teaching the cars to line up nicely...",
+];
+
 export function Home() {
   const [response, setResponse] = useState<QueryResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [models, setModels] = useState<CarVariant[]>([]);
   const [sessionId, setSessionId] = useState<string | undefined>(undefined);
+  const [modelsLoading, setModelsLoading] = useState(true);
+  const [msgIndex, setMsgIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    listModels().then(setModels).catch(() => {});
+    listModels()
+      .then(setModels)
+      .catch(() => {})
+      .finally(() => setModelsLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (!modelsLoading) return;
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setMsgIndex(i => (i + 1) % LOADING_MESSAGES.length);
+        setVisible(true);
+      }, 400);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, [modelsLoading]);
 
   async function handleQuery(question: string) {
     setIsLoading(true);
@@ -33,6 +66,45 @@ export function Home() {
     } finally {
       setIsLoading(false);
     }
+  }
+
+  if (modelsLoading) {
+    return (
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        gap: "1.5rem",
+        textAlign: "center",
+        padding: "0 1.5rem",
+        background: "#030712",
+      }}>
+        <img
+          src="/favicon.ico"
+          alt="CarIQ"
+          style={{ width: 56, height: 56, animation: "pulse 1.8s ease-in-out infinite" }}
+        />
+        <p style={{
+          fontSize: 15,
+          color: "#888",
+          margin: 0,
+          maxWidth: 320,
+          lineHeight: 1.6,
+          opacity: visible ? 1 : 0,
+          transition: "opacity 0.4s ease",
+        }}>
+          {LOADING_MESSAGES[msgIndex]}
+        </p>
+        <style>{`
+          @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.92); }
+          }
+        `}</style>
+      </div>
+    );
   }
 
   return (
