@@ -82,7 +82,7 @@ export function Home() {
         background: "#030712",
       }}>
         <img
-          src="/favicon.ico"
+          src="/favicon.svg"
           alt="CarIQ"
           style={{ width: 56, height: 56, animation: "pulse 1.8s ease-in-out infinite" }}
         />
