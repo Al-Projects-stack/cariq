@@ -40,6 +40,10 @@ frontend/.vite/
 .DS_Store
 Thumbs.db
 
+# Agent instructions — local only, never pushed
+AGENTS.md
+.claude/
+
 # Logs
 *.log
 logs/
