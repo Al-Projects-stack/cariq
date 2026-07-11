@@ -14,6 +14,17 @@ const CHIPS = [
   "Honda Jazz long-term reliability",
 ];
 
+const PLACEHOLDERS = [
+  "Is R200k fair for a 2015 Golf GTI?",
+  "What to check before buying a used Fortuner?",
+  "Ford Ranger 2.2 vs 3.2 reliability?",
+  "Best used SUV under R300k in SA?",
+  "How many km is too many on a Hilux?",
+  "Are Chinese cars reliable long-term?",
+  "What causes the EGR issues on NP200 diesels?",
+  "Is the Suzuki Swift automatic any good?",
+];
+
 function validate(q: string): string | null {
   if (!q.trim()) return "Please enter a question";
   if (q.trim().length < 3) return "Question is too short";
@@ -24,7 +35,38 @@ function validate(q: string): string | null {
 export function QueryInput({ onSubmit, isLoading }: Props) {
   const [value, setValue] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [phText, setPhText] = useState("");
+  const [phIdx, setPhIdx] = useState(0);
+  const [phCharIdx, setPhCharIdx] = useState(0);
+  const [phDeleting, setPhDeleting] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (value) return;
+    const target = PLACEHOLDERS[phIdx];
+    let timer: ReturnType<typeof setTimeout>;
+    if (!phDeleting) {
+      if (phCharIdx < target.length) {
+        timer = setTimeout(() => {
+          setPhText(target.slice(0, phCharIdx + 1));
+          setPhCharIdx((i) => i + 1);
+        }, 40);
+      } else {
+        timer = setTimeout(() => setPhDeleting(true), 2500);
+      }
+    } else {
+      if (phCharIdx > 0) {
+        timer = setTimeout(() => {
+          setPhText(target.slice(0, phCharIdx - 1));
+          setPhCharIdx((i) => i - 1);
+        }, 20);
+      } else {
+        setPhDeleting(false);
+        setPhIdx((i) => (i + 1) % PLACEHOLDERS.length);
+      }
+    }
+    return () => clearTimeout(timer);
+  }, [phIdx, phCharIdx, phDeleting, value]);
 
   useEffect(() => {
     const ta = textareaRef.current;
@@ -56,7 +98,7 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
           value={value}
           onChange={(e) => { setValue(e.target.value); if (error) setError(null); }}
           onKeyDown={handleKey}
-          placeholder="Ask anything about a used car in South Africaâ€¦"
+          placeholder={phText}
           rows={2}
           disabled={isLoading}
           className="
@@ -91,14 +133,14 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
           "
         >
           {isLoading ? <LoadingDots /> : <SearchIcon />}
-          <span>{isLoading ? "Searchingâ€¦" : "Ask CarIQ"}</span>
+          <span>{isLoading ? "Searching..." : "Ask CarIQ"}</span>
         </button>
       </div>
 
       {/* Error message ,  ui-pro-max: inline error near the input */}
       {error && (
         <p role="alert" className="mt-2 text-sm text-red-400 flex items-center gap-1">
-          <span aria-hidden>âš </span> {error}
+          <span aria-hidden className="text-red-400">!</span> {error}
         </p>
       )}
 
