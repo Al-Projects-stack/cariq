@@ -137,7 +137,7 @@ export function Home() {
           <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse-slow" />
             <span className="font-mono text-xs text-orange-400 tracking-widest uppercase">
-              RAG-powered · 11 models · SA market data
+              RAG-powered · 20 models · SA market data
             </span>
           </div>
 
@@ -212,7 +212,7 @@ export function Home() {
 
       <footer className="border-t border-gray-900 px-6 py-8 text-center">
         <p className="text-xs text-gray-700 font-mono">
-          CarIQ · Built for the SA used car market · 11 models at launch
+          CarIQ · Built for the SA used car market · 20 models at launch
         </p>
         <p className="mt-1 text-xs text-gray-800">
           Data: MyBroadband · Cars.co.za · AutoTrader SA · SA owner communities

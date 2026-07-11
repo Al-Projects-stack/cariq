@@ -1,0 +1,67 @@
+{
+  "make": "Hyundai",
+  "model": "Grand i10",
+  "variants": ["1.0 Motion", "1.0 Premium", "1.2 Fluid", "1.2 Premium"],
+  "years_covered": "2014-2026",
+  "sa_market_summary": "The Hyundai Grand i10 is the standout budget hatchback story of 2026 in South Africa, with used sales surging over 74% year-on-year. It sits alongside the i20 in Hyundai's lineup at a more accessible price point, appealing to first-time buyers and budget-conscious commuters. The 1.0-litre three-cylinder (47kW) and 1.2-litre four-cylinder (64kW) petrol engines offer excellent fuel economy. The Grand i10 undercuts the VW Polo Vivo on price while offering a 5-year/100,000km warranty on new vehicles (transferable to first used buyer). Parts are widely available and affordable. The average used Grand i10 sells for approximately R192,000 with 46,000km on the clock.",
+  "reliability_score": 8.0,
+  "price_ranges": [
+    { "year_from": 2021, "year_to": 2024, "low_zar": 150000, "mid_zar": 185000, "high_zar": 235000 },
+    { "year_from": 2018, "year_to": 2020, "low_zar": 100000, "mid_zar": 135000, "high_zar": 175000 },
+    { "year_from": 2014, "year_to": 2017, "low_zar": 60000, "mid_zar": 85000, "high_zar": 120000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "Engine mount failure (1.0 three-cylinder)",
+      "affects_variants": ["1.0 Motion", "1.0 Premium"],
+      "mileage_range": "60,000km - 100,000km",
+      "severity": "MEDIUM",
+      "description": "The three-cylinder 1.0-litre engine has inherent vibration, and the engine mounts can wear prematurely, transmitting excessive vibration into the cabin.",
+      "what_to_inspect": "Check for excessive cabin vibration at idle. Test drive and feel the steering wheel and pedals for vibration.",
+      "estimated_repair_zar": "R2,000 - R5,000",
+      "source": "SA Hyundai specialist workshops, owner community reports"
+    },
+    {
+      "fault": "Air conditioning compressor failure",
+      "affects_variants": ["1.0 Motion", "1.0 Premium", "1.2 Fluid", "1.2 Premium"],
+      "mileage_range": "80,000km+",
+      "severity": "MEDIUM",
+      "description": "AC compressor failure is reported on higher-mileage Grand i10s, particularly in hotter regions like Limpopo and Mpumalanga where the AC runs year-round.",
+      "what_to_inspect": "Test air conditioning performance thoroughly — should cool cabin within 60 seconds. Listen for any clicking from the compressor.",
+      "estimated_repair_zar": "R5,000 - R10,000",
+      "source": "SA AC specialist workshops, Hyundai SA owner forums"
+    },
+    {
+      "fault": "Infotainment screen delamination",
+      "affects_variants": ["1.2 Premium"],
+      "mileage_range": "Any mileage, age-related",
+      "severity": "LOW",
+      "description": "The touchscreen on higher-spec models can develop delamination of the touch layer, causing unresponsive areas on the screen.",
+      "what_to_inspect": "Test all areas of the touchscreen for responsiveness. Check for any visible bubbling or separation at screen edges.",
+      "estimated_repair_zar": "R3,000 - R7,000",
+      "source": "Hyundai SA service bulletins, owner reports"
+    },
+    {
+      "fault": "Rear drum brake noise",
+      "affects_variants": ["1.0 Motion", "1.0 Premium", "1.2 Fluid"],
+      "mileage_range": "30,000km - 70,000km",
+      "severity": "LOW",
+      "description": "Rear drum brakes can develop a squeaking or grinding noise, particularly after the vehicle has been parked overnight in damp conditions. Usually resolves after a few brake applications but can be persistent.",
+      "what_to_inspect": "Listen for brake squeal during the first few stops of the test drive. Check brake drum condition.",
+      "estimated_repair_zar": "R800 - R2,000 (brake shoe replacement)",
+      "source": "SA independent workshop data, Hyundai owner forums"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Check remaining Hyundai warranty (5-year/100,000km, transferable to first used buyer)",
+    "Test air conditioning thoroughly — common failure point on higher-mileage examples",
+    "Check infotainment touchscreen for delamination or unresponsive areas",
+    "Inspect door sills and lower body panels for rust (older models)",
+    "Test cabin vibration levels at idle — excessive vibration indicates worn engine mounts",
+    "Verify service history with Hyundai SA stamps",
+    "Listen for brake noise from rear drums during first applications",
+    "Check the spare wheel and jack are present"
+  ],
+  "owner_sentiment": "Positive. The Grand i10 is valued for its affordability, low running costs, and impressive fuel economy. The 1.2-litre engine provides adequate performance for city driving. Main complaints are the basic safety specification (no ESC on many models, only two airbags on lower trims), poor Global NCAP safety score (0 stars adult protection in 2025 test), and the 1.0-litre three-cylinder's vibration at idle. Hyundai's after-sales service is generally well-regarded. The Grand i10 holds its value well for a budget car.",
+  "sources": ["Hyundai SA dealer network", "AutoTrader SA data", "Cars.co.za", "The Citizen Motoring", "WeBuyCars price data", "Lightstone SA vehicle sales"]
+}

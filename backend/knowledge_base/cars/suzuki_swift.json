@@ -1,0 +1,68 @@
+{
+  "make": "Suzuki",
+  "model": "Swift",
+  "variants": ["1.2 GL", "1.2 GL+", "1.2 GLX", "1.4 Sport", "1.2 GA (previous gen)"],
+  "years_covered": "2010-2026",
+  "sa_market_summary": "The Suzuki Swift has quietly become one of South Africa's most popular hatchbacks, consistently ranking in the top 3 best-selling passenger cars. The fourth-generation Swift (2024+) introduced a new 1.2-litre three-cylinder engine (60kW/112Nm) that is lighter and 10% more fuel-efficient than its predecessor. Used Swift sales surged 66% year-on-year in 2026, driven by buyers seeking affordable, reliable transport. The Indian-built Swift undercuts the VW Polo Vivo on price while offering impressive standard safety features including six airbags across all trims. The 5-year/200,000km warranty adds peace of mind. The Swift Sport (1.4T, 103kW) offers warm-hatch performance for enthusiasts.",
+  "reliability_score": 8.5,
+  "price_ranges": [
+    { "year_from": 2022, "year_to": 2026, "low_zar": 140000, "mid_zar": 190000, "high_zar": 260000 },
+    { "year_from": 2018, "year_to": 2021, "low_zar": 100000, "mid_zar": 140000, "high_zar": 190000 },
+    { "year_from": 2014, "year_to": 2017, "low_zar": 70000, "mid_zar": 100000, "high_zar": 140000 },
+    { "year_from": 2010, "year_to": 2013, "low_zar": 50000, "mid_zar": 70000, "high_zar": 100000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "Oxygen sensor failure (ZC31 generation)",
+      "affects_variants": ["1.2 GL (ZC31)"],
+      "mileage_range": "80,000km - 120,000km",
+      "severity": "LOW",
+      "description": "Oxygen sensors on the ZC31 generation Swift (2008-2011) are prone to failure, triggering the engine management light. The car will still drive but fuel economy suffers.",
+      "what_to_inspect": "Check for any warning lights on the dashboard. Request a diagnostic scan for O2 sensor fault codes.",
+      "estimated_repair_zar": "R1,500 - R3,500",
+      "source": "Suzuki SA service records, AutoTrader SA buyer guides"
+    },
+    {
+      "fault": "Body corrosion (ZC62/63 generations)",
+      "affects_variants": ["1.2 GA (ZC62)", "1.2 GL (ZC63)"],
+      "mileage_range": "Any mileage, age-related",
+      "severity": "MEDIUM",
+      "description": "Earlier ZC62 (2011-2017) and ZC63 (2018-2024) Swifts can suffer from body rust, particularly on coastal vehicles. This was addressed from 2021 onwards with improved anti-corrosion treatment.",
+      "what_to_inspect": "Check undercarriage, suspension mounting points, and door sills for signs of corrosion. Coastal cars (Durban, Cape Town) are highest risk.",
+      "estimated_repair_zar": "R3,000 - R12,000 (panel repair and rust treatment)",
+      "source": "Suzuki SA technical bulletins, SA body shop reports"
+    },
+    {
+      "fault": "Premature clutch wear (ZC62 generation)",
+      "affects_variants": ["1.2 GA (ZC62)"],
+      "mileage_range": "80,000km - 100,000km",
+      "severity": "MEDIUM",
+      "description": "The ZC62 generation (2011-2017) is known for premature clutch wear, particularly in stop-start urban driving. Vehicles around 100,000km may require a new clutch.",
+      "what_to_inspect": "Test the clutch bite point — if very high, the clutch is worn. Check for slipping in higher gears under load.",
+      "estimated_repair_zar": "R4,000 - R8,000",
+      "source": "SA Suzuki specialist reports, AutoTrader SA buyer guides"
+    },
+    {
+      "fault": "CVT gearbox overheating (2024 model recall)",
+      "affects_variants": ["1.2 GL+ Auto", "1.2 GLX Auto"],
+      "mileage_range": "Any mileage",
+      "severity": "HIGH",
+      "description": "A June 2025 recall affected 2024 model year Swifts for overheating gearbox fluid. Check by VIN on Suzuki SA's recall portal.",
+      "what_to_inspect": "Verify recall status by entering the VIN at suzukiauto.co.za. Confirm the recall work has been completed.",
+      "estimated_repair_zar": "R0 (recall work at no cost)",
+      "source": "Suzuki SA recall database, AutoTrader SA"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Check for full Suzuki SA service history — skipped services can void the 5-year/200,000km warranty",
+    "Inspect for rust on undercarriage and suspension, particularly coastal vehicles",
+    "Verify 2024 model year CVT gearbox recall has been completed",
+    "Test clutch bite point on manual models — high bite indicates wear",
+    "Check all electricals — window switches, infotainment, air conditioning",
+    "Request a diagnostic scan for stored fault codes",
+    "Inspect tyre condition and brand — good tyres indicate a careful owner",
+    "Check the small 37-litre fuel tank is adequate for your driving range needs"
+  ],
+  "owner_sentiment": "Very positive. The Suzuki Swift is prized for exceptional fuel economy (real-world 4.5-5.5L/100km), low maintenance costs, and strong reliability. Owners value the standard safety features (six airbags on all trims) and the five-year warranty. The main criticisms are the small 37-litre fuel tank (frequent fill-ups), basic infotainment on GL models, and the lack of automated central locking on entry-level variants. The Swift Sport is loved by enthusiasts but considered pricey for its performance level.",
+  "sources": ["Suzuki Auto SA", "AutoTrader SA", "Cars.co.za", "The Citizen Motoring", "CARmag SA", "Lightstone SA vehicle sales", "WeBuyCars price data"]
+}

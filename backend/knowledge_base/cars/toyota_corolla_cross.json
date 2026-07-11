@@ -1,0 +1,56 @@
+{
+  "make": "Toyota",
+  "model": "Corolla Cross",
+  "variants": ["1.8 Xi", "1.8 XS", "1.8 XS HEV", "1.8 XR", "1.8 GR-Sport", "1.8 XR HEV", "1.8 GR-Sport HEV"],
+  "years_covered": "2021-2026",
+  "sa_market_summary": "The Toyota Corolla Cross is South Africa's best-selling compact crossover and the eighth-best-selling model overall, with 6,001 units sold in 2025. Built locally at Toyota's Prospecton plant in KwaZulu-Natal, it bridged the gap between the Corolla hatch and the RAV4. Its hybrid variant dominates the new-energy vehicle segment — nearly 40% of all used hybrids sold in SA in 2025 were Corolla Cross units. The 1.8-litre petrol (103kW/172Nm) and 1.8-litre hybrid (90kW combined) both use a CVT driving the front wheels. Resale value is exceptional, and the hybrid battery carries an 8-year/195,000km warranty.",
+  "reliability_score": 8.0,
+  "price_ranges": [
+    { "year_from": 2023, "year_to": 2026, "low_zar": 370000, "mid_zar": 450000, "high_zar": 570000 },
+    { "year_from": 2021, "year_to": 2022, "low_zar": 300000, "mid_zar": 370000, "high_zar": 450000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "CVT transaxle bearing whine",
+      "affects_variants": ["1.8 Xi", "1.8 XS", "1.8 XR", "1.8 GR-Sport"],
+      "mileage_range": "40,000km - 80,000km",
+      "severity": "MEDIUM",
+      "description": "Contaminated or low CVT fluid can cause the transaxle bearing to whine. Particularly reported on vehicles where CVT fluid was not changed at the recommended intervals.",
+      "what_to_inspect": "Listen for a whining noise from the transmission at low speeds. Request CVT fluid change history. The CVT should feel smooth with no hesitation.",
+      "estimated_repair_zar": "R4,000 - R14,000 (fluid flush to bearing replacement)",
+      "source": "Toyota SA dealer reports, Corolla Cross owners forums, AutoTrader SA buyer guides"
+    },
+    {
+      "fault": "Footbrake criticism (pre-facelift models)",
+      "affects_variants": ["1.8 Xi", "1.8 XS", "1.8 XR"],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "Pre-2025 models used a foot-operated parking brake instead of an electronic handbrake. Owners found it awkward and unintuitive, though not a mechanical failure.",
+      "what_to_inspect": "Check that the footbrake engages and releases smoothly. Verify the electronic handbrake on 2025+ facelift models works correctly.",
+      "estimated_repair_zar": "N/A (design characteristic, not a repair)",
+      "source": "Cars.co.za owner reviews, CARmag SA reviews"
+    },
+    {
+      "fault": "Hybrid system cooling fan noise",
+      "affects_variants": ["1.8 XS HEV", "1.8 XR HEV", "1.8 GR-Sport HEV"],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The hybrid battery cooling fan can produce noticeable noise, particularly in hot weather or after sustained driving. Normal operation but can be disconcerting to new hybrid owners.",
+      "what_to_inspect": "Listen for fan noise from the rear seat area after a test drive. Ensure hybrid system warning lights are off.",
+      "estimated_repair_zar": "R1,500 - R5,000 if fan replacement needed",
+      "source": "Toyota SA hybrid owner communities, MyBroadband forums"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Request CVT fluid service history — neglected CVT fluid is the most common preventable issue",
+    "Check for full Toyota SA service history with dealer stamps",
+    "Verify remaining warranty coverage (3-year/100,000km on vehicle, 8-year/195,000km on hybrid battery)",
+    "Test hybrid battery health — the system should show good EV range even after a short charge",
+    "Inspect for accident repair, especially on the front bumper and grille (expensive trim pieces)",
+    "Check infotainment and wireless Apple CarPlay/Android Auto connectivity",
+    "Listen for any transmission whine during low-speed manoeuvring",
+    "Review the service plan usage — 6 services/90,000km included"
+  ],
+  "owner_sentiment": "Very positive. Corolla Cross owners appreciate the hybrid's fuel economy (claimed 4.3L/100km in hybrid form) and the comfortable ride quality. The 1.8 petrol is adequate rather than exciting. Main complaints include the foot-operated parking brake on pre-facelift models and CVT droning under hard acceleration. Toyota's dealer network is uniformly praised. Hybrid resale values are notably strong.",
+  "sources": ["Toyota SA dealer network", "AutoTrader SA market data", "Cars.co.za", "TopAuto SA", "The Citizen Motoring", "Lightstone SA vehicle sales data"]
+}

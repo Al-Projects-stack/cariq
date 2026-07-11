@@ -1,0 +1,66 @@
+{
+  "make": "Chery",
+  "model": "Tiggo 4 Pro",
+  "variants": ["1.5 LiT manual", "1.5 LiT CVT", "1.5 Urban", "1.5 Comfort CVT", "1.5T LiT DCT", "1.5T Elite", "1.5T Elite DCT", "1.5T Elite CVT"],
+  "years_covered": "2021-2026",
+  "sa_market_summary": "The Chery Tiggo 4 Pro is the breakout automotive success story in South Africa. With over 18,000 units sold in 2025 alone, it became the fourth best-selling passenger vehicle in the entire country. This compact SUV disrupted the market by offering generous standard equipment (twin 10.25-inch screens, wireless Apple CarPlay, keyless entry) at prices starting from R269,900 — undercutting Korean and Japanese rivals by R50,000 or more. The 1.5-litre turbo petrol engine (83kW/138Nm CVT or 108kW/210Nm DCT) provides adequate performance. Chery's 5-year/150,000km vehicle warranty and 10-year/1,000,000km engine warranty (first owner only) are headline-grabbing. The refreshed Tiggo Cross LiT launched in 2026 builds on this success.",
+  "reliability_score": 7.0,
+  "price_ranges": [
+    { "year_from": 2024, "year_to": 2026, "low_zar": 220000, "mid_zar": 270000, "high_zar": 340000 },
+    { "year_from": 2021, "year_to": 2023, "low_zar": 160000, "mid_zar": 210000, "high_zar": 280000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "CVT hesitation and lurching",
+      "affects_variants": ["1.5 LiT CVT", "1.5 Comfort CVT", "1.5T Elite CVT"],
+      "mileage_range": "Any mileage",
+      "severity": "MEDIUM",
+      "description": "The CVT transmission exhibits a noticeable pause when pulling away in Eco mode, followed by a lurch as the CVT catches up. Sport mode sharpens response but causes engine drone. A momentary rollback on hills can also occur.",
+      "what_to_inspect": "Test the CVT thoroughly in stop-start traffic at various throttle levels. Try both Eco and Sport modes. Test hill-hold assist on a slope.",
+      "estimated_repair_zar": "R0 (software characteristic); R8,000 - R18,000 (CVT service or replacement if failed)",
+      "source": "Auto.co.za reviews, SA Chery owner community, AutoTrader SA"
+    },
+    {
+      "fault": "Infotainment screen freezing",
+      "affects_variants": ["1.5 LiT manual", "1.5 LiT CVT", "1.5T LiT DCT", "1.5T Elite"],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The twin 10.25-inch screens can freeze or become unresponsive, particularly in hot weather. Usually resolved by disconnecting the battery or an OTA update.",
+      "what_to_inspect": "Boot up the infotainment system and test responsiveness. Check for any blank screens or unresponsive touch areas.",
+      "estimated_repair_zar": "R0 (OTA update or battery reset); R3,000 - R8,000 (screen replacement)",
+      "source": "SA Chery owner reports, Auto.co.za long-term tests"
+    },
+    {
+      "fault": "Wireless charging pad location issue",
+      "affects_variants": ["1.5T LiT DCT", "1.5T Elite", "1.5T Elite DCT"],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The wireless charging pad is poorly positioned — under hard braking, phones can slide forward under the cupholder and become trapped. A design flaw rather than a mechanical failure.",
+      "what_to_inspect": "Test the wireless charging pad with your own phone. Check that the phone stays in place during a test drive.",
+      "estimated_repair_zar": "N/A (design characteristic)",
+      "source": "Auto.co.za Chery Tiggo 4 Pro review, owner community"
+    },
+    {
+      "fault": "Higher than claimed fuel consumption",
+      "affects_variants": ["1.5 LiT CVT", "1.5T LiT DCT", "1.5T Elite DCT"],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "Real-world fuel economy is notably higher than Chery's claimed figures. Claimed 6.8L/100km but local tests consistently show 8.7-9.2L/100km in mixed driving with the CVT, and 7.8-9.0L/100km with the DCT.",
+      "what_to_inspect": "Check the trip computer's average fuel reading. Ask the owner about real-world consumption. Budget for higher than expected fuel costs.",
+      "estimated_repair_zar": "N/A (operating cost consideration)",
+      "source": "Auto.co.za reviews, SA owner community reports"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Test the CVT or DCT thoroughly in traffic — transmission behavior is the biggest common complaint",
+    "Check infotainment screens for freezing or unresponsive areas",
+    "Verify warranty status — 5-year/150,000km vehicle, 10-year/1,000,000km engine (FIRST OWNER ONLY)",
+    "Check service plan coverage — LiT models may have only 3yr/30,000km, higher trims get 5yr/60,000km",
+    "Test air conditioning and all climate controls — many functions are touchscreen-only",
+    "Inspect the wireless charging pad and phone storage location",
+    "Check for dashboard rattles — common on early models over rough roads",
+    "Verify the 10-year engine warranty is still valid (requires dealer servicing by first owner)"
+  ],
+  "owner_sentiment": "Mixed to positive. The Tiggo 4 Pro is loved for its incredible value for money — buyers cannot believe the level of standard equipment at the price. The warranty is a major drawcard. Main criticisms centre on the CVT's frustrating behaviour in traffic (hesitation and lurching), real-world fuel consumption that is significantly higher than claimed, and the dated dashboard design that is being replaced by the newer Tiggo Cross. Resale value is a concern — the model depreciates faster than Korean rivals (approx 11% vs 4% for the Kia Sonet in year one). The 10-year engine warranty does not transfer to second owners, which hurts used values.",
+  "sources": ["Chery SA dealer network", "AutoTrader SA", "Cars.co.za", "Auto.co.za reviews", "The Citizen Motoring", "Lightstone SA vehicle sales data", "VehicleSA.co.za"]
+}

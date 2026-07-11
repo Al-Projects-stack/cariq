@@ -1,0 +1,69 @@
+{
+  "make": "Volkswagen",
+  "model": "Polo Vivo",
+  "variants": ["1.4 Trendline", "1.4 Comfortline", "1.4 Life", "1.4 Life Edition 15", "1.6 Comfortline", "1.6 Style", "1.6 Life", "1.0 TSI GT"],
+  "years_covered": "2010-2026",
+  "sa_market_summary": "The VW Polo Vivo is an institution in South Africa, consistently the best-selling passenger vehicle in the country month after month. Based on the Mk5 Polo platform, it is built locally at VW's Kariega plant and offers German engineering at a budget-friendly price point. The second generation (2018+) brought updated styling while retaining proven 1.4 and 1.6 naturally aspirated engines. The 1.0 TSI GT adds a turbocharged option for more performance-oriented buyers. Parts availability is excellent, and the Vivo holds its value remarkably well. It competes directly with the Suzuki Swift, Toyota Starlet, and Hyundai Grand i10.",
+  "reliability_score": 7.5,
+  "price_ranges": [
+    { "year_from": 2022, "year_to": 2026, "low_zar": 190000, "mid_zar": 240000, "high_zar": 310000 },
+    { "year_from": 2018, "year_to": 2021, "low_zar": 130000, "mid_zar": 170000, "high_zar": 220000 },
+    { "year_from": 2014, "year_to": 2017, "low_zar": 80000, "mid_zar": 110000, "high_zar": 150000 },
+    { "year_from": 2010, "year_to": 2013, "low_zar": 50000, "mid_zar": 70000, "high_zar": 95000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "Ignition coil pack failure",
+      "affects_variants": ["1.4 Trendline", "1.4 Comfortline", "1.4 Life", "1.6 Comfortline", "1.6 Style", "1.6 Life"],
+      "mileage_range": "60,000km - 120,000km",
+      "severity": "MEDIUM",
+      "description": "The ignition coil packs and spark plug leads are subjected to intense engine heat. Over time the insulation breaks down, causing the electrical spark to jump to the engine block instead of reaching the spark plug, resulting in misfires.",
+      "what_to_inspect": "Listen for a rough idle or misfire under load. Check for a flashing engine management light. Request evidence of coil pack replacements on higher-mileage examples.",
+      "estimated_repair_zar": "R800 - R2,500 per coil",
+      "source": "Fixxr SA maintenance data, MyBroadband VW forums, AutoTrader SA buyer guides"
+    },
+    {
+      "fault": "Water pump and coolant leaks",
+      "affects_variants": ["1.4 Trendline", "1.4 Comfortline", "1.4 Life", "1.6 Comfortline", "1.6 Style"],
+      "mileage_range": "80,000km - 140,000km",
+      "severity": "HIGH",
+      "description": "The plastic water pump housing and thermostat flanges become brittle and crack over time due to thermal cycling, particularly in the Highveld climate. This can lead to sudden coolant loss and overheating.",
+      "what_to_inspect": "Check coolant level and condition. Look for pink/red residue around the water pump area. Ask if the water pump and timing belt have been replaced together.",
+      "estimated_repair_zar": "R3,000 - R7,000 (water pump and timing belt combined)",
+      "source": "SA VW specialist workshops, Fixxr SA maintenance guides"
+    },
+    {
+      "fault": "Window regulator failure",
+      "affects_variants": ["1.4 Trendline", "1.4 Comfortline", "1.4 Life", "1.6 Comfortline", "1.6 Style", "1.6 Life"],
+      "mileage_range": "Any mileage, age-related",
+      "severity": "LOW",
+      "description": "The plastic clips that hold the window glass in place on the regulator mechanism become brittle and snap, causing the window to drop into the door or become stuck.",
+      "what_to_inspect": "Test all four electric windows multiple times. Listen for any cracking or grinding noises during operation.",
+      "estimated_repair_zar": "R1,200 - R3,000 per window",
+      "source": "SA VW owner reports, VW specialist workshops"
+    },
+    {
+      "fault": "Lower control arm bush wear",
+      "affects_variants": ["1.4 Trendline", "1.4 Comfortline", "1.6 Comfortline", "1.6 Style"],
+      "mileage_range": "60,000km - 100,000km",
+      "severity": "MEDIUM",
+      "description": "The rubber bushes in the front lower control arms tear and separate from their metal housings, particularly on vehicles driven on poor SA roads. Results in a metallic clunk over speed bumps and vague steering.",
+      "what_to_inspect": "Listen for a clunk from the front suspension when going over speed bumps. Check for uneven tyre wear. Test steering feel at highway speeds.",
+      "estimated_repair_zar": "R2,500 - R6,000 per side",
+      "source": "Fixxr SA, SA suspension specialist reports, VW owner forums"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Check timing belt history on 1.4/1.6 engines — must be replaced every 90,000-120,000km",
+    "Inspect rear wheel arches for rust, especially on first-gen (2010-2017) coastal vehicles",
+    "Test all electric windows for smooth operation",
+    "Listen for timing chain rattle on cold start (1.4 16V engine)",
+    "Verify Takata airbag recall has been completed",
+    "Check for modifications — modified Vivos are high-risk purchases",
+    "Test clutch bite point for wear (manual models)",
+    "Confirm two working keys and alarm/immobiliser function",
+    "Request full service history with stamps — VW dealer or reputable independent"
+  ],
+  "owner_sentiment": "Overwhelmingly positive for its segment. The Polo Vivo is praised for bulletproof reliability from the 1.4/1.6 engines, low running costs, and strong resale value. The GT model receives mixed reviews — fun to drive but the 1.0 TSI adds complexity. Main complaints are sparse spec on base Trendline models, high theft risk (one of SA's most stolen vehicles), and insurance premiums that are disproportionately high for young drivers. Parts are cheap and widely available everywhere in SA.",
+  "sources": ["VW SA dealer network", "AutoTrader SA data", "Cars.co.za", "Fixxr SA maintenance reports", "CARmag SA", "The Citizen Motoring", "WeBuyCars price data", "Lightstone SA vehicle sales"]
+}

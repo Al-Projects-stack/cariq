@@ -1,0 +1,67 @@
+{
+  "make": "Kia",
+  "model": "Sportage",
+  "variants": ["1.6 CRDi LX", "1.6 CRDi EX", "1.6 T-GDI EX", "1.6 T-GDI GT Line", "1.6 T-GDI GT Line S"],
+  "years_covered": "2016-2026",
+  "sa_market_summary": "The Kia Sportage is a strong player in South Africa's midsize SUV segment. The fourth-generation (QL, 2016-2022) established the model as a stylish, well-equipped alternative to the Toyota RAV4 and Hyundai Tucson. The fifth-generation (NQ5, 2022+) brought bold styling and a premium interior. Engine options include the 1.6 CRDi diesel (100kW/320Nm) and the punchy 1.6 T-GDI petrol (130kW/265Nm). Kia's 5-year/unlimited kilometre warranty is a major selling point, and the brand has grown significantly in SA. The Sportage competes directly with the Hyundai Tucson, Toyota RAV4, and Haval Jolion Pro.",
+  "reliability_score": 8.0,
+  "price_ranges": [
+    { "year_from": 2022, "year_to": 2025, "low_zar": 420000, "mid_zar": 520000, "high_zar": 670000 },
+    { "year_from": 2019, "year_to": 2021, "low_zar": 300000, "mid_zar": 380000, "high_zar": 490000 },
+    { "year_from": 2016, "year_to": 2018, "low_zar": 200000, "mid_zar": 270000, "high_zar": 350000 }
+  ],
+  "known_faults": [
+    {
+      "fault": "Front coil spring failure",
+      "affects_variants": ["1.6 CRDi LX", "1.6 CRDi EX", "1.6 T-GDI EX", "1.6 T-GDI GT Line"],
+      "mileage_range": "50,000km - 100,000km",
+      "severity": "MEDIUM",
+      "description": "Front coil springs on the fourth-generation Sportage (2016-2022) are known to crack or snap, particularly on vehicles driven on poor SA roads. A known issue with a technical service bulletin in some markets.",
+      "what_to_inspect": "Listen for a clunking noise from the front suspension. Check ride height is even on both sides. Inspect springs visually for cracks.",
+      "estimated_repair_zar": "R3,000 - R7,000 per side (including labour)",
+      "source": "CARmag SA buyer guides, Kia SA workshop data"
+    },
+    {
+      "fault": "DPF/EGR issues (1.6 CRDi diesel)",
+      "affects_variants": ["1.6 CRDi LX", "1.6 CRDi EX"],
+      "mileage_range": "60,000km - 120,000km",
+      "severity": "MEDIUM",
+      "description": "The 1.6 CRDi diesel's DPF and EGR system can clog on vehicles used predominantly for short urban trips. Can trigger limp mode and require forced regeneration.",
+      "what_to_inspect": "Ask about driving patterns. Check for any limp mode history. Request DPF maintenance records.",
+      "estimated_repair_zar": "R4,000 - R14,000",
+      "source": "Kia SA technical bulletins, SA diesel specialist reports"
+    },
+    {
+      "fault": "DCT clutch judder (1.6 T-GDI)",
+      "affects_variants": ["1.6 T-GDI EX", "1.6 T-GDI GT Line", "1.6 T-GDI GT Line S"],
+      "mileage_range": "40,000km - 90,000km",
+      "severity": "MEDIUM",
+      "description": "The 7-speed DCT on petrol models can develop clutch judder, particularly during low-speed manoeuvring in traffic. The dual-clutch system requires smooth driving to prevent accelerated clutch wear.",
+      "what_to_inspect": "Test drive in stop-start traffic. Feel for shuddering when pulling away from standstill. Check if the clutch adaptation has been performed.",
+      "estimated_repair_zar": "R6,000 - R20,000 (clutch pack replacement)",
+      "source": "Kia SA service records, SA Kia owner community"
+    },
+    {
+      "fault": "Infotainment system lag",
+      "affects_variants": ["1.6 CRDi EX", "1.6 T-GDI EX", "1.6 T-GDI GT Line"],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The infotainment system on some models can be slow to respond to inputs, particularly on startup. Software updates are available that improve performance.",
+      "what_to_inspect": "Test the infotainment responsiveness on startup. Check that Apple CarPlay/Android Auto connect quickly.",
+      "estimated_repair_zar": "R0 (software update at dealer)",
+      "source": "Kia SA owner reports, Cars.co.za reviews"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Verify Kia warranty status — 5-year/unlimited km, transfers to subsequent owners",
+    "Check front coil springs for cracks — known failure point on 2016-2022 models",
+    "Request full Kia dealer service history — skipped services void the warranty",
+    "Test DCT gearbox in stop-start traffic for shudder or hesitation",
+    "Check DPF/EGR maintenance history on diesel models",
+    "Test infotainment for responsiveness and connectivity",
+    "Inspect for accident repair — complex headlight and sensor units are expensive",
+    "Check all ADAS features — cameras and sensors require calibration after windscreen replacement"
+  ],
+  "owner_sentiment": "Positive. The Sportage is praised for its striking design, generous standard equipment, and Kia's excellent warranty. The 1.6 T-GDI GT Line is a particular favourite for its blend of performance and style. Main complaints are the DCT's low-speed behaviour, front coil spring issues on older models, and infotainment lag. Diesel owners report occasional DPF concerns. Kia SA's dealer network is generally well-regarded. Resale value is good but trails the Toyota RAV4.",
+  "sources": ["Kia SA dealer network", "AutoTrader SA", "Cars.co.za", "CARmag SA", "The Citizen Motoring", "Lightstone SA vehicle sales"]
+}
