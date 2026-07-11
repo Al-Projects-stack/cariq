@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Hyundai",
   "model": "Grand i10",
   "variants": ["1.0 Motion", "1.0 Premium", "1.2 Fluid", "1.2 Premium"],
@@ -27,7 +27,7 @@
       "mileage_range": "80,000km+",
       "severity": "MEDIUM",
       "description": "AC compressor failure is reported on higher-mileage Grand i10s, particularly in hotter regions like Limpopo and Mpumalanga where the AC runs year-round.",
-      "what_to_inspect": "Test air conditioning performance thoroughly — should cool cabin within 60 seconds. Listen for any clicking from the compressor.",
+      "what_to_inspect": "Test air conditioning performance thoroughly ,  should cool cabin within 60 seconds. Listen for any clicking from the compressor.",
       "estimated_repair_zar": "R5,000 - R10,000",
       "source": "SA AC specialist workshops, Hyundai SA owner forums"
     },
@@ -54,10 +54,10 @@
   ],
   "what_to_inspect_before_buying": [
     "Check remaining Hyundai warranty (5-year/100,000km, transferable to first used buyer)",
-    "Test air conditioning thoroughly — common failure point on higher-mileage examples",
+    "Test air conditioning thoroughly ,  common failure point on higher-mileage examples",
     "Check infotainment touchscreen for delamination or unresponsive areas",
     "Inspect door sills and lower body panels for rust (older models)",
-    "Test cabin vibration levels at idle — excessive vibration indicates worn engine mounts",
+    "Test cabin vibration levels at idle ,  excessive vibration indicates worn engine mounts",
     "Verify service history with Hyundai SA stamps",
     "Listen for brake noise from rear drums during first applications",
     "Check the spare wheel and jack are present"

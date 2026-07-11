@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Volkswagen",
   "model": "Polo",
   "variants": ["1.0 TSI", "1.4", "1.6 Comfortline", "Vivo 1.4", "Vivo 1.6", "GTI 2.0 TSI"],
@@ -18,7 +18,7 @@
       "mileage_range": "50,000km - 100,000km",
       "severity": "MEDIUM",
       "description": "The DSG dual-clutch gearbox can hesitate, shudder, or jerk at low speeds. Particularly common in stop-start Johannesburg traffic. The mechatronic unit is a common failure point.",
-      "what_to_inspect": "Test drive extensively in heavy traffic. Request full DSG service history — it must be serviced every 40,000km with VW-approved DSG fluid. Listen for any shudder pulling away from standstill.",
+      "what_to_inspect": "Test drive extensively in heavy traffic. Request full DSG service history ,  it must be serviced every 40,000km with VW-approved DSG fluid. Listen for any shudder pulling away from standstill.",
       "estimated_repair_zar": "R5,000 - R18,000 (fluid service to full mechatronic replacement)",
       "source": "MyBroadband VW forum, Cars.co.za owner reviews, SA VW technician reports"
     },
@@ -64,14 +64,14 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Check DSG service history — must be done every 40,000km",
+    "Check DSG service history ,  must be done every 40,000km",
     "Inspect rear wheel arches for rust, especially on Polo Vivo and pre-2015 models",
-    "Test all electric windows and central locking — common failure points",
+    "Test all electric windows and central locking ,  common failure points",
     "Check for water ingress in the boot and footwells (sunroof drain blockages)",
     "Request a VAG diagnostic scan to check for stored fault codes",
     "Test DSG in stop-start traffic for any hesitation or shudder",
     "Check timing belt/chain service history on older 1.4 models",
-    "Inspect for signs of accident repair — check panel gap consistency"
+    "Inspect for signs of accident repair ,  check panel gap consistency"
   ],
   "owner_sentiment": "Generally positive for value and running costs. Polo Vivo owners praise low cost of ownership. Newer 1.0 TSI owners value fuel economy (5-6L/100km) but some report expensive dealer servicing. Main complaints are DSG unreliability in older models and high parts prices at VW dealers vs independents.",
   "sources": ["MyBroadband SA forums", "Cars.co.za listings and reviews", "AutoTrader SA", "SA VW owner communities", "WeBuyCars price data"]

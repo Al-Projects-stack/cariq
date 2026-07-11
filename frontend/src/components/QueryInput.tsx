@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, type KeyboardEvent } from "react";
+﻿import { useState, useRef, useEffect, type KeyboardEvent } from "react";
 
 interface Props {
   onSubmit: (question: string) => void;
@@ -49,14 +49,14 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      {/* Input container — ui-pro-max: glow on focus, smooth transition */}
+      {/* Input container ,  ui-pro-max: glow on focus, smooth transition */}
       <div className="relative group">
         <textarea
           ref={textareaRef}
           value={value}
           onChange={(e) => { setValue(e.target.value); if (error) setError(null); }}
           onKeyDown={handleKey}
-          placeholder="Ask anything about a used car in South Africa…"
+          placeholder="Ask anything about a used car in South Africaâ€¦"
           rows={2}
           disabled={isLoading}
           className="
@@ -73,7 +73,7 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
           style={{ minHeight: "72px" }}
         />
 
-        {/* Submit button — ui-pro-max: glow-orange, loading state disables */}
+        {/* Submit button ,  ui-pro-max: glow-orange, loading state disables */}
         <button
           onClick={handleSubmit}
           disabled={isLoading || !value.trim()}
@@ -91,14 +91,14 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
           "
         >
           {isLoading ? <LoadingDots /> : <SearchIcon />}
-          <span>{isLoading ? "Searching…" : "Ask CarIQ"}</span>
+          <span>{isLoading ? "Searchingâ€¦" : "Ask CarIQ"}</span>
         </button>
       </div>
 
-      {/* Error message — ui-pro-max: inline error near the input */}
+      {/* Error message ,  ui-pro-max: inline error near the input */}
       {error && (
         <p role="alert" className="mt-2 text-sm text-red-400 flex items-center gap-1">
-          <span aria-hidden>⚠</span> {error}
+          <span aria-hidden>âš </span> {error}
         </p>
       )}
 
@@ -110,7 +110,7 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
         to submit
       </p>
 
-      {/* Example chips — ui-pro-max: min 44px touch target, hover transition */}
+      {/* Example chips ,  ui-pro-max: min 44px touch target, hover transition */}
       <div className="mt-4 flex flex-wrap gap-2">
         {CHIPS.map((chip) => (
           <button

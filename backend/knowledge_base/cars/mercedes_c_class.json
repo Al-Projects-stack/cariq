@@ -1,9 +1,9 @@
-{
+﻿{
   "make": "Mercedes-Benz",
   "model": "C-Class",
   "variants": ["C180", "C200", "C220d", "C250", "C300", "C350e", "C63 AMG"],
   "years_covered": "2014-2022",
-  "sa_market_summary": "The Mercedes-Benz C-Class W205 (2014-2021) is the most common used luxury sedan in South Africa. Its design, build quality, and brand perception make it highly aspirational for middle-market buyers. However, the C-Class is one of the most maintenance-intensive vehicles in the SA used market — out-of-warranty examples can generate significant unexpected costs. The C220d diesel is the most practical variant for SA conditions due to fuel economy. Any buyer must budget carefully for running costs beyond the sticker price.",
+  "sa_market_summary": "The Mercedes-Benz C-Class W205 (2014-2021) is the most common used luxury sedan in South Africa. Its design, build quality, and brand perception make it highly aspirational for middle-market buyers. However, the C-Class is one of the most maintenance-intensive vehicles in the SA used market ,  out-of-warranty examples can generate significant unexpected costs. The C220d diesel is the most practical variant for SA conditions due to fuel economy. Any buyer must budget carefully for running costs beyond the sticker price.",
   "reliability_score": 5.8,
   "price_ranges": [
     { "year_from": 2020, "year_to": 2022, "low_zar": 480000, "mid_zar": 580000, "high_zar": 720000 },
@@ -27,7 +27,7 @@
       "mileage_range": "80,000km - 120,000km",
       "severity": "HIGH",
       "description": "The 7G-Tronic automatic gearbox can develop jerking, hunting between gears, and delayed engagement. The valve body and conductor plate are the most common failure points. Very expensive to repair.",
-      "what_to_inspect": "Test drive with focus on smooth gear changes. Any hesitation or jerk between gears is a red flag. Request transmission service history — fluid change is critical every 60,000km.",
+      "what_to_inspect": "Test drive with focus on smooth gear changes. Any hesitation or jerk between gears is a red flag. Request transmission service history ,  fluid change is critical every 60,000km.",
       "estimated_repair_zar": "R12,000 - R45,000",
       "source": "Mercedes SA dealer technical reports, SA gearbox specialist data"
     },
@@ -46,8 +46,8 @@
       "affects_variants": ["C180", "C200", "C250"],
       "mileage_range": "60,000km+",
       "severity": "MEDIUM",
-      "description": "Some W205 petrol engines consume oil between service intervals. Mercedes-Benz considers up to 1L per 1,000km acceptable — many SA buyers do not.",
-      "what_to_inspect": "Check the oil dipstick — compare to the full mark. Ask the seller how often oil is topped up between services. Any consumption above 0.5L per 1,000km is concerning.",
+      "description": "Some W205 petrol engines consume oil between service intervals. Mercedes-Benz considers up to 1L per 1,000km acceptable ,  many SA buyers do not.",
+      "what_to_inspect": "Check the oil dipstick ,  compare to the full mark. Ask the seller how often oil is topped up between services. Any consumption above 0.5L per 1,000km is concerning.",
       "estimated_repair_zar": "R0 (top up) to R35,000+ (piston ring replacement)",
       "source": "Mercedes SA technical service notes, MyBroadband Merc forum"
     },
@@ -73,15 +73,15 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Full Mercedes-Benz Star Diagnostic scan — non-negotiable",
+    "Full Mercedes-Benz Star Diagnostic scan ,  non-negotiable",
     "Check gearbox for smooth shifting through all seven ratios",
-    "Test air conditioning — check for any compressor noise",
+    "Test air conditioning ,  check for any compressor noise",
     "Inspect all door seals and sunroof drains for water ingress",
     "Check for oil consumption by inspecting dipstick at time of viewing",
     "Verify Mercedes SA service history with dealer stamps",
     "Request an independent inspection from a Merc specialist before purchase",
     "Budget minimum R25,000 per year for maintenance beyond normal services",
-    "Confirm no outstanding recalls — Mercedes SA frequently issues safety recalls"
+    "Confirm no outstanding recalls ,  Mercedes SA frequently issues safety recalls"
   ],
   "owner_sentiment": "Mixed. C-Class owners love the prestige, interior quality, and driving experience. Many report significant frustration with unexpected repair costs, particularly on out-of-warranty examples. The common SA advice: never buy a C-Class you cannot afford to fix. The C220d diesel owners report better ownership experiences due to lower service frequency.",
   "sources": ["Mercedes-Benz SA dealer network", "MyBroadband SA Merc forum", "Cars.co.za C-Class reviews", "AutoTrader SA", "SA independent Mercedes specialists", "WeBuyCars price data"]

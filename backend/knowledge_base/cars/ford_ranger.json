@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Ford",
   "model": "Ranger",
   "variants": ["2.2 TDCi XL", "2.2 TDCi XLS", "2.2 TDCi XLT", "3.2 TDCi Wildtrak", "3.2 TDCi XLT", "2.0 BiTurbo Wildtrak", "2.0 BiTurbo Raptor"],
@@ -64,7 +64,7 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Underbody inspection for chassis cracks — non-negotiable on commercial-use bakkies",
+    "Underbody inspection for chassis cracks ,  non-negotiable on commercial-use bakkies",
     "Check EGR condition with a diagnostic scan",
     "For manual transmissions, test clutch engagement and listen for DMF rattle",
     "Confirm water pump replacement history on 2.2 TDCi models above 80,000km",

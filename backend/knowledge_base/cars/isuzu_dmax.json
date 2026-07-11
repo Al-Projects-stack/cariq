@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Isuzu",
   "model": "D-Max",
   "variants": ["250C Single Cab", "1.9 DDi Single Cab", "1.9 DDi Extended Cab", "1.9 DDi Double Cab LS", "3.0 DDi Double Cab LSE", "3.0 DDi V-Cross 4x4"],
@@ -18,7 +18,7 @@
       "mileage_range": "40,000km - 100,000km",
       "severity": "MEDIUM",
       "description": "Like all modern diesels with DPF systems, the D-Max's diesel particulate filter can clog if the vehicle is used mainly for short city trips where regeneration cannot complete. The 1.9 DDi is more sensitive than the 3.0 DDi.",
-      "what_to_inspect": "Ask about driving patterns — frequent highway driving is beneficial. Check for a DPF warning light. Request DPF regeneration history.",
+      "what_to_inspect": "Ask about driving patterns ,  frequent highway driving is beneficial. Check for a DPF warning light. Request DPF regeneration history.",
       "estimated_repair_zar": "R3,000 - R15,000 (forced regeneration to DPF replacement)",
       "source": "Isuzu SA dealer bulletins, SA bakkie owner forums"
     },
@@ -37,7 +37,7 @@
       "affects_variants": ["250C Single Cab", "1.9 DDi Single Cab", "1.9 DDi Extended Cab"],
       "mileage_range": "80,000km - 120,000km",
       "severity": "MEDIUM",
-      "description": "Fleet and work-use D-Maxes show accelerated suspension wear — rear leaf spring fatigue, worn control arm bushes, and steering play are common on vehicles that have been regularly loaded to capacity.",
+      "description": "Fleet and work-use D-Maxes show accelerated suspension wear ,  rear leaf spring fatigue, worn control arm bushes, and steering play are common on vehicles that have been regularly loaded to capacity.",
       "what_to_inspect": "Check rear leaf springs for sagging or cracked leaves. Test steering for play. Listen for suspension clunks over speed bumps.",
       "estimated_repair_zar": "R4,000 - R12,000 (bush and spring replacement)",
       "source": "Isuzu SA workshop data, SA 4x4 community reports"
@@ -54,10 +54,10 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Request full Isuzu dealer service history — critical for warranty validity",
-    "Check underbody condition — look for rust, damage, and evidence of off-road abuse",
+    "Request full Isuzu dealer service history ,  critical for warranty validity",
+    "Check underbody condition ,  look for rust, damage, and evidence of off-road abuse",
     "Verify DPF system has been properly maintained if used mostly for short trips",
-    "Test 4WD system (if equipped) — engage high and low range, check for warning lights",
+    "Test 4WD system (if equipped) ,  engage high and low range, check for warning lights",
     "Check for any injector-related fault codes via diagnostic scan",
     "Inspect leaf springs for sagging or cracked leaves",
     "Verify outstanding recall completion (Takata airbag, software updates)",

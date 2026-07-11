@@ -1,4 +1,4 @@
-import type { KnownFault } from "../types";
+﻿import type { KnownFault } from "../types";
 
 interface Props {
   faults: KnownFault[];

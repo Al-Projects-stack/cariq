@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Volkswagen",
   "model": "Golf",
   "variants": ["Golf 7 1.4 TSI Comfortline", "Golf 7 1.4 TSI Highline", "Golf 7 GTD 2.0 TDI", "Golf 7 GTI 2.0 TSI", "Golf 7 R 2.0 TSI 4Motion", "Golf 7.5 1.0 TSI"],
@@ -63,15 +63,15 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Full VAG-COM diagnostic scan — non-negotiable on any Golf 7",
-    "DSG service history — reject any car without documented DSG fluid changes",
+    "Full VAG-COM diagnostic scan ,  non-negotiable on any Golf 7",
+    "DSG service history ,  reject any car without documented DSG fluid changes",
     "Check for timing chain noise on cold start (GTI and R models)",
     "Test all windows, sunroof, and interior electronics",
     "Check for any mapping or performance modifications (affects insurance and warranty)",
     "Inspect for water ingress in the boot through the rear light seals",
-    "Check brake disc and pad thickness — performance variants wear brakes faster",
+    "Check brake disc and pad thickness ,  performance variants wear brakes faster",
     "Confirm no outstanding safety or emission recalls via VW SA recall database"
   ],
-  "owner_sentiment": "Highly positive overall. Golf 7 GTI owners are passionate about the car and most report excellent long-term reliability if serviced correctly. Standard 1.4 TSI owners report the DSG as the main concern. Running costs are moderate — not cheap, but predictable. Strong community support via MyBroadband and VW clubs.",
+  "owner_sentiment": "Highly positive overall. Golf 7 GTI owners are passionate about the car and most report excellent long-term reliability if serviced correctly. Standard 1.4 TSI owners report the DSG as the main concern. Running costs are moderate ,  not cheap, but predictable. Strong community support via MyBroadband and VW clubs.",
   "sources": ["MyBroadband SA VW forums", "Cars.co.za Golf 7 listings", "AutoTrader SA", "VW SA dealer network", "WeBuyCars market data"]
 }

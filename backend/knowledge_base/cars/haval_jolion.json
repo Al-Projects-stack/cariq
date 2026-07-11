@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Haval",
   "model": "Jolion",
   "variants": ["1.5T City", "1.5T City Plus", "1.5T Premium", "1.5T Luxury", "1.5T Super Luxury", "1.5T S Ultra Luxury", "1.5 HEV Ultra Luxury"],
@@ -52,14 +52,14 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Test the DCT thoroughly in stop-start traffic — hesitation is the #1 owner complaint",
-    "Verify the service history — Haval voids the 5-year/100,000km warranty if a single service is missed",
+    "Test the DCT thoroughly in stop-start traffic ,  hesitation is the #1 owner complaint",
+    "Verify the service history ,  Haval voids the 5-year/100,000km warranty if a single service is missed",
     "Check if the vehicle is still under the factory service plan (5yr/60,000km)",
-    "Look for the 60,000km service plan expiry — prices drop noticeably at this threshold",
-    "Test all ADAS features — ensure they can be adjusted to your preference",
+    "Look for the 60,000km service plan expiry ,  prices drop noticeably at this threshold",
+    "Test all ADAS features ,  ensure they can be adjusted to your preference",
     "Check the infotainment and climate control touchscreen responsiveness",
-    "Inspect for premature brake pad wear — reported as early as 20,000-30,000km",
-    "Ask about real-world fuel consumption — budget for 9.5-11.5L/100km in town",
+    "Inspect for premature brake pad wear ,  reported as early as 20,000-30,000km",
+    "Ask about real-world fuel consumption ,  budget for 9.5-11.5L/100km in town",
     "For Pro models, verify the 7-year/200,000km warranty and 7-year/75,000km service plan"
   ],
   "owner_sentiment": "Mixed. The Jolion is praised for its spacious cabin, generous equipment levels, and strong value proposition. Pro owners appreciate the 7-year warranty. However, the DCT hesitation and high fuel consumption are consistent frustrations. Early models (2021-2022) suffered from parts supply delays, though this has improved. ADAS systems that are too sensitive for SA conditions annoy many owners. Resale values are stabilising as the brand matures but still lag behind Korean and Japanese rivals. The hybrid variant is the pick for fuel-conscious buyers.",

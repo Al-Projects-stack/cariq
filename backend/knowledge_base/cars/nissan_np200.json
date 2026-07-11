@@ -1,9 +1,9 @@
-{
+﻿{
   "make": "Nissan",
   "model": "NP200",
   "variants": ["1.6 8V Base", "1.6 8V Base + Safety", "1.6 8V Base A/C + Safety Pack", "1.5 dCi"],
   "years_covered": "2009-2026",
-  "sa_market_summary": "The Nissan NP200 is South Africa's most affordable half-ton bakkie, filling the budget end of the pickup market below the Ford Ranger and Toyota Hilux. It offers the biggest payload in its segment at 800kg and the largest load box volume at 1.26m³. Powered by a simple 1.6-litre 8-valve petrol engine (65kW/147Nm) or a 1.5 dCi diesel, it prioritises reliability and low running costs over sophistication. The NP200 is the successor to the legendary Nissan 1400 and remains a favourite for small businesses, delivery fleets, and tradesmen. Parts are cheap and widely available across South Africa.",
+  "sa_market_summary": "The Nissan NP200 is South Africa's most affordable half-ton bakkie, filling the budget end of the pickup market below the Ford Ranger and Toyota Hilux. It offers the biggest payload in its segment at 800kg and the largest load box volume at 1.26mÂ³. Powered by a simple 1.6-litre 8-valve petrol engine (65kW/147Nm) or a 1.5 dCi diesel, it prioritises reliability and low running costs over sophistication. The NP200 is the successor to the legendary Nissan 1400 and remains a favourite for small businesses, delivery fleets, and tradesmen. Parts are cheap and widely available across South Africa.",
   "reliability_score": 7.0,
   "price_ranges": [
     { "year_from": 2021, "year_to": 2024, "low_zar": 160000, "mid_zar": 200000, "high_zar": 260000 },
@@ -54,12 +54,12 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Verify timing belt replacement — critical, must be done every 80,000-100,000km",
+    "Verify timing belt replacement ,  critical, must be done every 80,000-100,000km",
     "Check steering for play and knocking at the rack",
-    "Test for starting issues — fuel pump failure is common on higher-mileage examples",
+    "Test for starting issues ,  fuel pump failure is common on higher-mileage examples",
     "Inspect load box for rust and damage (rubberised surface is standard)",
-    "Check suspension components for wear — clunks indicate worn bushes",
-    "Verify service history — NP200s that missed services are high-risk",
+    "Check suspension components for wear ,  clunks indicate worn bushes",
+    "Verify service history ,  NP200s that missed services are high-risk",
     "Inspect underbody for rust, particularly coastal vehicles",
     "Check that the 300-litre rear storage compartment is dry and secure",
     "Test all electrics including air conditioning, windows and central locking"

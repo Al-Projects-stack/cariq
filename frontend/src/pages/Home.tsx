@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { QueryInput } from "../components/QueryInput";
 import { AnswerPanel } from "../components/AnswerPanel";
 import { KnownFaultsPanel } from "../components/KnownFaultsPanel";
@@ -110,7 +110,7 @@ export function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
 
-      {/* Header — ui-pro-max: Fira Sans, minimal glow on logo */}
+      {/* Header ,  ui-pro-max: Fira Sans, minimal glow on logo */}
       <header className="sticky top-0 z-40 border-b border-gray-900/80 bg-gray-950/90 backdrop-blur-sm px-6 py-4">
         <div className="mx-auto max-w-5xl flex items-center justify-between">
           <div>
@@ -132,12 +132,12 @@ export function Home() {
 
       <main className="mx-auto max-w-5xl px-6 py-14">
 
-        {/* Hero — ui-pro-max: slide-up animation, Fira Code on tag */}
+        {/* Hero ,  ui-pro-max: slide-up animation, Fira Code on tag */}
         <div className="mb-12 text-center animate-slide-up">
           <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 mb-6">
             <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse-slow" />
             <span className="font-mono text-xs text-orange-400 tracking-widest uppercase">
-              RAG-powered · 20 models · SA market data
+              RAG-powered Â· 20 models Â· SA market data
             </span>
           </div>
 
@@ -147,7 +147,7 @@ export function Home() {
           </h1>
           <p className="mt-5 text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Ask about prices, faults, and reliability. Get grounded answers from a curated
-            knowledge base — not guesswork.
+            knowledge base ,  not guesswork.
           </p>
         </div>
 
@@ -176,10 +176,10 @@ export function Home() {
             </div>
             <div className="flex items-center gap-8 text-xs text-gray-600 font-mono">
               <PipelineStep label="Embedding" />
-              <span className="text-gray-800">→</span>
+              <span className="text-gray-800">â†’</span>
               <PipelineStep label="Pinecone" active />
-              <span className="text-gray-800">→</span>
-              <PipelineStep label="Claude" />
+              <span className="text-gray-800">â†’</span>
+              <PipelineStep label="Answer" />
             </div>
           </div>
         )}
@@ -212,10 +212,10 @@ export function Home() {
 
       <footer className="border-t border-gray-900 px-6 py-8 text-center">
         <p className="text-xs text-gray-700 font-mono">
-          CarIQ · Built for the SA used car market · 20 models at launch
+          CarIQ Â· Built for the SA used car market Â· 20 models at launch
         </p>
         <p className="mt-1 text-xs text-gray-800">
-          Data: MyBroadband · Cars.co.za · AutoTrader SA · SA owner communities
+          Data: MyBroadband Â· Cars.co.za Â· AutoTrader SA Â· SA owner communities
         </p>
       </footer>
     </div>
@@ -229,7 +229,7 @@ function PipelineSpinner() {
         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
       </svg>
-      <span>Searching knowledge base…</span>
+      <span>Searching knowledge baseâ€¦</span>
     </div>
   );
 }

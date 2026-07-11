@@ -27,7 +27,7 @@ async def test():
     print(f"Retrieved {len(hits)} chunks from Pinecone:")
     for h in hits:
         meta = h["metadata"]
-        print(f"  [{meta.get('chunk_type','?')}] {meta.get('make','')} {meta.get('model','')} — score {h['score']:.3f}")
+        print(f"  [{meta.get('chunk_type','?')}] {meta.get('make','')} {meta.get('model','')}, score {h['score']:.3f}")
 
     context = "\n\n".join(h["metadata"].get("text", "")[:300] for h in hits)
     answer = await cl.generate(q, context)

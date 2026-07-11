@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Mazda",
   "model": "3",
   "variants": ["1.6 Active", "2.0 Dynamic", "2.0 Individual", "2.0 Astina", "2.5 Astina"],
@@ -44,9 +44,9 @@
   ],
   "what_to_inspect_before_buying": [
     "Test infotainment touchscreen on all BM (2014-2018) models",
-    "Check service history — Mazda service intervals are 10,000km or annually",
-    "Inspect paint condition — KODO era Mazda paint is excellent quality but check for touch-ups",
-    "Test all driver assistance features on BP (2019+) models — lane keep, adaptive cruise",
+    "Check service history ,  Mazda service intervals are 10,000km or annually",
+    "Inspect paint condition ,  KODO era Mazda paint is excellent quality but check for touch-ups",
+    "Test all driver assistance features on BP (2019+) models ,  lane keep, adaptive cruise",
     "Check tyre condition and remaining life",
     "Confirm no accident history via e-Natis or CarHistory check",
     "Listen for any rattles from the dashboard on rough road surfaces"

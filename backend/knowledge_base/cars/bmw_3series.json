@@ -1,9 +1,9 @@
-{
+﻿{
   "make": "BMW",
   "model": "3 Series",
   "variants": ["316i", "318i", "320i", "320d", "328i", "330i", "335i", "M3"],
   "years_covered": "2012-2022",
-  "sa_market_summary": "The BMW 3 Series (F30 2012-2018, G20 2019+) is the quintessential used premium sedan in South Africa. The F30 generation is the most commonly traded used BMW on platforms like AutoTrader and Cars.co.za. It offers genuine German engineering at a used price point that many South Africans find accessible. However, ownership costs can be significantly higher than Japanese alternatives — servicing, parts, and tyres all command a premium. Buyer must budget properly. Best bought from a BMW dealer with a certified pre-owned warranty.",
+  "sa_market_summary": "The BMW 3 Series (F30 2012-2018, G20 2019+) is the quintessential used premium sedan in South Africa. The F30 generation is the most commonly traded used BMW on platforms like AutoTrader and Cars.co.za. It offers genuine German engineering at a used price point that many South Africans find accessible. However, ownership costs can be significantly higher than Japanese alternatives ,  servicing, parts, and tyres all command a premium. Buyer must budget properly. Best bought from a BMW dealer with a certified pre-owned warranty.",
   "reliability_score": 6.5,
   "price_ranges": [
     { "year_from": 2020, "year_to": 2022, "low_zar": 420000, "mid_zar": 520000, "high_zar": 680000 },
@@ -27,7 +27,7 @@
       "affects_variants": ["320i", "328i", "316i"],
       "mileage_range": "60,000km - 100,000km",
       "severity": "HIGH",
-      "description": "BMW's electric water pump on N-series engines fails regularly and can cause sudden overheating. Unlike a belt-driven pump, there is no visual warning before failure — the car simply overheats. Engine damage follows rapidly if not caught immediately.",
+      "description": "BMW's electric water pump on N-series engines fails regularly and can cause sudden overheating. Unlike a belt-driven pump, there is no visual warning before failure ,  the car simply overheats. Engine damage follows rapidly if not caught immediately.",
       "what_to_inspect": "Request water pump replacement history. On any F30 with 60,000km+, budget for water pump replacement as a service item regardless. Check coolant level and condition.",
       "estimated_repair_zar": "R4,500 - R9,000",
       "source": "BMW SA technical service records, BMW specialist workshops nationwide"
@@ -58,7 +58,7 @@
       "mileage_range": "60,000km - 80,000km",
       "severity": "LOW",
       "description": "BMW's iridium spark plugs should be replaced every 60,000km but are often neglected. Old plugs cause misfires, rough idle, and reduced performance particularly noticeable on cold mornings.",
-      "what_to_inspect": "Request spark plug replacement history. Plugs are a standard service item — their absence in service records suggests cost-cutting maintenance.",
+      "what_to_inspect": "Request spark plug replacement history. Plugs are a standard service item ,  their absence in service records suggests cost-cutting maintenance.",
       "estimated_repair_zar": "R2,000 - R4,500",
       "source": "BMW SA dealer service checklist, SA BMW owners reports"
     },
@@ -74,15 +74,15 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Cold start engine rattle check — timing chain issue on N20 engines is critical",
-    "Full BMW factory diagnostic scan — non-negotiable",
+    "Cold start engine rattle check ,  timing chain issue on N20 engines is critical",
+    "Full BMW factory diagnostic scan ,  non-negotiable",
     "Request water pump and thermostat replacement history",
     "Check for any overheating history in service records",
     "Inspect all door seals and sunroof drains for water ingress",
     "Test all iDrive functions, heated seats, and electric windows",
-    "Verify BMW SA service stamps — essential for warranty claims and resale",
-    "Check tyre condition — BMW fitment tyres (Michelin, Bridgestone runflats) cost R3,000-R5,000 each",
-    "Confirm the car has not been mapped or modified — increases mechanical risk"
+    "Verify BMW SA service stamps ,  essential for warranty claims and resale",
+    "Check tyre condition ,  BMW fitment tyres (Michelin, Bridgestone runflats) cost R3,000-R5,000 each",
+    "Confirm the car has not been mapped or modified ,  increases mechanical risk"
   ],
   "owner_sentiment": "Mixed. F30 3 Series owners love the driving dynamics and prestige but consistently report higher-than-expected ownership costs. Common complaint: servicing at BMW SA dealers is expensive (R4,000-R8,000 per service). Many move to independent BMW specialists after warranty. The 320d diesel is preferred for long-distance SA driving due to fuel economy.",
   "sources": ["BMW SA dealer network", "MyBroadband BMW forum", "Cars.co.za BMW listings", "AutoTrader SA", "SA BMW specialist workshops", "WeBuyCars price data"]

@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Volkswagen",
   "model": "Polo Vivo",
   "variants": ["1.4 Trendline", "1.4 Comfortline", "1.4 Life", "1.4 Life Edition 15", "1.6 Comfortline", "1.6 Style", "1.6 Life", "1.0 TSI GT"],
@@ -54,16 +54,16 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Check timing belt history on 1.4/1.6 engines — must be replaced every 90,000-120,000km",
+    "Check timing belt history on 1.4/1.6 engines ,  must be replaced every 90,000-120,000km",
     "Inspect rear wheel arches for rust, especially on first-gen (2010-2017) coastal vehicles",
     "Test all electric windows for smooth operation",
     "Listen for timing chain rattle on cold start (1.4 16V engine)",
     "Verify Takata airbag recall has been completed",
-    "Check for modifications — modified Vivos are high-risk purchases",
+    "Check for modifications ,  modified Vivos are high-risk purchases",
     "Test clutch bite point for wear (manual models)",
     "Confirm two working keys and alarm/immobiliser function",
-    "Request full service history with stamps — VW dealer or reputable independent"
+    "Request full service history with stamps ,  VW dealer or reputable independent"
   ],
-  "owner_sentiment": "Overwhelmingly positive for its segment. The Polo Vivo is praised for bulletproof reliability from the 1.4/1.6 engines, low running costs, and strong resale value. The GT model receives mixed reviews — fun to drive but the 1.0 TSI adds complexity. Main complaints are sparse spec on base Trendline models, high theft risk (one of SA's most stolen vehicles), and insurance premiums that are disproportionately high for young drivers. Parts are cheap and widely available everywhere in SA.",
+  "owner_sentiment": "Overwhelmingly positive for its segment. The Polo Vivo is praised for bulletproof reliability from the 1.4/1.6 engines, low running costs, and strong resale value. The GT model receives mixed reviews ,  fun to drive but the 1.0 TSI adds complexity. Main complaints are sparse spec on base Trendline models, high theft risk (one of SA's most stolen vehicles), and insurance premiums that are disproportionately high for young drivers. Parts are cheap and widely available everywhere in SA.",
   "sources": ["VW SA dealer network", "AutoTrader SA data", "Cars.co.za", "Fixxr SA maintenance reports", "CARmag SA", "The Citizen Motoring", "WeBuyCars price data", "Lightstone SA vehicle sales"]
 }

@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Kia",
   "model": "Sportage",
   "variants": ["1.6 CRDi LX", "1.6 CRDi EX", "1.6 T-GDI EX", "1.6 T-GDI GT Line", "1.6 T-GDI GT Line S"],
@@ -53,14 +53,14 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Verify Kia warranty status — 5-year/unlimited km, transfers to subsequent owners",
-    "Check front coil springs for cracks — known failure point on 2016-2022 models",
-    "Request full Kia dealer service history — skipped services void the warranty",
+    "Verify Kia warranty status ,  5-year/unlimited km, transfers to subsequent owners",
+    "Check front coil springs for cracks ,  known failure point on 2016-2022 models",
+    "Request full Kia dealer service history ,  skipped services void the warranty",
     "Test DCT gearbox in stop-start traffic for shudder or hesitation",
     "Check DPF/EGR maintenance history on diesel models",
     "Test infotainment for responsiveness and connectivity",
-    "Inspect for accident repair — complex headlight and sensor units are expensive",
-    "Check all ADAS features — cameras and sensors require calibration after windscreen replacement"
+    "Inspect for accident repair ,  complex headlight and sensor units are expensive",
+    "Check all ADAS features ,  cameras and sensors require calibration after windscreen replacement"
   ],
   "owner_sentiment": "Positive. The Sportage is praised for its striking design, generous standard equipment, and Kia's excellent warranty. The 1.6 T-GDI GT Line is a particular favourite for its blend of performance and style. Main complaints are the DCT's low-speed behaviour, front coil spring issues on older models, and infotainment lag. Diesel owners report occasional DPF concerns. Kia SA's dealer network is generally well-regarded. Resale value is good but trails the Toyota RAV4.",
   "sources": ["Kia SA dealer network", "AutoTrader SA", "Cars.co.za", "CARmag SA", "The Citizen Motoring", "Lightstone SA vehicle sales"]

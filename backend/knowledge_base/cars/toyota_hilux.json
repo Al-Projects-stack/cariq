@@ -1,9 +1,9 @@
-{
+﻿{
   "make": "Toyota",
   "model": "Hilux",
   "variants": ["2.4 GD-6 SRX", "2.4 GD-6 RB", "2.8 GD-6 Raider", "2.8 GD-6 Legend", "2.8 GD-6 GR-S", "2.0 VVTi Petrol"],
   "years_covered": "2010-2024",
-  "sa_market_summary": "The Toyota Hilux is the best-selling vehicle in South Africa and arguably the most iconic bakkie on the continent. Its reputation for indestructibility is well earned — it is the go-to workhorse for farmers, contractors, and families. Resale value is outstanding and demand vastly outstrips supply for well-maintained examples. The 2.8 GD-6 engine introduced in 2016 is one of the most capable and reliable diesel engines in the bakkie segment. Parts are universally available across SA.",
+  "sa_market_summary": "The Toyota Hilux is the best-selling vehicle in South Africa and arguably the most iconic bakkie on the continent. Its reputation for indestructibility is well earned ,  it is the go-to workhorse for farmers, contractors, and families. Resale value is outstanding and demand vastly outstrips supply for well-maintained examples. The 2.8 GD-6 engine introduced in 2016 is one of the most capable and reliable diesel engines in the bakkie segment. Parts are universally available across SA.",
   "reliability_score": 9.0,
   "price_ranges": [
     { "year_from": 2022, "year_to": 2024, "low_zar": 620000, "mid_zar": 720000, "high_zar": 850000 },
@@ -18,7 +18,7 @@
       "mileage_range": "60,000km - 120,000km",
       "severity": "MEDIUM",
       "description": "The GD-6 diesel engine's EGR valve and DPF can clog, particularly on vehicles used mainly for short city trips where the DPF cannot complete a regeneration cycle. Symptoms include black smoke, power loss, and a DPF warning light.",
-      "what_to_inspect": "Ask about primary use case — frequent highway driving clears the DPF naturally. Check for DPF warning light. Request DPF cleaning history if above 80,000km of urban use.",
+      "what_to_inspect": "Ask about primary use case ,  frequent highway driving clears the DPF naturally. Check for DPF warning light. Request DPF cleaning history if above 80,000km of urban use.",
       "estimated_repair_zar": "R3,000 - R12,000 (cleaning to EGR replacement)",
       "source": "Toyota SA dealer reports, Bakkie owners forums, AutoTrader SA buyer guides"
     },
@@ -38,7 +38,7 @@
       "mileage_range": "80,000km - 150,000km",
       "severity": "MEDIUM",
       "description": "The variable geometry turbocharger actuator on the 2.8 GD-6 can fail or stick, causing power reduction or limp mode. Particularly common in dusty environments (Gauteng, North West).",
-      "what_to_inspect": "Test full throttle acceleration — any hesitation or flat spots indicate potential turbo actuator issues. Check for a limp mode history in service records.",
+      "what_to_inspect": "Test full throttle acceleration ,  any hesitation or flat spots indicate potential turbo actuator issues. Check for a limp mode history in service records.",
       "estimated_repair_zar": "R6,000 - R18,000",
       "source": "Toyota technical bulletins, SA Hilux owners community"
     },
@@ -57,10 +57,10 @@
     "Check the DPF warning light and request DPF cleaning history if the bakkie has done mostly city driving",
     "Inspect leaf springs for cracks or uneven ride height",
     "Confirm the GD-6 turbo is responsive under full acceleration",
-    "Check service history — Toyota stamp is important for warranty claims",
+    "Check service history ,  Toyota stamp is important for warranty claims",
     "Inspect underbody and chassis for rust (coastal vehicles and farm bakkies)",
-    "Test the 4WD system if applicable — engage high and low range",
-    "Check for any tow bar modification — wiring and structural integrity",
+    "Test the 4WD system if applicable ,  engage high and low range",
+    "Check for any tow bar modification ,  wiring and structural integrity",
     "Confirm the vehicle is not a former fleet or rental unit (high cycle use)"
   ],
   "owner_sentiment": "Overwhelmingly positive. Hilux owners are among the most loyal in the SA market. Farmers and contractors trust it with their livelihoods. Main complaints are the increasingly complex diesel electronics on GD-6 models compared to older 3.0 D-4D engines. Running costs remain reasonable. Long-distance reliability is excellent.",

@@ -1,9 +1,9 @@
-{
+﻿{
   "make": "Toyota",
   "model": "Fortuner",
   "variants": ["2.4 GD-6 4x2 AT", "2.4 GD-6 4x4 AT", "2.8 GD-6 4x4 AT", "2.8 GD-6 Legender 4x4", "4.0 V6 4x4 AT"],
   "years_covered": "2005-2024",
-  "sa_market_summary": "The Toyota Fortuner is the dominant seven-seat SUV in the South African market. Its body-on-frame Hilux underpinnings make it exceptionally durable and capable off-road while offering practical family transport. Depreciation is almost non-existent — a well-maintained Fortuner holds value better than almost any other used vehicle in SA. The 2.8 GD-6 variant is the sweet spot: diesel economy with genuine capability. Waitlists for new models consistently reach 6-12 months, making the used market a necessity.",
+  "sa_market_summary": "The Toyota Fortuner is the dominant seven-seat SUV in the South African market. Its body-on-frame Hilux underpinnings make it exceptionally durable and capable off-road while offering practical family transport. Depreciation is almost non-existent ,  a well-maintained Fortuner holds value better than almost any other used vehicle in SA. The 2.8 GD-6 variant is the sweet spot: diesel economy with genuine capability. Waitlists for new models consistently reach 6-12 months, making the used market a necessity.",
   "reliability_score": 8.8,
   "price_ranges": [
     { "year_from": 2022, "year_to": 2024, "low_zar": 680000, "mid_zar": 790000, "high_zar": 950000 },
@@ -18,7 +18,7 @@
       "mileage_range": "60,000km - 120,000km",
       "severity": "MEDIUM",
       "description": "As with the Hilux, the GD-6 diesel engine's DPF can clog when the vehicle is used predominantly for short urban trips. The Fortuner's heavier body makes full DPF regeneration harder in city conditions.",
-      "what_to_inspect": "Ask about primary usage — school runs and urban commuting are highest risk for DPF. Check DPF warning light history. A monthly highway run prevents DPF issues.",
+      "what_to_inspect": "Ask about primary usage ,  school runs and urban commuting are highest risk for DPF. Check DPF warning light history. A monthly highway run prevents DPF issues.",
       "estimated_repair_zar": "R4,000 - R15,000",
       "source": "Toyota SA dealer reports, Fortuner Owners Club SA"
     },
@@ -38,7 +38,7 @@
       "mileage_range": "Any mileage",
       "severity": "HIGH",
       "description": "The automatic gearbox on GD-6 Fortuners is robust but requires regular fluid changes. Many SA owners neglect this, leading to delayed gear changes and eventual gearbox failure.",
-      "what_to_inspect": "Check transmission fluid condition — dark or burnt-smelling fluid means neglect. Request gearbox service history. Insist on a fluid change before purchase if history is absent.",
+      "what_to_inspect": "Check transmission fluid condition ,  dark or burnt-smelling fluid means neglect. Request gearbox service history. Insist on a fluid change before purchase if history is absent.",
       "estimated_repair_zar": "R2,000 (fluid service) to R45,000 (full rebuild)",
       "source": "Toyota SA dealer network, SA gearbox specialist workshops"
     },
@@ -48,19 +48,19 @@
       "mileage_range": "80,000km - 120,000km",
       "severity": "LOW",
       "description": "The rear shock absorbers on heavily loaded Fortuners wear more quickly. Bouncy rear end or excessive body roll is a clear indicator.",
-      "what_to_inspect": "Push down on each corner of the car — it should bounce once and settle. Excessive bouncing means worn shocks. Inspect for oil leakage on the shock bodies.",
+      "what_to_inspect": "Push down on each corner of the car ,  it should bounce once and settle. Excessive bouncing means worn shocks. Inspect for oil leakage on the shock bodies.",
       "estimated_repair_zar": "R2,000 - R5,000 per shock (pair recommended)",
       "source": "SA suspension workshop reports, AutoTrader SA buyer guides"
     }
   ],
   "what_to_inspect_before_buying": [
-    "Check DPF status if used primarily in city — request diagnostic scan",
-    "Test all 4WD modes — high range, low range, diff lock if fitted",
+    "Check DPF status if used primarily in city ,  request diagnostic scan",
+    "Test all 4WD modes ,  high range, low range, diff lock if fitted",
     "Check automatic gearbox fluid condition and service history",
     "Listen for wheel bearing hum at highway speed",
     "Inspect all seven seats for wear and functionality",
-    "Check for rear suspension modifications (lift kits) — affects handling and warranty",
-    "Verify Toyota SA service stamps — critical for resale value",
+    "Check for rear suspension modifications (lift kits) ,  affects handling and warranty",
+    "Verify Toyota SA service stamps ,  critical for resale value",
     "Inspect roof rack and tow hitch modifications for structural quality"
   ],
   "owner_sentiment": "Extremely positive. Fortuner owners are among the proudest in the SA market. Families value the seven seats, reliability, and off-road capability. The main frustration is new car pricing and waitlists, which is why the used market is so active. Running costs for the 2.8 diesel are approximately R1.20-R1.50 per km.",

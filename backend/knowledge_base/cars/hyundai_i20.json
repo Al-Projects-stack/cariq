@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Hyundai",
   "model": "i20",
   "variants": ["1.2 Motion", "1.4 Fluid", "1.4 Fluid Auto", "1.4 Sport", "1.0 T-GDi Fluid", "1.0 T-GDi Active"],
@@ -37,7 +37,7 @@
       "mileage_range": "Any mileage",
       "severity": "LOW",
       "description": "Three-cylinder engines have an inherent vibration at idle. The i20 1.0 T-GDi exhibits more vibration than four-cylinder alternatives. This is a characteristic, not a defect, but can be disconcerting.",
-      "what_to_inspect": "Evaluate idle vibration levels personally and decide if it is acceptable. Check if engine mounts have been replaced — worn mounts worsen the vibration.",
+      "what_to_inspect": "Evaluate idle vibration levels personally and decide if it is acceptable. Check if engine mounts have been replaced ,  worn mounts worsen the vibration.",
       "estimated_repair_zar": "R1,500 - R3,000 (engine mount replacement)",
       "source": "SA owner reports, Cars.co.za i20 reviews"
     },
@@ -47,19 +47,19 @@
       "mileage_range": "80,000km+",
       "severity": "MEDIUM",
       "description": "AC compressor failure reported on higher mileage 2015-2017 i20 models. A clicking noise from the AC compressor when activated is the early warning sign.",
-      "what_to_inspect": "Test air conditioning performance — it should cool the cabin within 60 seconds on a hot day. Listen for any compressor rattle or clicking.",
+      "what_to_inspect": "Test air conditioning performance ,  it should cool the cabin within 60 seconds on a hot day. Listen for any compressor rattle or clicking.",
       "estimated_repair_zar": "R6,000 - R12,000",
       "source": "SA AC specialist workshops, Hyundai SA owner forums"
     }
   ],
   "what_to_inspect_before_buying": [
-    "Verify remaining Hyundai warranty coverage — 5-year/100,000km if still within limits",
+    "Verify remaining Hyundai warranty coverage ,  5-year/100,000km if still within limits",
     "Test air conditioning performance thoroughly",
     "Check infotainment for freezing and request software update history",
     "Inspect for rust on lower door edges and sills (particularly older 2015-2016 models)",
     "Test all electric windows and mirrors",
     "Request full Hyundai SA service history with dealer stamps",
-    "Check tyre condition and size — non-standard tyres void warranty claims"
+    "Check tyre condition and size ,  non-standard tyres void warranty claims"
   ],
   "owner_sentiment": "Positive. i20 owners appreciate the value proposition and low running costs. The 5-year warranty is a strong selling point for first-time buyers. Main concerns are the 1.0 T-GDi vibration and reliability of the infotainment on older models. Hyundai SA after-sales service is generally rated well.",
   "sources": ["Hyundai SA dealer network", "Cars.co.za i20 reviews", "AutoTrader SA", "SA Hyundai owners community", "WeBuyCars market data"]

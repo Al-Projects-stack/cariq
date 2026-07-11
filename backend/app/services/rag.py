@@ -23,7 +23,7 @@ _FAULT_KEYWORDS = re.compile(
 )
 
 _VERDICT_MAP = {
-    "GOOD DEAL": ("GOOD DEAL", "Great price — below SA market average"),
+    "GOOD DEAL": ("GOOD DEAL", "Great price, below SA market average"),
     "FAIR": ("FAIR", "Fair price for the SA market"),
     "ABOVE MARKET": ("ABOVE MARKET", "Priced above the SA market average"),
     "OVERPRICED": ("OVERPRICED", "Significantly overpriced for SA market"),
@@ -72,7 +72,7 @@ class RAGService:
             text = metadata.get("text", "")
             source = metadata.get("source", "")
 
-            header = f"[{make} {model} — {chunk_type}] (relevance: {score:.2f})"
+            header = f"[{make} {model}, {chunk_type}] (relevance: {score:.2f})"
             if source:
                 header += f" | Source: {source}"
             chunks.append(f"{header}\n{text}")

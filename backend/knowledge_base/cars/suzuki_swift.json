@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Suzuki",
   "model": "Swift",
   "variants": ["1.2 GL", "1.2 GL+", "1.2 GLX", "1.4 Sport", "1.2 GA (previous gen)"],
@@ -38,7 +38,7 @@
       "mileage_range": "80,000km - 100,000km",
       "severity": "MEDIUM",
       "description": "The ZC62 generation (2011-2017) is known for premature clutch wear, particularly in stop-start urban driving. Vehicles around 100,000km may require a new clutch.",
-      "what_to_inspect": "Test the clutch bite point — if very high, the clutch is worn. Check for slipping in higher gears under load.",
+      "what_to_inspect": "Test the clutch bite point ,  if very high, the clutch is worn. Check for slipping in higher gears under load.",
       "estimated_repair_zar": "R4,000 - R8,000",
       "source": "SA Suzuki specialist reports, AutoTrader SA buyer guides"
     },
@@ -54,13 +54,13 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Check for full Suzuki SA service history — skipped services can void the 5-year/200,000km warranty",
+    "Check for full Suzuki SA service history ,  skipped services can void the 5-year/200,000km warranty",
     "Inspect for rust on undercarriage and suspension, particularly coastal vehicles",
     "Verify 2024 model year CVT gearbox recall has been completed",
-    "Test clutch bite point on manual models — high bite indicates wear",
-    "Check all electricals — window switches, infotainment, air conditioning",
+    "Test clutch bite point on manual models ,  high bite indicates wear",
+    "Check all electricals ,  window switches, infotainment, air conditioning",
     "Request a diagnostic scan for stored fault codes",
-    "Inspect tyre condition and brand — good tyres indicate a careful owner",
+    "Inspect tyre condition and brand ,  good tyres indicate a careful owner",
     "Check the small 37-litre fuel tank is adequate for your driving range needs"
   ],
   "owner_sentiment": "Very positive. The Suzuki Swift is prized for exceptional fuel economy (real-world 4.5-5.5L/100km), low maintenance costs, and strong reliability. Owners value the standard safety features (six airbags on all trims) and the five-year warranty. The main criticisms are the small 37-litre fuel tank (frequent fill-ups), basic infotainment on GL models, and the lack of automated central locking on entry-level variants. The Swift Sport is loved by enthusiasts but considered pricey for its performance level.",

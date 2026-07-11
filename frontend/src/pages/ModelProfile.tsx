@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getModelProfile } from "../api";
 import type { CarProfile } from "../types";
@@ -49,7 +49,7 @@ export function ModelProfile() {
     return (
       <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center gap-4">
         <p className="text-red-400">{error || "Model not found"}</p>
-        <Link to="/" className="text-sm text-orange-500 hover:underline">← Back to CarIQ</Link>
+        <Link to="/" className="text-sm text-orange-500 hover:underline">â† Back to CarIQ</Link>
       </div>
     );
   }
@@ -104,7 +104,7 @@ export function ModelProfile() {
               <tbody>
                 {profile.price_ranges.map((pr, i) => (
                   <tr key={i} className="border-b border-gray-800/50 last:border-0">
-                    <td className="py-3 text-gray-300">{pr.year_from}–{pr.year_to}</td>
+                    <td className="py-3 text-gray-300">{pr.year_from}â€“{pr.year_to}</td>
                     <td className="py-3 text-right text-green-400">{formatZAR(pr.low_zar)}</td>
                     <td className="py-3 text-right text-blue-400 font-semibold">{formatZAR(pr.mid_zar)}</td>
                     <td className="py-3 text-right text-gray-400">{formatZAR(pr.high_zar)}</td>
@@ -151,7 +151,7 @@ export function ModelProfile() {
         </div>
 
         <div className="mb-8 rounded-xl border border-gray-800 bg-gray-900 p-6">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gray-500">Before You Buy — Checklist</h2>
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gray-500">Before You Buy ,  Checklist</h2>
           <ul className="space-y-2">
             {profile.what_to_inspect_before_buying.map((item, i) => (
               <li key={i} className="flex items-start gap-3 text-sm text-gray-300">

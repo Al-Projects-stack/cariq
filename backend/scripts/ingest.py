@@ -42,7 +42,7 @@ def chunk_car_file(car: dict) -> list[dict]:
 
     # --- Market summary + owner sentiment chunk ---
     summary_text = (
-        f"{make} {model} — SA Market Summary\n"
+        f"{make} {model}, SA Market Summary\n"
         f"{car.get('sa_market_summary', '')}\n\n"
         f"Reliability score: {car.get('reliability_score', 'N/A')}/10\n"
         f"Years covered: {car.get('years_covered', '')}\n"
@@ -60,7 +60,7 @@ def chunk_car_file(car: dict) -> list[dict]:
     # --- Price range chunks ---
     for pr in car.get("price_ranges", []):
         price_text = (
-            f"{make} {model} — Price Range {pr['year_from']}-{pr['year_to']}\n"
+            f"{make} {model}, Price Range {pr['year_from']}-{pr['year_to']}\n"
             f"Low: R{pr['low_zar']:,} | Mid: R{pr['mid_zar']:,} | High: R{pr['high_zar']:,}\n"
             f"These are typical used car prices for this model in the South African market."
         )
@@ -80,7 +80,7 @@ def chunk_car_file(car: dict) -> list[dict]:
     # --- Known fault chunks ---
     for fault in car.get("known_faults", []):
         fault_text = (
-            f"{make} {model} — Known Fault: {fault['fault']}\n"
+            f"{make} {model}, Known Fault: {fault['fault']}\n"
             f"Affects variants: {', '.join(fault.get('affects_variants', []))}\n"
             f"Mileage range: {fault['mileage_range']}\n"
             f"Severity: {fault['severity']}\n"
@@ -105,7 +105,7 @@ def chunk_car_file(car: dict) -> list[dict]:
     inspect_items = car.get("what_to_inspect_before_buying", [])
     if inspect_items:
         inspect_text = (
-            f"{make} {model} — What to Inspect Before Buying\n"
+            f"{make} {model} ,  What to Inspect Before Buying\n"
             + "\n".join(f"- {item}" for item in inspect_items)
         )
         chunks.append({

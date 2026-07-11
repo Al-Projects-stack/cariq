@@ -1,4 +1,4 @@
-{
+﻿{
   "make": "Hyundai",
   "model": "ix35",
   "variants": ["1.6 GDi", "2.0 GLS", "2.0 Executive", "2.0 Executive 4WD", "2.0 CRDi", "2.0 CRDi 4WD"],
@@ -63,13 +63,13 @@
     }
   ],
   "what_to_inspect_before_buying": [
-    "Cold-start the engine and listen for timing chain rattle — walk away if present without documented repair history",
+    "Cold-start the engine and listen for timing chain rattle ,  walk away if present without documented repair history",
     "Inspect all wheel arches and lower sills for rust, especially on 2010-2013 models",
     "Test power steering at full lock in both directions for whining or groaning",
-    "Test air conditioning performance thoroughly — compressor replacement is expensive",
+    "Test air conditioning performance thoroughly ,  compressor replacement is expensive",
     "For diesel variants, request a diagnostic scan and check for DPF-related fault codes",
     "Verify service history with oil changes every 10,000km using correct synthetic oil",
-    "Check 4WD engagement on AWD models — engage and disengage while moving slowly in a safe area",
+    "Check 4WD engagement on AWD models ,  engage and disengage while moving slowly in a safe area",
     "Inspect underside for oil leaks and check gearbox for smooth shifting",
     "Test all electric windows, mirrors, and central locking"
   ],
