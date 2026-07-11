@@ -23,3 +23,10 @@
 
 ### Favicon
 - Fixed loading screen path from `/favicon.ico` to `/favicon.svg` (file is SVG, not ICO)
+
+## Next up — Add 9 new car models to knowledge base
+- Research SA market data, prices, known faults, owner sentiment for 9 models
+- Create JSON files in `backend/knowledge_base/cars/` following the existing format
+- Run `python scripts/ingest.py` to embed and upsert to Pinecone
+- Update model count in Home.tsx hero badge and footer
+- Frontend deploy will auto-build on Render after push
