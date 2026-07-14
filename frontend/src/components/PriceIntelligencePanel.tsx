@@ -30,7 +30,7 @@ export function PriceIntelligencePanel({ data }: Props) {
       </h3>
 
       <p className="mb-4 text-xs text-gray-500">
-        {year ? `${year} ` : ""}{model} Â· SA Market
+        {year ? `${year} ` : ""}{model} · SA Market
       </p>
 
       <div className="mb-5 flex items-center justify-between text-xs text-gray-400">

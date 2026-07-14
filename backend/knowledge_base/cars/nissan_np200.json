@@ -1,122 +1,122 @@
-{
-  "make": "Nissan",
-  "model": "NP200",
-  "variants": [
-    "1.6 8V Base",
-    "1.6 8V Base + Safety",
-    "1.6 8V Base A/C + Safety Pack",
-    "1.5 dCi"
-  ],
-  "years_covered": "2009-2026",
-  "sa_market_summary": "The Nissan NP200 is South Africa's most affordable half-ton bakkie, filling the budget end of the pickup market below the Ford Ranger and Toyota Hilux. It offers the biggest payload in its segment at 800kg and the largest load box volume at 1.26mÂ³. Powered by a simple 1.6-litre 8-valve petrol engine (65kW/147Nm) or a 1.5 dCi diesel, it prioritises reliability and low running costs over sophistication. The NP200 is the successor to the legendary Nissan 1400 and remains a favourite for small businesses, delivery fleets, and tradesmen. Parts are cheap and widely available across South Africa.",
-  "reliability_score": 7.0,
-  "segment": "bakkie",
-  "price_ranges": [
-    {
-      "year_from": 2021,
-      "year_to": 2024,
-      "low_zar": 160000,
-      "mid_zar": 200000,
-      "high_zar": 260000
-    },
-    {
-      "year_from": 2016,
-      "year_to": 2020,
-      "low_zar": 100000,
-      "mid_zar": 140000,
-      "high_zar": 180000
-    },
-    {
-      "year_from": 2012,
-      "year_to": 2015,
-      "low_zar": 65000,
-      "mid_zar": 90000,
-      "high_zar": 120000
-    },
-    {
-      "year_from": 2009,
-      "year_to": 2011,
-      "low_zar": 40000,
-      "mid_zar": 60000,
-      "high_zar": 85000
-    }
-  ],
-  "known_faults": [
-    {
-      "fault": "Steering rack wear and play",
-      "affects_variants": [
-        "1.6 8V Base",
-        "1.6 8V Base + Safety",
-        "1.6 8V Base A/C + Safety Pack"
-      ],
-      "mileage_range": "80,000km - 130,000km",
-      "severity": "MEDIUM",
-      "description": "The steering rack develops play and knocking over time, particularly on vehicles used for heavy loads or on poor roads. Can cause vague steering and uneven tyre wear.",
-      "what_to_inspect": "Test for steering play by rocking the wheel at rest. Listen for clunks when turning at low speed. Check for uneven front tyre wear.",
-      "estimated_repair_zar": "R3,000 - R8,000",
-      "source": "SA Nissan specialist workshops, NP200 owner forums"
-    },
-    {
-      "fault": "Fuel pump failure",
-      "affects_variants": [
-        "1.6 8V Base",
-        "1.6 8V Base + Safety",
-        "1.6 8V Base A/C + Safety Pack"
-      ],
-      "mileage_range": "80,000km - 120,000km",
-      "severity": "MEDIUM",
-      "description": "The electric fuel pump can fail intermittently, causing hard starting or stalling. Particularly common in hot weather conditions.",
-      "what_to_inspect": "Ask about any starting difficulties or stalling incidents. Check that the engine starts readily when cold and hot.",
-      "estimated_repair_zar": "R2,500 - R5,000",
-      "source": "SA Nissan specialist data, owner community reports"
-    },
-    {
-      "fault": "Timing belt failure risk (1.6 petrol)",
-      "affects_variants": [
-        "1.6 8V Base",
-        "1.6 8V Base + Safety",
-        "1.6 8V Base A/C + Safety Pack"
-      ],
-      "mileage_range": "80,000km - 100,000km",
-      "severity": "HIGH",
-      "description": "The 1.6-litre petrol engine uses a timing belt that must be replaced every 80,000-100,000km. Failure to replace it results in catastrophic engine damage as it is an interference engine.",
-      "what_to_inspect": "Verify timing belt replacement history with receipts. If over 80,000km with no record, budget for immediate replacement.",
-      "estimated_repair_zar": "R4,000 - R7,000 (belt replacement); R15,000 - R25,000 (engine rebuild if belt fails)",
-      "source": "Nissan SA service schedules, SA independent workshop data"
-    },
-    {
-      "fault": "Suspension bushing and ball joint wear",
-      "affects_variants": [
-        "1.6 8V Base",
-        "1.6 8V Base + Safety",
-        "1.6 8V Base A/C + Safety Pack"
-      ],
-      "mileage_range": "60,000km - 100,000km",
-      "severity": "MEDIUM",
-      "description": "The NP200's suspension components wear faster than expected due to the vehicle's load-carrying nature and poor SA road conditions. Lower control arm bushes and ball joints are common failure points.",
-      "what_to_inspect": "Listen for clunking from front suspension over bumps. Check for uneven tyre wear. Test for excessive play in the front wheels when jacked up.",
-      "estimated_repair_zar": "R2,000 - R6,000 per side",
-      "source": "SA suspension specialist reports, NP200 owner forums"
-    }
-  ],
-  "what_to_inspect_before_buying": [
-    "Verify timing belt replacement ,  critical, must be done every 80,000-100,000km",
-    "Check steering for play and knocking at the rack",
-    "Test for starting issues ,  fuel pump failure is common on higher-mileage examples",
-    "Inspect load box for rust and damage (rubberised surface is standard)",
-    "Check suspension components for wear ,  clunks indicate worn bushes",
-    "Verify service history ,  NP200s that missed services are high-risk",
-    "Inspect underbody for rust, particularly coastal vehicles",
-    "Check that the 300-litre rear storage compartment is dry and secure",
-    "Test all electrics including air conditioning, windows and central locking"
-  ],
-  "owner_sentiment": "Generally positive for its purpose. Owners appreciate the NP200's genuine workhorse capability, low purchase price, and cheap parts. The 800kg payload is class-leading. Main complaints include the underpowered 1.6 engine (particularly when loaded on highways), basic safety specification, and the cheap interior materials that wear quickly. The diesel 1.5 dCi is more economical but has its own set of common-rail injector issues. Resale value is reasonable for a budget bakkie.",
-  "sources": [
-    "Nissan SA dealer network",
-    "AutoTrader SA",
-    "Cars.co.za",
-    "SA NP200 owner community",
-    "EngineFinder SA",
-    "WeBuyCars price data"
-  ]
-}
+{
+  "make": "Nissan",
+  "model": "NP200",
+  "variants": [
+    "1.6 8V Base",
+    "1.6 8V Base + Safety",
+    "1.6 8V Base A/C + Safety Pack",
+    "1.5 dCi"
+  ],
+  "years_covered": "2009-2026",
+  "sa_market_summary": "The Nissan NP200 is South Africa's most affordable half-ton bakkie, filling the budget end of the pickup market below the Ford Ranger and Toyota Hilux. It offers the biggest payload in its segment at 800kg and the largest load box volume at 1.26m³. Powered by a simple 1.6-litre 8-valve petrol engine (65kW/147Nm) or a 1.5 dCi diesel, it prioritises reliability and low running costs over sophistication. The NP200 is the successor to the legendary Nissan 1400 and remains a favourite for small businesses, delivery fleets, and tradesmen. Parts are cheap and widely available across South Africa.",
+  "reliability_score": 7.0,
+  "segment": "bakkie",
+  "price_ranges": [
+    {
+      "year_from": 2021,
+      "year_to": 2024,
+      "low_zar": 160000,
+      "mid_zar": 200000,
+      "high_zar": 260000
+    },
+    {
+      "year_from": 2016,
+      "year_to": 2020,
+      "low_zar": 100000,
+      "mid_zar": 140000,
+      "high_zar": 180000
+    },
+    {
+      "year_from": 2012,
+      "year_to": 2015,
+      "low_zar": 65000,
+      "mid_zar": 90000,
+      "high_zar": 120000
+    },
+    {
+      "year_from": 2009,
+      "year_to": 2011,
+      "low_zar": 40000,
+      "mid_zar": 60000,
+      "high_zar": 85000
+    }
+  ],
+  "known_faults": [
+    {
+      "fault": "Steering rack wear and play",
+      "affects_variants": [
+        "1.6 8V Base",
+        "1.6 8V Base + Safety",
+        "1.6 8V Base A/C + Safety Pack"
+      ],
+      "mileage_range": "80,000km - 130,000km",
+      "severity": "MEDIUM",
+      "description": "The steering rack develops play and knocking over time, particularly on vehicles used for heavy loads or on poor roads. Can cause vague steering and uneven tyre wear.",
+      "what_to_inspect": "Test for steering play by rocking the wheel at rest. Listen for clunks when turning at low speed. Check for uneven front tyre wear.",
+      "estimated_repair_zar": "R3,000 - R8,000",
+      "source": "SA Nissan specialist workshops, NP200 owner forums"
+    },
+    {
+      "fault": "Fuel pump failure",
+      "affects_variants": [
+        "1.6 8V Base",
+        "1.6 8V Base + Safety",
+        "1.6 8V Base A/C + Safety Pack"
+      ],
+      "mileage_range": "80,000km - 120,000km",
+      "severity": "MEDIUM",
+      "description": "The electric fuel pump can fail intermittently, causing hard starting or stalling. Particularly common in hot weather conditions.",
+      "what_to_inspect": "Ask about any starting difficulties or stalling incidents. Check that the engine starts readily when cold and hot.",
+      "estimated_repair_zar": "R2,500 - R5,000",
+      "source": "SA Nissan specialist data, owner community reports"
+    },
+    {
+      "fault": "Timing belt failure risk (1.6 petrol)",
+      "affects_variants": [
+        "1.6 8V Base",
+        "1.6 8V Base + Safety",
+        "1.6 8V Base A/C + Safety Pack"
+      ],
+      "mileage_range": "80,000km - 100,000km",
+      "severity": "HIGH",
+      "description": "The 1.6-litre petrol engine uses a timing belt that must be replaced every 80,000-100,000km. Failure to replace it results in catastrophic engine damage as it is an interference engine.",
+      "what_to_inspect": "Verify timing belt replacement history with receipts. If over 80,000km with no record, budget for immediate replacement.",
+      "estimated_repair_zar": "R4,000 - R7,000 (belt replacement); R15,000 - R25,000 (engine rebuild if belt fails)",
+      "source": "Nissan SA service schedules, SA independent workshop data"
+    },
+    {
+      "fault": "Suspension bushing and ball joint wear",
+      "affects_variants": [
+        "1.6 8V Base",
+        "1.6 8V Base + Safety",
+        "1.6 8V Base A/C + Safety Pack"
+      ],
+      "mileage_range": "60,000km - 100,000km",
+      "severity": "MEDIUM",
+      "description": "The NP200's suspension components wear faster than expected due to the vehicle's load-carrying nature and poor SA road conditions. Lower control arm bushes and ball joints are common failure points.",
+      "what_to_inspect": "Listen for clunking from front suspension over bumps. Check for uneven tyre wear. Test for excessive play in the front wheels when jacked up.",
+      "estimated_repair_zar": "R2,000 - R6,000 per side",
+      "source": "SA suspension specialist reports, NP200 owner forums"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Verify timing belt replacement ,  critical, must be done every 80,000-100,000km",
+    "Check steering for play and knocking at the rack",
+    "Test for starting issues ,  fuel pump failure is common on higher-mileage examples",
+    "Inspect load box for rust and damage (rubberised surface is standard)",
+    "Check suspension components for wear ,  clunks indicate worn bushes",
+    "Verify service history ,  NP200s that missed services are high-risk",
+    "Inspect underbody for rust, particularly coastal vehicles",
+    "Check that the 300-litre rear storage compartment is dry and secure",
+    "Test all electrics including air conditioning, windows and central locking"
+  ],
+  "owner_sentiment": "Generally positive for its purpose. Owners appreciate the NP200's genuine workhorse capability, low purchase price, and cheap parts. The 800kg payload is class-leading. Main complaints include the underpowered 1.6 engine (particularly when loaded on highways), basic safety specification, and the cheap interior materials that wear quickly. The diesel 1.5 dCi is more economical but has its own set of common-rail injector issues. Resale value is reasonable for a budget bakkie.",
+  "sources": [
+    "Nissan SA dealer network",
+    "AutoTrader SA",
+    "Cars.co.za",
+    "SA NP200 owner community",
+    "EngineFinder SA",
+    "WeBuyCars price data"
+  ]
+}
