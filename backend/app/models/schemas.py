@@ -107,3 +107,49 @@ class HealthResponse(BaseModel):
     pinecone: str
     claude: str
     database: str
+
+
+class CompareRequest(BaseModel):
+    model_config = {"protected_namespaces": ()}
+    make_a: str
+    model_a: str
+    make_b: str
+    model_b: str
+
+
+class PriceComparison(BaseModel):
+    a_mid_zar: int
+    a_low_zar: int
+    a_high_zar: int
+    b_mid_zar: int
+    b_low_zar: int
+    b_high_zar: int
+    price_leader: str
+    price_gap_zar: int
+
+
+class ReliabilityComparison(BaseModel):
+    a_score: float
+    b_score: float
+    winner: str
+    gap: float
+
+
+class FaultsComparison(BaseModel):
+    a_total: int
+    a_high: int
+    a_medium: int
+    a_low: int
+    b_total: int
+    b_high: int
+    b_medium: int
+    b_low: int
+
+
+class CompareResponse(BaseModel):
+    model_config = {"protected_namespaces": ()}
+    model_a: CarProfile
+    model_b: CarProfile
+    reliability: ReliabilityComparison
+    price: PriceComparison
+    faults: FaultsComparison

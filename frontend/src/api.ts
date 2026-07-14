@@ -1,4 +1,4 @@
-import type { QueryResponse, CarVariant, CarProfile } from "./types";
+import type { QueryResponse, CarVariant, CarProfile, CompareResponse } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -32,4 +32,16 @@ export async function getModelProfile(make: string, model: string): Promise<CarP
   const encodedMake = encodeURIComponent(make);
   const encodedModel = encodeURIComponent(model.replace(/ /g, "_"));
   return fetchJson<CarProfile>(`/api/v1/models/${encodedMake}/${encodedModel}`);
+}
+
+export async function compareModels(
+  makeA: string,
+  modelA: string,
+  makeB: string,
+  modelB: string
+): Promise<CompareResponse> {
+  return fetchJson<CompareResponse>("/api/v1/compare", {
+    method: "POST",
+    body: JSON.stringify({ make_a: makeA, model_a: modelA, make_b: makeB, model_b: modelB }),
+  });
 }

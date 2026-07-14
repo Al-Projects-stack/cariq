@@ -68,3 +68,40 @@ export interface CarProfile {
   owner_sentiment: string;
   sources: string[];
 }
+
+export interface PriceComparison {
+  a_mid_zar: number;
+  a_low_zar: number;
+  a_high_zar: number;
+  b_mid_zar: number;
+  b_low_zar: number;
+  b_high_zar: number;
+  price_leader: string;
+  price_gap_zar: number;
+}
+
+export interface ReliabilityComparison {
+  a_score: number;
+  b_score: number;
+  winner: string;
+  gap: number;
+}
+
+export interface FaultsComparison {
+  a_total: number;
+  a_high: number;
+  a_medium: number;
+  a_low: number;
+  b_total: number;
+  b_high: number;
+  b_medium: number;
+  b_low: number;
+}
+
+export interface CompareResponse {
+  model_a: CarProfile;
+  model_b: CarProfile;
+  reliability: ReliabilityComparison;
+  price: PriceComparison;
+  faults: FaultsComparison;
+}
