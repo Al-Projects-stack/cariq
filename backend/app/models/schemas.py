@@ -153,3 +153,25 @@ class CompareResponse(BaseModel):
     reliability: ReliabilityComparison
     price: PriceComparison
     faults: FaultsComparison
+
+
+class SegmentModelPrice(BaseModel):
+    make: str
+    model: str
+    mid_zar: int
+    reliability_score: float
+
+
+class MarketPositionResponse(BaseModel):
+    segment: str
+    segment_label: str
+    target_mid_zar: int
+    segment_avg_mid_zar: float
+    segment_low_mid_zar: int
+    segment_high_mid_zar: int
+    segment_count: int
+    price_ranking: str
+    price_percentile: float
+    position_label: str
+    value_label: str
+    peers: list[SegmentModelPrice]

@@ -1,20 +1,57 @@
 {
   "make": "BMW",
   "model": "3 Series",
-  "variants": ["316i", "318i", "320i", "320d", "328i", "330i", "335i", "M3"],
+  "variants": [
+    "316i",
+    "318i",
+    "320i",
+    "320d",
+    "328i",
+    "330i",
+    "335i",
+    "M3"
+  ],
   "years_covered": "2012-2022",
   "sa_market_summary": "The BMW 3 Series (F30 2012-2018, G20 2019+) is the quintessential used premium sedan in South Africa. The F30 generation is the most commonly traded used BMW on platforms like AutoTrader and Cars.co.za. It offers genuine German engineering at a used price point that many South Africans find accessible. However, ownership costs can be significantly higher than Japanese alternatives ,  servicing, parts, and tyres all command a premium. Buyer must budget properly. Best bought from a BMW dealer with a certified pre-owned warranty.",
   "reliability_score": 6.5,
+  "segment": "premium_hatchback",
   "price_ranges": [
-    { "year_from": 2020, "year_to": 2022, "low_zar": 420000, "mid_zar": 520000, "high_zar": 680000 },
-    { "year_from": 2017, "year_to": 2019, "low_zar": 280000, "mid_zar": 360000, "high_zar": 460000 },
-    { "year_from": 2014, "year_to": 2016, "low_zar": 180000, "mid_zar": 240000, "high_zar": 310000 },
-    { "year_from": 2012, "year_to": 2013, "low_zar": 130000, "mid_zar": 170000, "high_zar": 220000 }
+    {
+      "year_from": 2020,
+      "year_to": 2022,
+      "low_zar": 420000,
+      "mid_zar": 520000,
+      "high_zar": 680000
+    },
+    {
+      "year_from": 2017,
+      "year_to": 2019,
+      "low_zar": 280000,
+      "mid_zar": 360000,
+      "high_zar": 460000
+    },
+    {
+      "year_from": 2014,
+      "year_to": 2016,
+      "low_zar": 180000,
+      "mid_zar": 240000,
+      "high_zar": 310000
+    },
+    {
+      "year_from": 2012,
+      "year_to": 2013,
+      "low_zar": 130000,
+      "mid_zar": 170000,
+      "high_zar": 220000
+    }
   ],
   "known_faults": [
     {
       "fault": "Timing chain and tensioner failure (N20 engine)",
-      "affects_variants": ["320i", "328i"],
+      "affects_variants": [
+        "320i",
+        "328i"
+      ],
       "mileage_range": "80,000km - 120,000km",
       "severity": "HIGH",
       "description": "The N20 4-cylinder engine (320i, 328i F30) has a well-documented timing chain tensioner problem. A stretched chain causes rattling on cold start and can ultimately lead to catastrophic engine failure. This is the single biggest mechanical risk on F30 3 Series in SA.",
@@ -24,7 +61,11 @@
     },
     {
       "fault": "Electric water pump failure (N20/N26)",
-      "affects_variants": ["320i", "328i", "316i"],
+      "affects_variants": [
+        "320i",
+        "328i",
+        "316i"
+      ],
       "mileage_range": "60,000km - 100,000km",
       "severity": "HIGH",
       "description": "BMW's electric water pump on N-series engines fails regularly and can cause sudden overheating. Unlike a belt-driven pump, there is no visual warning before failure ,  the car simply overheats. Engine damage follows rapidly if not caught immediately.",
@@ -34,7 +75,9 @@
     },
     {
       "fault": "High pressure fuel pump failure (N54/N55)",
-      "affects_variants": ["335i"],
+      "affects_variants": [
+        "335i"
+      ],
       "mileage_range": "60,000km - 100,000km",
       "severity": "HIGH",
       "description": "The twin-turbocharged N54 and N55 engines are known for high-pressure fuel pump (HPFP) failures. Symptoms include rough running, difficulty starting, and engine misfires.",
@@ -44,7 +87,12 @@
     },
     {
       "fault": "Valve cover gasket oil leak",
-      "affects_variants": ["320i", "328i", "316i", "318i"],
+      "affects_variants": [
+        "320i",
+        "328i",
+        "316i",
+        "318i"
+      ],
       "mileage_range": "60,000km+",
       "severity": "MEDIUM",
       "description": "The valve cover gasket on N-series engines is a known seeping point at higher mileage. Oil mist around the valve cover and a slight burning smell after driving are common symptoms.",
@@ -54,7 +102,11 @@
     },
     {
       "fault": "Iridium spark plug wear (turbocharged engines)",
-      "affects_variants": ["328i", "335i", "320i"],
+      "affects_variants": [
+        "328i",
+        "335i",
+        "320i"
+      ],
       "mileage_range": "60,000km - 80,000km",
       "severity": "LOW",
       "description": "BMW's iridium spark plugs should be replaced every 60,000km but are often neglected. Old plugs cause misfires, rough idle, and reduced performance particularly noticeable on cold mornings.",
@@ -64,7 +116,12 @@
     },
     {
       "fault": "Sunroof drain blockage causing water ingress",
-      "affects_variants": ["320i", "328i", "330i", "335i"],
+      "affects_variants": [
+        "320i",
+        "328i",
+        "330i",
+        "335i"
+      ],
       "mileage_range": "Any mileage",
       "severity": "MEDIUM",
       "description": "Blocked sunroof drains cause water to collect under the headliner and leak into the footwells. Can cause mould, electrical faults, and ECU damage if severe.",
@@ -85,5 +142,12 @@
     "Confirm the car has not been mapped or modified ,  increases mechanical risk"
   ],
   "owner_sentiment": "Mixed. F30 3 Series owners love the driving dynamics and prestige but consistently report higher-than-expected ownership costs. Common complaint: servicing at BMW SA dealers is expensive (R4,000-R8,000 per service). Many move to independent BMW specialists after warranty. The 320d diesel is preferred for long-distance SA driving due to fuel economy.",
-  "sources": ["BMW SA dealer network", "MyBroadband BMW forum", "Cars.co.za BMW listings", "AutoTrader SA", "SA BMW specialist workshops", "WeBuyCars price data"]
+  "sources": [
+    "BMW SA dealer network",
+    "MyBroadband BMW forum",
+    "Cars.co.za BMW listings",
+    "AutoTrader SA",
+    "SA BMW specialist workshops",
+    "WeBuyCars price data"
+  ]
 }

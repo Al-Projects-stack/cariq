@@ -1,19 +1,49 @@
 {
   "make": "Hyundai",
   "model": "ix35",
-  "variants": ["1.6 GDi", "2.0 GLS", "2.0 Executive", "2.0 Executive 4WD", "2.0 CRDi", "2.0 CRDi 4WD"],
+  "variants": [
+    "1.6 GDi",
+    "2.0 GLS",
+    "2.0 Executive",
+    "2.0 Executive 4WD",
+    "2.0 CRDi",
+    "2.0 CRDi 4WD"
+  ],
   "years_covered": "2010-2017",
   "sa_market_summary": "The Hyundai ix35 was one of the most popular compact SUVs in South Africa during its run, offering strong value versus competitors like the Nissan Qashqai and Ford Kuga. Sold here from 2010 until it was replaced by the Tucson in 2016/2017, the ix35 built a large used-car footprint. It comes in both 2WD and AWD configurations, with petrol and diesel engine options. Hyundai's 5-year/100,000km warranty covered new units, and some early second-owner examples may still carry residual coverage. Parts availability from Hyundai dealers and independent suppliers is good, though diesel components carry higher repair costs.",
   "reliability_score": 7.0,
+  "segment": "compact_suv",
   "price_ranges": [
-    { "year_from": 2015, "year_to": 2017, "low_zar": 120000, "mid_zar": 160000, "high_zar": 200000 },
-    { "year_from": 2012, "year_to": 2014, "low_zar": 80000, "mid_zar": 110000, "high_zar": 145000 },
-    { "year_from": 2010, "year_to": 2011, "low_zar": 55000, "mid_zar": 75000, "high_zar": 100000 }
+    {
+      "year_from": 2015,
+      "year_to": 2017,
+      "low_zar": 120000,
+      "mid_zar": 160000,
+      "high_zar": 200000
+    },
+    {
+      "year_from": 2012,
+      "year_to": 2014,
+      "low_zar": 80000,
+      "mid_zar": 110000,
+      "high_zar": 145000
+    },
+    {
+      "year_from": 2010,
+      "year_to": 2011,
+      "low_zar": 55000,
+      "mid_zar": 75000,
+      "high_zar": 100000
+    }
   ],
   "known_faults": [
     {
       "fault": "Timing chain rattle (2.0 GDi petrol engine)",
-      "affects_variants": ["2.0 GLS", "2.0 Executive", "2.0 Executive 4WD"],
+      "affects_variants": [
+        "2.0 GLS",
+        "2.0 Executive",
+        "2.0 Executive 4WD"
+      ],
       "mileage_range": "80,000km - 130,000km",
       "severity": "HIGH",
       "description": "The 2.0-litre GDi petrol engine is known for timing chain stretch and tensioner wear. A cold-start rattle that clears after a few seconds is the primary warning sign. Left unattended, a failed timing chain causes catastrophic engine damage.",
@@ -23,7 +53,14 @@
     },
     {
       "fault": "Rear wheel arch and sill rust",
-      "affects_variants": ["1.6 GDi", "2.0 GLS", "2.0 Executive", "2.0 Executive 4WD", "2.0 CRDi", "2.0 CRDi 4WD"],
+      "affects_variants": [
+        "1.6 GDi",
+        "2.0 GLS",
+        "2.0 Executive",
+        "2.0 Executive 4WD",
+        "2.0 CRDi",
+        "2.0 CRDi 4WD"
+      ],
       "mileage_range": "Any mileage, age-related (especially 2010-2013 models)",
       "severity": "MEDIUM",
       "description": "Older ix35 units, particularly those in coastal or high-rainfall areas, develop rust along the rear wheel arches and lower sills. Surface rust can progress to structural rust if left untreated.",
@@ -33,7 +70,11 @@
     },
     {
       "fault": "Power steering pump whine and failure",
-      "affects_variants": ["2.0 GLS", "2.0 Executive", "2.0 CRDi"],
+      "affects_variants": [
+        "2.0 GLS",
+        "2.0 Executive",
+        "2.0 CRDi"
+      ],
       "mileage_range": "90,000km+",
       "severity": "MEDIUM",
       "description": "Hydraulic power steering pump wear presents as a high-pitched whine at full steering lock. Pump failure results in heavy steering. Fluid leaks from the pump or hose connections are common on high-mileage examples.",
@@ -43,7 +84,12 @@
     },
     {
       "fault": "Air conditioning compressor failure",
-      "affects_variants": ["1.6 GDi", "2.0 GLS", "2.0 Executive", "2.0 Executive 4WD"],
+      "affects_variants": [
+        "1.6 GDi",
+        "2.0 GLS",
+        "2.0 Executive",
+        "2.0 Executive 4WD"
+      ],
       "mileage_range": "80,000km+",
       "severity": "MEDIUM",
       "description": "AC compressor failure is reported on higher mileage ix35 units. A rattling or grinding noise when the AC is switched on indicates compressor bearing wear. Complete failure leaves the cabin without cooling.",
@@ -53,7 +99,10 @@
     },
     {
       "fault": "Diesel particulate filter (DPF) blockage",
-      "affects_variants": ["2.0 CRDi", "2.0 CRDi 4WD"],
+      "affects_variants": [
+        "2.0 CRDi",
+        "2.0 CRDi 4WD"
+      ],
       "mileage_range": "60,000km+",
       "severity": "MEDIUM",
       "description": "The 2.0 CRDi diesel variants are fitted with a DPF that requires regular motorway-speed driving to self-regenerate. Units used predominantly for short urban trips develop blocked DPFs, triggering a dashboard warning and reduced power.",
@@ -74,5 +123,12 @@
     "Test all electric windows, mirrors, and central locking"
   ],
   "owner_sentiment": "Mixed to positive. ix35 owners appreciate the spacious interior, comfortable ride, and strong value for money at the used price point. The main concerns are the timing chain issue on petrol models and rust on older units. Diesel owners generally report good experiences if the vehicle has been used on longer runs. Hyundai SA parts and service support is adequate, though repair costs on the diesel can be high.",
-  "sources": ["Hyundai SA dealer network", "Cars.co.za ix35 reviews", "AutoTrader SA", "WeBuyCars market data", "SA Hyundai owners community", "Hyundai SA technical service bulletins"]
+  "sources": [
+    "Hyundai SA dealer network",
+    "Cars.co.za ix35 reviews",
+    "AutoTrader SA",
+    "WeBuyCars market data",
+    "SA Hyundai owners community",
+    "Hyundai SA technical service bulletins"
+  ]
 }

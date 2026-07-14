@@ -1,19 +1,49 @@
 {
   "make": "Volkswagen",
   "model": "Golf",
-  "variants": ["Golf 7 1.4 TSI Comfortline", "Golf 7 1.4 TSI Highline", "Golf 7 GTD 2.0 TDI", "Golf 7 GTI 2.0 TSI", "Golf 7 R 2.0 TSI 4Motion", "Golf 7.5 1.0 TSI"],
+  "variants": [
+    "Golf 7 1.4 TSI Comfortline",
+    "Golf 7 1.4 TSI Highline",
+    "Golf 7 GTD 2.0 TDI",
+    "Golf 7 GTI 2.0 TSI",
+    "Golf 7 R 2.0 TSI 4Motion",
+    "Golf 7.5 1.0 TSI"
+  ],
   "years_covered": "2013-2022",
   "sa_market_summary": "The Golf 7 (2013-2020) and Golf 7.5 facelift (2018-2022) are among the most sought-after used hatchbacks in South Africa. Excellent build quality relative to competitors and strong brand prestige. GTI models hold value exceptionally well. Widely available and well-supported by VW dealers and independent specialists nationwide. A safe, intelligent purchase for the used car buyer who wants European refinement without supercar running costs.",
   "reliability_score": 7.8,
+  "segment": "premium_hatchback",
   "price_ranges": [
-    { "year_from": 2020, "year_to": 2022, "low_zar": 310000, "mid_zar": 380000, "high_zar": 460000 },
-    { "year_from": 2017, "year_to": 2019, "low_zar": 230000, "mid_zar": 280000, "high_zar": 340000 },
-    { "year_from": 2014, "year_to": 2016, "low_zar": 160000, "mid_zar": 200000, "high_zar": 250000 }
+    {
+      "year_from": 2020,
+      "year_to": 2022,
+      "low_zar": 310000,
+      "mid_zar": 380000,
+      "high_zar": 460000
+    },
+    {
+      "year_from": 2017,
+      "year_to": 2019,
+      "low_zar": 230000,
+      "mid_zar": 280000,
+      "high_zar": 340000
+    },
+    {
+      "year_from": 2014,
+      "year_to": 2016,
+      "low_zar": 160000,
+      "mid_zar": 200000,
+      "high_zar": 250000
+    }
   ],
   "known_faults": [
     {
       "fault": "DSG7 mechatronic unit failure",
-      "affects_variants": ["Golf 7 1.4 TSI Comfortline", "Golf 7 1.4 TSI Highline", "Golf 7 GTI 2.0 TSI"],
+      "affects_variants": [
+        "Golf 7 1.4 TSI Comfortline",
+        "Golf 7 1.4 TSI Highline",
+        "Golf 7 GTI 2.0 TSI"
+      ],
       "mileage_range": "60,000km - 120,000km",
       "severity": "HIGH",
       "description": "The DQ200 7-speed dry-clutch DSG is the most common fault on SA Golf 7s. Symptoms include shuddering, hesitation, and occasional loss of drive. Mechatronic unit replacement is expensive. SA's city traffic accelerates DSG wear.",
@@ -23,7 +53,10 @@
     },
     {
       "fault": "Carbon buildup on intake valves (1.4 TSI)",
-      "affects_variants": ["Golf 7 1.4 TSI Comfortline", "Golf 7 1.4 TSI Highline"],
+      "affects_variants": [
+        "Golf 7 1.4 TSI Comfortline",
+        "Golf 7 1.4 TSI Highline"
+      ],
       "mileage_range": "80,000km+",
       "severity": "MEDIUM",
       "description": "Direct injection 1.4 TSI engines accumulate carbon deposits on intake valves. Causes rough idle, reduced power, and increased fuel consumption.",
@@ -33,7 +66,11 @@
     },
     {
       "fault": "Electric window regulator failure",
-      "affects_variants": ["Golf 7 1.4 TSI Comfortline", "Golf 7 1.4 TSI Highline", "Golf 7 GTI 2.0 TSI"],
+      "affects_variants": [
+        "Golf 7 1.4 TSI Comfortline",
+        "Golf 7 1.4 TSI Highline",
+        "Golf 7 GTI 2.0 TSI"
+      ],
       "mileage_range": "Any mileage",
       "severity": "LOW",
       "description": "Front and rear window regulators fail intermittently. The plastic clips and cable mechanisms are the weak point. Common across all Golf 7 variants.",
@@ -43,7 +80,10 @@
     },
     {
       "fault": "Timing chain stretch (EA888 Gen 3)",
-      "affects_variants": ["Golf 7 GTI 2.0 TSI", "Golf 7 R 2.0 TSI 4Motion"],
+      "affects_variants": [
+        "Golf 7 GTI 2.0 TSI",
+        "Golf 7 R 2.0 TSI 4Motion"
+      ],
       "mileage_range": "100,000km+",
       "severity": "HIGH",
       "description": "The EA888 Gen 3 engine used in the GTI and R is known for timing chain stretch at higher mileage, particularly if oil changes were delayed. Engine rattle on cold start is the primary symptom.",
@@ -53,7 +93,10 @@
     },
     {
       "fault": "Turbocharger failure (high mileage or modified)",
-      "affects_variants": ["Golf 7 GTI 2.0 TSI", "Golf 7 1.4 TSI Highline"],
+      "affects_variants": [
+        "Golf 7 GTI 2.0 TSI",
+        "Golf 7 1.4 TSI Highline"
+      ],
       "mileage_range": "120,000km+",
       "severity": "HIGH",
       "description": "Turbos fail on high-mileage examples, especially on cars where oil service intervals were stretched or incorrect oil was used. Modified GTIs with a Stage 1 tune are higher risk.",
@@ -73,5 +116,11 @@
     "Confirm no outstanding safety or emission recalls via VW SA recall database"
   ],
   "owner_sentiment": "Highly positive overall. Golf 7 GTI owners are passionate about the car and most report excellent long-term reliability if serviced correctly. Standard 1.4 TSI owners report the DSG as the main concern. Running costs are moderate ,  not cheap, but predictable. Strong community support via MyBroadband and VW clubs.",
-  "sources": ["MyBroadband SA VW forums", "Cars.co.za Golf 7 listings", "AutoTrader SA", "VW SA dealer network", "WeBuyCars market data"]
+  "sources": [
+    "MyBroadband SA VW forums",
+    "Cars.co.za Golf 7 listings",
+    "AutoTrader SA",
+    "VW SA dealer network",
+    "WeBuyCars market data"
+  ]
 }

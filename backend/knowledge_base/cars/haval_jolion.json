@@ -1,18 +1,46 @@
 {
   "make": "Haval",
   "model": "Jolion",
-  "variants": ["1.5T City", "1.5T City Plus", "1.5T Premium", "1.5T Luxury", "1.5T Super Luxury", "1.5T S Ultra Luxury", "1.5 HEV Ultra Luxury"],
+  "variants": [
+    "1.5T City",
+    "1.5T City Plus",
+    "1.5T Premium",
+    "1.5T Luxury",
+    "1.5T Super Luxury",
+    "1.5T S Ultra Luxury",
+    "1.5 HEV Ultra Luxury"
+  ],
   "years_covered": "2021-2026",
   "sa_market_summary": "The Haval Jolion has completely disrupted the South African compact SUV segment since its 2021 launch. With 13,607 units sold in 2025 (up 47.7% year-on-year), it frequently ranks in the top 10 best-selling vehicles overall, rubbing shoulders with the VW Polo and Toyota Fortuner. Built by GWM, the Jolion offers midsize SUV space and premium features (Level 2 ADAS, twin screens) at a compact SUV price. The 1.5-litre turbo petrol (105kW/210Nm) drives the front wheels via a 7-speed dual-clutch transmission. The Jolion Pro (2025+) brought updated styling and a plusher cabin. The 7-year/200,000km warranty on Pro models is class-leading. A hybrid variant adds a fuel-efficient option (140kW/375Nm, claimed 5.1L/100km).",
   "reliability_score": 7.0,
+  "segment": "compact_suv",
   "price_ranges": [
-    { "year_from": 2023, "year_to": 2025, "low_zar": 270000, "mid_zar": 330000, "high_zar": 450000 },
-    { "year_from": 2021, "year_to": 2022, "low_zar": 210000, "mid_zar": 260000, "high_zar": 325000 }
+    {
+      "year_from": 2023,
+      "year_to": 2025,
+      "low_zar": 270000,
+      "mid_zar": 330000,
+      "high_zar": 450000
+    },
+    {
+      "year_from": 2021,
+      "year_to": 2022,
+      "low_zar": 210000,
+      "mid_zar": 260000,
+      "high_zar": 325000
+    }
   ],
   "known_faults": [
     {
       "fault": "DCT hesitation and low-speed shuffle",
-      "affects_variants": ["1.5T City", "1.5T City Plus", "1.5T Premium", "1.5T Luxury", "1.5T Super Luxury", "1.5T S Ultra Luxury"],
+      "affects_variants": [
+        "1.5T City",
+        "1.5T City Plus",
+        "1.5T Premium",
+        "1.5T Luxury",
+        "1.5T Super Luxury",
+        "1.5T S Ultra Luxury"
+      ],
       "mileage_range": "Any mileage",
       "severity": "MEDIUM",
       "description": "The 7-speed wet-clutch DCT exhibits a noticeable pause when pulling away from a stop, followed by a sudden surge of power. This is the most common complaint across all Jolion variants. The hesitation is a calibration issue rather than a hardware failure, but it makes smooth driving in traffic difficult.",
@@ -22,7 +50,13 @@
     },
     {
       "fault": "High real-world fuel consumption",
-      "affects_variants": ["1.5T City", "1.5T City Plus", "1.5T Premium", "1.5T Luxury", "1.5T Super Luxury"],
+      "affects_variants": [
+        "1.5T City",
+        "1.5T City Plus",
+        "1.5T Premium",
+        "1.5T Luxury",
+        "1.5T Super Luxury"
+      ],
       "mileage_range": "Any mileage",
       "severity": "MEDIUM",
       "description": "While Haval claims 7.5L/100km, local owners consistently report 9.0-11.5L/100km in urban driving. The 1.5T engine is notably thirsty in stop-start traffic, making the Jolion one of the less fuel-efficient options in its class.",
@@ -32,7 +66,11 @@
     },
     {
       "fault": "Intrusive ADAS warning systems",
-      "affects_variants": ["1.5T Luxury", "1.5T Super Luxury", "1.5T S Ultra Luxury"],
+      "affects_variants": [
+        "1.5T Luxury",
+        "1.5T Super Luxury",
+        "1.5T S Ultra Luxury"
+      ],
       "mileage_range": "Any mileage",
       "severity": "LOW",
       "description": "The Lane Keep Assist and other ADAS features are overly sensitive for South African driving conditions. The system emits frequent loud chimes for minor lane deviations, pothole dodging, or navigating tight minibus taxi traffic.",
@@ -42,7 +80,13 @@
     },
     {
       "fault": "Touchscreen-dependent climate controls",
-      "affects_variants": ["1.5T City Plus", "1.5T Premium", "1.5T Luxury", "1.5T Super Luxury", "1.5T S Ultra Luxury"],
+      "affects_variants": [
+        "1.5T City Plus",
+        "1.5T Premium",
+        "1.5T Luxury",
+        "1.5T Super Luxury",
+        "1.5T S Ultra Luxury"
+      ],
       "mileage_range": "Any mileage",
       "severity": "LOW",
       "description": "The lack of physical buttons for climate control means adjusting fan speed or temperature requires navigating touchscreen menus. Difficult and distracting while driving on bumpy roads. The screen can lag, compounding the frustration.",
@@ -63,5 +107,13 @@
     "For Pro models, verify the 7-year/200,000km warranty and 7-year/75,000km service plan"
   ],
   "owner_sentiment": "Mixed. The Jolion is praised for its spacious cabin, generous equipment levels, and strong value proposition. Pro owners appreciate the 7-year warranty. However, the DCT hesitation and high fuel consumption are consistent frustrations. Early models (2021-2022) suffered from parts supply delays, though this has improved. ADAS systems that are too sensitive for SA conditions annoy many owners. Resale values are stabilising as the brand matures but still lag behind Korean and Japanese rivals. The hybrid variant is the pick for fuel-conscious buyers.",
-  "sources": ["GWM Haval SA dealer network", "AutoTrader SA", "Cars.co.za", "Auto.co.za reviews", "TopAuto SA", "The Citizen Motoring", "Lightstone SA vehicle sales data"]
+  "sources": [
+    "GWM Haval SA dealer network",
+    "AutoTrader SA",
+    "Cars.co.za",
+    "Auto.co.za reviews",
+    "TopAuto SA",
+    "The Citizen Motoring",
+    "Lightstone SA vehicle sales data"
+  ]
 }

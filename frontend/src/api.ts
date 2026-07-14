@@ -1,4 +1,4 @@
-import type { QueryResponse, CarVariant, CarProfile, CompareResponse } from "./types";
+import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosition } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -44,4 +44,10 @@ export async function compareModels(
     method: "POST",
     body: JSON.stringify({ make_a: makeA, model_a: modelA, make_b: makeB, model_b: modelB }),
   });
+}
+
+export async function getMarketPosition(make: string, model: string): Promise<MarketPosition> {
+  const encodedMake = encodeURIComponent(make);
+  const encodedModel = encodeURIComponent(model.replace(/ /g, "_"));
+  return fetchJson<MarketPosition>(`/api/v1/models/${encodedMake}/${encodedModel}/market-position`);
 }

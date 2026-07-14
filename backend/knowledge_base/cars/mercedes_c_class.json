@@ -1,19 +1,49 @@
 {
   "make": "Mercedes-Benz",
   "model": "C-Class",
-  "variants": ["C180", "C200", "C220d", "C250", "C300", "C350e", "C63 AMG"],
+  "variants": [
+    "C180",
+    "C200",
+    "C220d",
+    "C250",
+    "C300",
+    "C350e",
+    "C63 AMG"
+  ],
   "years_covered": "2014-2022",
   "sa_market_summary": "The Mercedes-Benz C-Class W205 (2014-2021) is the most common used luxury sedan in South Africa. Its design, build quality, and brand perception make it highly aspirational for middle-market buyers. However, the C-Class is one of the most maintenance-intensive vehicles in the SA used market ,  out-of-warranty examples can generate significant unexpected costs. The C220d diesel is the most practical variant for SA conditions due to fuel economy. Any buyer must budget carefully for running costs beyond the sticker price.",
   "reliability_score": 5.8,
+  "segment": "premium_hatchback",
   "price_ranges": [
-    { "year_from": 2020, "year_to": 2022, "low_zar": 480000, "mid_zar": 580000, "high_zar": 720000 },
-    { "year_from": 2017, "year_to": 2019, "low_zar": 310000, "mid_zar": 400000, "high_zar": 520000 },
-    { "year_from": 2014, "year_to": 2016, "low_zar": 180000, "mid_zar": 250000, "high_zar": 340000 }
+    {
+      "year_from": 2020,
+      "year_to": 2022,
+      "low_zar": 480000,
+      "mid_zar": 580000,
+      "high_zar": 720000
+    },
+    {
+      "year_from": 2017,
+      "year_to": 2019,
+      "low_zar": 310000,
+      "mid_zar": 400000,
+      "high_zar": 520000
+    },
+    {
+      "year_from": 2014,
+      "year_to": 2016,
+      "low_zar": 180000,
+      "mid_zar": 250000,
+      "high_zar": 340000
+    }
   ],
   "known_faults": [
     {
       "fault": "Air suspension and ABC system failure (AMG/high spec variants)",
-      "affects_variants": ["C63 AMG", "C300"],
+      "affects_variants": [
+        "C63 AMG",
+        "C300"
+      ],
       "mileage_range": "80,000km - 150,000km",
       "severity": "HIGH",
       "description": "The Active Body Control and air suspension components on high-spec W205 variants are expensive to maintain. Strut replacement and system leaks are the most common issues.",
@@ -23,7 +53,12 @@
     },
     {
       "fault": "7G-Tronic Plus gearbox valve body issues",
-      "affects_variants": ["C180", "C200", "C250", "C300"],
+      "affects_variants": [
+        "C180",
+        "C200",
+        "C250",
+        "C300"
+      ],
       "mileage_range": "80,000km - 120,000km",
       "severity": "HIGH",
       "description": "The 7G-Tronic automatic gearbox can develop jerking, hunting between gears, and delayed engagement. The valve body and conductor plate are the most common failure points. Very expensive to repair.",
@@ -33,7 +68,9 @@
     },
     {
       "fault": "NOx sensor and AdBlue system failure (C220d)",
-      "affects_variants": ["C220d"],
+      "affects_variants": [
+        "C220d"
+      ],
       "mileage_range": "60,000km - 100,000km",
       "severity": "MEDIUM",
       "description": "The C220d diesel uses AdBlue (DEF) fluid for emissions. NOx sensors, AdBlue pumps, and SCR catalysts can fail. A warning light preventing engine start is a common symptom.",
@@ -43,7 +80,11 @@
     },
     {
       "fault": "Engine oil consumption (petrol variants)",
-      "affects_variants": ["C180", "C200", "C250"],
+      "affects_variants": [
+        "C180",
+        "C200",
+        "C250"
+      ],
       "mileage_range": "60,000km+",
       "severity": "MEDIUM",
       "description": "Some W205 petrol engines consume oil between service intervals. Mercedes-Benz considers up to 1L per 1,000km acceptable ,  many SA buyers do not.",
@@ -53,7 +94,12 @@
     },
     {
       "fault": "Sunroof and panoramic roof drain blockage",
-      "affects_variants": ["C200", "C250", "C300", "C220d"],
+      "affects_variants": [
+        "C200",
+        "C250",
+        "C300",
+        "C220d"
+      ],
       "mileage_range": "Any mileage",
       "severity": "MEDIUM",
       "description": "Blocked sunroof drainage channels cause water to pool above the headliner and drain into the footwells. Electrical damage including ECU water ingress is a serious risk.",
@@ -63,7 +109,11 @@
     },
     {
       "fault": "MBUX/COMAND infotainment system faults",
-      "affects_variants": ["C200", "C300", "C220d"],
+      "affects_variants": [
+        "C200",
+        "C300",
+        "C220d"
+      ],
       "mileage_range": "Any mileage",
       "severity": "LOW",
       "description": "The COMAND infotainment system can develop screen freezes, Bluetooth connectivity issues, and navigation failures. Software updates from Mercedes resolve many issues.",
@@ -84,5 +134,12 @@
     "Confirm no outstanding recalls ,  Mercedes SA frequently issues safety recalls"
   ],
   "owner_sentiment": "Mixed. C-Class owners love the prestige, interior quality, and driving experience. Many report significant frustration with unexpected repair costs, particularly on out-of-warranty examples. The common SA advice: never buy a C-Class you cannot afford to fix. The C220d diesel owners report better ownership experiences due to lower service frequency.",
-  "sources": ["Mercedes-Benz SA dealer network", "MyBroadband SA Merc forum", "Cars.co.za C-Class reviews", "AutoTrader SA", "SA independent Mercedes specialists", "WeBuyCars price data"]
+  "sources": [
+    "Mercedes-Benz SA dealer network",
+    "MyBroadband SA Merc forum",
+    "Cars.co.za C-Class reviews",
+    "AutoTrader SA",
+    "SA independent Mercedes specialists",
+    "WeBuyCars price data"
+  ]
 }

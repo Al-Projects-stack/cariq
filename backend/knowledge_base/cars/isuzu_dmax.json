@@ -1,20 +1,57 @@
 {
   "make": "Isuzu",
   "model": "D-Max",
-  "variants": ["250C Single Cab", "1.9 DDi Single Cab", "1.9 DDi Extended Cab", "1.9 DDi Double Cab LS", "3.0 DDi Double Cab LSE", "3.0 DDi V-Cross 4x4"],
+  "variants": [
+    "250C Single Cab",
+    "1.9 DDi Single Cab",
+    "1.9 DDi Extended Cab",
+    "1.9 DDi Double Cab LS",
+    "3.0 DDi Double Cab LSE",
+    "3.0 DDi V-Cross 4x4"
+  ],
   "years_covered": "2012-2026",
   "sa_market_summary": "The Isuzu D-Max is the third best-selling bakkie in South Africa behind the Toyota Hilux and Ford Ranger, but earns a reputation as the most reliable and durable of the three. The 7th generation (2022+) is built locally at Isuzu's Struandale plant in Gqeberha. It offers two diesel engines: the 1.9 DDi (110kW/350Nm) and the legendary 3.0 DDi (140kW/450Nm), both known for linear power delivery and exceptional longevity. The D-Max is the preferred choice for farmers and fleet operators who plan to keep their vehicles past 300,000km. Isuzu's 5-year/120,000km warranty and 6-year/90,000km service plan add peace of mind. Resale value is strong though slightly below the Hilux.",
   "reliability_score": 9.0,
+  "segment": "bakkie",
   "price_ranges": [
-    { "year_from": 2022, "year_to": 2025, "low_zar": 450000, "mid_zar": 580000, "high_zar": 800000 },
-    { "year_from": 2019, "year_to": 2021, "low_zar": 350000, "mid_zar": 450000, "high_zar": 600000 },
-    { "year_from": 2016, "year_to": 2018, "low_zar": 250000, "mid_zar": 330000, "high_zar": 450000 },
-    { "year_from": 2012, "year_to": 2015, "low_zar": 160000, "mid_zar": 220000, "high_zar": 320000 }
+    {
+      "year_from": 2022,
+      "year_to": 2025,
+      "low_zar": 450000,
+      "mid_zar": 580000,
+      "high_zar": 800000
+    },
+    {
+      "year_from": 2019,
+      "year_to": 2021,
+      "low_zar": 350000,
+      "mid_zar": 450000,
+      "high_zar": 600000
+    },
+    {
+      "year_from": 2016,
+      "year_to": 2018,
+      "low_zar": 250000,
+      "mid_zar": 330000,
+      "high_zar": 450000
+    },
+    {
+      "year_from": 2012,
+      "year_to": 2015,
+      "low_zar": 160000,
+      "mid_zar": 220000,
+      "high_zar": 320000
+    }
   ],
   "known_faults": [
     {
       "fault": "DPF clogging (short-trip driving)",
-      "affects_variants": ["1.9 DDi Single Cab", "1.9 DDi Extended Cab", "1.9 DDi Double Cab LS", "3.0 DDi Double Cab LSE"],
+      "affects_variants": [
+        "1.9 DDi Single Cab",
+        "1.9 DDi Extended Cab",
+        "1.9 DDi Double Cab LS",
+        "3.0 DDi Double Cab LSE"
+      ],
       "mileage_range": "40,000km - 100,000km",
       "severity": "MEDIUM",
       "description": "Like all modern diesels with DPF systems, the D-Max's diesel particulate filter can clog if the vehicle is used mainly for short city trips where regeneration cannot complete. The 1.9 DDi is more sensitive than the 3.0 DDi.",
@@ -24,7 +61,13 @@
     },
     {
       "fault": "Injector sensitivity to fuel quality",
-      "affects_variants": ["1.9 DDi Single Cab", "1.9 DDi Extended Cab", "1.9 DDi Double Cab LS", "3.0 DDi Double Cab LSE", "3.0 DDi V-Cross 4x4"],
+      "affects_variants": [
+        "1.9 DDi Single Cab",
+        "1.9 DDi Extended Cab",
+        "1.9 DDi Double Cab LS",
+        "3.0 DDi Double Cab LSE",
+        "3.0 DDi V-Cross 4x4"
+      ],
       "mileage_range": "Any mileage, fuel-dependent",
       "severity": "HIGH",
       "description": "The common-rail injection system is sensitive to contaminated or poor-quality diesel. Dirty fuel can lead to injector failure, which is an expensive repair common to all modern turbodiesels.",
@@ -34,7 +77,11 @@
     },
     {
       "fault": "Suspension wear (loaded work vehicles)",
-      "affects_variants": ["250C Single Cab", "1.9 DDi Single Cab", "1.9 DDi Extended Cab"],
+      "affects_variants": [
+        "250C Single Cab",
+        "1.9 DDi Single Cab",
+        "1.9 DDi Extended Cab"
+      ],
       "mileage_range": "80,000km - 120,000km",
       "severity": "MEDIUM",
       "description": "Fleet and work-use D-Maxes show accelerated suspension wear ,  rear leaf spring fatigue, worn control arm bushes, and steering play are common on vehicles that have been regularly loaded to capacity.",
@@ -44,7 +91,11 @@
     },
     {
       "fault": "Infotainment USB input glitch",
-      "affects_variants": ["1.9 DDi Double Cab LS", "3.0 DDi Double Cab LSE", "3.0 DDi V-Cross 4x4"],
+      "affects_variants": [
+        "1.9 DDi Double Cab LS",
+        "3.0 DDi Double Cab LSE",
+        "3.0 DDi V-Cross 4x4"
+      ],
       "mileage_range": "Any mileage",
       "severity": "LOW",
       "description": "The 9-inch infotainment system can intermittently refuse USB inputs while driving, forcing reliance on Bluetooth streaming. Software updates have addressed some cases.",
@@ -64,5 +115,13 @@
     "Check the 1.9 DDi's timing belt replacement history (every 120,000km)"
   ],
   "owner_sentiment": "Strongly positive. D-Max owners are among the most loyal in the bakkie segment. The 3.0 DDi engine is revered for its bulletproof reliability and linear power delivery. The 1.9 DDi is more fuel-efficient but less punchy. Main complaints are the dated interior design compared to the newer Ranger, occasional infotainment glitches, and firm ride quality (though better than previous generations). Resale value is strong but trails the Hilux. Isuzu's dealer network is well-regarded for aftersales service.",
-  "sources": ["Isuzu SA dealer network", "AutoTrader SA", "Cars.co.za", "SA 4x4 Community", "TechBrunch SA", "The Citizen Motoring", "Lightstone SA vehicle sales"]
+  "sources": [
+    "Isuzu SA dealer network",
+    "AutoTrader SA",
+    "Cars.co.za",
+    "SA 4x4 Community",
+    "TechBrunch SA",
+    "The Citizen Motoring",
+    "Lightstone SA vehicle sales"
+  ]
 }

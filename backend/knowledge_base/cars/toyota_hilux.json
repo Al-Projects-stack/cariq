@@ -1,20 +1,57 @@
 {
   "make": "Toyota",
   "model": "Hilux",
-  "variants": ["2.4 GD-6 SRX", "2.4 GD-6 RB", "2.8 GD-6 Raider", "2.8 GD-6 Legend", "2.8 GD-6 GR-S", "2.0 VVTi Petrol"],
+  "variants": [
+    "2.4 GD-6 SRX",
+    "2.4 GD-6 RB",
+    "2.8 GD-6 Raider",
+    "2.8 GD-6 Legend",
+    "2.8 GD-6 GR-S",
+    "2.0 VVTi Petrol"
+  ],
   "years_covered": "2010-2024",
   "sa_market_summary": "The Toyota Hilux is the best-selling vehicle in South Africa and arguably the most iconic bakkie on the continent. Its reputation for indestructibility is well earned ,  it is the go-to workhorse for farmers, contractors, and families. Resale value is outstanding and demand vastly outstrips supply for well-maintained examples. The 2.8 GD-6 engine introduced in 2016 is one of the most capable and reliable diesel engines in the bakkie segment. Parts are universally available across SA.",
   "reliability_score": 9.0,
+  "segment": "bakkie",
   "price_ranges": [
-    { "year_from": 2022, "year_to": 2024, "low_zar": 620000, "mid_zar": 720000, "high_zar": 850000 },
-    { "year_from": 2019, "year_to": 2021, "low_zar": 490000, "mid_zar": 580000, "high_zar": 670000 },
-    { "year_from": 2016, "year_to": 2018, "low_zar": 360000, "mid_zar": 430000, "high_zar": 530000 },
-    { "year_from": 2012, "year_to": 2015, "low_zar": 220000, "mid_zar": 280000, "high_zar": 360000 }
+    {
+      "year_from": 2022,
+      "year_to": 2024,
+      "low_zar": 620000,
+      "mid_zar": 720000,
+      "high_zar": 850000
+    },
+    {
+      "year_from": 2019,
+      "year_to": 2021,
+      "low_zar": 490000,
+      "mid_zar": 580000,
+      "high_zar": 670000
+    },
+    {
+      "year_from": 2016,
+      "year_to": 2018,
+      "low_zar": 360000,
+      "mid_zar": 430000,
+      "high_zar": 530000
+    },
+    {
+      "year_from": 2012,
+      "year_to": 2015,
+      "low_zar": 220000,
+      "mid_zar": 280000,
+      "high_zar": 360000
+    }
   ],
   "known_faults": [
     {
       "fault": "EGR valve and DPF soot buildup (GD-6 diesel)",
-      "affects_variants": ["2.4 GD-6 SRX", "2.4 GD-6 RB", "2.8 GD-6 Raider", "2.8 GD-6 Legend"],
+      "affects_variants": [
+        "2.4 GD-6 SRX",
+        "2.4 GD-6 RB",
+        "2.8 GD-6 Raider",
+        "2.8 GD-6 Legend"
+      ],
       "mileage_range": "60,000km - 120,000km",
       "severity": "MEDIUM",
       "description": "The GD-6 diesel engine's EGR valve and DPF can clog, particularly on vehicles used mainly for short city trips where the DPF cannot complete a regeneration cycle. Symptoms include black smoke, power loss, and a DPF warning light.",
@@ -24,7 +61,12 @@
     },
     {
       "fault": "Cracked front leaf spring (rough terrain use)",
-      "affects_variants": ["2.4 GD-6 SRX", "2.4 GD-6 RB", "2.8 GD-6 Raider", "2.8 GD-6 Legend"],
+      "affects_variants": [
+        "2.4 GD-6 SRX",
+        "2.4 GD-6 RB",
+        "2.8 GD-6 Raider",
+        "2.8 GD-6 Legend"
+      ],
       "mileage_range": "Any mileage, use-dependent",
       "severity": "MEDIUM",
       "description": "Hiluxes used heavily off-road or for heavy load carrying can develop cracked front leaf springs. Common on farm and construction vehicles. Can affect steering geometry.",
@@ -34,7 +76,11 @@
     },
     {
       "fault": "Turbo actuator failure (2.8 GD-6)",
-      "affects_variants": ["2.8 GD-6 Raider", "2.8 GD-6 Legend", "2.8 GD-6 GR-S"],
+      "affects_variants": [
+        "2.8 GD-6 Raider",
+        "2.8 GD-6 Legend",
+        "2.8 GD-6 GR-S"
+      ],
       "mileage_range": "80,000km - 150,000km",
       "severity": "MEDIUM",
       "description": "The variable geometry turbocharger actuator on the 2.8 GD-6 can fail or stick, causing power reduction or limp mode. Particularly common in dusty environments (Gauteng, North West).",
@@ -44,7 +90,10 @@
     },
     {
       "fault": "Diesel injector seal weeping",
-      "affects_variants": ["2.4 GD-6 SRX", "2.8 GD-6 Raider"],
+      "affects_variants": [
+        "2.4 GD-6 SRX",
+        "2.8 GD-6 Raider"
+      ],
       "mileage_range": "100,000km+",
       "severity": "LOW",
       "description": "Fuel injector copper washers can weep diesel at high mileage, causing a slight diesel smell and minor oil contamination. Not catastrophic but should be addressed.",
@@ -64,5 +113,12 @@
     "Confirm the vehicle is not a former fleet or rental unit (high cycle use)"
   ],
   "owner_sentiment": "Overwhelmingly positive. Hilux owners are among the most loyal in the SA market. Farmers and contractors trust it with their livelihoods. Main complaints are the increasingly complex diesel electronics on GD-6 models compared to older 3.0 D-4D engines. Running costs remain reasonable. Long-distance reliability is excellent.",
-  "sources": ["Toyota SA dealer network", "SA Bakkie forum", "Cars.co.za", "AutoTrader SA", "4x4 Community South Africa", "WeBuyCars price data"]
+  "sources": [
+    "Toyota SA dealer network",
+    "SA Bakkie forum",
+    "Cars.co.za",
+    "AutoTrader SA",
+    "4x4 Community South Africa",
+    "WeBuyCars price data"
+  ]
 }

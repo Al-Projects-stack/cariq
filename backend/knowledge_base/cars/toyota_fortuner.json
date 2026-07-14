@@ -1,20 +1,55 @@
 {
   "make": "Toyota",
   "model": "Fortuner",
-  "variants": ["2.4 GD-6 4x2 AT", "2.4 GD-6 4x4 AT", "2.8 GD-6 4x4 AT", "2.8 GD-6 Legender 4x4", "4.0 V6 4x4 AT"],
+  "variants": [
+    "2.4 GD-6 4x2 AT",
+    "2.4 GD-6 4x4 AT",
+    "2.8 GD-6 4x4 AT",
+    "2.8 GD-6 Legender 4x4",
+    "4.0 V6 4x4 AT"
+  ],
   "years_covered": "2005-2024",
   "sa_market_summary": "The Toyota Fortuner is the dominant seven-seat SUV in the South African market. Its body-on-frame Hilux underpinnings make it exceptionally durable and capable off-road while offering practical family transport. Depreciation is almost non-existent ,  a well-maintained Fortuner holds value better than almost any other used vehicle in SA. The 2.8 GD-6 variant is the sweet spot: diesel economy with genuine capability. Waitlists for new models consistently reach 6-12 months, making the used market a necessity.",
   "reliability_score": 8.8,
+  "segment": "bakkie",
   "price_ranges": [
-    { "year_from": 2022, "year_to": 2024, "low_zar": 680000, "mid_zar": 790000, "high_zar": 950000 },
-    { "year_from": 2019, "year_to": 2021, "low_zar": 530000, "mid_zar": 630000, "high_zar": 750000 },
-    { "year_from": 2016, "year_to": 2018, "low_zar": 380000, "mid_zar": 460000, "high_zar": 570000 },
-    { "year_from": 2012, "year_to": 2015, "low_zar": 230000, "mid_zar": 290000, "high_zar": 380000 }
+    {
+      "year_from": 2022,
+      "year_to": 2024,
+      "low_zar": 680000,
+      "mid_zar": 790000,
+      "high_zar": 950000
+    },
+    {
+      "year_from": 2019,
+      "year_to": 2021,
+      "low_zar": 530000,
+      "mid_zar": 630000,
+      "high_zar": 750000
+    },
+    {
+      "year_from": 2016,
+      "year_to": 2018,
+      "low_zar": 380000,
+      "mid_zar": 460000,
+      "high_zar": 570000
+    },
+    {
+      "year_from": 2012,
+      "year_to": 2015,
+      "low_zar": 230000,
+      "mid_zar": 290000,
+      "high_zar": 380000
+    }
   ],
   "known_faults": [
     {
       "fault": "DPF and EGR issues on city-driven GD-6 diesels",
-      "affects_variants": ["2.4 GD-6 4x2 AT", "2.4 GD-6 4x4 AT", "2.8 GD-6 4x4 AT"],
+      "affects_variants": [
+        "2.4 GD-6 4x2 AT",
+        "2.4 GD-6 4x4 AT",
+        "2.8 GD-6 4x4 AT"
+      ],
       "mileage_range": "60,000km - 120,000km",
       "severity": "MEDIUM",
       "description": "As with the Hilux, the GD-6 diesel engine's DPF can clog when the vehicle is used predominantly for short urban trips. The Fortuner's heavier body makes full DPF regeneration harder in city conditions.",
@@ -24,7 +59,11 @@
     },
     {
       "fault": "Wheel bearing wear (4x4 models)",
-      "affects_variants": ["2.4 GD-6 4x4 AT", "2.8 GD-6 4x4 AT", "2.8 GD-6 Legender 4x4"],
+      "affects_variants": [
+        "2.4 GD-6 4x4 AT",
+        "2.8 GD-6 4x4 AT",
+        "2.8 GD-6 Legender 4x4"
+      ],
       "mileage_range": "80,000km - 150,000km",
       "severity": "MEDIUM",
       "description": "Front and rear wheel bearings on 4x4 Fortuners can wear prematurely, particularly on vehicles used for off-road work. A humming noise that changes with speed is the classic symptom.",
@@ -34,7 +73,11 @@
     },
     {
       "fault": "Automatic gearbox service neglect",
-      "affects_variants": ["2.4 GD-6 4x2 AT", "2.4 GD-6 4x4 AT", "2.8 GD-6 4x4 AT"],
+      "affects_variants": [
+        "2.4 GD-6 4x2 AT",
+        "2.4 GD-6 4x4 AT",
+        "2.8 GD-6 4x4 AT"
+      ],
       "mileage_range": "Any mileage",
       "severity": "HIGH",
       "description": "The automatic gearbox on GD-6 Fortuners is robust but requires regular fluid changes. Many SA owners neglect this, leading to delayed gear changes and eventual gearbox failure.",
@@ -44,7 +87,12 @@
     },
     {
       "fault": "Rear shock absorber wear",
-      "affects_variants": ["2.4 GD-6 4x2 AT", "2.4 GD-6 4x4 AT", "2.8 GD-6 4x4 AT", "2.8 GD-6 Legender 4x4"],
+      "affects_variants": [
+        "2.4 GD-6 4x2 AT",
+        "2.4 GD-6 4x4 AT",
+        "2.8 GD-6 4x4 AT",
+        "2.8 GD-6 Legender 4x4"
+      ],
       "mileage_range": "80,000km - 120,000km",
       "severity": "LOW",
       "description": "The rear shock absorbers on heavily loaded Fortuners wear more quickly. Bouncy rear end or excessive body roll is a clear indicator.",
@@ -64,5 +112,12 @@
     "Inspect roof rack and tow hitch modifications for structural quality"
   ],
   "owner_sentiment": "Extremely positive. Fortuner owners are among the proudest in the SA market. Families value the seven seats, reliability, and off-road capability. The main frustration is new car pricing and waitlists, which is why the used market is so active. Running costs for the 2.8 diesel are approximately R1.20-R1.50 per km.",
-  "sources": ["Toyota SA dealer network", "Fortuner Owners Club South Africa", "Cars.co.za", "AutoTrader SA", "4x4 Community SA", "WeBuyCars market data"]
+  "sources": [
+    "Toyota SA dealer network",
+    "Fortuner Owners Club South Africa",
+    "Cars.co.za",
+    "AutoTrader SA",
+    "4x4 Community SA",
+    "WeBuyCars market data"
+  ]
 }

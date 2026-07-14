@@ -105,3 +105,25 @@ export interface CompareResponse {
   price: PriceComparison;
   faults: FaultsComparison;
 }
+
+export interface SegmentModelPrice {
+  make: string;
+  model: string;
+  mid_zar: number;
+  reliability_score: number;
+}
+
+export interface MarketPosition {
+  segment: string;
+  segment_label: string;
+  target_mid_zar: number;
+  segment_avg_mid_zar: number;
+  segment_low_mid_zar: number;
+  segment_high_mid_zar: number;
+  segment_count: number;
+  price_ranking: string;
+  price_percentile: number;
+  position_label: string;
+  value_label: string;
+  peers: SegmentModelPrice[];
+}

@@ -1,19 +1,47 @@
 {
   "make": "Honda",
   "model": "Jazz",
-  "variants": ["1.2 Comfort", "1.5 Comfort", "1.5 Elegance", "1.5 Executive"],
+  "variants": [
+    "1.2 Comfort",
+    "1.5 Comfort",
+    "1.5 Elegance",
+    "1.5 Executive"
+  ],
   "years_covered": "2009-2022",
   "sa_market_summary": "The Honda Jazz is one of the most practical and reliable small cars available in the South African used market. Its Magic Seat folding rear bench creates extraordinary cargo flexibility that rivals cars twice its size. The Jazz has an outstanding reputation for durability ,  well-maintained examples comfortably reach 250,000km+ without major mechanical intervention. Parts are readily available from Honda SA dealers and independent importers. Particularly popular among older buyers and those wanting maximum practicality from a compact package.",
   "reliability_score": 9.0,
+  "segment": "compact_hatchback",
   "price_ranges": [
-    { "year_from": 2019, "year_to": 2022, "low_zar": 200000, "mid_zar": 245000, "high_zar": 290000 },
-    { "year_from": 2015, "year_to": 2018, "low_zar": 120000, "mid_zar": 155000, "high_zar": 195000 },
-    { "year_from": 2010, "year_to": 2014, "low_zar": 65000, "mid_zar": 90000, "high_zar": 125000 }
+    {
+      "year_from": 2019,
+      "year_to": 2022,
+      "low_zar": 200000,
+      "mid_zar": 245000,
+      "high_zar": 290000
+    },
+    {
+      "year_from": 2015,
+      "year_to": 2018,
+      "low_zar": 120000,
+      "mid_zar": 155000,
+      "high_zar": 195000
+    },
+    {
+      "year_from": 2010,
+      "year_to": 2014,
+      "low_zar": 65000,
+      "mid_zar": 90000,
+      "high_zar": 125000
+    }
   ],
   "known_faults": [
     {
       "fault": "CVT gearbox shudder (automatic models)",
-      "affects_variants": ["1.5 Comfort", "1.5 Elegance", "1.5 Executive"],
+      "affects_variants": [
+        "1.5 Comfort",
+        "1.5 Elegance",
+        "1.5 Executive"
+      ],
       "mileage_range": "60,000km - 100,000km",
       "severity": "MEDIUM",
       "description": "The continuously variable transmission (CVT) on automatic Jazz models can shudder or vibrate under acceleration, particularly when the CVT fluid has not been changed on schedule. Honda specifies CVT fluid replacement every 40,000km.",
@@ -23,7 +51,10 @@
     },
     {
       "fault": "Timing chain stretch (1.5 engines, older models)",
-      "affects_variants": ["1.5 Comfort", "1.5 Elegance"],
+      "affects_variants": [
+        "1.5 Comfort",
+        "1.5 Elegance"
+      ],
       "mileage_range": "120,000km+",
       "severity": "MEDIUM",
       "description": "The timing chain on older L15 engines (2010-2013) can stretch at very high mileage, causing a rattling sound on cold start. Well-maintained examples are far less affected.",
@@ -33,7 +64,12 @@
     },
     {
       "fault": "Air conditioning evaporator odour",
-      "affects_variants": ["1.2 Comfort", "1.5 Comfort", "1.5 Elegance", "1.5 Executive"],
+      "affects_variants": [
+        "1.2 Comfort",
+        "1.5 Comfort",
+        "1.5 Elegance",
+        "1.5 Executive"
+      ],
       "mileage_range": "Any mileage, age-related",
       "severity": "LOW",
       "description": "A musty or mouldy smell from the air conditioning vents is common on Jazz models in humid South African climates (Durban, Cape Town). Evaporator cleaning resolves the issue.",
@@ -43,7 +79,10 @@
     },
     {
       "fault": "Electric power steering pump noise",
-      "affects_variants": ["1.2 Comfort", "1.5 Comfort"],
+      "affects_variants": [
+        "1.2 Comfort",
+        "1.5 Comfort"
+      ],
       "mileage_range": "80,000km+",
       "severity": "LOW",
       "description": "The electric power steering motor can develop a whirring or clicking noise at low speeds on older Jazz models. Usually a motor bearing or rack issue.",
@@ -62,5 +101,11 @@
     "Test all electronic items including the infotainment and Bluetooth"
   ],
   "owner_sentiment": "Consistently positive. Jazz owners are loyal and often replace their Jazz with another Jazz. The Magic Seat system and reliability are the most cited reasons. Main criticism is the relatively plain interior on older models and limited performance from the 1.2 engine. Running costs are among the lowest in its class.",
-  "sources": ["Honda SA dealer network", "Cars.co.za Jazz reviews", "AutoTrader SA", "SA Honda owners community", "WeBuyCars market data"]
+  "sources": [
+    "Honda SA dealer network",
+    "Cars.co.za Jazz reviews",
+    "AutoTrader SA",
+    "SA Honda owners community",
+    "WeBuyCars market data"
+  ]
 }

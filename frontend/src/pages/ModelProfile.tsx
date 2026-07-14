@@ -1,7 +1,8 @@
 ﻿import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getModelProfile } from "../api";
-import type { CarProfile } from "../types";
+import { getModelProfile, getMarketPosition } from "../api";
+import { MarketPositionPanel } from "../components/MarketPositionPanel";
+import type { CarProfile, MarketPosition } from "../types";
 
 const SEVERITY_COLOURS: Record<string, string> = {
   HIGH: "text-red-400 border-red-800 bg-red-950/40",
@@ -27,6 +28,8 @@ export function ModelProfile() {
   const [profile, setProfile] = useState<CarProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [marketPos, setMarketPos] = useState<MarketPosition | null>(null);
+  const [marketErr, setMarketErr] = useState<string | null>(null);
 
   useEffect(() => {
     if (!make || !model) return;
@@ -36,6 +39,13 @@ export function ModelProfile() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, [make, model]);
+
+  useEffect(() => {
+    if (!make || !model || !profile) return;
+    getMarketPosition(make, model)
+      .then(setMarketPos)
+      .catch((err) => setMarketErr(err.message));
+  }, [make, model, profile]);
 
   if (loading) {
     return (
@@ -114,6 +124,12 @@ export function ModelProfile() {
             </table>
           </div>
         </div>
+
+        {marketPos ? (
+          <div className="mb-8">
+            <MarketPositionPanel data={marketPos} make={profile.make} model={profile.model} />
+          </div>
+        ) : marketErr ? null : null}
 
         <div className="mb-8 rounded-xl border border-gray-800 bg-gray-900 p-6">
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gray-500">Known Faults</h2>
