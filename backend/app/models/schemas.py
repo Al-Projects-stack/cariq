@@ -102,11 +102,21 @@ class CarProfile(BaseModel):
     sources: list[str]
 
 
+class CacheStats(BaseModel):
+    size: int
+    maxsize: int
+    ttl: int
+    hits: int
+    misses: int
+    hit_rate: float
+
+
 class HealthResponse(BaseModel):
     status: str
     pinecone: str
     claude: str
     database: str
+    cache: dict[str, CacheStats] = {}
 
 
 class CompareRequest(BaseModel):

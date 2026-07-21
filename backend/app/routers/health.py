@@ -1,9 +1,13 @@
 from fastapi import APIRouter
-from app.models.schemas import HealthResponse
+from app.models.schemas import HealthResponse, CacheStats
 from app.services.pinecone_client import PineconeClient
 from app.services.claude_client import ClaudeClient
 from app.db.database import engine
 from sqlalchemy import text
+from app.services.cache import (
+    all_models_cache, model_profile_cache, rag_query_cache,
+    compare_cache, market_cache, tco_cache, recommend_cache,
+)
 
 router = APIRouter(tags=["health"])
 
@@ -35,4 +39,13 @@ def health_check():
         pinecone=pinecone_status,
         claude=claude_status,
         database=db_status,
+        cache={
+            "all_models": CacheStats(**all_models_cache.stats),
+            "model_profile": CacheStats(**model_profile_cache.stats),
+            "rag_query": CacheStats(**rag_query_cache.stats),
+            "compare": CacheStats(**compare_cache.stats),
+            "market": CacheStats(**market_cache.stats),
+            "tco": CacheStats(**tco_cache.stats),
+            "recommend": CacheStats(**recommend_cache.stats),
+        },
     )

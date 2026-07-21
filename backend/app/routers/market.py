@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from app.models.schemas import MarketPositionResponse, SegmentModelPrice, TCOEstimate
+from app.services.cache import all_models_cache, market_cache, tco_cache
 
 router = APIRouter(tags=["market"])
 
@@ -15,6 +16,9 @@ SEGMENT_LABELS = {
 }
 
 def _load_all() -> list[dict]:
+    cached = all_models_cache.get("all_cars")
+    if cached is not None:
+        return cached
     cars = []
     if not KB_DIR.exists():
         return cars
@@ -24,6 +28,7 @@ def _load_all() -> list[dict]:
                 cars.append(json.load(f))
         except Exception:
             continue
+    all_models_cache.set("all_cars", cars)
     return cars
 
 
@@ -37,6 +42,11 @@ def _latest_mid(raw: dict) -> int | None:
 
 @router.get("/models/{make}/{model}/market-position", response_model=MarketPositionResponse)
 def market_position(make: str, model: str):
+    cache_key = f"mp|{make.lower()}|{model.lower()}"
+    cached = market_cache.get(cache_key)
+    if cached is not None:
+        return MarketPositionResponse(**cached)
+
     all_cars = _load_all()
 
     target: dict | None = None
@@ -95,7 +105,7 @@ def market_position(make: str, model: str):
     else:
         position_label = "At Average"
 
-    return MarketPositionResponse(
+    result = MarketPositionResponse(
         segment=segment,
         segment_label=SEGMENT_LABELS.get(segment, segment),
         target_mid_zar=target_mid,
@@ -109,6 +119,8 @@ def market_position(make: str, model: str):
         value_label=value_label,
         peers=[SegmentModelPrice(**p) for p in peers],
     )
+    market_cache.set(cache_key, result.model_dump())
+    return result
 
 
 def _find_model(all_cars: list[dict], make: str, model: str) -> dict | None:
@@ -120,6 +132,11 @@ def _find_model(all_cars: list[dict], make: str, model: str) -> dict | None:
 
 @router.get("/models/{make}/{model}/tco", response_model=TCOEstimate)
 def tco_estimate(make: str, model: str):
+    cache_key = f"tco|{make.lower()}|{model.lower()}"
+    cached = tco_cache.get(cache_key)
+    if cached is not None:
+        return TCOEstimate(**cached)
+
     all_cars = _load_all()
     target = _find_model(all_cars, make, model)
     if not target:
@@ -145,7 +162,7 @@ def tco_estimate(make: str, model: str):
     total_3yr = mid + fuel_3yr + insurance_3yr + maintenance_3yr
     monthly = round(total_3yr / 36)
 
-    return TCOEstimate(
+    result = TCOEstimate(
         purchase_price=mid,
         fuel_3yr=fuel_3yr,
         insurance_3yr=insurance_3yr,
@@ -156,3 +173,5 @@ def tco_estimate(make: str, model: str):
         fuel_consumption_l_per_100km=fuel_cons,
         annual_km=annual_km,
     )
+    tco_cache.set(cache_key, result.model_dump())
+    return result
