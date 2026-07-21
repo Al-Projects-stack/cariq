@@ -18,6 +18,10 @@ The app returns:
 - A **Price Intelligence panel** with low/mid/high price ranges and a market verdict (GOOD DEAL / FAIR / ABOVE MARKET / OVERPRICED)
 - A **Known Faults panel** listing faults by severity, mileage range, and repair cost in ZAR
 - **Source citations** for every answer
+- **Side by side model comparison** with reliability, price, and fault comparisons
+- **Market position indicator** showing where a model sits vs its segment peers on price
+- **3 year total cost of ownership** including purchase, fuel, insurance, and maintenance
+- **Needs based car recommendation quiz** takes your budget, body type, and priorities and returns a ranked shortlist
 
 ---
 
@@ -163,3 +167,8 @@ Lives in \`backend/knowledge_base/cars/\`. Each JSON file covers price ranges, k
 - The difference between retrieval failures and generation failures, and how to diagnose which layer is producing a bad answer
 - Designing prompts that force the model to answer only from retrieved context and refuse questions outside the knowledge base
 - Containerizing a Python + React stack with Docker Compose and managing secrets cleanly across local dev and Render
+- **Car comparison feature**: loading two car profiles from JSON, normalising their fields, and rendering a side by side comparison with reliability scores, price tables, fault severity breakdowns, and inspection checklists
+- **Market position indicator**: classifying a car into a market segment (budget hatch / family sedan / premium SUV, etc.), computing where its price falls relative to segment peers, and surfacing a value label (UNDERPRICED / FAIR / PREMIUM)
+- **3 year total cost of ownership**: learning to estimate real ownership cost (purchase + fuel + insurance + maintenance) and rendering a monthly cost breakdown so buyers can compare beyond sticker price
+- **Needs based recommendation quiz**: building a multi step questionnaire that scores each model against the user's budget, body type preference, driving needs, and priorities, then returns a ranked shortlist with reasons
+- **TTL caching layer**: building a thread safe in memory cache with LRU eviction, hit/miss stats, and per endpoint TTLs to avoid redundant filesystem reads and Pinecone queries on free tier infra
