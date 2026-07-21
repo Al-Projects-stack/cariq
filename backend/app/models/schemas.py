@@ -175,3 +175,38 @@ class MarketPositionResponse(BaseModel):
     position_label: str
     value_label: str
     peers: list[SegmentModelPrice]
+
+
+class TCOEstimate(BaseModel):
+    purchase_price: int
+    fuel_3yr: int
+    insurance_3yr: int
+    maintenance_3yr: int
+    total_3yr: int
+    monthly: int
+    fuel_type: str
+    fuel_consumption_l_per_100km: float
+    annual_km: int
+
+
+class RecommendRequest(BaseModel):
+    budget_max: int
+    budget_min: int = 0
+    body_type: str | None = None
+    priorities: list[str] = []
+    family_size: int = 1
+
+
+class RecommendModel(BaseModel):
+    make: str
+    model: str
+    segment: str
+    mid_zar: int
+    reliability_score: float
+    score: float
+    match_reasons: list[str]
+
+
+class RecommendResponse(BaseModel):
+    recommendations: list[RecommendModel]
+    total_count: int

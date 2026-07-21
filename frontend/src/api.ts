@@ -1,4 +1,4 @@
-import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosition } from "./types";
+import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosition, TCOEstimate, RecommendResponse } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -50,4 +50,23 @@ export async function getMarketPosition(make: string, model: string): Promise<Ma
   const encodedMake = encodeURIComponent(make);
   const encodedModel = encodeURIComponent(model.replace(/ /g, "_"));
   return fetchJson<MarketPosition>(`/api/v1/models/${encodedMake}/${encodedModel}/market-position`);
+}
+
+export async function getTCO(make: string, model: string): Promise<TCOEstimate> {
+  const encodedMake = encodeURIComponent(make);
+  const encodedModel = encodeURIComponent(model.replace(/ /g, "_"));
+  return fetchJson<TCOEstimate>(`/api/v1/models/${encodedMake}/${encodedModel}/tco`);
+}
+
+export async function getRecommendations(params: {
+  budget_max: number;
+  budget_min?: number;
+  body_type?: string;
+  priorities?: string[];
+  family_size?: number;
+}): Promise<RecommendResponse> {
+  return fetchJson<RecommendResponse>("/api/v1/recommend", {
+    method: "POST",
+    body: JSON.stringify(params),
+  });
 }

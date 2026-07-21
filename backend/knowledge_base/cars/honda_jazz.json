@@ -11,6 +11,10 @@
   "sa_market_summary": "The Honda Jazz is one of the most practical and reliable small cars available in the South African used market. Its Magic Seat folding rear bench creates extraordinary cargo flexibility that rivals cars twice its size. The Jazz has an outstanding reputation for durability ,  well-maintained examples comfortably reach 250,000km+ without major mechanical intervention. Parts are readily available from Honda SA dealers and independent importers. Particularly popular among older buyers and those wanting maximum practicality from a compact package.",
   "reliability_score": 9.0,
   "segment": "compact_hatchback",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 5.8,
+  "annual_maintenance_zar": 5000,
+  "annual_insurance_zar": 8000,
   "price_ranges": [
     {
       "year_from": 2019,

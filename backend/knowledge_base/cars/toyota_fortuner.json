@@ -12,6 +12,10 @@
   "sa_market_summary": "The Toyota Fortuner is the dominant seven-seat SUV in the South African market. Its body-on-frame Hilux underpinnings make it exceptionally durable and capable off-road while offering practical family transport. Depreciation is almost non-existent ,  a well-maintained Fortuner holds value better than almost any other used vehicle in SA. The 2.8 GD-6 variant is the sweet spot: diesel economy with genuine capability. Waitlists for new models consistently reach 6-12 months, making the used market a necessity.",
   "reliability_score": 8.8,
   "segment": "bakkie",
+  "fuel_type": "diesel",
+  "fuel_consumption_l_per_100km": 8.5,
+  "annual_maintenance_zar": 12000,
+  "annual_insurance_zar": 18000,
   "price_ranges": [
     {
       "year_from": 2022,

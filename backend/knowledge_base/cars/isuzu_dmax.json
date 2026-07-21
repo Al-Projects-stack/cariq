@@ -13,6 +13,10 @@
   "sa_market_summary": "The Isuzu D-Max is the third best-selling bakkie in South Africa behind the Toyota Hilux and Ford Ranger, but earns a reputation as the most reliable and durable of the three. The 7th generation (2022+) is built locally at Isuzu's Struandale plant in Gqeberha. It offers two diesel engines: the 1.9 DDi (110kW/350Nm) and the legendary 3.0 DDi (140kW/450Nm), both known for linear power delivery and exceptional longevity. The D-Max is the preferred choice for farmers and fleet operators who plan to keep their vehicles past 300,000km. Isuzu's 5-year/120,000km warranty and 6-year/90,000km service plan add peace of mind. Resale value is strong though slightly below the Hilux.",
   "reliability_score": 9.0,
   "segment": "bakkie",
+  "fuel_type": "diesel",
+  "fuel_consumption_l_per_100km": 7.5,
+  "annual_maintenance_zar": 10000,
+  "annual_insurance_zar": 15000,
   "price_ranges": [
     {
       "year_from": 2022,

@@ -15,6 +15,10 @@
   "sa_market_summary": "The Chery Tiggo 4 Pro is the breakout automotive success story in South Africa. With over 18,000 units sold in 2025 alone, it became the fourth best-selling passenger vehicle in the entire country. This compact SUV disrupted the market by offering generous standard equipment (twin 10.25-inch screens, wireless Apple CarPlay, keyless entry) at prices starting from R269,900 ,  undercutting Korean and Japanese rivals by R50,000 or more. The 1.5-litre turbo petrol engine (83kW/138Nm CVT or 108kW/210Nm DCT) provides adequate performance. Chery's 5-year/150,000km vehicle warranty and 10-year/1,000,000km engine warranty (first owner only) are headline-grabbing. The refreshed Tiggo Cross LiT launched in 2026 builds on this success.",
   "reliability_score": 7.0,
   "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 7.2,
+  "annual_maintenance_zar": 7000,
+  "annual_insurance_zar": 12000,
   "price_ranges": [
     {
       "year_from": 2024,

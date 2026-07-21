@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
-from app.models.schemas import MarketPositionResponse, SegmentModelPrice
+from app.models.schemas import MarketPositionResponse, SegmentModelPrice, TCOEstimate
 
 router = APIRouter(tags=["market"])
 
@@ -108,4 +108,51 @@ def market_position(make: str, model: str):
         position_label=position_label,
         value_label=value_label,
         peers=[SegmentModelPrice(**p) for p in peers],
+    )
+
+
+def _find_model(all_cars: list[dict], make: str, model: str) -> dict | None:
+    for c in all_cars:
+        if c["make"].lower() == make.lower() and c["model"].lower().replace(" ", "_") == model.lower().replace(" ", "_"):
+            return c
+    return None
+
+
+@router.get("/models/{make}/{model}/tco", response_model=TCOEstimate)
+def tco_estimate(make: str, model: str):
+    all_cars = _load_all()
+    target = _find_model(all_cars, make, model)
+    if not target:
+        raise HTTPException(404, detail=f"Model '{make} {model}' not found")
+
+    mid = _latest_mid(target)
+    if mid is None:
+        raise HTTPException(400, detail="Model has no price data")
+
+    fuel_cons = target.get("fuel_consumption_l_per_100km", 8.0)
+    fuel_type = target.get("fuel_type", "petrol")
+    fuel_price = 22 if fuel_type == "diesel" else 23
+    annual_km = target.get("annual_km", 20000)
+    annual_maintenance = target.get("annual_maintenance_zar", 8000)
+    annual_insurance = target.get("annual_insurance_zar", 12000)
+
+    annual_fuel_litres = (annual_km / 100) * fuel_cons
+    annual_fuel_cost = int(annual_fuel_litres * fuel_price)
+
+    fuel_3yr = annual_fuel_cost * 3
+    insurance_3yr = annual_insurance * 3
+    maintenance_3yr = annual_maintenance * 3
+    total_3yr = mid + fuel_3yr + insurance_3yr + maintenance_3yr
+    monthly = round(total_3yr / 36)
+
+    return TCOEstimate(
+        purchase_price=mid,
+        fuel_3yr=fuel_3yr,
+        insurance_3yr=insurance_3yr,
+        maintenance_3yr=maintenance_3yr,
+        total_3yr=total_3yr,
+        monthly=monthly,
+        fuel_type=fuel_type,
+        fuel_consumption_l_per_100km=fuel_cons,
+        annual_km=annual_km,
     )

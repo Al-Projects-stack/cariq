@@ -1,4 +1,5 @@
-﻿import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { QueryInput } from "../components/QueryInput";
 import { AnswerPanel } from "../components/AnswerPanel";
 import { KnownFaultsPanel } from "../components/KnownFaultsPanel";
@@ -198,9 +199,26 @@ export function Home() {
             </div>
           </div>
         )}
-
-        {/* Model browser */}
-        <div id="models">
+        {/* Find Your Car */}
+
+        <div className="mt-16 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h2 className="text-xl font-bold text-gray-100">Not Sure What to Look For?</h2>
+              <p className="mt-1 text-sm text-gray-500">Take a quick quiz and we will recommend the best model for your needs.</p>
+            </div>
+            <Link
+              to="/recommend"
+              className="shrink-0 rounded-lg bg-orange-500 px-6 py-3 text-sm font-bold text-white hover:bg-orange-400 transition-all text-center"
+            >
+              Find My Car
+            </Link>
+          </div>
+        </div>
+
+        {/* Model browser */}
+
+        <div id="models">
           <ModelSearch models={models} />
         </div>
 

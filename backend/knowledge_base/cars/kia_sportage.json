@@ -12,6 +12,10 @@
   "sa_market_summary": "The Kia Sportage is a strong player in South Africa's midsize SUV segment. The fourth-generation (QL, 2016-2022) established the model as a stylish, well-equipped alternative to the Toyota RAV4 and Hyundai Tucson. The fifth-generation (NQ5, 2022+) brought bold styling and a premium interior. Engine options include the 1.6 CRDi diesel (100kW/320Nm) and the punchy 1.6 T-GDI petrol (130kW/265Nm). Kia's 5-year/unlimited kilometre warranty is a major selling point, and the brand has grown significantly in SA. The Sportage competes directly with the Hyundai Tucson, Toyota RAV4, and Haval Jolion Pro.",
   "reliability_score": 8.0,
   "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 7.5,
+  "annual_maintenance_zar": 8000,
+  "annual_insurance_zar": 13000,
   "price_ranges": [
     {
       "year_from": 2022,

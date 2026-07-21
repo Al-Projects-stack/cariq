@@ -13,6 +13,10 @@
   "sa_market_summary": "The Golf 7 (2013-2020) and Golf 7.5 facelift (2018-2022) are among the most sought-after used hatchbacks in South Africa. Excellent build quality relative to competitors and strong brand prestige. GTI models hold value exceptionally well. Widely available and well-supported by VW dealers and independent specialists nationwide. A safe, intelligent purchase for the used car buyer who wants European refinement without supercar running costs.",
   "reliability_score": 7.8,
   "segment": "premium_hatchback",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 6.8,
+  "annual_maintenance_zar": 10000,
+  "annual_insurance_zar": 14000,
   "price_ranges": [
     {
       "year_from": 2020,

@@ -1,8 +1,9 @@
 ﻿import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getModelProfile, getMarketPosition } from "../api";
+import { getModelProfile, getMarketPosition, getTCO } from "../api";
 import { MarketPositionPanel } from "../components/MarketPositionPanel";
-import type { CarProfile, MarketPosition } from "../types";
+import { TCOPanel } from "../components/TCOPanel";
+import type { CarProfile, MarketPosition, TCOEstimate } from "../types";
 
 const SEVERITY_COLOURS: Record<string, string> = {
   HIGH: "text-red-400 border-red-800 bg-red-950/40",
@@ -30,6 +31,8 @@ export function ModelProfile() {
   const [error, setError] = useState<string | null>(null);
   const [marketPos, setMarketPos] = useState<MarketPosition | null>(null);
   const [marketErr, setMarketErr] = useState<string | null>(null);
+  const [tco, setTco] = useState<TCOEstimate | null>(null);
+  const [tcoErr, setTcoErr] = useState<string | null>(null);
 
   useEffect(() => {
     if (!make || !model) return;
@@ -45,6 +48,9 @@ export function ModelProfile() {
     getMarketPosition(make, model)
       .then(setMarketPos)
       .catch((err) => setMarketErr(err.message));
+    getTCO(make, model)
+      .then(setTco)
+      .catch((err) => setTcoErr(err.message));
   }, [make, model, profile]);
 
   if (loading) {
@@ -130,6 +136,12 @@ export function ModelProfile() {
             <MarketPositionPanel data={marketPos} make={profile.make} model={profile.model} />
           </div>
         ) : marketErr ? null : null}
+
+        {tco ? (
+          <div className="mb-8">
+            <TCOPanel data={tco} />
+          </div>
+        ) : tcoErr ? null : null}
 
         <div className="mb-8 rounded-xl border border-gray-800 bg-gray-900 p-6">
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gray-500">Known Faults</h2>

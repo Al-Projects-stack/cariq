@@ -15,6 +15,10 @@
   "sa_market_summary": "The BMW 3 Series (F30 2012-2018, G20 2019+) is the quintessential used premium sedan in South Africa. The F30 generation is the most commonly traded used BMW on platforms like AutoTrader and Cars.co.za. It offers genuine German engineering at a used price point that many South Africans find accessible. However, ownership costs can be significantly higher than Japanese alternatives ,  servicing, parts, and tyres all command a premium. Buyer must budget properly. Best bought from a BMW dealer with a certified pre-owned warranty.",
   "reliability_score": 6.5,
   "segment": "premium_hatchback",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 7.5,
+  "annual_maintenance_zar": 15000,
+  "annual_insurance_zar": 18000,
   "price_ranges": [
     {
       "year_from": 2020,

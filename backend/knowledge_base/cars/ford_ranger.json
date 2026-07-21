@@ -14,6 +14,10 @@
   "sa_market_summary": "The Ford Ranger is South Africa's second best-selling vehicle and the Hilux's closest rival. Built at Ford's Silverton plant in Pretoria, making it a locally assembled product with strong parts support. The T6 platform (2011-2022) established the Ranger's reputation for toughness and payload capability. The next-generation Ranger (2022+) upgraded technology significantly. The 3.2 TDCi five-cylinder diesel is regarded as one of the most robust engines in the bakkie segment. Excellent choice for both work and leisure.",
   "reliability_score": 8.5,
   "segment": "bakkie",
+  "fuel_type": "diesel",
+  "fuel_consumption_l_per_100km": 7.8,
+  "annual_maintenance_zar": 12000,
+  "annual_insurance_zar": 16000,
   "price_ranges": [
     {
       "year_from": 2022,

@@ -13,6 +13,10 @@
   "sa_market_summary": "The Hyundai ix35 was one of the most popular compact SUVs in South Africa during its run, offering strong value versus competitors like the Nissan Qashqai and Ford Kuga. Sold here from 2010 until it was replaced by the Tucson in 2016/2017, the ix35 built a large used-car footprint. It comes in both 2WD and AWD configurations, with petrol and diesel engine options. Hyundai's 5-year/100,000km warranty covered new units, and some early second-owner examples may still carry residual coverage. Parts availability from Hyundai dealers and independent suppliers is good, though diesel components carry higher repair costs.",
   "reliability_score": 7.0,
   "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 7.8,
+  "annual_maintenance_zar": 8000,
+  "annual_insurance_zar": 11000,
   "price_ranges": [
     {
       "year_from": 2015,

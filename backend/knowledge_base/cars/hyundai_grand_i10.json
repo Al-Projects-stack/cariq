@@ -11,6 +11,10 @@
   "sa_market_summary": "The Hyundai Grand i10 is the standout budget hatchback story of 2026 in South Africa, with used sales surging over 74% year-on-year. It sits alongside the i20 in Hyundai's lineup at a more accessible price point, appealing to first-time buyers and budget-conscious commuters. The 1.0-litre three-cylinder (47kW) and 1.2-litre four-cylinder (64kW) petrol engines offer excellent fuel economy. The Grand i10 undercuts the VW Polo Vivo on price while offering a 5-year/100,000km warranty on new vehicles (transferable to first used buyer). Parts are widely available and affordable. The average used Grand i10 sells for approximately R192,000 with 46,000km on the clock.",
   "reliability_score": 8.0,
   "segment": "compact_hatchback",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 5.5,
+  "annual_maintenance_zar": 5000,
+  "annual_insurance_zar": 7000,
   "price_ranges": [
     {
       "year_from": 2021,

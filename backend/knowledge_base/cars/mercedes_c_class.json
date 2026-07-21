@@ -14,6 +14,10 @@
   "sa_market_summary": "The Mercedes-Benz C-Class W205 (2014-2021) is the most common used luxury sedan in South Africa. Its design, build quality, and brand perception make it highly aspirational for middle-market buyers. However, the C-Class is one of the most maintenance-intensive vehicles in the SA used market ,  out-of-warranty examples can generate significant unexpected costs. The C220d diesel is the most practical variant for SA conditions due to fuel economy. Any buyer must budget carefully for running costs beyond the sticker price.",
   "reliability_score": 5.8,
   "segment": "premium_hatchback",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 7.5,
+  "annual_maintenance_zar": 18000,
+  "annual_insurance_zar": 20000,
   "price_ranges": [
     {
       "year_from": 2020,

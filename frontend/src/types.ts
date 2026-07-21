@@ -127,3 +127,30 @@ export interface MarketPosition {
   value_label: string;
   peers: SegmentModelPrice[];
 }
+
+export interface TCOEstimate {
+  purchase_price: number;
+  fuel_3yr: number;
+  insurance_3yr: number;
+  maintenance_3yr: number;
+  total_3yr: number;
+  monthly: number;
+  fuel_type: string;
+  fuel_consumption_l_per_100km: number;
+  annual_km: number;
+}
+
+export interface RecommendModel {
+  make: string;
+  model: string;
+  segment: string;
+  mid_zar: number;
+  reliability_score: number;
+  score: number;
+  match_reasons: string[];
+}
+
+export interface RecommendResponse {
+  recommendations: RecommendModel[];
+  total_count: number;
+}

@@ -13,6 +13,10 @@
   "sa_market_summary": "The Toyota Hilux is the best-selling vehicle in South Africa and arguably the most iconic bakkie on the continent. Its reputation for indestructibility is well earned ,  it is the go-to workhorse for farmers, contractors, and families. Resale value is outstanding and demand vastly outstrips supply for well-maintained examples. The 2.8 GD-6 engine introduced in 2016 is one of the most capable and reliable diesel engines in the bakkie segment. Parts are universally available across SA.",
   "reliability_score": 9.0,
   "segment": "bakkie",
+  "fuel_type": "diesel",
+  "fuel_consumption_l_per_100km": 7.8,
+  "annual_maintenance_zar": 10000,
+  "annual_insurance_zar": 16000,
   "price_ranges": [
     {
       "year_from": 2022,

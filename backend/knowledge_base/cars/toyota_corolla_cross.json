@@ -14,6 +14,10 @@
   "sa_market_summary": "The Toyota Corolla Cross is South Africa's best-selling compact crossover and the eighth-best-selling model overall, with 6,001 units sold in 2025. Built locally at Toyota's Prospecton plant in KwaZulu-Natal, it bridged the gap between the Corolla hatch and the RAV4. Its hybrid variant dominates the new-energy vehicle segment ,  nearly 40% of all used hybrids sold in SA in 2025 were Corolla Cross units. The 1.8-litre petrol (103kW/172Nm) and 1.8-litre hybrid (90kW combined) both use a CVT driving the front wheels. Resale value is exceptional, and the hybrid battery carries an 8-year/195,000km warranty.",
   "reliability_score": 8.0,
   "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 6.5,
+  "annual_maintenance_zar": 7000,
+  "annual_insurance_zar": 12000,
   "price_ranges": [
     {
       "year_from": 2023,

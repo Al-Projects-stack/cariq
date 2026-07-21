@@ -12,6 +12,10 @@
   "sa_market_summary": "The Mazda 3 (BM generation 2014-2018, BP generation 2019+) is an excellent used car choice in South Africa for buyers who prioritise build quality and driving pleasure over brand prestige. Mazda's KODO design language gives the car premium looks and the SkyActiv engines deliver both performance and efficiency. Strong reliability record with fewer electronics-related faults than German competitors. Parts availability is reasonable in major cities. A frequently overlooked gem in the used hatchback and sedan market.",
   "reliability_score": 8.2,
   "segment": "premium_hatchback",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 6.5,
+  "annual_maintenance_zar": 8000,
+  "annual_insurance_zar": 12000,
   "price_ranges": [
     {
       "year_from": 2021,

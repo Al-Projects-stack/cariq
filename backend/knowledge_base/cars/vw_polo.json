@@ -13,6 +13,10 @@
   "sa_market_summary": "The VW Polo is one of the best-selling used cars in South Africa. Extremely high demand from private buyers and fleet operators keeps prices firm. Parts availability is excellent at both VW dealers and independent specialists. The Polo Vivo (based on the Mk5 platform) offers budget-friendly motoring with low running costs. The newer Mk6 Polo (2018+) brings more tech but also more complexity. A sound choice for city and highway driving, especially in Johannesburg and Cape Town.",
   "reliability_score": 7.5,
   "segment": "compact_hatchback",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 5.8,
+  "annual_maintenance_zar": 8000,
+  "annual_insurance_zar": 10000,
   "price_ranges": [
     {
       "year_from": 2021,
