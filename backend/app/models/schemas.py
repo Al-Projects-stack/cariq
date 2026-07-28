@@ -220,3 +220,88 @@ class RecommendModel(BaseModel):
 class RecommendResponse(BaseModel):
     recommendations: list[RecommendModel]
     total_count: int
+
+
+# --- Auth ---
+
+class SignupRequest(BaseModel):
+    email: str
+    password: str = Field(min_length=6)
+    display_name: str = ""
+
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+
+
+class AuthResponse(BaseModel):
+    token: str
+    user_id: int
+    email: str
+    display_name: str
+
+
+class UserProfile(BaseModel):
+    user_id: int
+    email: str
+    display_name: str
+    created_at: str
+
+
+# --- Watchlist ---
+
+class WatchlistItem(BaseModel):
+    id: int
+    make: str
+    model: str
+    created_at: str
+
+
+class WatchlistCreate(BaseModel):
+    make: str
+    model: str
+
+
+class WatchlistResponse(BaseModel):
+    items: list[WatchlistItem]
+    total: int
+
+
+# --- Saved Searches ---
+
+class SavedSearchItem(BaseModel):
+    id: int
+    label: str
+    query: str
+    filters: str
+    created_at: str
+
+
+class SavedSearchCreate(BaseModel):
+    label: str = ""
+    query: str
+    filters: str = "{}"
+
+
+class SavedSearchResponse(BaseModel):
+    items: list[SavedSearchItem]
+    total: int
+
+
+# --- Alerts ---
+
+class AlertItem(BaseModel):
+    id: int
+    make: str
+    model: str
+    alert_type: str
+    message: str
+    read: bool
+    created_at: str
+
+
+class AlertListResponse(BaseModel):
+    alerts: list[AlertItem]
+    unread_count: int
+    total: int
