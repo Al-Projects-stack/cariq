@@ -27,7 +27,9 @@ def _token_for(user: User) -> str:
     )
 
 
-def _require_user(authorization: str = Header(...), db: Session = Depends(get_db)) -> User:
+def _require_user(authorization: str | None = Header(None), db: Session = Depends(get_db)) -> User:
+    if not authorization:
+        raise HTTPException(401, detail="Missing authorization header")
     try:
         scheme, token = authorization.split(" ", 1)
         if scheme.lower() != "bearer":
