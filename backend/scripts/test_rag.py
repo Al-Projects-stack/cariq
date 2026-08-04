@@ -31,7 +31,7 @@ async def test():
 
     context = "\n\n".join(h["metadata"].get("text", "")[:300] for h in hits)
     answer = await cl.generate(q, context)
-    print("\nClaude answer:")
+    print("\nAPI answer:")
     safe = answer[:600].encode("ascii", errors="replace").decode("ascii")
     print(safe)
     print("\nRAG pipeline OK")

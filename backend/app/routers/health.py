@@ -31,7 +31,7 @@ def health_check():
     except Exception:
         pass
 
-    # Skip live Claude ping to avoid spending tokens on health checks
+    # Skip live API ping to avoid spending tokens on health checks
     claude_status = "configured"
 
     return HealthResponse(

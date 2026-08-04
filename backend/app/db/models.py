@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import Column, String, Text, DateTime, Integer, Boolean, ForeignKey
+from sqlalchemy import Column, String, Text, DateTime, Integer, Boolean, ForeignKey, Float
 from sqlalchemy.orm import relationship
 from app.db.database import Base
 
@@ -83,3 +83,31 @@ class Alert(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     user = relationship("User", back_populates="alerts")
+
+
+class ClaudeCallLog(Base):
+    __tablename__ = "claude_call_logs"
+
+    id = Column(Integer, primary_key=True, index=True)
+    call_id = Column(String(36), unique=True, nullable=False, index=True)
+    feature = Column(String(100), nullable=False, index=True)
+    model = Column(String(100), nullable=False)
+    input_tokens = Column(Integer, default=0)
+    output_tokens = Column(Integer, default=0)
+    cost_usd = Column(Float, default=0.0)
+    latency_ms = Column(Integer, default=0)
+    status = Column(String(20), default="success")  # success | failed
+    error = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class ClaudeDeadLetter(Base):
+    __tablename__ = "claude_dead_letters"
+
+    id = Column(Integer, primary_key=True, index=True)
+    call_id = Column(String(36), unique=True, nullable=False, index=True)
+    feature = Column(String(100), nullable=False, index=True)
+    error_type = Column(String(100), nullable=False)
+    error_message = Column(Text, nullable=False)
+    attempts = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.utcnow)

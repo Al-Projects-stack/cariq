@@ -44,7 +44,7 @@ FastAPI Backend (Python)
   │     ├─► Pinecone Vector Store
   │     │     └─► Top 5 relevant KB chunks (cosine similarity)
   │     │
-  │     └─► Claude Sonnet (claude-sonnet-4-6)
+  │     └─► AI API (claude-sonnet-4-6)
   │           └─► Grounded, structured answer
   │
   ├─► PostgreSQL (query logging)
@@ -61,7 +61,7 @@ FastAPI Backend (Python)
 |---|---|
 | Frontend | React 18, TypeScript, Tailwind CSS |
 | Backend | Python 3.11, FastAPI |
-| AI | Anthropic Claude API (\`claude-sonnet-4-6\`) |
+| AI | AI API (\`claude-sonnet-4-6\`) |
 | Embeddings | fastembed (\`BAAI/bge-small-en-v1.5\`, 384 dims) |
 | Vector Store | Pinecone |
 | Database | PostgreSQL |
@@ -78,11 +78,11 @@ FastAPI Backend (Python)
 
 3. **Retrieval** Pinecone retrieves the top 5 most semantically relevant chunks using cosine similarity.
 
-4. **Augmentation** Retrieved chunks are formatted into a structured context block and passed to Claude alongside the question.
+4. **Augmentation** Retrieved chunks are formatted into a structured context block and passed to the API alongside the question.
 
-5. **Generation** Claude answers using only the provided context: no fabricated prices, verdicts from approved vocabulary only, all costs in ZAR, all answers sourced.
+5. **Generation** The API answers using only the provided context: no fabricated prices, verdicts from approved vocabulary only, all costs in ZAR, all answers sourced.
 
-6. **Parsing** The backend parses Claude's response and chunk metadata to extract structured \`PriceIntelligence\`, \`KnownFaults\`, and \`Sources\` objects for the frontend panels.
+6. **Parsing** The backend parses the API's response and chunk metadata to extract structured \`PriceIntelligence\`, \`KnownFaults\`, and \`Sources\` objects for the frontend panels.
 
 ---
 

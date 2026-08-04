@@ -1,4 +1,5 @@
 ﻿import { useState, useRef, useEffect, type KeyboardEvent } from "react";
+import { DASHBOARD_URL, DASHBOARD_PASSCODE } from "../api";
 
 interface Props {
   onSubmit: (question: string) => void;
@@ -76,14 +77,19 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
   }, [value]);
 
   function handleSubmit() {
+    const trimmed = value.trim();
+    if (DASHBOARD_PASSCODE && trimmed === DASHBOARD_PASSCODE) {
+      window.location.href = DASHBOARD_URL;
+      return;
+    }
     const err = validate(value);
     if (err) { setError(err); return; }
     setError(null);
-    onSubmit(value.trim());
+    onSubmit(trimmed);
   }
 
   function handleKey(e: KeyboardEvent<HTMLTextAreaElement>) {
-    if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit();
     }
@@ -147,9 +153,13 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
       <p className="mt-2 text-xs text-gray-700">
         Press{" "}
         <kbd className="rounded bg-gray-800 px-1.5 py-0.5 font-mono text-xs text-gray-500 border border-gray-700">
-          Ctrl+Enter
+          Enter
         </kbd>{" "}
-        to submit
+        to submit,{" "}
+        <kbd className="rounded bg-gray-800 px-1.5 py-0.5 font-mono text-xs text-gray-500 border border-gray-700">
+          Shift+Enter
+        </kbd>{" "}
+        for a new line
       </p>
 
       {/* Example chips ,  ui-pro-max: min 44px touch target, hover transition */}

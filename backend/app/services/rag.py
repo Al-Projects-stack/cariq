@@ -52,7 +52,7 @@ class RAGService:
         # Step 3: Build context from retrieved chunks
         context = self._build_context(results)
 
-        # Step 4: Call Claude with context + query
+        # Step 4: Call the API with context + query
         answer = await self.claude.generate(question=question, context=context)
 
         # Step 5: Parse structured response

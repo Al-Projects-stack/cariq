@@ -2,6 +2,10 @@ import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosi
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
+export const DASHBOARD_URL = `${API_BASE}/api/v1/dashboard`;
+
+export const DASHBOARD_PASSCODE = import.meta.env.VITE_DASHBOARD_PASSCODE || "";
+
 async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {
     headers: { "Content-Type": "application/json" },
