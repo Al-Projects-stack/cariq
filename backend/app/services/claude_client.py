@@ -1,4 +1,5 @@
 import re
+import asyncio
 import time
 import random
 import logging
@@ -92,7 +93,7 @@ class ClaudeClient:
         self.max_retries = settings.claude_max_retries
         self.base_delay = settings.claude_base_delay
 
-    def generate(self, question: str, context: str, feature: str = "rag_query") -> str:
+    async def generate(self, question: str, context: str, feature: str = "rag_query") -> str:
         safe_question = sanitise_for_prompt(question)
         user_message = f"""Context from CarIQ knowledge base:
 {context}
@@ -152,7 +153,7 @@ Answer the question using only the context provided above. Be specific, practica
                 logger.warning(
                     f"API call transient failure (attempt {attempt + 1}/{self.max_retries}): {last_error}"
                 )
-                time.sleep(delay + random.uniform(0, 0.5))
+                await asyncio.sleep(delay + random.uniform(0, 0.5))
                 delay *= 2
                 continue
             break
