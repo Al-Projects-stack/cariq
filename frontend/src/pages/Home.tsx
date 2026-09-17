@@ -9,6 +9,7 @@ import { ModelSearch } from "../components/ModelSearch";
 import { HowItWorks } from "../components/HowItWorks";
 import { Header } from "../components/Header";
 import { SaveSearchButton } from "../components/SaveSearchButton";
+import { useAuth } from "../contexts/AuthContext";
 import { queryCarIQ, listModels } from "../api";
 import type { QueryResponse, CarVariant } from "../types";
 
@@ -28,6 +29,7 @@ const LOADING_MESSAGES = [
 ];
 
 export function Home() {
+  const { user } = useAuth();
   const [response, setResponse] = useState<QueryResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -205,10 +207,12 @@ export function Home() {
           <ModelSearch models={models} />
         </div>
 
-        {/* How It Works visual explainer */}
-        <div id="how-it-works">
-          <HowItWorks />
-        </div>
+        {/* How It Works visual explainer — auth-gated */}
+        {user && (
+          <div id="how-it-works">
+            <HowItWorks />
+          </div>
+        )}
       </main>
 
       <footer className="border-t border-gray-900 px-6 py-8 text-center">
