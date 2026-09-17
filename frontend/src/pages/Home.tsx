@@ -1,5 +1,6 @@
 ﻿import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { QueryInput } from "../components/QueryInput";
 import { AnswerPanel } from "../components/AnswerPanel";
 import { KnownFaultsPanel } from "../components/KnownFaultsPanel";
@@ -9,6 +10,10 @@ import { ModelSearch } from "../components/ModelSearch";
 import { HowItWorks } from "../components/HowItWorks";
 import { Header } from "../components/Header";
 import { SaveSearchButton } from "../components/SaveSearchButton";
+import { Hero } from "../components/Hero";
+import { SocialProof } from "../components/SocialProof";
+import { LiveDemo } from "../components/LiveDemo";
+import { FeatureBento } from "../components/FeatureBento";
 import { useAuth } from "../contexts/AuthContext";
 import { queryCarIQ, listModels } from "../api";
 import type { QueryResponse, CarVariant } from "../types";
@@ -88,10 +93,12 @@ export function Home() {
         padding: "0 1.5rem",
         background: "#030712",
       }}>
-        <img
+        <motion.img
           src="/favicon.svg"
           alt="CarIQ"
-          style={{ width: 56, height: 56, animation: "pulse 1.8s ease-in-out infinite" }}
+          style={{ width: 56, height: 56 }}
+          animate={{ scale: [1, 0.92, 1], opacity: [1, 0.6, 1] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         />
         <p style={{
           fontSize: 15,
@@ -104,12 +111,6 @@ export function Home() {
         }}>
           {LOADING_MESSAGES[msgIndex]}
         </p>
-        <style>{`
-          @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.92); }
-          }
-        `}</style>
       </div>
     );
   }
@@ -118,110 +119,114 @@ export function Home() {
     <div className="min-h-screen bg-gray-950">
       <Header />
 
-      <main className="mx-auto max-w-5xl px-6 py-14">
-        {/* Hero */}
-        <div className="mb-12 text-center animate-slide-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse-slow" />
-            <span className="font-mono text-xs text-orange-400 tracking-widest uppercase">
-              RAG-powered · 20 models · SA market data
-            </span>
-          </div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-100 sm:text-5xl leading-tight">
-            Know before you buy
-            <span className="block text-orange-500 mt-1">any used car in SA</span>
-          </h1>
-          <p className="mt-5 text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Ask about prices, faults, and reliability. Get grounded answers from a curated
-            knowledge base — not guesswork.
-          </p>
-        </div>
+      {/* Exciting hero */}
+      <Hero />
 
-        {/* Query input */}
-        <QueryInput onSubmit={handleQuery} isLoading={isLoading} />
+      <SocialProof />
 
-        {/* Error state */}
-        {error && (
-          <div
-            role="alert"
-            className="mt-6 rounded-xl border border-red-800/60 bg-red-950/40 px-5 py-4 text-sm text-red-300 flex items-start gap-3"
-          >
-            <svg className="h-5 w-5 shrink-0 mt-0.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            {error}
-          </div>
-        )}
+      {/* Playful fake demo — always visible as teaser */}
+      <LiveDemo />
 
-        {/* Loading state */}
-        {isLoading && (
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <div className="flex gap-3 items-center">
-              <PipelineSpinner />
-            </div>
-            <div className="flex items-center gap-8 text-xs text-gray-600 font-mono">
-              <PipelineStep label="Embedding" />
-              <span className="text-gray-800">→</span>
-              <PipelineStep label="Pinecone" active />
-              <span className="text-gray-800">→</span>
-              <PipelineStep label="Answer" />
-            </div>
-          </div>
-        )}
+      {/* Feature bento */}
+      <FeatureBento />
 
-        {/* Results */}
-        {response && !isLoading && (
-          <div id="results" className="mt-8 space-y-4 animate-fade-in">
-            <AnswerPanel answer={response.answer} />
-            <div className="flex justify-end">
-              <SaveSearchButton query={lastQuestion} />
-            </div>
-            <div className="grid gap-4 lg:grid-cols-3">
-              {response.price_intelligence && (
-                <PriceIntelligencePanel data={response.price_intelligence} />
+      <main className="mx-auto max-w-5xl px-6 py-10">
+        {/* Real RAG — soft-gate: only authed sees live query */}
+        {user ? (
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-6">
+            <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5 sm:p-6">
+              <p className="font-mono text-xs tracking-widest uppercase text-orange-400">Your turn — ask anything</p>
+              <p className="mt-1 text-sm text-gray-400">Real RAG, grounded answers, no hallucinations. Howzit!</p>
+              <div className="mt-4">
+                <QueryInput onSubmit={handleQuery} isLoading={isLoading} />
+              </div>
+
+              {error && (
+                <div role="alert" className="mt-6 rounded-xl border border-red-800/60 bg-red-950/40 px-5 py-4 text-sm text-red-300 flex items-start gap-3">
+                  <svg className="h-5 w-5 shrink-0 mt-0.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  {error}
+                </div>
               )}
-              <KnownFaultsPanel faults={response.known_faults} />
-              <SourceCitations sources={response.sources} />
+
+              {isLoading && (
+                <div className="mt-8 flex flex-col items-center gap-4">
+                  <PipelineSpinner />
+                  <div className="flex items-center gap-6 text-xs text-gray-600 font-mono">
+                    <PipelineStep label="Embedding" />
+                    <span className="text-gray-800">→</span>
+                    <PipelineStep label="Pinecone" active />
+                    <span className="text-gray-800">→</span>
+                    <PipelineStep label="Answer" />
+                  </div>
+                </div>
+              )}
+
+              {response && !isLoading && (
+                <div id="results" className="mt-8 space-y-4 animate-fade-in">
+                  <AnswerPanel answer={response.answer} />
+                  <div className="flex justify-end">
+                    <SaveSearchButton query={lastQuestion} />
+                  </div>
+                  <div className="grid gap-4 lg:grid-cols-3">
+                    {response.price_intelligence && <PriceIntelligencePanel data={response.price_intelligence} />}
+                    <KnownFaultsPanel faults={response.known_faults} />
+                    <SourceCitations sources={response.sources} />
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
+          </motion.div>
+        ) : (
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-6 rounded-2xl border border-dashed border-gray-800 bg-gray-900/20 p-6 text-center">
+            <p className="font-mono text-xs tracking-widest uppercase text-gray-500">Want the real thing?</p>
+            <p className="mt-2 text-sm text-gray-400">Sign in and the whole RAG playground unlocks — ask anything, get price verdicts, faults, and sources for real. No more fake Polo stories.</p>
+            <div className="mt-4 flex justify-center">
+              <Link to="/signup" className="rounded-xl bg-orange-500 px-6 py-2.5 text-sm font-bold text-white hover:bg-orange-400 transition-colors shadow-lg shadow-orange-500/20">
+                Sign up — it’s free, like free Test & Chips on race day
+              </Link>
+            </div>
+          </motion.div>
         )}
+
         {/* Find Your Car */}
-        <div className="mt-16 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-10 rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 sm:p-8 overflow-hidden relative">
+          <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-orange-500/10 blur-2xl" />
+          <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl font-bold text-gray-100">Not Sure What to Look For?</h2>
-              <p className="mt-1 text-sm text-gray-500">Take a quick quiz and we will recommend the best model for your needs.</p>
+              <h2 className="text-xl font-bold text-gray-100">Not sure what to look for?</h2>
+              <p className="mt-1 text-sm text-gray-500">Take a quick quiz — we’ll match you with the most lekker car for your budget and vibe.</p>
             </div>
-            <Link
-              to="/recommend"
-              className="shrink-0 rounded-lg bg-orange-500 px-6 py-3 text-sm font-bold text-white hover:bg-orange-400 transition-all text-center"
-            >
+            <Link to="/recommend" className="shrink-0 rounded-xl bg-orange-500 px-6 py-3 text-sm font-bold text-white hover:bg-orange-400 transition-all text-center shadow-lg shadow-orange-500/20">
               Find My Car
             </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* Model browser */}
         <div id="models">
           <ModelSearch models={models} />
         </div>
 
-        {/* How It Works visual explainer — auth-gated */}
+        {/* How It Works — auth-gated */}
         {user && (
           <div id="how-it-works">
             <HowItWorks />
           </div>
         )}
+        {!user && (
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-10 rounded-2xl border border-gray-800 bg-gray-900 p-6 text-center">
+            <p className="text-sm text-gray-300 font-medium">Pssst… the secret sauce is behind the velvet rope</p>
+            <p className="text-xs text-gray-500 mt-1">How CarIQ Works — the full pipeline with vectors, Pinecone, and Claude — shows once you’re in. Sneaky, hey?</p>
+            <Link to="/signup" className="mt-4 inline-flex rounded-full border border-orange-500/40 bg-orange-500/10 px-5 py-2 text-xs font-semibold text-orange-400 hover:bg-orange-500/20">Unlock it</Link>
+          </motion.div>
+        )}
       </main>
 
       <footer className="border-t border-gray-900 px-6 py-8 text-center">
-        <p className="text-xs text-gray-700 font-mono">
-          CarIQ · Built for the SA used car market · 20 models at launch
-        </p>
-        <p className="mt-1 text-xs text-gray-800">
-          Data: MyBroadband · Cars.co.za · AutoTrader SA · SA owner communities
-        </p>
+        <p className="text-xs text-gray-700 font-mono">CarIQ · Built for the SA used car market · 20 models at launch</p>
+        <p className="mt-1 text-xs text-gray-800">Data: MyBroadband · Cars.co.za · AutoTrader SA · SA owner communities</p>
       </footer>
     </div>
   );

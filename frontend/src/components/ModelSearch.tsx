@@ -1,6 +1,7 @@
 ﻿import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { WatchButton } from "./WatchButton";
+import { useAuth } from "../contexts/AuthContext";
 import type { CarVariant } from "../types";
 
 interface Props {
@@ -22,12 +23,13 @@ function ReliabilityBar({ score }: { score: number }) {
 }
 
 export function ModelSearch({ models }: Props) {
+  const { user } = useAuth();
   const [search, setSearch] = useState("");
   const [compareMode, setCompareMode] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
   const navigate = useNavigate();
 
-  const filtered = models.filter((m) => {
+  const filteredAll = models.filter((m) => {
     const q = search.toLowerCase();
     return (
       m.make.toLowerCase().includes(q) ||
@@ -50,6 +52,8 @@ export function ModelSearch({ models }: Props) {
     });
     navigate(`/compare?make_a=${encodeURIComponent(a.make)}&model_a=${encodeURIComponent(a.model)}&make_b=${encodeURIComponent(b.make)}&model_b=${encodeURIComponent(b.model)}`);
   }
+  const filtered = !user && !search ? filteredAll.slice(0, 6) : filteredAll;
+  const showGate = !user && !search && filteredAll.length > 6;
 
   return (
     <div className="mt-16">
@@ -97,8 +101,9 @@ export function ModelSearch({ models }: Props) {
       {filtered.length === 0 ? (
         <p className="text-sm text-gray-500">No models match "{search}"</p>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filtered.map((car) => {
+        <div className="relative">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {filtered.map((car) => {
             const key = `${car.make}|${car.model}`;
             const isSelected = selected.includes(key);
             return (
@@ -147,7 +152,18 @@ export function ModelSearch({ models }: Props) {
                 </Link>
               </div>
             );
-          })}
+            })}
+          </div>
+          {showGate && (
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-gray-950 via-gray-950/70 to-transparent" />
+          )}
+          {showGate && (
+            <div className="absolute inset-x-0 bottom-0 flex justify-center pb-2">
+              <Link to="/signup" className="pointer-events-auto rounded-full bg-orange-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 hover:bg-orange-400 transition-colors">
+                Sign in to browse all 20 — it’s lekker
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </div>
