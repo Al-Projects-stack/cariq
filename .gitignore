@@ -1,4 +1,4 @@
-# Environment files — never commit these
+﻿# Environment files - never commit these
 .env
 *.env
 .env.local
@@ -40,7 +40,7 @@ frontend/.vite/
 .DS_Store
 Thumbs.db
 
-# Agent instructions — local only, never pushed
+# Agent instructions - local only, never pushed
 AGENTS.md
 .claude/
 

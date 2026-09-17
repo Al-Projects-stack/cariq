@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const container = {
@@ -50,12 +50,12 @@ export function Hero() {
           <span className="block">Know before you buy</span>
           <span className="block text-orange-500 mt-1">any used car in SA</span>
           <span className="block text-lg sm:text-xl font-medium text-gray-500 mt-3 tracking-normal normal-case">
-            — ja, even that <span className="text-gray-300">now-now</span> Polo you've been eyeing
+            - ja, even that <span className="text-gray-300">now-now</span> Polo you've been eyeing
           </span>
         </motion.h1>
 
         <motion.p variants={item} className="mt-6 text-gray-400 max-w-2xl mx-auto leading-relaxed">
-          Ask about prices, faults, and reliability. Get grounded answers from a curated knowledge base — not guesswork, not hallucinated nonsense. Lekker.
+          Ask about prices, faults, and reliability. Get grounded answers from a curated knowledge base - not guesswork, not hallucinated nonsense. Lekker.
         </motion.p>
 
         <motion.div variants={item} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -63,13 +63,13 @@ export function Hero() {
             href="#demo"
             className="w-full sm:w-auto rounded-xl bg-orange-500 px-8 py-3.5 text-sm font-bold text-white hover:bg-orange-400 transition-all shadow-lg shadow-orange-500/20"
           >
-            Try a fake query — it’s fun, promise
+            See example - it’s fun, promise
           </a>
           <Link
             to="/signup"
             className="w-full sm:w-auto rounded-xl border border-gray-700 bg-gray-900/60 backdrop-blur px-8 py-3.5 text-sm font-semibold text-gray-200 hover:border-orange-500/40 hover:text-white transition-all"
           >
-            Sign in to unlock everything
+            Sign in to save your cars
           </Link>
         </motion.div>
 

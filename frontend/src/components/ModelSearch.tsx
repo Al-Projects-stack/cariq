@@ -160,7 +160,7 @@ export function ModelSearch({ models }: Props) {
           {showGate && (
             <div className="absolute inset-x-0 bottom-0 flex justify-center pb-2">
               <Link to="/signup" className="pointer-events-auto rounded-full bg-orange-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 hover:bg-orange-400 transition-colors">
-                Sign in to browse all 20 — it’s lekker
+                Sign in to browse all 20 - it’s lekker
               </Link>
             </div>
           )}

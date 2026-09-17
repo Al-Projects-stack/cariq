@@ -1,18 +1,18 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 
 export function FeatureBento() {
   return (
     <div className="mx-auto max-w-5xl px-6 mt-10 grid sm:grid-cols-3 gap-4">
       <BentoCard
         title="Price Intelligence"
-        desc="Low / Mid / High with a verdict — GOOD DEAL, FAIR, ABOVE MARKET, OVERPRICED. No vibes, just ZAR."
+        desc="Low / Mid / High with a verdict - GOOD DEAL, FAIR, ABOVE MARKET, OVERPRICED. No vibes, just ZAR."
         accent="from-green-500/10 via-blue-500/10 to-red-500/10"
         icon="₿"
         delay={0}
       />
       <BentoCard
         title="Market Position"
-        desc="Where it sits vs its segment — percentile, peers, and a value label that actually helps you haggle."
+        desc="Where it sits vs its segment - percentile, peers, and a value label that actually helps you haggle."
         accent="from-blue-500/10 via-cyan-500/10 to-orange-500/10"
         icon="◉"
         delay={0.08}

@@ -124,71 +124,59 @@ export function Home() {
 
       <SocialProof />
 
-      {/* Playful fake demo — always visible as teaser */}
+      {/* Example demo - how it works */}
       <LiveDemo />
 
       {/* Feature bento */}
       <FeatureBento />
 
       <main className="mx-auto max-w-5xl px-6 py-10">
-        {/* Real RAG — soft-gate: only authed sees live query */}
-        {user ? (
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-6">
-            <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5 sm:p-6">
-              <p className="font-mono text-xs tracking-widest uppercase text-orange-400">Your turn — ask anything</p>
-              <p className="mt-1 text-sm text-gray-400">Real RAG, grounded answers, no hallucinations. Howzit!</p>
-              <div className="mt-4">
-                <QueryInput onSubmit={handleQuery} isLoading={isLoading} />
+        {/* Real RAG - open to everyone, sign in only to save */}
+        <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-6">
+          <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5 sm:p-6">
+            <p className="font-mono text-xs tracking-widest uppercase text-orange-400">Your turn - ask anything</p>
+            <p className="mt-1 text-sm text-gray-400">Ask for real - no account needed. Sign in only to save your searches and cars. Howzit!</p>
+            <div className="mt-4">
+              <QueryInput onSubmit={handleQuery} isLoading={isLoading} />
+            </div>
+
+            {error && (
+              <div role="alert" className="mt-6 rounded-xl border border-red-800/60 bg-red-950/40 px-5 py-4 text-sm text-red-300 flex items-start gap-3">
+                <svg className="h-5 w-5 shrink-0 mt-0.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                {error}
               </div>
+            )}
 
-              {error && (
-                <div role="alert" className="mt-6 rounded-xl border border-red-800/60 bg-red-950/40 px-5 py-4 text-sm text-red-300 flex items-start gap-3">
-                  <svg className="h-5 w-5 shrink-0 mt-0.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                  {error}
+            {isLoading && (
+              <div className="mt-8 flex flex-col items-center gap-4">
+                <PipelineSpinner />
+                <div className="flex items-center gap-6 text-xs text-gray-600 font-mono">
+                  <PipelineStep label="Embedding" />
+                  <span className="text-gray-800">→</span>
+                  <PipelineStep label="Pinecone" active />
+                  <span className="text-gray-800">→</span>
+                  <PipelineStep label="Answer" />
                 </div>
-              )}
+              </div>
+            )}
 
-              {isLoading && (
-                <div className="mt-8 flex flex-col items-center gap-4">
-                  <PipelineSpinner />
-                  <div className="flex items-center gap-6 text-xs text-gray-600 font-mono">
-                    <PipelineStep label="Embedding" />
-                    <span className="text-gray-800">→</span>
-                    <PipelineStep label="Pinecone" active />
-                    <span className="text-gray-800">→</span>
-                    <PipelineStep label="Answer" />
-                  </div>
+            {response && !isLoading && (
+              <div id="results" className="mt-8 space-y-4 animate-fade-in">
+                <AnswerPanel answer={response.answer} />
+                <div className="flex justify-end">
+                  <SaveSearchButton query={lastQuestion} />
                 </div>
-              )}
-
-              {response && !isLoading && (
-                <div id="results" className="mt-8 space-y-4 animate-fade-in">
-                  <AnswerPanel answer={response.answer} />
-                  <div className="flex justify-end">
-                    <SaveSearchButton query={lastQuestion} />
-                  </div>
-                  <div className="grid gap-4 lg:grid-cols-3">
-                    {response.price_intelligence && <PriceIntelligencePanel data={response.price_intelligence} />}
-                    <KnownFaultsPanel faults={response.known_faults} />
-                    <SourceCitations sources={response.sources} />
-                  </div>
+                <div className="grid gap-4 lg:grid-cols-3">
+                  {response.price_intelligence && <PriceIntelligencePanel data={response.price_intelligence} />}
+                  <KnownFaultsPanel faults={response.known_faults} />
+                  <SourceCitations sources={response.sources} />
                 </div>
-              )}
-            </div>
-          </motion.div>
-        ) : (
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-6 rounded-2xl border border-dashed border-gray-800 bg-gray-900/20 p-6 text-center">
-            <p className="font-mono text-xs tracking-widest uppercase text-gray-500">Want the real thing?</p>
-            <p className="mt-2 text-sm text-gray-400">Sign in and the whole RAG playground unlocks — ask anything, get price verdicts, faults, and sources for real. No more fake Polo stories.</p>
-            <div className="mt-4 flex justify-center">
-              <Link to="/signup" className="rounded-xl bg-orange-500 px-6 py-2.5 text-sm font-bold text-white hover:bg-orange-400 transition-colors shadow-lg shadow-orange-500/20">
-                Sign up — it’s free, like free Test & Chips on race day
-              </Link>
-            </div>
-          </motion.div>
-        )}
+              </div>
+            )}
+          </div>
+        </motion.div>
 
         {/* Find Your Car */}
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-10 rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 sm:p-8 overflow-hidden relative">
@@ -196,7 +184,7 @@ export function Home() {
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h2 className="text-xl font-bold text-gray-100">Not sure what to look for?</h2>
-              <p className="mt-1 text-sm text-gray-500">Take a quick quiz — we’ll match you with the most lekker car for your budget and vibe.</p>
+              <p className="mt-1 text-sm text-gray-500">Take a quick quiz - we’ll match you with the most lekker car for your budget and vibe.</p>
             </div>
             <Link to="/recommend" className="shrink-0 rounded-xl bg-orange-500 px-6 py-3 text-sm font-bold text-white hover:bg-orange-400 transition-all text-center shadow-lg shadow-orange-500/20">
               Find My Car
@@ -209,7 +197,7 @@ export function Home() {
           <ModelSearch models={models} />
         </div>
 
-        {/* How It Works — auth-gated */}
+        {/* How It Works - auth-gated */}
         {user && (
           <div id="how-it-works">
             <HowItWorks />
@@ -218,7 +206,7 @@ export function Home() {
         {!user && (
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-10 rounded-2xl border border-gray-800 bg-gray-900 p-6 text-center">
             <p className="text-sm text-gray-300 font-medium">Pssst… the secret sauce is behind the velvet rope</p>
-            <p className="text-xs text-gray-500 mt-1">How CarIQ Works — the full pipeline with vectors, Pinecone, and Claude — shows once you’re in. Sneaky, hey?</p>
+            <p className="text-xs text-gray-500 mt-1">How CarIQ Works - the full pipeline with vectors, Pinecone, and Claude - shows once you’re in. Sneaky, hey?</p>
             <Link to="/signup" className="mt-4 inline-flex rounded-full border border-orange-500/40 bg-orange-500/10 px-5 py-2 text-xs font-semibold text-orange-400 hover:bg-orange-500/20">Unlock it</Link>
           </motion.div>
         )}

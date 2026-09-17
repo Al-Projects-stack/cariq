@@ -1,4 +1,4 @@
-import logging
+﻿import logging
 import os
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,7 +14,7 @@ from app.db.database import engine, Base
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Create DB tables on startup — non-fatal so the app works without a DB
+# Create DB tables on startup - non-fatal so the app works without a DB
 try:
     Base.metadata.create_all(bind=engine)
 except Exception as exc:

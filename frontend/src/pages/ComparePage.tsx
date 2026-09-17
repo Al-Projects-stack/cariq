@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { compareModels } from "../api";
 import { Header } from "../components/Header";
@@ -64,7 +64,7 @@ export function ComparePage() {
   }
 
   const { model_a, model_b, reliability, price, faults } = data;
-  const shareText = encodeURIComponent(`Comparing ${model_a.make} ${model_a.model} vs ${model_b.make} ${model_b.model} on CarIQ — ${window.location.href}`);
+  const shareText = encodeURIComponent(`Comparing ${model_a.make} ${model_a.model} vs ${model_b.make} ${model_b.model} on CarIQ - ${window.location.href}`);
 
   return (
     <div className="min-h-screen bg-gray-950">
