@@ -161,7 +161,7 @@ Lives in \`backend/knowledge_base/cars/\`. Each JSON file covers price ranges, k
 
 *Built by Al Mujati · 2025-ongoing 
 
-## What I Learned
+## What I Learnt
 
 - Building a RAG pipeline end to end: chunking a JSON knowledge base, embedding each chunk with fastembed, upserting to Pinecone, and retrieving the top K chunks at query time
 - The difference between retrieval failures and generation failures, and how to diagnose which layer is producing a bad answer
