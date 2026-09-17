@@ -13,6 +13,7 @@ psycopg2-binary==2.9.9
 alembic==1.13.1
 pyjwt==2.8.0
 passlib[bcrypt]==1.7.4
+bcrypt==3.2.2
 
 # Test dependencies
 pytest==8.2.2
