@@ -1,5 +1,6 @@
 ﻿import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { WatchButton } from "./WatchButton";
 import type { CarVariant } from "../types";
 
 interface Props {
@@ -118,6 +119,10 @@ export function ModelSearch({ models }: Props) {
                     )}
                   </button>
                 )}
+                {/* Watch button - top right, stop propagation */}
+                <div className="absolute top-3 right-3 z-10" onClick={(e) => e.preventDefault()}>
+                  <WatchButton make={car.make} model={car.model} />
+                </div>
                 <Link
                   to={compareMode ? "#" : `/model/${encodeURIComponent(car.make)}/${encodeURIComponent(car.model.replace(/ /g, "_"))}`}
                   onClick={compareMode ? (e) => { e.preventDefault(); toggleSelect(key); } : undefined}
@@ -127,7 +132,7 @@ export function ModelSearch({ models }: Props) {
                       : "border-gray-800 bg-gray-900 hover:border-orange-500/50 hover:bg-gray-800"
                   }`}
                 >
-                  <div className="flex items-start justify-between">
+                  <div className="flex items-start justify-between pr-8">
                     <div>
                       <p className="text-xs font-medium text-gray-500">{car.make}</p>
                       <p className={`font-semibold transition-colors ${isSelected ? "text-orange-400" : "text-gray-100 group-hover:text-orange-400"}`}>

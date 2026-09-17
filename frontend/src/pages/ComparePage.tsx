@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { compareModels } from "../api";
+import { Header } from "../components/Header";
 import type { CompareResponse } from "../types";
 
 function formatZAR(n: number): string {
@@ -13,6 +14,7 @@ export function ComparePage() {
   const modelA = searchParams.get("model_a") || "";
   const makeB = searchParams.get("make_b") || "";
   const modelB = searchParams.get("model_b") || "";
+  const [copied, setCopied] = useState(false);
 
   const [data, setData] = useState<CompareResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -31,44 +33,65 @@ export function ComparePage() {
       .finally(() => setLoading(false));
   }, [makeA, modelA, makeB, modelB]);
 
+  function handleCopy() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <p className="text-gray-500">Loading comparison...</p>
+      <div className="min-h-screen bg-gray-950">
+        <Header />
+        <div className="flex items-center justify-center py-20">
+          <p className="text-gray-500">Loading comparison...</p>
+        </div>
       </div>
     );
   }
 
   if (error || !data) {
     return (
-      <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center gap-4">
-        <p className="text-red-400">{error || "Comparison failed"}</p>
-        <Link to="/" className="text-sm text-orange-500 hover:underline">← Back to CarIQ</Link>
+      <div className="min-h-screen bg-gray-950">
+        <Header />
+        <div className="flex flex-col items-center justify-center gap-4 py-20">
+          <p className="text-red-400">{error || "Comparison failed"}</p>
+          <Link to="/" className="text-sm text-orange-500 hover:underline">← Back to CarIQ</Link>
+        </div>
       </div>
     );
   }
 
   const { model_a, model_b, reliability, price, faults } = data;
+  const shareText = encodeURIComponent(`Comparing ${model_a.make} ${model_a.model} vs ${model_b.make} ${model_b.model} on CarIQ — ${window.location.href}`);
 
   return (
     <div className="min-h-screen bg-gray-950">
-      <header className="border-b border-gray-900 px-6 py-4">
-        <div className="mx-auto max-w-6xl flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-sm text-gray-400 hover:text-orange-400 transition-colors">
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to CarIQ
-          </Link>
-          <span className="text-xl font-extrabold">
-            <span className="text-orange-500">Car</span>
-            <span className="text-white">IQ</span>
-          </span>
-        </div>
-      </header>
+      <Header />
 
       <main className="mx-auto max-w-6xl px-6 py-10">
-        <h1 className="text-3xl font-extrabold text-gray-100 mb-8">Model Comparison</h1>
+        <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-orange-400 transition-colors mb-6">
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to CarIQ
+        </Link>
+
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+          <h1 className="text-3xl font-extrabold text-gray-100">Model Comparison</h1>
+          <div className="flex items-center gap-2">
+            <button onClick={handleCopy} className="inline-flex items-center gap-1.5 rounded-lg border border-gray-700 bg-gray-900 px-3 py-1.5 text-xs font-medium text-gray-300 hover:border-orange-500/50 hover:text-orange-400 transition-colors">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+              {copied ? "Copied!" : "Copy link"}
+            </button>
+            <a href={`https://wa.me/?text=${shareText}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-lg bg-green-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-green-500 transition-colors">
+              WhatsApp
+            </a>
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           <ModelCard profile={model_a} />

@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { getModelProfile, getMarketPosition, getTCO } from "../api";
 import { MarketPositionPanel } from "../components/MarketPositionPanel";
 import { TCOPanel } from "../components/TCOPanel";
+import { Header } from "../components/Header";
+import { WatchButton } from "../components/WatchButton";
 import type { CarProfile, MarketPosition, TCOEstimate } from "../types";
 
 const SEVERITY_COLOURS: Record<string, string> = {
@@ -63,35 +65,35 @@ export function ModelProfile() {
 
   if (error || !profile) {
     return (
-      <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center gap-4">
-        <p className="text-red-400">{error || "Model not found"}</p>
-        <Link to="/" className="text-sm text-orange-500 hover:underline">← Back to CarIQ</Link>
+      <div className="min-h-screen bg-gray-950">
+        <Header />
+        <div className="flex flex-col items-center justify-center gap-4 py-20">
+          <p className="text-red-400">{error || "Model not found"}</p>
+          <Link to="/" className="text-sm text-orange-500 hover:underline">← Back to CarIQ</Link>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gray-950">
-      <header className="border-b border-gray-900 px-6 py-4">
-        <div className="mx-auto max-w-5xl flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-sm text-gray-400 hover:text-orange-400 transition-colors">
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to CarIQ
-          </Link>
-          <span className="text-xl font-extrabold">
-            <span className="text-orange-500">Car</span>
-            <span className="text-white">IQ</span>
-          </span>
-        </div>
-      </header>
+      <Header />
 
       <main className="mx-auto max-w-5xl px-6 py-10">
-        <div className="mb-8">
-          <p className="text-sm text-gray-500 mb-1">{profile.make}</p>
-          <h1 className="text-4xl font-extrabold text-gray-100">{profile.model}</h1>
-          <p className="mt-1 text-sm text-gray-500">{profile.years_covered}</p>
+        <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-orange-400 transition-colors mb-6">
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to CarIQ
+        </Link>
+
+        <div className="mb-8 flex items-start justify-between gap-4">
+          <div>
+            <p className="text-sm text-gray-500 mb-1">{profile.make}</p>
+            <h1 className="text-4xl font-extrabold text-gray-100">{profile.model}</h1>
+            <p className="mt-1 text-sm text-gray-500">{profile.years_covered}</p>
+          </div>
+          <WatchButton make={profile.make} model={profile.model} size="md" />
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3 mb-8">

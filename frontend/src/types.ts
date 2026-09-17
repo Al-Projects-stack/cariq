@@ -154,3 +154,58 @@ export interface RecommendResponse {
   recommendations: RecommendModel[];
   total_count: number;
 }
+
+export interface AuthResponse {
+  token: string;
+  user_id: number;
+  email: string;
+  display_name: string;
+}
+
+export interface UserProfile {
+  user_id: number;
+  email: string;
+  display_name: string;
+  created_at: string;
+}
+
+export interface WatchlistItem {
+  id: number;
+  make: string;
+  model: string;
+  created_at: string;
+}
+
+export interface WatchlistResponse {
+  items: WatchlistItem[];
+  total: number;
+}
+
+export interface SavedSearchItem {
+  id: number;
+  label: string;
+  query: string;
+  filters: string;
+  created_at: string;
+}
+
+export interface SavedSearchResponse {
+  items: SavedSearchItem[];
+  total: number;
+}
+
+export interface AlertItem {
+  id: number;
+  make: string;
+  model: string;
+  alert_type: string;
+  message: string;
+  read: boolean;
+  created_at: string;
+}
+
+export interface AlertListResponse {
+  alerts: AlertItem[];
+  unread_count: number;
+  total: number;
+}

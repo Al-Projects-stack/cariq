@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { getRecommendations } from "../api";
+import { Header } from "../components/Header";
 import type { RecommendModel } from "../types";
 
 const BODY_OPTIONS = [
@@ -77,22 +79,16 @@ export function RecommendPage() {
 
   return (
     <div className="min-h-screen bg-gray-950">
-      <header className="border-b border-gray-900 px-6 py-4">
-        <div className="mx-auto max-w-5xl flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-sm text-gray-400 hover:text-orange-400 transition-colors">
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to CarIQ
-          </Link>
-          <span className="text-xl font-extrabold">
-            <span className="text-orange-500">Car</span>
-            <span className="text-white">IQ</span>
-          </span>
-        </div>
-      </header>
+      <Header />
 
       <main className="mx-auto max-w-5xl px-6 py-10">
+        <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-orange-400 transition-colors mb-6">
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to CarIQ
+        </Link>
+
         <h1 className="text-3xl font-extrabold text-gray-100 mb-2">Find Your Perfect Car</h1>
         <p className="text-gray-500 mb-8">Tell us what you need and we will find the best match from our knowledge base.</p>
 

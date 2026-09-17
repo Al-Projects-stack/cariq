@@ -242,5 +242,5 @@ const FACTS = [
   { value: "101",  label: "Pinecone vectors" },
   { value: "384",  label: "Embedding dims"  },
   { value: "5",    label: "Chunks per query" },
-  { value: "âˆž",    label: "Models ,  growing" },
+  { value: "∞",    label: "Models, growing" },
 ];
