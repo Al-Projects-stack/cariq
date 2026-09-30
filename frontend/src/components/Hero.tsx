@@ -1,5 +1,6 @@
 ﻿import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { HeroImage } from "./CarImage";
 
 const container = {
   hidden: {},
@@ -71,6 +72,11 @@ export function Hero() {
           >
             Sign in to save your cars
           </Link>
+        </motion.div>
+
+        {/* hero photo - appears once you drop frontend/public/hero/hero.jpg, hidden until then */}
+        <motion.div variants={item} className="mt-10 max-w-3xl mx-auto">
+          <HeroImage className="w-full aspect-[16/9] object-cover rounded-2xl border border-gray-800 shadow-2xl" />
         </motion.div>
 
         {/* floating glass cards */}

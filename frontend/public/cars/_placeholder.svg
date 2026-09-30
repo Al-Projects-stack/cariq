@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1f2937"/>
+      <stop offset="1" stop-color="#030712"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <g stroke="#374151" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M180 290 l30 -70 a20 20 0 0 1 19 -14 h142 a20 20 0 0 1 19 14 l30 70"/>
+    <rect x="150" y="285" width="300" height="60" rx="16"/>
+    <circle cx="230" cy="348" r="26"/>
+    <circle cx="370" cy="348" r="26"/>
+  </g>
+  <text x="400" y="410" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#4b5563">Add your car photo here - see README.md</text>
+</svg>

@@ -5,6 +5,7 @@ import { MarketPositionPanel } from "../components/MarketPositionPanel";
 import { TCOPanel } from "../components/TCOPanel";
 import { Header } from "../components/Header";
 import { WatchButton } from "../components/WatchButton";
+import { CarImage } from "../components/CarImage";
 import type { CarProfile, MarketPosition, TCOEstimate } from "../types";
 
 const SEVERITY_COLOURS: Record<string, string> = {
@@ -95,6 +96,13 @@ export function ModelProfile() {
           </div>
           <WatchButton make={profile.make} model={profile.model} size="md" />
         </div>
+
+        <CarImage
+          make={profile.make}
+          model={profile.model}
+          eager
+          className="mb-8 aspect-[21/9] w-full rounded-xl border border-gray-800"
+        />
 
         <div className="grid gap-6 lg:grid-cols-3 mb-8">
           <div className="lg:col-span-2 rounded-xl border border-gray-800 bg-gray-900 p-6">

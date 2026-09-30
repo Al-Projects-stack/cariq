@@ -1,6 +1,7 @@
 ﻿import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { WatchButton } from "./WatchButton";
+import { CarImage } from "./CarImage";
 import { useAuth } from "../contexts/AuthContext";
 import type { CarVariant } from "../types";
 
@@ -131,12 +132,14 @@ export function ModelSearch({ models }: Props) {
                 <Link
                   to={compareMode ? "#" : `/model/${encodeURIComponent(car.make)}/${encodeURIComponent(car.model.replace(/ /g, "_"))}`}
                   onClick={compareMode ? (e) => { e.preventDefault(); toggleSelect(key); } : undefined}
-                  className={`group rounded-xl border p-4 transition-all duration-200 block ${
+                  className={`group rounded-xl border overflow-hidden transition-all duration-200 block ${
                     isSelected
                       ? "border-orange-500 bg-orange-500/5"
                       : "border-gray-800 bg-gray-900 hover:border-orange-500/50 hover:bg-gray-800"
                   }`}
                 >
+                  <CarImage make={car.make} model={car.model} className="aspect-[16/9] w-full" />
+                  <div className="p-4">
                   <div className="flex items-start justify-between pr-8">
                     <div>
                       <p className="text-xs font-medium text-gray-500">{car.make}</p>
@@ -149,6 +152,7 @@ export function ModelSearch({ models }: Props) {
                   </div>
                   <ReliabilityBar score={car.reliability_score} />
                   <p className="mt-1 text-xs text-gray-600">Reliability</p>
+                  </div>
                 </Link>
               </div>
             );

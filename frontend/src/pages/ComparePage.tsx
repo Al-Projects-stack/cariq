@@ -2,6 +2,7 @@
 import { useSearchParams, Link } from "react-router-dom";
 import { compareModels } from "../api";
 import { Header } from "../components/Header";
+import { CarImage } from "../components/CarImage";
 import type { CompareResponse } from "../types";
 
 function formatZAR(n: number): string {
@@ -229,7 +230,9 @@ export function ComparePage() {
 function ModelCard({ profile }: { profile: CompareResponse["model_a"] }) {
   const colour = profile.reliability_score >= 8.5 ? "text-green-400" : profile.reliability_score >= 7 ? "text-blue-400" : "text-amber-400";
   return (
-    <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
+    <div className="overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
+      <CarImage make={profile.make} model={profile.model} className="aspect-[16/9] w-full" />
+      <div className="p-6">
       <p className="text-xs font-medium text-gray-500">{profile.make}</p>
       <p className="text-2xl font-extrabold text-gray-100 mt-1">{profile.model}</p>
       <p className="text-sm text-gray-500 mt-1">{profile.years_covered} · {profile.variants.length} variants</p>
@@ -243,6 +246,7 @@ function ModelCard({ profile }: { profile: CompareResponse["model_a"] }) {
       >
         View full profile →
       </Link>
+      </div>
     </div>
   );
 }

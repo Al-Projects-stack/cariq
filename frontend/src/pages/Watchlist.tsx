@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../components/Header";
+import { CarImage } from "../components/CarImage";
 import { listWatchlist, removeWatchlist } from "../api";
 import type { WatchlistItem } from "../types";
 
@@ -58,7 +59,9 @@ export function Watchlist() {
         ) : (
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
-              <div key={item.id} className="rounded-xl border border-gray-800 bg-gray-900 p-4 flex flex-col">
+              <div key={item.id} className="overflow-hidden rounded-xl border border-gray-800 bg-gray-900 flex flex-col">
+                <CarImage make={item.make} model={item.model} className="aspect-[16/9] w-full" />
+                <div className="p-4 flex flex-col flex-1">
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="text-xs font-medium text-gray-500">{item.make}</p>
@@ -75,6 +78,7 @@ export function Watchlist() {
                 >
                   View profile
                 </Link>
+                </div>
               </div>
             ))}
           </div>

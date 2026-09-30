@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { getRecommendations } from "../api";
 import { Header } from "../components/Header";
+import { CarImage } from "../components/CarImage";
 import type { RecommendModel } from "../types";
 
 const BODY_OPTIONS = [
@@ -195,8 +196,10 @@ export function RecommendPage() {
                 <Link
                   key={`${r.make}-${r.model}`}
                   to={`/model/${encodeURIComponent(r.make)}/${encodeURIComponent(r.model.replace(/ /g, "_"))}`}
-                  className="block rounded-xl border border-gray-800 bg-gray-900 p-5 hover:border-orange-500/50 transition-all group"
+                  className="flex gap-4 rounded-xl border border-gray-800 bg-gray-900 p-4 hover:border-orange-500/50 transition-all group"
                 >
+                  <CarImage make={r.make} model={r.model} className="h-20 w-28 shrink-0 rounded-lg" />
+                  <div className="min-w-0 flex-1">
                   <div className="flex items-start justify-between mb-2">
                     <div>
                       <div className="flex items-center gap-2">
@@ -221,6 +224,7 @@ export function RecommendPage() {
                         {reason}
                       </span>
                     ))}
+                  </div>
                   </div>
                 </Link>
               ))}
