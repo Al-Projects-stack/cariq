@@ -1,6 +1,6 @@
 """
 Ingestion script: reads all JSON files from knowledge_base/cars/,
-chunks them into meaningful paragraphs, embeds each chunk via Anthropic,
+chunks them into meaningful paragraphs, embeds each chunk,
 and upserts into Pinecone.
 
 Run from the backend/ directory:

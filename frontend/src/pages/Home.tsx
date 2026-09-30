@@ -11,6 +11,7 @@ import { HowItWorks } from "../components/HowItWorks";
 import { Header } from "../components/Header";
 import { SaveSearchButton } from "../components/SaveSearchButton";
 import { Hero } from "../components/Hero";
+import { FavoriteBackdrop } from "../components/FavoriteBackdrop";
 import { SocialProof } from "../components/SocialProof";
 import { LiveDemo } from "../components/LiveDemo";
 import { FeatureBento } from "../components/FeatureBento";
@@ -118,10 +119,13 @@ export function Home() {
   return (
     <div className="min-h-screen bg-gray-950">
       <Header />
+      <FavoriteBackdrop />
 
       {/* Exciting hero */}
       <Hero />
 
+      {/* everything below floats above the favourite-car backdrop */}
+      <div className="relative z-10">
       <SocialProof />
 
       {/* Example demo - how it works */}
@@ -206,7 +210,7 @@ export function Home() {
         {!user && (
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-10 rounded-2xl border border-gray-800 bg-gray-900 p-6 text-center">
             <p className="text-sm text-gray-300 font-medium">Pssst… the secret sauce is behind the velvet rope</p>
-            <p className="text-xs text-gray-500 mt-1">How CarIQ Works - the full pipeline with vectors, Pinecone, and Claude - shows once you’re in. Sneaky, hey?</p>
+            <p className="text-xs text-gray-500 mt-1">How CarIQ Works - the full pipeline with vectors, Pinecone, and grounded AI answers - shows once you’re in. Sneaky, hey?</p>
             <Link to="/signup" className="mt-4 inline-flex rounded-full border border-orange-500/40 bg-orange-500/10 px-5 py-2 text-xs font-semibold text-orange-400 hover:bg-orange-500/20">Unlock it</Link>
           </motion.div>
         )}
@@ -216,6 +220,7 @@ export function Home() {
         <p className="text-xs text-gray-700 font-mono">CarIQ · Built for the SA used car market · 20 models at launch</p>
         <p className="mt-1 text-xs text-gray-800">Data: MyBroadband · Cars.co.za · AutoTrader SA · SA owner communities</p>
       </footer>
+      </div>
     </div>
   );
 }

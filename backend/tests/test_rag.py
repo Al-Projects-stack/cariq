@@ -1,4 +1,4 @@
-"""Tests for the RAG pipeline with mocked Pinecone and Claude."""
+"""Tests for the RAG pipeline with mocked Pinecone and AI API."""
 import pytest
 from unittest.mock import AsyncMock, MagicMock, patch
 

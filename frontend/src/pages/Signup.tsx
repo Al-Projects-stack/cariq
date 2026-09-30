@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../api";
+import { loadFavoriteCar } from "../utils/favorite";
 import { useAuth } from "../contexts/AuthContext";
 import { Header } from "../components/Header";
 
@@ -28,7 +29,8 @@ export function Signup() {
     try {
       const data = await signup(email.trim(), password, displayName.trim());
       authLogin(data);
-      navigate("/", { replace: true });
+      // new account - pick a favourite car first
+      navigate(loadFavoriteCar() ? "/" : "/choose-favorite?next=%2F", { replace: true });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Signup failed.");
     } finally {

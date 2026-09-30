@@ -44,7 +44,7 @@ FastAPI Backend (Python)
   │     ├─► Pinecone Vector Store
   │     │     └─► Top 5 relevant KB chunks (cosine similarity)
   │     │
-  │     └─► AI API (claude-sonnet-4-6)
+  │     └─► AI API (language model)
   │           └─► Grounded, structured answer
   │
   ├─► PostgreSQL (query logging)
@@ -61,7 +61,7 @@ FastAPI Backend (Python)
 |---|---|
 | Frontend | React 18, TypeScript, Tailwind CSS |
 | Backend | Python 3.11, FastAPI |
-| AI | AI API (\`claude-sonnet-4-6\`) |
+| AI | AI API (language model) |
 | Embeddings | fastembed (\`BAAI/bge-small-en-v1.5\`, 384 dims) |
 | Vector Store | Pinecone |
 | Database | PostgreSQL |
@@ -91,7 +91,7 @@ FastAPI Backend (Python)
 ### Prerequisites
 - Python 3.11+
 - Node.js 20+
-- An Anthropic API key
+- An AI API key
 - A Pinecone account (free tier) create an index named \`cariq-kb\`, 384 dimensions, cosine metric
 
 ### 1. Clone and configure
@@ -100,7 +100,7 @@ FastAPI Backend (Python)
 git clone https://github.com/Al-Projects-stack/cariq.git
 cd cariq
 cp backend/.env.example backend/.env
-# Fill in ANTHROPIC_API_KEY and PINECONE_API_KEY in backend/.env
+# Fill in the API keys in backend/.env (see backend/.env.example)
 \`\`\`
 
 ### 2. Install and ingest

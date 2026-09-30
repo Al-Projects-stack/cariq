@@ -12,8 +12,19 @@ const item = {
 };
 
 export function Hero() {
+  function scrollDown() {
+    document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <div className="relative overflow-hidden">
+      {/* hero car backdrop - Ford Focus RS, the developer's favourite */}
+      <div className="absolute inset-0" aria-hidden>
+        <HeroImage className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gray-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/60 via-transparent to-gray-950" />
+      </div>
+
       {/* mesh orbs */}
       <div className="pointer-events-none absolute inset-0">
         <motion.div
@@ -31,14 +42,13 @@ export function Hero() {
           animate={{ x: [0, 10, 0], y: [0, -10, 0] }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-950" />
       </div>
 
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative mx-auto max-w-5xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 text-center"
+        className="relative z-10 mx-auto max-w-5xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 text-center"
       >
         <motion.div variants={item} className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 mb-6 backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse-slow" />
@@ -47,15 +57,15 @@ export function Hero() {
           </span>
         </motion.div>
 
-        <motion.h1 variants={item} className="text-4xl font-extrabold tracking-tight text-gray-100 sm:text-6xl leading-[0.95]">
+        <motion.h1 variants={item} className="text-4xl font-extrabold tracking-tight text-gray-100 sm:text-6xl leading-[0.95] drop-shadow-lg">
           <span className="block">Know before you buy</span>
           <span className="block text-orange-500 mt-1">any used car in SA</span>
-          <span className="block text-lg sm:text-xl font-medium text-gray-500 mt-3 tracking-normal normal-case">
-            - ja, even that <span className="text-gray-300">now-now</span> Polo you've been eyeing
+          <span className="block text-lg sm:text-xl font-medium text-gray-300 mt-3 tracking-normal normal-case">
+            - ja, even that <span className="text-white">now-now</span> Polo you've been eyeing
           </span>
         </motion.h1>
 
-        <motion.p variants={item} className="mt-6 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+        <motion.p variants={item} className="mt-6 text-gray-300 max-w-2xl mx-auto leading-relaxed">
           Ask about prices, faults, and reliability. Get grounded answers from a curated knowledge base - not guesswork, not hallucinated nonsense. Lekker.
         </motion.p>
 
@@ -74,9 +84,13 @@ export function Hero() {
           </Link>
         </motion.div>
 
-        {/* hero photo - appears once you drop frontend/public/hero/hero.jpg, hidden until then */}
-        <motion.div variants={item} className="mt-10 max-w-3xl mx-auto">
-          <HeroImage className="w-full aspect-[16/9] object-cover rounded-2xl border border-gray-800 shadow-2xl" />
+        {/* hero car nameplate - Ford Focus RS, the developer's favourite */}
+        <motion.div variants={item} className="mt-8 mx-auto max-w-xl rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md px-5 py-4 text-left sm:text-center shadow-xl">
+          <p className="font-mono text-[11px] tracking-widest uppercase text-orange-400">Meet the hero car</p>
+          <p className="mt-1 text-xl font-extrabold text-white">Ford Focus RS</p>
+          <p className="mt-1 text-sm text-gray-300">
+            The developer's personal favourite. Not in the knowledge base - heroes don't do paperwork.
+          </p>
         </motion.div>
 
         {/* floating glass cards */}
@@ -85,6 +99,21 @@ export function Hero() {
           <GlassCard title="Known fault" value="HIGH · DSG" accent="text-red-400 border-red-500/20 bg-red-500/10" sub="Hesitation 60-90k km" delay={0.1} />
           <GlassCard title="Sources" value="3 cited" accent="text-blue-400 border-blue-500/20 bg-blue-500/10" sub="Cars.co.za + 2" delay={0.2} />
         </motion.div>
+
+        {/* scroll-down cue */}
+        <motion.button
+          variants={item}
+          onClick={scrollDown}
+          aria-label="Scroll down"
+          className="mt-8 inline-flex flex-col items-center gap-1 text-gray-400 hover:text-orange-400 transition-colors"
+        >
+          <span className="text-[11px] font-mono uppercase tracking-widest">Scroll</span>
+          <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}>
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </motion.span>
+        </motion.button>
       </motion.div>
     </div>
   );

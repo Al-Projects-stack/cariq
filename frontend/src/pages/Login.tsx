@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { login } from "../api";
+import { loadFavoriteCar } from "../utils/favorite";
 import { useAuth } from "../contexts/AuthContext";
 import { Header } from "../components/Header";
 
@@ -25,7 +26,8 @@ export function Login() {
     try {
       const data = await login(email.trim(), password);
       authLogin(data);
-      navigate(next, { replace: true });
+      // signed in but no favourite yet - onboarding first
+      navigate(loadFavoriteCar() ? next : `/choose-favorite?next=${encodeURIComponent(next)}`, { replace: true });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Login failed.");
     } finally {
