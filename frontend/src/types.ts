@@ -25,6 +25,12 @@ export interface QueryResponse {
   known_faults: KnownFault[];
   sources: string[];
   session_id: string;
+  query_id: number | null;
+}
+
+export interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
 }
 
 export interface CarVariant {
@@ -208,4 +214,136 @@ export interface AlertListResponse {
   alerts: AlertItem[];
   unread_count: number;
   total: number;
+}
+
+// --- Admin dashboard (mirrors backend/app/models/admin_schemas.py) ---
+
+export interface AdminSession {
+  email: string;
+  role: "admin" | "editor";
+  csrf_token?: string;
+}
+
+export interface AdminFault {
+  id?: number;
+  title: string;
+  description: string;
+  severity: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+  mileage_range: string;
+  what_to_inspect: string;
+  repair_min_zar: number | null;
+  repair_max_zar: number | null;
+  affected_variants: string[];
+  affected_years: number[] | null;
+  source: string;
+}
+
+export interface AdminPriceRange {
+  id?: number;
+  year_from: number;
+  year_to: number;
+  low_zar: number;
+  mid_zar: number;
+  high_zar: number;
+}
+
+export interface AdminChecklistItem {
+  id?: number;
+  text: string;
+}
+
+export interface AdminModelListItem {
+  slug: string;
+  make: string;
+  model: string;
+  status: "draft" | "live" | "deleted";
+  reliability_score: number;
+  updated_at: string;
+  published_at: string | null;
+  chunk_count: number;
+  has_unpublished_changes: boolean;
+}
+
+export interface AdminModelDetail extends Omit<AdminModelListItem, "has_unpublished_changes"> {
+  variants: string[];
+  years_covered: string;
+  sa_market_summary: string;
+  segment: string;
+  fuel_type: string;
+  fuel_consumption_l_per_100km: number | null;
+  annual_maintenance_zar: number | null;
+  annual_insurance_zar: number | null;
+  owner_sentiment: string;
+  sources: string[];
+  faults: AdminFault[];
+  price_ranges: AdminPriceRange[];
+  checklist: AdminChecklistItem[];
+  has_unpublished_changes: boolean;
+}
+
+export interface AdminModelCreate {
+  make: string;
+  model: string;
+  variants: string[];
+  years_covered: string;
+  sa_market_summary: string;
+  reliability_score: number;
+  segment: string;
+  fuel_type: string;
+  fuel_consumption_l_per_100km: number | null;
+  annual_maintenance_zar: number | null;
+  annual_insurance_zar: number | null;
+  owner_sentiment: string;
+  sources: string[];
+  faults: AdminFault[];
+  price_ranges: AdminPriceRange[];
+  checklist: AdminChecklistItem[];
+}
+
+export interface DiffChange {
+  path: string;
+  old: string;
+  new: string;
+}
+
+export interface AdminUserItem {
+  id: number;
+  email: string;
+  role: "admin" | "editor";
+  disabled: boolean;
+}
+
+export interface FailureGroup {
+  id: number;
+  sample_question: string;
+  count: number;
+  reason: string;
+  avg_top_score: number | null;
+  status: "open" | "resolved";
+  note: string | null;
+  first_seen: string;
+  last_seen: string;
+}
+
+export interface SyncJob {
+  id: number;
+  kind: string;
+  model_slug: string | null;
+  status: "queued" | "embedding" | "upserting" | "done" | "failed";
+  error: string | null;
+  created_by: string;
+  started_at: string;
+  finished_at: string | null;
+}
+
+export interface OverviewStats {
+  total_queries: number;
+  queries_7d: number;
+  queries_30d: number;
+  failure_rate: number;
+  avg_top_score: number | null;
+  unresolved_groups: number;
+  models_live: number;
+  models_total: number;
+  daily: { day: string; queries: number; failures: number }[];
 }

@@ -17,7 +17,7 @@ import { LiveDemo } from "../components/LiveDemo";
 import { FeatureBento } from "../components/FeatureBento";
 import { useAuth } from "../contexts/AuthContext";
 import { queryCarIQ, listModels } from "../api";
-import type { QueryResponse, CarVariant } from "../types";
+import type { QueryResponse, CarVariant, ChatMessage } from "../types";
 
 const LOADING_MESSAGES = [
   "Give it a second, it's coming now now...",
@@ -45,6 +45,7 @@ export function Home() {
   const [msgIndex, setMsgIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [lastQuestion, setLastQuestion] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
 
   useEffect(() => {
     listModels()
@@ -66,19 +67,30 @@ export function Home() {
   }, [modelsLoading]);
 
   async function handleQuery(question: string) {
+    const history = messages.slice(-6);
+    setMessages((prev) => [...prev, { role: "user", content: question }]);
     setIsLoading(true);
     setError(null);
     setResponse(null);
     setLastQuestion(question);
     try {
-      const result = await queryCarIQ(question, sessionId);
+      const result = await queryCarIQ(question, sessionId, history);
       setResponse(result);
       setSessionId(result.session_id);
+      setMessages((prev) => [...prev, { role: "assistant", content: result.answer }]);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
+  }
+
+  function handleNewChat() {
+    setMessages([]);
+    setResponse(null);
+    setError(null);
+    setLastQuestion("");
+    setSessionId(undefined);
   }
 
   if (modelsLoading) {
@@ -138,8 +150,20 @@ export function Home() {
         {/* Real RAG - open to everyone, sign in only to save */}
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-6">
           <div className="rounded-2xl border border-gray-800 bg-gray-900/40 p-5 sm:p-6">
-            <p className="font-mono text-xs tracking-widest uppercase text-orange-400">Your turn - ask anything</p>
-            <p className="mt-1 text-sm text-gray-400">Ask for real - no account needed. Sign in only to save your searches and cars. Howzit!</p>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="font-mono text-xs tracking-widest uppercase text-orange-400">Your turn - ask anything</p>
+                <p className="mt-1 text-sm text-gray-400">Ask for real - no account needed. Sign in only to save your searches and cars. Howzit!</p>
+              </div>
+              {messages.length > 0 && (
+                <button
+                  onClick={handleNewChat}
+                  className="shrink-0 rounded-full border border-gray-700 px-4 py-1.5 text-xs font-semibold text-gray-400 hover:border-orange-500/50 hover:text-orange-400 transition-colors"
+                >
+                  New chat
+                </button>
+              )}
+            </div>
             <div className="mt-4">
               <QueryInput onSubmit={handleQuery} isLoading={isLoading} />
             </div>
@@ -166,9 +190,27 @@ export function Home() {
               </div>
             )}
 
+            {messages.length > 0 && (
+              <div className="mt-6 space-y-3" aria-live="polite">
+                {messages.map((msg, i) => (
+                  <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                    <div
+                      className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed whitespace-pre-line ${
+                        msg.role === "user"
+                          ? "bg-orange-500/15 border border-orange-500/30 text-gray-100"
+                          : "bg-gray-800/60 border border-gray-800 text-gray-300"
+                      }`}
+                    >
+                      {msg.content}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
             {response && !isLoading && (
               <div id="results" className="mt-8 space-y-4 animate-fade-in">
-                <AnswerPanel answer={response.answer} />
+                <AnswerPanel answer={response.answer} queryId={response.query_id} />
                 <div className="flex justify-end">
                   <SaveSearchButton query={lastQuestion} />
                 </div>

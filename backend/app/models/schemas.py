@@ -1,13 +1,32 @@
 from __future__ import annotations
 import re
 import uuid
-from typing import Optional
+from typing import Literal, Optional
 from pydantic import BaseModel, Field, field_validator
+
+MAX_HISTORY_MESSAGES = 6
+MAX_HISTORY_MESSAGE_LENGTH = 1000
+
+
+class ChatMessage(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str = Field(min_length=1, max_length=MAX_HISTORY_MESSAGE_LENGTH)
+
+    @field_validator("content")
+    @classmethod
+    def sanitise_content(cls, v: str) -> str:
+        v = v.strip()
+        if not v:
+            raise ValueError("History message content cannot be empty")
+        if re.search(r"<[^>]+>", v):
+            raise ValueError("Invalid characters in history message")
+        return v[:MAX_HISTORY_MESSAGE_LENGTH]
 
 
 class QueryRequest(BaseModel):
     question: str = Field(min_length=3, max_length=500)
     session_id: Optional[str] = Field(default=None)
+    history: Optional[list[ChatMessage]] = Field(default=None)
 
     @field_validator("question")
     @classmethod
@@ -18,6 +37,13 @@ class QueryRequest(BaseModel):
         if re.search(r"<[^>]+>", v):
             raise ValueError("Invalid characters in question")
         return v
+
+    @field_validator("history")
+    @classmethod
+    def trim_history(cls, v: Optional[list[ChatMessage]]) -> Optional[list[ChatMessage]]:
+        if v is None:
+            return v
+        return v[-MAX_HISTORY_MESSAGES:]
 
     @field_validator("session_id")
     @classmethod
@@ -58,6 +84,12 @@ class QueryResponse(BaseModel):
     known_faults: list[KnownFault] = []
     sources: list[str] = []
     session_id: str
+    query_id: Optional[int] = None
+
+
+class FeedbackRequest(BaseModel):
+    query_id: int = Field(gt=0)
+    vote: str = Field(pattern="^(up|down)$")
 
 
 class CarVariant(BaseModel):

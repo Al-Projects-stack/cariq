@@ -1,15 +1,24 @@
+import logging
 import re
+import time
 import uuid
 from typing import Optional
 from app.services.embeddings import EmbeddingsService
 from app.services.pinecone_client import PineconeClient
-from app.services.claude_client import ClaudeClient
+from app.services.claude_client import ClaudeClient, sanitise_for_prompt
+from app.services import tracking
+from app.services.cache import rag_query_cache
+from app.db.database import SessionLocal
+from app.db.models import QueryLog
 from app.models.schemas import (
+    MAX_HISTORY_MESSAGES,
     QueryResponse,
     PriceIntelligence,
     PriceRange,
     KnownFault,
 )
+
+logger = logging.getLogger(__name__)
 
 
 _PRICE_KEYWORDS = re.compile(
@@ -36,27 +45,153 @@ class RAGService:
         self.claude = ClaudeClient()
         self.embeddings = EmbeddingsService()
 
-    async def query(self, question: str, session_id: Optional[str] = None) -> QueryResponse:
+    async def query(
+        self,
+        question: str,
+        session_id: Optional[str] = None,
+        history: Optional[list[dict]] = None,
+        client_ip: Optional[str] = None,
+    ) -> QueryResponse:
         if session_id is None:
             session_id = str(uuid.uuid4())
 
-        # Step 1: Embed the user query
-        query_embedding = await self.embeddings.embed(question)
+        # Trim history defensively (schema already caps at last 6)
+        clean_history = self._clean_history(history)
 
-        # Step 2: Retrieve top 5 relevant chunks from Pinecone
-        results = await self.pinecone.search(
-            vector=query_embedding,
-            top_k=5,
-        )
+        # Step 0: Rewrite follow-ups into a standalone question so the
+        # embedding retrieves on full context. No history -> no extra call.
+        standalone_question = question
+        if clean_history:
+            try:
+                rewritten = self.claude.rewrite_standalone_question(question, clean_history)
+                if rewritten.strip():
+                    standalone_question = rewritten.strip()
+            except Exception as exc:
+                logger.warning(f"Query rewrite failed, using original question: {exc}")
 
-        # Step 3: Build context from retrieved chunks
-        context = self._build_context(results)
+        # Step 0b: Cache on the rewritten question so identical follow-ups hit
+        cache_key = f"q|{standalone_question.strip().lower()}"
+        cached = rag_query_cache.get(cache_key)
+        if cached is not None:
+            return QueryResponse(**{**cached, "session_id": session_id})
 
-        # Step 4: Call the API with context + query
-        answer = await self.claude.generate(question=question, context=context)
+        started = time.monotonic()
+        try:
+            # Step 1: Embed the standalone query
+            query_embedding = await self.embeddings.embed(standalone_question)
+
+            # Step 2: Retrieve top 5 relevant chunks from Pinecone
+            results = await self.pinecone.search(
+                vector=query_embedding,
+                top_k=5,
+            )
+
+            # Step 3: Build context from retrieved chunks
+            context = self._build_context(results)
+
+            # Step 4: Call the API with context + query + history
+            answer = await self.claude.generate(
+                question=standalone_question, context=context, history=clean_history
+            )
+        except Exception:
+            elapsed_ms = int((time.monotonic() - started) * 1000)
+            self._log_query(
+                session_id, question, standalone_question, None,
+                response_time_ms=elapsed_ms, ip_hash=tracking.hash_ip(client_ip),
+                failure_reason=tracking.REASON_ERROR,
+            )
+            raise
 
         # Step 5: Parse structured response
-        return self._parse_response(answer, results, session_id, question)
+        response = self._parse_response(answer, results, session_id, standalone_question)
+
+        # Step 6: Retrieval debug for failure tracking
+        chunk_ids = [m.get("id") for m in results if m.get("id")]
+        scores = [float(m.get("score") or 0) for m in results]
+        top_score = max(scores) if scores else None
+        refused = tracking.is_refusal(answer)
+        elapsed_ms = int((time.monotonic() - started) * 1000)
+        failure_reason = tracking.classify_failure(top_score, refused)
+
+        # Step 7: Cache + log (both best-effort, never break the answer)
+        cached_value = response.model_dump()
+        cached_value.pop("session_id", None)
+        cached_value.pop("query_id", None)
+        rag_query_cache.set(cache_key, cached_value)
+        response.query_id = self._log_query(
+            session_id, question, standalone_question, answer,
+            chunk_ids=chunk_ids, scores=scores, top_score=top_score,
+            refused=refused, response_time_ms=elapsed_ms,
+            ip_hash=tracking.hash_ip(client_ip), failure_reason=failure_reason,
+        )
+
+        return response
+
+    @staticmethod
+    def _clean_history(history: Optional[list[dict]]) -> list[dict]:
+        if not history:
+            return []
+        cleaned: list[dict] = []
+        for msg in history[-MAX_HISTORY_MESSAGES:]:
+            if not isinstance(msg, dict):
+                continue
+            role = msg.get("role")
+            content = msg.get("content")
+            if role not in ("user", "assistant") or not isinstance(content, str):
+                continue
+            content = content.strip()[:1000]
+            if not content:
+                continue
+            # History is untrusted: screen every message like the question
+            sanitise_for_prompt(content)
+            cleaned.append({"role": role, "content": content})
+        return cleaned
+
+    @staticmethod
+    def _log_query(
+        session_id: str,
+        question: str,
+        rewritten: str,
+        answer: str | None,
+        chunk_ids: list | None = None,
+        scores: list | None = None,
+        top_score: float | None = None,
+        refused: bool = False,
+        response_time_ms: int | None = None,
+        ip_hash: str | None = None,
+        failure_reason: str | None = None,
+    ) -> int | None:
+        """Write the query row plus an updated failure group. Returns the row id."""
+        import json as _json
+
+        try:
+            db = SessionLocal()
+            try:
+                group_id = None
+                if failure_reason:
+                    group_id = tracking.record_failure_group(db, question, failure_reason)
+                log = QueryLog(
+                    session_id=session_id,
+                    question=question,
+                    rewritten_question=rewritten if rewritten != question else None,
+                    answer=answer,
+                    retrieved_chunk_ids=_json.dumps(chunk_ids) if chunk_ids else None,
+                    scores=_json.dumps(scores) if scores else None,
+                    top_score=top_score,
+                    refused=refused,
+                    response_time_ms=response_time_ms,
+                    ip_hash=ip_hash,
+                    failure_reason=failure_reason,
+                    group_id=group_id,
+                )
+                db.add(log)
+                db.commit()
+                return log.id
+            finally:
+                db.close()
+        except Exception as exc:
+            logger.warning(f"Query log write skipped: {exc}")
+        return None
 
     def _build_context(self, results: list[dict]) -> str:
         if not results:

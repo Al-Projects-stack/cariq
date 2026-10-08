@@ -136,6 +136,51 @@ class TestRAGService:
         assert len(result.session_id) == 36  # UUID format
 
 
+class TestConversationMemory:
+    @pytest.mark.asyncio
+    async def test_followup_rewritten_before_retrieval(self, mock_pinecone, mock_claude, mock_embeddings):
+        standalone = "What are the known faults on the BMW 3 Series diesel?"
+        mock_claude.rewrite_standalone_question = MagicMock(return_value=standalone)
+        history = [
+            {"role": "user", "content": "Is R280,000 fair for a 2019 BMW 3 Series?"},
+            {"role": "assistant", "content": "Yes, that is FAIR for a 2019 BMW 3 Series. Sources: Cars.co.za"},
+        ]
+        with (
+            patch("app.services.rag.PineconeClient", return_value=mock_pinecone),
+            patch("app.services.rag.ClaudeClient", return_value=mock_claude),
+            patch("app.services.rag.EmbeddingsService", return_value=mock_embeddings),
+            patch("app.services.rag.RAGService._log_query") as mock_log,
+        ):
+            from app.services.rag import RAGService
+            svc = RAGService()
+            result = await svc.query("what about the diesel one?", history=history)
+
+        # Retrieval must run on the rewritten standalone question, not the follow-up
+        mock_embeddings.embed.assert_called_once_with(standalone)
+        # Both original and rewritten questions are logged for debugging
+        mock_log.assert_called_once()
+        _, logged_original, logged_rewritten, _ = mock_log.call_args[0]
+        assert logged_original == "what about the diesel one?"
+        assert logged_rewritten == standalone
+        assert result.answer
+
+    @pytest.mark.asyncio
+    async def test_no_history_skips_rewrite(self, mock_pinecone, mock_claude, mock_embeddings):
+        question = "Is R280,000 fair for a 2019 BMW 3 Series no-history?"
+        with (
+            patch("app.services.rag.PineconeClient", return_value=mock_pinecone),
+            patch("app.services.rag.ClaudeClient", return_value=mock_claude),
+            patch("app.services.rag.EmbeddingsService", return_value=mock_embeddings),
+            patch("app.services.rag.RAGService._log_query"),
+        ):
+            from app.services.rag import RAGService
+            svc = RAGService()
+            await svc.query(question)
+
+        mock_claude.rewrite_standalone_question.assert_not_called()
+        mock_embeddings.embed.assert_called_once_with(question)
+
+
 class TestPromptSanitisation:
     def test_injection_attempt_raises(self):
         from app.services.claude_client import sanitise_for_prompt

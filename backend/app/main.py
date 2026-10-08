@@ -7,7 +7,7 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from starlette.middleware.base import BaseHTTPMiddleware
-from app.routers import query, models, health, compare, market, recommend, public, auth, watchlist, saved_searches, alerts, dashboard
+from app.routers import query, models, health, compare, market, recommend, public, auth, watchlist, saved_searches, alerts, dashboard, admin_auth, admin_users, admin_kb, admin_sync, admin_failures
 from app.config import settings
 from app.db.database import engine, Base
 
@@ -37,6 +37,9 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         if settings.environment != "development":
             response.headers["Content-Security-Policy"] = "default-src 'self'"
+        if request.url.path.startswith("/api/v1/admin/"):
+            # Admin responses must never be cached anywhere.
+            response.headers["Cache-Control"] = "no-store"
         return response
 
 
@@ -51,8 +54,9 @@ origins = (
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization", "X-CSRF-Token"],
 )
 
 app.include_router(health.router)
@@ -67,6 +71,11 @@ app.include_router(watchlist.router, prefix="/api/v1")
 app.include_router(saved_searches.router, prefix="/api/v1")
 app.include_router(alerts.router, prefix="/api/v1")
 app.include_router(dashboard.router, prefix="/api/v1")
+app.include_router(admin_auth.router, prefix="/api/v1/admin")
+app.include_router(admin_users.router, prefix="/api/v1/admin")
+app.include_router(admin_kb.router, prefix="/api/v1/admin")
+app.include_router(admin_sync.router, prefix="/api/v1/admin")
+app.include_router(admin_failures.router, prefix="/api/v1/admin")
 
 
 @app.exception_handler(Exception)
