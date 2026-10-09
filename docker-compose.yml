@@ -12,6 +12,9 @@ services:
       - PINECONE_INDEX=${PINECONE_INDEX:-cariq-kb}
       - ENVIRONMENT=development
       - FRONTEND_URL=http://localhost:3000
+      - JWT_SECRET=${JWT_SECRET:-change-me}
+      - IP_HASH_SALT=${IP_HASH_SALT:-change-me}
+      - FAILURE_SCORE_THRESHOLD=${FAILURE_SCORE_THRESHOLD:-0.45}
     env_file:
       - backend/.env
     depends_on:

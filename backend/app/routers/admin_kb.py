@@ -76,7 +76,7 @@ def _detail(db: Session, m: KbModel) -> ModelDetail:
                 "what_to_inspect": f.what_to_inspect,
                 "repair_min_zar": f.repair_min_zar,
                 "repair_max_zar": f.repair_max_zar,
-                "affected_variants": json.loads(f.affected_variants or "[]"),
+                "affects_variants": json.loads(f.affected_variants or "[]"),
                 "affected_years": json.loads(f.affected_years) if f.affected_years else None,
                 "source": f.source,
             }
@@ -130,7 +130,7 @@ def _set_faults(db: Session, model: KbModel, faults: list[FaultIn]) -> None:
             what_to_inspect=f.what_to_inspect,
             repair_min_zar=f.repair_min_zar,
             repair_max_zar=f.repair_max_zar,
-            affected_variants=json.dumps(f.affected_variants),
+            affected_variants=json.dumps(f.affects_variants),
             affected_years=json.dumps(f.affected_years) if f.affected_years else None,
             source=f.source,
             position=i,
@@ -275,7 +275,7 @@ def add_fault(
         what_to_inspect=body.what_to_inspect,
         repair_min_zar=body.repair_min_zar,
         repair_max_zar=body.repair_max_zar,
-        affected_variants=json.dumps(body.affected_variants),
+        affected_variants=json.dumps(body.affects_variants),
         affected_years=json.dumps(body.affected_years) if body.affected_years else None,
         source=body.source,
         position=position,
@@ -306,7 +306,7 @@ def edit_fault(
     fault.what_to_inspect = body.what_to_inspect
     fault.repair_min_zar = body.repair_min_zar
     fault.repair_max_zar = body.repair_max_zar
-    fault.affected_variants = json.dumps(body.affected_variants)
+    fault.affected_variants = json.dumps(body.affects_variants)
     fault.affected_years = json.dumps(body.affected_years) if body.affected_years else None
     fault.source = body.source
     _save(db, model, admin.email, "kb.fault_edit")

@@ -34,7 +34,7 @@ def _check_year(v: int) -> int:
 
 
 class StrictModel(BaseModel):
-    model_config = {"extra": "forbid"}
+    model_config = {"extra": "forbid", "protected_namespaces": ()}
 
 
 class FaultIn(StrictModel):
@@ -45,7 +45,8 @@ class FaultIn(StrictModel):
     what_to_inspect: str = Field(default="", max_length=2000)
     repair_min_zar: Optional[int] = Field(default=None, ge=0)
     repair_max_zar: Optional[int] = Field(default=None, ge=0)
-    affected_variants: list[str] = Field(default_factory=list, max_length=50)
+    # NOTE: legacy JSON key is "affects_variants" (kept for exact shape match).
+    affects_variants: list[str] = Field(default_factory=list, max_length=50)
     affected_years: Optional[list[int]] = Field(default=None, max_length=60)
     source: str = Field(default="", max_length=500)
 

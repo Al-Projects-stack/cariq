@@ -21,7 +21,7 @@ const EMPTY_CREATE: AdminModelCreate = {
 const EMPTY_FAULT: AdminFault = {
   title: "", description: "", severity: "MEDIUM", mileage_range: "",
   what_to_inspect: "", repair_min_zar: null, repair_max_zar: null,
-  affected_variants: [], affected_years: null, source: "",
+  affects_variants: [], affected_years: null, source: "",
 };
 
 function Field({ label, children, error }: { label: string; children: React.ReactNode; error?: string }) {
@@ -34,14 +34,14 @@ function Field({ label, children, error }: { label: string; children: React.Reac
   );
 }
 
-function validateFault(f: AdminFault): string | null {
+export function validateFault(f: AdminFault): string | null {
   if (f.title.trim().length < 3) return "Title needs at least 3 characters";
   if (f.repair_min_zar !== null && f.repair_max_zar !== null && f.repair_min_zar > f.repair_max_zar)
     return "Repair min must be ≤ max";
   return null;
 }
 
-function validatePrice(p: AdminPriceRange): string | null {
+export function validatePrice(p: AdminPriceRange): string | null {
   if (!(p.low_zar > 0 && p.mid_zar > 0 && p.high_zar > 0)) return "Prices must be positive";
   if (!(p.low_zar <= p.mid_zar && p.mid_zar <= p.high_zar)) return "Need low ≤ mid ≤ high";
   if (p.year_to < p.year_from) return "year_to must be ≥ year_from";
@@ -366,7 +366,7 @@ function FaultsTab({ faults, setFaults }: { faults: AdminFault[]; setFaults: (v:
               </Field>
               <div className="sm:col-span-2"><Field label="What to inspect"><textarea value={f.what_to_inspect} onChange={(e) => update(i, { what_to_inspect: e.target.value })} rows={2} className={inputCls()} /></Field></div>
               <Field label="Affected variants (comma separated)">
-                <input value={f.affected_variants.join(", ")} onChange={(e) => update(i, { affected_variants: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) })} className={inputCls()} />
+                <input value={f.affects_variants.join(", ")} onChange={(e) => update(i, { affects_variants: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) })} className={inputCls()} />
               </Field>
               <Field label="Affected years (comma separated)">
                 <input

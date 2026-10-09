@@ -233,7 +233,7 @@ export interface AdminFault {
   what_to_inspect: string;
   repair_min_zar: number | null;
   repair_max_zar: number | null;
-  affected_variants: string[];
+  affects_variants: string[];
   affected_years: number[] | null;
   source: string;
 }

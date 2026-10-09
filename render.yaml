@@ -23,6 +23,12 @@ services:
         sync: false
       - key: DASHBOARD_TOKEN
         sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: IP_HASH_SALT
+        sync: false
+      - key: FAILURE_SCORE_THRESHOLD
+        value: 0.45
 
   - type: web
     name: cariq-frontend

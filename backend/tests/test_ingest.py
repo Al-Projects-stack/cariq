@@ -80,9 +80,10 @@ class TestKBFiles:
 
 class TestChunkingLogic:
     def test_chunk_car_file_produces_chunks(self):
-        import sys
-        sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-        from ingest import chunk_car_file
+        from app.services.chunking import chunk_car_dict
+
+        def chunk_car_file(car):  # legacy name kept for the assertions below
+            return chunk_car_dict(car, f"{car['make']}_{car['model']}".lower().replace(" ", "_"))
 
         sample_car = {
             "make": "Test",
@@ -121,9 +122,10 @@ class TestChunkingLogic:
         assert "inspection" in types
 
     def test_fault_chunk_has_metadata(self):
-        import sys
-        sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-        from ingest import chunk_car_file
+        from app.services.chunking import chunk_car_dict
+
+        def chunk_car_file(car):  # legacy name kept for the assertions below
+            return chunk_car_dict(car, f"{car['make']}_{car['model']}".lower().replace(" ", "_"))
 
         sample_car = {
             "make": "VW", "model": "Polo", "variants": [], "years_covered": "2018-2022",

@@ -135,7 +135,32 @@ docker-compose up --build
 
 ## Knowledge Base
 
-Lives in \`backend/knowledge_base/cars/\`. Each JSON file covers price ranges, known faults, inspection checklists, reliability scores, and owner sentiment for a specific SA car model. Run \`python scripts/ingest.py\` after adding new files.
+Lives in \`backend/knowledge_base/cars/\`. Each JSON file covers price ranges, known faults, inspection checklists, reliability scores, and owner sentiment for a specific SA car model. Run \`python scripts/ingest.py\` after adding new files. The JSON files are also the seed for the admin-managed database (see below).
+
+---
+
+## Admin Dashboard
+
+A secure area at \`/admin\` for managing the knowledge base without touching JSON files, plus visibility into failing user questions.
+
+![Admin dashboard screenshot](docs/admin-screenshot.png)
+*(Screenshot placeholder: add a capture of the admin overview page here.)*
+
+Features: draft/publish workflow with diffs, version history with rollback, per-fault editing, background Pinecone sync jobs with a health panel, failed-question tracking with resolve actions, audit log, and admin/editor roles.
+
+### Create the first admin
+
+There is no public signup for admins. On the server (or any machine with
+\`DATABASE_URL\` pointing at it):
+
+\`\`\`bash
+cd backend
+python scripts/create_admin.py --email you@example.com --role admin
+# password is read from an interactive prompt, never from argv
+\`\`\`
+
+Then open \`/admin/login\`. Editors can edit drafts but cannot publish,
+delete, or manage users. Full endpoint reference: \`docs/admin-api.md\`.
 
 ---
 
@@ -172,3 +197,6 @@ Lives in \`backend/knowledge_base/cars/\`. Each JSON file covers price ranges, k
 - **3 year total cost of ownership**: learning to estimate real ownership cost (purchase + fuel + insurance + maintenance) and rendering a monthly cost breakdown so buyers can compare beyond sticker price
 - **Needs based recommendation quiz**: building a multi step questionnaire that scores each model against the user's budget, body type preference, driving needs, and priorities, then returns a ranked shortlist with reasons
 - **TTL caching layer**: building a thread safe in memory cache with LRU eviction, hit/miss stats, and per endpoint TTLs to avoid redundant filesystem reads and Pinecone queries on free tier infra
+- **Cookie-session auth with roles**: short lived JWT access cookies plus rotating refresh cookies, double-submit CSRF tokens, brute force lockout with generic errors, and backend-enforced admin/editor roles (the UI only hides buttons, the API enforces)
+- **Draft/publish/versioning for knowledge content**: every save writes a full snapshot row, publish flips the live marker only after a successful Pinecone sync, and rollback restores any snapshot as a new draft — plus the lesson that SQLAlchemy keeps deleted rows in already-loaded relationship collections until you expire them
+- **Deterministic Pinecone sync**: one shared chunking module for the CLI ingest and the admin publish path, `{slug}_{section}_{index}` vector IDs so republishes overwrite instead of duplicating, upsert-before-delete so a failed publish never leaves a model with zero vectors, and DB-backed background jobs the UI polls
