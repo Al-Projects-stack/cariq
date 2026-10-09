@@ -20,6 +20,36 @@ try:
 except Exception as exc:
     logger.warning(f"DB init skipped: {exc}")
 
+# Self-healing admin seed. The default SQLite file lives on ephemeral disk
+# and is wiped on every deploy - along with any admin created via shell.
+# If ADMIN_EMAIL + ADMIN_PASSWORD are set, ensure that admin exists on every
+# startup. Never touches an existing account (no password overwrites).
+try:
+    from app.db.database import SessionLocal
+    from app.db.models import AdminUser
+    from app.services.admin_auth import hash_password
+
+    _seed_email = os.getenv("ADMIN_EMAIL", "").strip().lower()
+    _seed_password = os.getenv("ADMIN_PASSWORD", "")
+    if _seed_email and _seed_password:
+        if len(_seed_password) < 8:
+            logger.warning("Admin seed skipped: ADMIN_PASSWORD must be at least 8 characters")
+        else:
+            _db = SessionLocal()
+            try:
+                if not _db.query(AdminUser).filter(AdminUser.email == _seed_email).first():
+                    _db.add(AdminUser(
+                        email=_seed_email,
+                        password_hash=hash_password(_seed_password),
+                        role="admin",
+                    ))
+                    _db.commit()
+                    logger.info(f"Seeded admin user {_seed_email}")
+            finally:
+                _db.close()
+except Exception as exc:
+    logger.warning(f"Admin seed skipped: {exc}")
+
 app = FastAPI(title="CarIQ API", version="1.0.0", docs_url="/docs", redoc_url="/redoc")
 
 # Rate limiter

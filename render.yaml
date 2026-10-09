@@ -29,6 +29,10 @@ services:
         sync: false
       - key: FAILURE_SCORE_THRESHOLD
         value: 0.45
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
 
   - type: web
     name: cariq-frontend

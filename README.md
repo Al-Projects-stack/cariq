@@ -139,7 +139,13 @@ python scripts/create_admin.py --email you@example.com --role admin
 # password is read from an interactive prompt, never from argv
 ```
 
-Then open `/admin/login`. Editors can edit drafts but cannot publish, delete, or manage users. Full endpoint reference: `docs/admin-api.md`.
+Then open `/admin/login`. Editors can edit drafts but cannot publish,
+delete, or manage users. Full endpoint reference: `docs/admin-api.md`.
+
+> **Ephemeral SQLite note:** if the backend runs on SQLite on throwaway disk
+> (e.g. Render free tier), the database — and any admin in it — is wiped on
+> every deploy. For hosting like that, set `ADMIN_EMAIL` + `ADMIN_PASSWORD`
+> env vars instead: the app recreates that admin on every startup.
 
 ---
 
