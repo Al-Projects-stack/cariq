@@ -50,6 +50,15 @@ try:
 except Exception as exc:
     logger.warning(f"Admin seed skipped: {exc}")
 
+# One-line admin auth readiness so misconfiguration is visible at startup
+# instead of surfacing as a bare 500 on first login.
+try:
+    from app.services.admin_auth import auth_status
+
+    logger.info(f"Admin auth {auth_status()}")
+except Exception as exc:
+    logger.warning(f"Admin auth status unknown: {exc}")
+
 app = FastAPI(title="CarIQ API", version="1.0.0", docs_url="/docs", redoc_url="/redoc")
 
 # Rate limiter

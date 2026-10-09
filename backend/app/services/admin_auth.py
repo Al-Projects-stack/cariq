@@ -42,8 +42,19 @@ def _utcnow() -> datetime:
 
 def _jwt_secret() -> str:
     if settings.environment == "production" and settings.jwt_secret == "change-me":
-        raise RuntimeError("JWT_SECRET is not configured")
+        raise RuntimeError(
+            f"JWT_SECRET is not configured (environment={settings.environment})"
+        )
     return settings.jwt_secret
+
+
+def auth_status() -> str:
+    """One-line admin-auth readiness for startup logs. Never raises."""
+    try:
+        _jwt_secret()
+        return f"armed (environment={settings.environment})"
+    except RuntimeError as exc:
+        return f"NOT armed: {exc}"
 
 
 def _secure_cookies() -> bool:
