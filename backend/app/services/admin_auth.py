@@ -57,10 +57,6 @@ def auth_status() -> str:
         return f"NOT armed: {exc}"
 
 
-def _secure_cookies() -> bool:
-    return settings.environment == "production"
-
-
 def hash_password(password: str) -> str:
     return pwd.hash(password)
 
@@ -101,21 +97,39 @@ def create_refresh_token(db: Session, user: AdminUser) -> str:
     })
 
 
+def _cookie_samesite() -> str:
+    # Production serves the UI and API on different domains: browsers never
+    # send SameSite=Strict cookies on cross-origin requests, which silently
+    # breaks every authenticated call. Same-origin dev keeps Strict.
+    return "none" if settings.environment == "production" else "strict"
+
+
+def _cookie_secure() -> bool:
+    # SameSite=None is rejected by browsers without Secure. Plain
+    # http://localhost is a secure context, so this also covers local dev.
+    return True if _cookie_samesite() == "none" else settings.environment == "production"
+
+
 def set_auth_cookies(response: Response, access: str, refresh: str) -> str:
-    """Set the three auth cookies. Returns the CSRF token for the response body."""
+    """Set the three auth cookies. Returns the CSRF token for the response body.
+
+    Mutations stay protected by the double-submit CSRF token regardless of
+    SameSite mode.
+    """
     csrf = secrets.token_hex(16)
-    secure = _secure_cookies()
+    secure = _cookie_secure()
+    samesite = _cookie_samesite()
     response.set_cookie(
         ACCESS_COOKIE, access, max_age=15 * 60, httponly=True,
-        secure=secure, samesite="strict", path="/",
+        secure=secure, samesite=samesite, path="/",
     )
     response.set_cookie(
         REFRESH_COOKIE, refresh, max_age=7 * 24 * 3600, httponly=True,
-        secure=secure, samesite="strict", path=REFRESH_PATH,
+        secure=secure, samesite=samesite, path=REFRESH_PATH,
     )
     response.set_cookie(
         CSRF_COOKIE, csrf, max_age=7 * 24 * 3600, httponly=False,
-        secure=secure, samesite="strict", path="/",
+        secure=secure, samesite=samesite, path="/",
     )
     return csrf
 

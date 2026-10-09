@@ -5,12 +5,12 @@ Base URL examples use `http://localhost:8000`. Admin routes live under
 `curl -b cookies.txt -c cookies.txt` (cookie jar) plus the CSRF header
 for state-changing requests.
 
-> **Same-origin note:** admin cookies are `SameSite=Strict`, so the admin
-> UI must be served from the same site as the API (local dev proxy and
-> docker-compose nginx both do this). On split-domain hosting (e.g. Render
-> static frontend + separate backend domain) browsers will not attach the
-> cookies — use the API from the same origin or proxy `/api` through the
-> frontend host.
+> **Cookie note:** admin cookies are `SameSite=None; Secure` so the session
+> works both same-origin (local dev proxy, docker nginx) and cross-origin
+> (static frontend + separate API domain). State-changing requests additionally
+> require the `X-CSRF-Token` double-submit header, so cross-site request
+> forgery stays blocked. If your browser blocks all third-party cookies,
+> allow them for the frontend origin or use the admin locally.
 
 ## 0. First admin (server, no signup endpoint exists)
 

@@ -84,6 +84,24 @@ class TestAdminLogin:
         assert r.json()["detail"] == "Invalid email or password"
 
 
+class TestCookiePolicy:
+    def test_production_cookies_are_cross_site_ready(self, seeded):
+        from app import config
+
+        old_env, old_secret = config.settings.environment, config.settings.jwt_secret
+        config.settings.environment = "production"
+        config.settings.jwt_secret = "test-secret-for-cookie-policy"
+        try:
+            r = _login(seeded, "admin@x.co", "pw-admin-123")
+            assert r.status_code == 200
+            jar = r.headers.get("set-cookie", "")
+            assert "samesite=none" in jar.lower()
+            assert "secure" in jar.lower()
+        finally:
+            config.settings.environment = old_env
+            config.settings.jwt_secret = old_secret
+
+
 class TestLoginRateLimit:
     def test_sixth_rapid_login_is_rejected(self, seeded):
         admin_auth.limiter.enabled = True
