@@ -1,5 +1,5 @@
 # CarIQ
-South African Used Car Market Intelligence(out of tokens(broke student) but will be back soon)
+South African Used Car Market Intelligence
 <img width="1082" height="617" alt="image" src="https://github.com/user-attachments/assets/0a747dfa-cca9-4266-99c5-efd1c71ab4df" />
 
 
@@ -22,12 +22,14 @@ The app returns:
 - **Market position indicator** showing where a model sits vs its segment peers on price
 - **3 year total cost of ownership** including purchase, fuel, insurance, and maintenance
 - **Needs based car recommendation quiz** takes your budget, body type, and priorities and returns a ranked shortlist
+- **Follow-up questions** with conversation memory - ask "what about the diesel one?" without repeating context
+- **Answer feedback** with thumbs up/down to flag unhelpful answers for review
 
 ---
 
 ## Architecture
 
-\`\`\`
+```
 User
   │
   ▼
@@ -47,11 +49,11 @@ FastAPI Backend (Python)
   │     └─► AI API (language model)
   │           └─► Grounded, structured answer
   │
-  ├─► PostgreSQL (query logging)
+  ├─► PostgreSQL (query logging, feedback, KB content)
   │
-  └─► Knowledge Base (JSON files → Pinecone)
-        └─► SA car models, chunked and embedded
-\`\`\`
+  └─► Knowledge Base (JSON files → Pinecone, admin-managed via /admin)
+        └─► 20 SA car models, chunked and embedded
+```
 
 ---
 
@@ -62,7 +64,7 @@ FastAPI Backend (Python)
 | Frontend | React 18, TypeScript, Tailwind CSS |
 | Backend | Python 3.11, FastAPI |
 | AI | AI API (language model) |
-| Embeddings | fastembed (\`BAAI/bge-small-en-v1.5\`, 384 dims) |
+| Embeddings | fastembed (`BAAI/bge-small-en-v1.5`, 384 dims) |
 | Vector Store | Pinecone |
 | Database | PostgreSQL |
 | Containerisation | Docker, Docker Compose |
@@ -72,7 +74,7 @@ FastAPI Backend (Python)
 
 ## How the RAG Pipeline Works
 
-1. **Ingestion** JSON files in \`backend/knowledge_base/cars/\` are chunked into meaningful units: one chunk per known fault, one per price range, one inspection checklist, one market summary per model. Each chunk is embedded using \`BAAI/bge-small-en-v1.5\` and upserted into Pinecone with rich metadata.
+1. **Ingestion** JSON files in `backend/knowledge_base/cars/` are chunked into meaningful units: one chunk per known fault, one per price range, one inspection checklist, one market summary per model. Each chunk is embedded using `BAAI/bge-small-en-v1.5` and upserted into Pinecone with rich metadata.
 
 2. **Query** The user's question is embedded using the same model, producing a 384-dim vector.
 
@@ -82,7 +84,7 @@ FastAPI Backend (Python)
 
 5. **Generation** The API answers using only the provided context: no fabricated prices, verdicts from approved vocabulary only, all costs in ZAR, all answers sourced.
 
-6. **Parsing** The backend parses the API's response and chunk metadata to extract structured \`PriceIntelligence\`, \`KnownFaults\`, and \`Sources\` objects for the frontend panels.
+6. **Parsing** The backend parses the API's response and chunk metadata to extract structured `PriceIntelligence`, `KnownFaults`, and `Sources` objects for the frontend panels.
 
 ---
 
@@ -92,56 +94,56 @@ FastAPI Backend (Python)
 - Python 3.11+
 - Node.js 20+
 - An AI API key
-- A Pinecone account (free tier) create an index named \`cariq-kb\`, 384 dimensions, cosine metric
+- A Pinecone account (free tier) create an index named `cariq-kb`, 384 dimensions, cosine metric
 
 ### 1. Clone and configure
 
-\`\`\`bash
+```bash
 git clone https://github.com/Al-Projects-stack/cariq.git
 cd cariq
 cp backend/.env.example backend/.env
 # Fill in the API keys in backend/.env (see backend/.env.example)
-\`\`\`
+```
 
 ### 2. Install and ingest
 
-\`\`\`bash
+```bash
 cd backend
 pip install -r requirements.txt
 python scripts/ingest.py
-\`\`\`
+```
 
 ### 3. Start the backend
 
-\`\`\`bash
+```bash
 python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-\`\`\`
+```
 
 ### 4. Start the frontend
 
-\`\`\`bash
+```bash
 cd ../frontend
 npm install
 VITE_API_URL=http://localhost:8000 npm run dev
-\`\`\`
+```
 
 ### Docker (full stack)
 
-\`\`\`bash
+```bash
 docker-compose up --build
-\`\`\`
+```
 
 ---
 
 ## Knowledge Base
 
-Lives in \`backend/knowledge_base/cars/\`. Each JSON file covers price ranges, known faults, inspection checklists, reliability scores, and owner sentiment for a specific SA car model. Run \`python scripts/ingest.py\` after adding new files. The JSON files are also the seed for the admin-managed database (see below).
+Lives in `backend/knowledge_base/cars/` (20 models). Each JSON file covers price ranges, known faults, inspection checklists, reliability scores, and owner sentiment for a specific SA car model. Run `python scripts/ingest.py` after adding new files. The JSON files are also the seed for the admin-managed database (see below).
 
 ---
 
 ## Admin Dashboard
 
-A secure area at \`/admin\` for managing the knowledge base without touching JSON files, plus visibility into failing user questions.
+A secure area at `/admin` for managing the knowledge base without touching JSON files, plus visibility into failing user questions.
 
 ![Admin dashboard screenshot](docs/admin-screenshot.png)
 *(Screenshot placeholder: add a capture of the admin overview page here.)*
@@ -151,16 +153,16 @@ Features: draft/publish workflow with diffs, version history with rollback, per-
 ### Create the first admin
 
 There is no public signup for admins. On the server (or any machine with
-\`DATABASE_URL\` pointing at it):
+`DATABASE_URL` pointing at it):
 
-\`\`\`bash
+```bash
 cd backend
 python scripts/create_admin.py --email you@example.com --role admin
 # password is read from an interactive prompt, never from argv
-\`\`\`
+```
 
-Then open \`/admin/login\`. Editors can edit drafts but cannot publish,
-delete, or manage users. Full endpoint reference: \`docs/admin-api.md\`.
+Then open `/admin/login`. Editors can edit drafts but cannot publish,
+delete, or manage users. Full endpoint reference: `docs/admin-api.md`.
 
 ---
 
@@ -170,8 +172,8 @@ delete, or manage users. Full endpoint reference: \`docs/admin-api.md\`.
 - Prompt injection screening before embedding or generating
 - Rate limiting 10 queries per minute per IP
 - Security headers on every response
-- CORS locked to \`FRONTEND_URL\` in production
-- No secrets committed environment variables only
+- CORS locked to `FRONTEND_URL` in production
+- No secrets committed, environment variables only
 
 ---
 
