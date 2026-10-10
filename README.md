@@ -117,9 +117,6 @@ Lives in `backend/knowledge_base/cars/` — one JSON file per model covering pri
 
 A secure area at `/admin` for managing the knowledge base without touching JSON files, plus visibility into failing user questions.
 
-![Admin dashboard screenshot](docs/admin-screenshot.png)
-*(Screenshot placeholder: add a capture of the admin overview page here.)*
-
 What it covers:
 
 - **Knowledge base editing** — tabbed model editor with inline validation, draft saving, and diff previews
