@@ -8,10 +8,12 @@ instead of duplicating them. kb_sync (Step 4) reuses build_chunk_ids().
 import json
 import re
 from datetime import datetime
+from pathlib import Path
 
 from sqlalchemy.orm import Session
 
 from app.db.models import KbChecklistItem, KbFault, KbModel, KbPriceRange, ModelVersion
+from app.models.admin_schemas import SEVERITIES
 
 _REPAIR_NUMBERS = re.compile(r"R?\s?(\d[\d\s,]*)")
 
@@ -226,3 +228,92 @@ def has_unpublished_changes(db: Session, model: KbModel) -> bool:
 
 def iso(dt: datetime | None) -> str | None:
     return dt.isoformat() if dt else None
+
+
+def normalise_legacy_car(car: dict, filename: str) -> dict:
+    """Validate a legacy JSON car file, return a snapshot-shaped dict."""
+    snap = {
+        "make": car["make"],
+        "model": car["model"],
+        "variants": car.get("variants", []),
+        "years_covered": car.get("years_covered", ""),
+        "sa_market_summary": car.get("sa_market_summary", ""),
+        "reliability_score": car.get("reliability_score", 0.0),
+        "segment": car.get("segment", ""),
+        "fuel_type": car.get("fuel_type", ""),
+        "fuel_consumption_l_per_100km": car.get("fuel_consumption_l_per_100km"),
+        "annual_maintenance_zar": car.get("annual_maintenance_zar"),
+        "annual_insurance_zar": car.get("annual_insurance_zar"),
+        "price_ranges": car.get("price_ranges", []),
+        "known_faults": [],
+        "what_to_inspect_before_buying": car.get("what_to_inspect_before_buying", []),
+        "owner_sentiment": car.get("owner_sentiment", ""),
+        "sources": car.get("sources", []),
+    }
+    for f in car.get("known_faults", []):
+        severity = str(f.get("severity", "MEDIUM")).upper()
+        if severity not in SEVERITIES:
+            raise ValueError(f"{filename}: unknown severity {f.get('severity')!r}")
+        lo, hi = parse_repair_range(f.get("estimated_repair_zar", ""))
+        snap["known_faults"].append({
+            "fault": f["fault"],
+            "affects_variants": f.get("affects_variants", []),
+            "mileage_range": f.get("mileage_range", ""),
+            "severity": severity,
+            "description": f.get("description", ""),
+            "what_to_inspect": f.get("what_to_inspect", ""),
+            "repair_min_zar": lo,
+            "repair_max_zar": hi,
+            "affected_years": None,
+            "source": f.get("source", ""),
+        })
+    return snap
+
+
+def seed_from_json_files(
+    db: Session, kb_dir: Path, actor: str = "import-script"
+) -> list[tuple[str, str, bool]]:
+    """Upsert every JSON car file into the KB tables.
+
+    Idempotent: models upsert by slug, children are replaced, and a published
+    version row is only added when content actually changed. Returns a list of
+    (filename, slug, changed) tuples for CLI reporting.
+    """
+    from app.services.admin_auth import audit
+
+    results: list[tuple[str, str, bool]] = []
+    for fp in sorted(Path(kb_dir).glob("*.json")):
+        with open(fp, encoding="utf-8") as f:
+            car = json.load(f)
+        snap = normalise_legacy_car(car, fp.name)
+        slug = slugify(snap["make"], snap["model"])
+        model = db.query(KbModel).filter(KbModel.slug == slug).first()
+        if not model:
+            model = KbModel(slug=slug, make=snap["make"], model=snap["model"])
+            db.add(model)
+            db.flush()
+        apply_snapshot(db, model, snap)
+        model.status = "live"
+        model.chunk_ids = json.dumps(build_chunk_ids(model))
+
+        new_snapshot = json.dumps(snapshot_from_db(model), sort_keys=True)
+        last = (
+            db.query(ModelVersion)
+            .filter(ModelVersion.model_id == model.id, ModelVersion.kind == "published")
+            .order_by(ModelVersion.id.desc())
+            .first()
+        )
+        changed = not last or json.dumps(json.loads(last.snapshot), sort_keys=True) != new_snapshot
+        if changed:
+            version = ModelVersion(
+                model_id=model.id, kind="published",
+                snapshot=json.dumps(snapshot_from_db(model)), created_by=actor,
+            )
+            db.add(version)
+            db.flush()
+            model.published_version_id = version.id
+            model.published_at = datetime.utcnow()
+        db.commit()
+        audit(db, actor, "kb.import", model_slug=slug)
+        results.append((fp.name, slug, changed))
+    return results

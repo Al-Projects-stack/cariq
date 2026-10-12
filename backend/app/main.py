@@ -59,6 +59,28 @@ try:
 except Exception as exc:
     logger.warning(f"Admin auth status unknown: {exc}")
 
+# Self-healing KB seed. The KB tables are empty on a fresh database (and
+# ephemeral SQLite wipes them on every deploy), which leaves the admin
+# Knowledge Base page blank. Seed from the JSON files only when empty -
+# never touches existing rows. Same code path as scripts/import_json_to_db.py.
+try:
+    from pathlib import Path
+
+    from app.db.database import SessionLocal
+    from app.db.models import KbModel
+    from app.services import kb_admin as _kb_seed
+
+    _db = SessionLocal()
+    try:
+        if _db.query(KbModel).count() == 0:
+            _kb_dir = Path(__file__).parent.parent / "knowledge_base" / "cars"
+            seeded = _kb_seed.seed_from_json_files(_db, _kb_dir)
+            logger.info(f"Seeded {len(seeded)} KB models from JSON")
+    finally:
+        _db.close()
+except Exception as exc:
+    logger.warning(f"KB seed skipped: {exc}")
+
 app = FastAPI(title="CarIQ API", version="1.0.0", docs_url="/docs", redoc_url="/redoc")
 
 # Rate limiter
