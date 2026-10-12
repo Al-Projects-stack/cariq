@@ -3,6 +3,7 @@ import { useAdmin } from "../../contexts/AdminContext";
 
 const LINKS = [
   { to: "/admin", label: "Overview", end: true },
+  { to: "/admin/playground", label: "Playground", end: false },
   { to: "/admin/failures", label: "Failed Questions", end: false },
   { to: "/admin/models", label: "Knowledge Base", end: false },
   { to: "/admin/health", label: "System Health", end: false },

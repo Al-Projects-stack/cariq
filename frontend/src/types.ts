@@ -336,6 +336,35 @@ export interface SyncJob {
   finished_at: string | null;
 }
 
+export interface PlaygroundChunk {
+  id: string | null;
+  score: number;
+  chunk_type: string;
+  make: string;
+  model: string;
+  text: string;
+}
+
+export interface PlaygroundResult {
+  answer: string;
+  price_intelligence: PriceIntelligence | null;
+  known_faults: KnownFault[];
+  sources: string[];
+  rewritten_question: string | null;
+  refused: boolean;
+  top_score: number | null;
+  latency_ms: number;
+  chunks: PlaygroundChunk[];
+}
+
+export interface ReplayResult {
+  top_score: number | null;
+  threshold: number;
+  clears_threshold: boolean;
+  suggest_resolve: boolean;
+  chunks: PlaygroundChunk[];
+}
+
 export interface OverviewStats {
   total_queries: number;
   queries_7d: number;

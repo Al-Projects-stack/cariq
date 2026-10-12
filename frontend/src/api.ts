@@ -1,4 +1,4 @@
-import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosition, TCOEstimate, RecommendResponse, AuthResponse, UserProfile, WatchlistResponse, WatchlistItem, SavedSearchResponse, SavedSearchItem, AlertListResponse, ChatMessage, AdminSession, AdminModelListItem, AdminModelDetail, AdminModelCreate, AdminFault, AdminPriceRange, AdminChecklistItem, DiffChange, AdminUserItem, FailureGroup, SyncJob, OverviewStats } from "./types";
+import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosition, TCOEstimate, RecommendResponse, AuthResponse, UserProfile, WatchlistResponse, WatchlistItem, SavedSearchResponse, SavedSearchItem, AlertListResponse, ChatMessage, AdminSession, AdminModelListItem, AdminModelDetail, AdminModelCreate, AdminFault, AdminPriceRange, AdminChecklistItem, DiffChange, AdminUserItem, FailureGroup, SyncJob, OverviewStats, PlaygroundResult, ReplayResult } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -376,6 +376,19 @@ export async function adminPrefillFromGroup(id: number): Promise<{ detected_make
   return adminFetchJson<{ detected_make: string | null; detected_model: string | null; prefill: AdminModelCreate }>(
     `/api/v1/admin/failures/groups/${id}/prefill`
   );
+}
+
+export async function adminTestQuery(question: string): Promise<PlaygroundResult> {
+  return adminFetchJson<PlaygroundResult>("/api/v1/admin/rag/test", {
+    method: "POST",
+    body: JSON.stringify({ question }),
+  });
+}
+
+export async function adminReplayGroup(id: number): Promise<ReplayResult> {
+  return adminFetchJson<ReplayResult>(`/api/v1/admin/failures/groups/${id}/replay`, {
+    method: "POST",
+  });
 }
 
 export async function adminListUsers(): Promise<AdminUserItem[]> {

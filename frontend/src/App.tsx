@@ -19,6 +19,7 @@ import { ChooseFavorite } from "./pages/ChooseFavorite";
 // Admin area is lazy-loaded so public users never download its code.
 const AdminLogin = lazy(() => import("./pages/admin/Login").then((m) => ({ default: m.AdminLogin })));
 const AdminOverview = lazy(() => import("./pages/admin/Overview").then((m) => ({ default: m.AdminOverview })));
+const AdminPlayground = lazy(() => import("./pages/admin/Playground").then((m) => ({ default: m.AdminPlayground })));
 const AdminFailedQuestions = lazy(() => import("./pages/admin/FailedQuestions").then((m) => ({ default: m.AdminFailedQuestions })));
 const AdminModels = lazy(() => import("./pages/admin/Models").then((m) => ({ default: m.AdminModels })));
 const AdminModelEditor = lazy(() => import("./pages/admin/ModelEditor").then((m) => ({ default: m.AdminModelEditor })));
@@ -89,6 +90,7 @@ export default function App() {
                       }
                     >
                       <Route index element={<AdminOverview />} />
+                      <Route path="playground" element={<AdminPlayground />} />
                       <Route path="failures" element={<AdminFailedQuestions />} />
                       <Route path="models" element={<AdminModels />} />
                       <Route path="models/new" element={<AdminModelEditor />} />

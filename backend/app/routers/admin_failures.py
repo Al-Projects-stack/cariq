@@ -197,6 +197,42 @@ def resolve_group(
     return {"ok": True}
 
 
+@router.post("/failures/groups/{group_id}/replay")
+def replay_group(
+    group_id: int,
+    _csrf: None = Depends(require_csrf),
+    admin: AdminUser = Depends(require_admin_user),
+    db: Session = Depends(get_db),
+):
+    """Re-run a failed question's retrieval against current Pinecone.
+
+    Embed + retrieve only: no language-model call (free), no cache, no
+    query logging. Returns the top score with the same threshold the
+    classifier uses, plus an auto-suggest flag for resolving.
+    """
+    import asyncio
+
+    from app.config import settings
+    from app.services.rag import RAGService
+
+    group = db.query(FailedQuestionGroup).filter(FailedQuestionGroup.id == group_id).first()
+    if not group:
+        raise HTTPException(status_code=404, detail="Group not found")
+    try:
+        result = asyncio.run(RAGService().retrieve_only(group.sample_question))
+    except Exception as exc:
+        logger.error(f"Replay failed for group {group_id}: {exc}", exc_info=True)
+        raise HTTPException(status_code=502, detail="Replay failed. Please try again.")
+    top = result["top_score"]
+    clears = top is not None and top >= settings.failure_score_threshold
+    return {
+        **result,
+        "threshold": settings.failure_score_threshold,
+        "clears_threshold": clears,
+        "suggest_resolve": clears,
+    }
+
+
 @router.get("/failures/groups/{group_id}/prefill", response_model=EntryPrefill)
 def prefill_from_group(
     group_id: int,

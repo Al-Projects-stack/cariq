@@ -77,22 +77,7 @@ class RAGService:
 
         started = time.monotonic()
         try:
-            # Step 1: Embed the standalone query
-            query_embedding = await self.embeddings.embed(standalone_question)
-
-            # Step 2: Retrieve top 5 relevant chunks from Pinecone
-            results = await self.pinecone.search(
-                vector=query_embedding,
-                top_k=5,
-            )
-
-            # Step 3: Build context from retrieved chunks
-            context = self._build_context(results)
-
-            # Step 4: Call the API with context + query + history
-            answer = await self.claude.generate(
-                question=standalone_question, context=context, history=clean_history
-            )
+            pipe = await self._run_pipeline(clean_history, standalone_question)
         except Exception:
             elapsed_ms = int((time.monotonic() - started) * 1000)
             self._log_query(
@@ -102,14 +87,17 @@ class RAGService:
             )
             raise
 
+        results = pipe["results"]
+        answer = pipe["answer"]
+
         # Step 5: Parse structured response
         response = self._parse_response(answer, results, session_id, standalone_question)
 
         # Step 6: Retrieval debug for failure tracking
-        chunk_ids = [m.get("id") for m in results if m.get("id")]
-        scores = [float(m.get("score") or 0) for m in results]
-        top_score = max(scores) if scores else None
-        refused = tracking.is_refusal(answer)
+        chunk_ids = pipe["chunk_ids"]
+        scores = pipe["scores"]
+        top_score = pipe["top_score"]
+        refused = pipe["refused"]
         elapsed_ms = int((time.monotonic() - started) * 1000)
         failure_reason = tracking.classify_failure(top_score, refused)
 
@@ -126,6 +114,107 @@ class RAGService:
         )
 
         return response
+
+    async def test_query(
+        self, question: str, history: Optional[list[dict]] = None
+    ) -> dict:
+        """Dry-run the full pipeline for the admin playground.
+
+        Same rewrite/embed/retrieve/generate path as query(), but bypasses
+        the answer cache and never writes to QueryLog (test traffic must not
+        pollute failure stats or evict real cached answers). Raises on error
+        so the endpoint can report it; nothing is logged.
+        """
+        started = time.monotonic()
+        clean_history = self._clean_history(history)
+        standalone_question = question
+        if clean_history:
+            try:
+                rewritten = self.claude.rewrite_standalone_question(question, clean_history)
+                if rewritten.strip():
+                    standalone_question = rewritten.strip()
+            except Exception as exc:
+                logger.warning(f"Query rewrite failed, using original question: {exc}")
+        pipe = await self._run_pipeline(clean_history, standalone_question, feature="playground")
+        response = self._parse_response(
+            pipe["answer"], pipe["results"], str(uuid.uuid4()), standalone_question
+        )
+        return {
+            "answer": response.answer,
+            "price_intelligence": response.price_intelligence.model_dump() if response.price_intelligence else None,
+            "known_faults": [f.model_dump() for f in response.known_faults],
+            "sources": response.sources,
+            "rewritten_question": standalone_question if standalone_question != question else None,
+            "refused": pipe["refused"],
+            "top_score": pipe["top_score"],
+            "latency_ms": int((time.monotonic() - started) * 1000),
+            "chunks": [
+                {
+                    "id": m.get("id"),
+                    "score": float(m.get("score") or 0),
+                    "chunk_type": (m.get("metadata") or {}).get("chunk_type", ""),
+                    "make": (m.get("metadata") or {}).get("make", ""),
+                    "model": (m.get("metadata") or {}).get("model", ""),
+                    "text": str((m.get("metadata") or {}).get("text", ""))[:2000],
+                }
+                for m in pipe["results"]
+            ],
+        }
+
+    async def retrieve_only(self, question: str, top_k: int = 5) -> dict:
+        """Embed + retrieve without generating. Powers failure replay.
+
+        No language-model call (free), no cache, no logging. Returns the top
+        score and chunk summaries for debugging.
+        """
+        query_embedding = await self.embeddings.embed(question)
+        results = await self.pinecone.search(vector=query_embedding, top_k=top_k)
+        scores = [float(m.get("score") or 0) for m in results]
+        return {
+            "top_score": max(scores) if scores else None,
+            "chunks": [
+                {
+                    "id": m.get("id"),
+                    "score": float(m.get("score") or 0),
+                    "chunk_type": (m.get("metadata") or {}).get("chunk_type", ""),
+                    "make": (m.get("metadata") or {}).get("make", ""),
+                    "model": (m.get("metadata") or {}).get("model", ""),
+                    "text": str((m.get("metadata") or {}).get("text", ""))[:500],
+                }
+                for m in results
+            ],
+        }
+
+    async def _run_pipeline(
+        self, clean_history: list[dict], standalone_question: str, feature: str = "rag_query"
+    ) -> dict:
+        """Shared rewrite/embed/retrieve/generate core. No cache, no logging."""
+        # Step 1: Embed the standalone query
+        query_embedding = await self.embeddings.embed(standalone_question)
+
+        # Step 2: Retrieve top 5 relevant chunks from Pinecone
+        results = await self.pinecone.search(
+            vector=query_embedding,
+            top_k=5,
+        )
+
+        # Step 3: Build context from retrieved chunks
+        context = self._build_context(results)
+
+        # Step 4: Call the API with context + query + history
+        answer = await self.claude.generate(
+            question=standalone_question, context=context, history=clean_history, feature=feature
+        )
+
+        scores = [float(m.get("score") or 0) for m in results]
+        return {
+            "results": results,
+            "answer": answer,
+            "refused": tracking.is_refusal(answer),
+            "chunk_ids": [m.get("id") for m in results if m.get("id")],
+            "scores": scores,
+            "top_score": max(scores) if scores else None,
+        }
 
     @staticmethod
     def _clean_history(history: Optional[list[dict]]) -> list[dict]:

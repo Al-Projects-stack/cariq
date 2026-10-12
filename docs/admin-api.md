@@ -104,6 +104,20 @@ curl -b cookies.txt http://localhost:8000/api/v1/admin/kb/models/toyota_corolla/
 curl -b cookies.txt 'http://localhost:8000/api/v1/admin/kb/audit?action=kb.publish&page=1'
 ```
 
+## 2b. Prompt playground & replay
+
+```bash
+# Dry-run a question (bypasses cache, never logged; spends real tokens)
+curl -b cookies.txt -X POST http://localhost:8000/api/v1/admin/rag/test \
+  -H 'Content-Type: application/json' -H "X-CSRF-Token: $CSRF" \
+  -d '{"question":"What are the known faults on a Polo Vivo?"}'
+
+# Replay a failed group's retrieval (free: embed + retrieve only)
+curl -b cookies.txt -X POST http://localhost:8000/api/v1/admin/failures/groups/4/replay \
+  -H "X-CSRF-Token: $CSRF"
+# -> {"top_score":0.82,"threshold":0.45,"clears_threshold":true,"suggest_resolve":true,"chunks":[...]}
+```
+
 ## 3. Sync & health
 
 ```bash

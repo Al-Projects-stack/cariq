@@ -7,7 +7,7 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from starlette.middleware.base import BaseHTTPMiddleware
-from app.routers import query, models, health, compare, market, recommend, public, auth, watchlist, saved_searches, alerts, dashboard, admin_auth, admin_users, admin_kb, admin_sync, admin_failures
+from app.routers import query, models, health, compare, market, recommend, public, auth, watchlist, saved_searches, alerts, dashboard, admin_auth, admin_users, admin_kb, admin_sync, admin_failures, admin_playground
 from app.config import settings
 from app.db.database import engine, Base
 
@@ -137,6 +137,7 @@ app.include_router(admin_users.router, prefix="/api/v1/admin")
 app.include_router(admin_kb.router, prefix="/api/v1/admin")
 app.include_router(admin_sync.router, prefix="/api/v1/admin")
 app.include_router(admin_failures.router, prefix="/api/v1/admin")
+app.include_router(admin_playground.router, prefix="/api/v1/admin")
 
 
 @app.exception_handler(Exception)

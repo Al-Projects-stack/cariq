@@ -1,7 +1,7 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { adminListFailureGroups, adminGetFailureGroup, adminResolveGroup, adminPrefillFromGroup } from "../../api";
-import type { FailureGroup } from "../../types";
+import { adminListFailureGroups, adminGetFailureGroup, adminResolveGroup, adminPrefillFromGroup, adminReplayGroup } from "../../api";
+import type { FailureGroup, ReplayResult } from "../../types";
 import { Card, Loading, Empty, ErrorBox, Pagination, Toasts, useToasts, inputCls, btnPrimary, btnGhost } from "../../components/admin/ui";
 
 const REASONS = ["", "model_not_in_kb", "low_score", "user_unhelpful", "system_error"];
@@ -125,6 +125,7 @@ export function AdminFailedQuestions() {
                                 </ul>
                               )}
                             </div>
+                            <ReplayBox groupId={g.id} notify={notify} onResolved={() => { setOpenId(null); setDetail(null); load(); }} />
                             <div className="flex flex-wrap items-center gap-2">
                               <input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Resolve note (optional)" className={`${inputCls()} max-w-xs`} />
                               <button onClick={() => resolve(g.id)} className={btnPrimary()}>Resolve</button>
@@ -142,6 +143,62 @@ export function AdminFailedQuestions() {
         </Card>
       )}
       <Pagination page={page} total={total} pageSize={20} onPage={setPage} />
+    </div>
+  );
+}
+
+function ReplayBox({ groupId, notify, onResolved }: { groupId: number; notify: (k: "ok" | "err", t: string) => void; onResolved: () => void }) {
+  const [result, setResult] = useState<ReplayResult | null>(null);
+  const [running, setRunning] = useState(false);
+
+  async function run() {
+    setRunning(true);
+    try {
+      setResult(await adminReplayGroup(groupId));
+    } catch (e) {
+      notify("err", e instanceof Error ? e.message : "Replay failed");
+    } finally {
+      setRunning(false);
+    }
+  }
+
+  async function resolveNow() {
+    try {
+      await adminResolveGroup(groupId, "Verified fixed via replay");
+      notify("ok", "Marked as resolved");
+      onResolved();
+    } catch (e) {
+      notify("err", e instanceof Error ? e.message : "Resolve failed");
+    }
+  }
+
+  return (
+    <div className="rounded-lg border border-gray-800 bg-gray-900 px-3 py-2.5">
+      <div className="flex flex-wrap items-center gap-2">
+        <button onClick={run} disabled={running} className={btnGhost()}>
+          {running ? "Replaying..." : "Replay retrieval"}
+        </button>
+        <span className="text-xs text-gray-600">Free: re-embeds + retrieves, no model call.</span>
+        {result && (
+          <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${result.clears_threshold ? "bg-green-500/15 text-green-300" : "bg-red-500/15 text-red-300"}`}>
+            top {result.top_score !== null ? result.top_score.toFixed(3) : "-"} / threshold {result.threshold}
+          </span>
+        )}
+        {result?.suggest_resolve && (
+          <button onClick={resolveNow} className={btnPrimary()}>
+            Looks fixed — resolve
+          </button>
+        )}
+      </div>
+      {result && result.chunks.length > 0 && (
+        <ul className="mt-2 space-y-1">
+          {result.chunks.map((c) => (
+            <li key={c.id || `${c.score}`} className="rounded bg-gray-950 px-2 py-1 font-mono text-xs text-gray-400">
+              {c.id} <span className="text-orange-400">{c.score.toFixed(3)}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
