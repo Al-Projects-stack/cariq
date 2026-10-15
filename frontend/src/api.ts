@@ -378,10 +378,13 @@ export async function adminPrefillFromGroup(id: number): Promise<{ detected_make
   );
 }
 
-export async function adminTestQuery(question: string): Promise<PlaygroundResult> {
+export async function adminTestQuery(question: string, history?: ChatMessage[]): Promise<PlaygroundResult> {
   return adminFetchJson<PlaygroundResult>("/api/v1/admin/rag/test", {
     method: "POST",
-    body: JSON.stringify({ question }),
+    body: JSON.stringify({
+      question,
+      ...(history && history.length > 0 ? { history: history.slice(-6) } : {}),
+    }),
   });
 }
 
