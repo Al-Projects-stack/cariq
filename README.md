@@ -23,7 +23,7 @@ Every answer comes with:
 | Known Faults | Faults by severity, typical mileage, and repair cost in ZAR |
 | Source citations | Every claim traceable to its source |
 
-Beyond Q&A, the app includes side-by-side model comparison, a market position indicator versus segment peers, 3-year total cost of ownership estimates, a needs-based recommendation quiz, follow-up questions with conversation memory ("what about the diesel one?"), and thumbs up/down feedback on answers.
+Beyond Q&A, the app includes side-by-side model comparison, a market position indicator versus segment peers, 3-year total cost of ownership estimates, a needs-based recommendation quiz, follow-up questions with conversation memory ("what about the diesel one?"), thumbs up/down feedback on answers, and a WhatsApp chatbot for asking on the go.
 
 ---
 
@@ -143,6 +143,47 @@ delete, or manage users. Full endpoint reference: `docs/admin-api.md`.
 > (e.g. Render free tier), the database — and any admin in it — is wiped on
 > every deploy. For hosting like that, set `ADMIN_EMAIL` + `ADMIN_PASSWORD`
 > env vars instead: the app recreates that admin on every startup.
+
+---
+
+## WhatsApp chat
+
+Ask car questions via WhatsApp instead of the web UI. Twilio delivers incoming messages to `POST /api/v1/whatsapp`, which validates the Twilio request signature, runs the question through the same RAG pipeline as the web app, and replies with a TwiML message.
+
+### What it does
+
+- Send a plain-English question (e.g. *"Is R280,000 fair for a 2019 BMW 3 Series?"*) to the CarIQ WhatsApp number
+- Receive a grounded, sourced answer as a WhatsApp reply
+- Get a friendly hint if you send media or an empty message
+- Long answers are trimmed to stay under Twilio's 1600-character message limit
+
+### How it works
+
+```
+Twilio sends incoming WhatsApp message
+        │
+        ▼
+┌───────────────────────────────┐
+│  FastAPI backend              │
+│                               │
+│  1. Validate Twilio signature │──► 403 if invalid / missing
+│  2. Run RAG pipeline          │──► Claude + Pinecone (same as web)
+│  3. Trim to ~1500 chars       │──► stays under Twilio's 1600-char limit
+│  4. Reply with TwiML          │──► 200 even on RAG errors (avoids retry storms)
+└───────────────────────────────┘
+        │
+        ▼
+   WhatsApp reply delivered to user
+```
+
+### Set it up
+
+1. Add `TWILIO_AUTH_TOKEN` to `backend/.env` (from Twilio Console) — never commit it
+2. In Render (or your host), set `TWILIO_AUTH_TOKEN` as an environment variable on the backend service
+3. In Twilio Console → your WhatsApp sender → "When a message comes in" webhook:
+   - URL: `https://<your-backend-host>/api/v1/whatsapp`
+   - Method: `POST`
+4. Behind a TLS proxy (e.g. Render), launch uvicorn with `--forwarded-allow-ips="*"` so Twilio signature validation sees the public URL
 
 ---
 
