@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     ip_hash_salt: str = "change-me"
     # Retrieval top-score below this marks a query as weak/failed.
     failure_score_threshold: float = 0.45
+    twilio_auth_token: str = ""
 
     class Config:
         env_file = ".env"
