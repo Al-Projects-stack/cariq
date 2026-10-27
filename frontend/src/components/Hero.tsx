@@ -89,7 +89,7 @@ export function Hero({ modelCount }: { modelCount: number }) {
           <p className="font-mono text-[11px] tracking-widest uppercase text-orange-400">Meet the hero car</p>
           <p className="mt-1 text-xl font-extrabold text-white">Volkswagen Golf 8 R</p>
           <p className="mt-1 text-sm text-gray-300">
-            The developer's personal favourite. 2.0 TSI, 245kW, 4Motion - and yes, it's in the knowledge base.
+            The developer's personal favourite. 2.0 TSI, 245kW, 4Motion - and yes, it does go VRRRR PHAAAA.
           </p>
         </motion.div>
 
