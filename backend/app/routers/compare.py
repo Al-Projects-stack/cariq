@@ -1,6 +1,6 @@
-import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
+from app.routers.models import _load_all_cars
 from app.models.schemas import (
     CompareRequest,
     CompareResponse,
@@ -21,9 +21,8 @@ def _load_profile(make: str, model: str) -> dict:
     needle = model.lower().replace(" ", "_")
     if not KB_DIR.exists():
         raise HTTPException(500, detail="Knowledge base not found")
-    for fp in KB_DIR.glob("*.json"):
-        with open(fp, encoding="utf-8") as f:
-            data = json.load(f)
+    # Shared loader: prices are aged to today, same as every other endpoint
+    for data in _load_all_cars():
         if data["make"].lower() == make.lower() and data["model"].lower().replace(" ", "_") == needle:
             return data
     raise HTTPException(404, detail=f"Model '{make} {model}' not found")

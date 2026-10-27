@@ -5,7 +5,8 @@ from sqlalchemy.orm import Session
 from app.db.database import get_db
 from app.db.models import AdminUser, SyncJob
 from app.routers.admin_auth import require_admin_role, require_admin_user, require_csrf
-from app.services import kb_sync
+from app.routers.models import _load_all_cars
+from app.services import kb_sync, pricing
 from app.services.kb_admin import iso
 
 router = APIRouter(tags=["admin-sync"])
@@ -72,6 +73,27 @@ def reindex_all(
         raise HTTPException(status_code=400, detail="Set confirm=true to start a full reindex")
     job_id = kb_sync.queue_reindex_all(db, background, admin.email)
     return {"job_id": job_id}
+
+
+@router.get("/sync/price-freshness")
+def price_freshness(admin: AdminUser = Depends(require_admin_user)):
+    """Per-model price verification status, stalest first.
+
+    Served prices are aged automatically between checks; anything flagged
+    stale needs a human to re-verify it against the market.
+    """
+    cars = _load_all_cars()
+    rows = [
+        {"make": c["make"], "model": c["model"], **c.get("price_freshness", pricing.price_freshness(None))}
+        for c in cars
+    ]
+    rows.sort(key=lambda r: (r["days_since_verified"] is not None, -(r["days_since_verified"] or 0)))
+    return {
+        "stale_after_days": pricing.STALE_AFTER_DAYS,
+        "max_ageing_months": pricing.MAX_AGEING_MONTHS,
+        "stale_count": sum(1 for r in rows if r["stale"]),
+        "models": rows,
+    }
 
 
 @router.get("/sync/health")

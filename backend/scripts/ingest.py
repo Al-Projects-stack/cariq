@@ -6,8 +6,13 @@ Chunking lives in app/services/chunking.py (shared with the admin
 publish flow) so both paths always produce identical chunks and IDs.
 
 Run from the backend/ directory:
-    python scripts/ingest.py
+    python scripts/ingest.py                              # every model
+    python scripts/ingest.py toyota_starlet kia_sonet     # only these files
+
+Limiting to named files avoids overwriting vectors for models that were
+edited and republished through the admin dashboard.
 """
+import argparse
 import json
 import sys
 import asyncio
@@ -29,14 +34,20 @@ KB_DIR = Path(__file__).parent.parent / "knowledge_base" / "cars"
 BATCH_SIZE = 10
 
 
-async def ingest_all():
-    embeddings_svc = EmbeddingsService()
-    pinecone_client = PineconeClient()
-
+async def ingest_all(only: list[str] | None = None):
     json_files = sorted(KB_DIR.glob("*.json"))
+    if only:
+        wanted = {name.removesuffix(".json") for name in only}
+        unknown = wanted - {fp.stem for fp in json_files}
+        if unknown:
+            sys.exit(f"Unknown KB file(s): {', '.join(sorted(unknown))}")
+        json_files = [fp for fp in json_files if fp.stem in wanted]
     if not json_files:
         print(f"No JSON files found in {KB_DIR}")
         return
+
+    embeddings_svc = EmbeddingsService()
+    pinecone_client = PineconeClient()
 
     all_chunks: list[dict] = []
     for fp in json_files:
@@ -73,4 +84,6 @@ async def ingest_all():
 
 
 if __name__ == "__main__":
-    asyncio.run(ingest_all())
+    parser = argparse.ArgumentParser(description="Embed KB JSON files into Pinecone.")
+    parser.add_argument("files", nargs="*", help="KB file stems to ingest (default: all)")
+    asyncio.run(ingest_all(parser.parse_args().files))

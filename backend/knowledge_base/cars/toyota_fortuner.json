@@ -9,6 +9,7 @@
     "4.0 V6 4x4 AT"
   ],
   "years_covered": "2005-2024",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Toyota Fortuner is the dominant seven-seat SUV in the South African market. Its body-on-frame Hilux underpinnings make it exceptionally durable and capable off-road while offering practical family transport. Depreciation is almost non-existent ,  a well-maintained Fortuner holds value better than almost any other used vehicle in SA. The 2.8 GD-6 variant is the sweet spot: diesel economy with genuine capability. Waitlists for new models consistently reach 6-12 months, making the used market a necessity.",
   "reliability_score": 8.8,
   "segment": "bakkie",
@@ -20,30 +21,30 @@
     {
       "year_from": 2022,
       "year_to": 2024,
-      "low_zar": 680000,
-      "mid_zar": 790000,
-      "high_zar": 950000
+      "low_zar": 600000,
+      "mid_zar": 680000,
+      "high_zar": 820000
     },
     {
       "year_from": 2019,
       "year_to": 2021,
-      "low_zar": 530000,
-      "mid_zar": 630000,
-      "high_zar": 750000
+      "low_zar": 450000,
+      "mid_zar": 520000,
+      "high_zar": 640000
     },
     {
       "year_from": 2016,
       "year_to": 2018,
-      "low_zar": 380000,
-      "mid_zar": 460000,
-      "high_zar": 570000
+      "low_zar": 320000,
+      "mid_zar": 390000,
+      "high_zar": 480000
     },
     {
       "year_from": 2012,
       "year_to": 2015,
-      "low_zar": 230000,
-      "mid_zar": 290000,
-      "high_zar": 380000
+      "low_zar": 200000,
+      "mid_zar": 260000,
+      "high_zar": 330000
     }
   ],
   "known_faults": [
@@ -122,6 +123,7 @@
     "Cars.co.za",
     "AutoTrader SA",
     "4x4 Community SA",
-    "WeBuyCars market data"
+    "WeBuyCars market data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

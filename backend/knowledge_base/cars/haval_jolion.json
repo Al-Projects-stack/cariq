@@ -11,6 +11,7 @@
     "1.5 HEV Ultra Luxury"
   ],
   "years_covered": "2021-2026",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Haval Jolion has completely disrupted the South African compact SUV segment since its 2021 launch. With 13,607 units sold in 2025 (up 47.7% year-on-year), it frequently ranks in the top 10 best-selling vehicles overall, rubbing shoulders with the VW Polo and Toyota Fortuner. Built by GWM, the Jolion offers midsize SUV space and premium features (Level 2 ADAS, twin screens) at a compact SUV price. The 1.5-litre turbo petrol (105kW/210Nm) drives the front wheels via a 7-speed dual-clutch transmission. The Jolion Pro (2025+) brought updated styling and a plusher cabin. The 7-year/200,000km warranty on Pro models is class-leading. A hybrid variant adds a fuel-efficient option (140kW/375Nm, claimed 5.1L/100km).",
   "reliability_score": 7.0,
   "segment": "compact_suv",
@@ -23,8 +24,8 @@
       "year_from": 2023,
       "year_to": 2025,
       "low_zar": 270000,
-      "mid_zar": 330000,
-      "high_zar": 450000
+      "mid_zar": 320000,
+      "high_zar": 420000
     },
     {
       "year_from": 2021,
@@ -118,6 +119,7 @@
     "Auto.co.za reviews",
     "TopAuto SA",
     "The Citizen Motoring",
-    "Lightstone SA vehicle sales data"
+    "Lightstone SA vehicle sales data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

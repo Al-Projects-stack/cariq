@@ -53,7 +53,7 @@ export function Hero() {
         <motion.div variants={item} className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 mb-6 backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse-slow" />
           <span className="font-mono text-xs text-orange-400 tracking-widest uppercase">
-            RAG-powered · 20 models · SA market data
+            RAG-powered · 27 models · SA market data
           </span>
         </motion.div>
 

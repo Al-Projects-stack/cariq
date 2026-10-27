@@ -8,6 +8,7 @@
     "1.5 Executive"
   ],
   "years_covered": "2009-2022",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Honda Jazz is one of the most practical and reliable small cars available in the South African used market. Its Magic Seat folding rear bench creates extraordinary cargo flexibility that rivals cars twice its size. The Jazz has an outstanding reputation for durability ,  well-maintained examples comfortably reach 250,000km+ without major mechanical intervention. Parts are readily available from Honda SA dealers and independent importers. Particularly popular among older buyers and those wanting maximum practicality from a compact package.",
   "reliability_score": 9.0,
   "segment": "compact_hatchback",
@@ -20,22 +21,22 @@
       "year_from": 2019,
       "year_to": 2022,
       "low_zar": 200000,
-      "mid_zar": 245000,
+      "mid_zar": 240000,
       "high_zar": 290000
     },
     {
       "year_from": 2015,
       "year_to": 2018,
-      "low_zar": 120000,
-      "mid_zar": 155000,
-      "high_zar": 195000
+      "low_zar": 130000,
+      "mid_zar": 165000,
+      "high_zar": 205000
     },
     {
       "year_from": 2010,
       "year_to": 2014,
-      "low_zar": 65000,
+      "low_zar": 60000,
       "mid_zar": 90000,
-      "high_zar": 125000
+      "high_zar": 130000
     }
   ],
   "known_faults": [
@@ -110,6 +111,7 @@
     "Cars.co.za Jazz reviews",
     "AutoTrader SA",
     "SA Honda owners community",
-    "WeBuyCars market data"
+    "WeBuyCars market data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

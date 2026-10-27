@@ -1,4 +1,4 @@
-import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosition, TCOEstimate, RecommendResponse, AuthResponse, UserProfile, WatchlistResponse, WatchlistItem, SavedSearchResponse, SavedSearchItem, AlertListResponse, ChatMessage, AdminSession, AdminModelListItem, AdminModelDetail, AdminModelCreate, AdminFault, AdminPriceRange, AdminChecklistItem, DiffChange, AdminUserItem, FailureGroup, SyncJob, OverviewStats, PlaygroundResult, ReplayResult } from "./types";
+import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosition, TCOEstimate, RecommendResponse, AuthResponse, UserProfile, WatchlistResponse, WatchlistItem, SavedSearchResponse, SavedSearchItem, AlertListResponse, ChatMessage, AdminSession, AdminModelListItem, AdminModelDetail, AdminModelCreate, AdminFault, AdminPriceRange, AdminChecklistItem, DiffChange, AdminUserItem, FailureGroup, SyncJob, OverviewStats, PlaygroundResult, ReplayResult, PriceFreshnessReport } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
@@ -341,6 +341,10 @@ export async function adminSyncHealth(): Promise<{ total_vectors: number; models
   return adminFetchJson<{ total_vectors: number; models: { slug: string; expected: number; found: number; ok: boolean }[] }>(
     "/api/v1/admin/sync/health"
   );
+}
+
+export async function adminPriceFreshness(): Promise<PriceFreshnessReport> {
+  return adminFetchJson<PriceFreshnessReport>("/api/v1/admin/sync/price-freshness");
 }
 
 export async function adminOverview(): Promise<OverviewStats> {

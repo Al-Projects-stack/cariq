@@ -1,0 +1,106 @@
+{
+  "make": "Hyundai",
+  "model": "Venue",
+  "variants": [
+    "1.0 TGDI Motion",
+    "1.0 TGDI Fluid",
+    "1.0 TGDI Fluid DCT",
+    "1.0 TGDI Glide DCT",
+    "1.0 TGDI N Line DCT"
+  ],
+  "years_covered": "2020-2026",
+  "prices_verified_at": "2026-10-27",
+  "sa_market_summary": "The Hyundai Venue is a compact SUV built in India, with 3,081 used sales in South Africa in 2025 according to AutoTrader. Every local Venue uses a 1.0-litre turbo petrol (T-GDI) with a 6-speed manual or a 7-speed dual-clutch (DCT) automatic, and the N Line adds sportier styling. It pairs Hyundai's strong warranty and dealer network with a well-equipped cabin and low running costs. Used asking prices mostly fall between R180,000 and R250,000 for 2020-2022 cars, with DCT and higher trims priced above the Motion manuals.",
+  "reliability_score": 7.5,
+  "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 6.4,
+  "annual_maintenance_zar": 6000,
+  "annual_insurance_zar": 9500,
+  "price_ranges": [
+    {
+      "year_from": 2023,
+      "year_to": 2026,
+      "low_zar": 250000,
+      "mid_zar": 300000,
+      "high_zar": 360000
+    },
+    {
+      "year_from": 2020,
+      "year_to": 2022,
+      "low_zar": 160000,
+      "mid_zar": 215000,
+      "high_zar": 260000
+    }
+  ],
+  "known_faults": [
+    {
+      "fault": "DCT overheating and judder in traffic",
+      "affects_variants": [
+        "1.0 TGDI Fluid DCT",
+        "1.0 TGDI Glide DCT",
+        "1.0 TGDI N Line DCT"
+      ],
+      "mileage_range": "Any mileage, worse with heavy stop-start use",
+      "severity": "MEDIUM",
+      "description": "The 7-speed dry-clutch DCT can overheat in long bumper-to-bumper traffic, giving slow, jerky or delayed shifts and sometimes a warning to stop the car. The same issue is reported on other Hyundai and Kia models with this gearbox. On the open road it is generally smooth.",
+      "what_to_inspect": "Test in slow traffic for at least 15 minutes. Check for juddering when pulling away, delayed engagement and any transmission temperature warning. Ask whether the car spent its life in city commuting.",
+      "estimated_repair_zar": "R15,000 - R35,000 (clutch pack or actuator)",
+      "source": "Cars24, Team-BHP owner forum, TopGear South Africa"
+    },
+    {
+      "fault": "Battery drain and electrical faults",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "Owners report flat batteries and assorted electrical niggles. Electrical issues are the largest category of US owner complaints about the Venue.",
+      "what_to_inspect": "Check battery age and health, and test every electrical function: windows, lights, USB ports and sensors.",
+      "estimated_repair_zar": "R1,500 - R3,500 (battery); diagnosis for other faults",
+      "source": "The Weekly Driver (NHTSA complaint data), owner reports"
+    },
+    {
+      "fault": "Infotainment freezes and interior rattles",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The infotainment screen can freeze or reboot, and hard interior plastics develop rattles over rough roads.",
+      "what_to_inspect": "Connect a phone and use Apple CarPlay or Android Auto. Listen for dashboard and door rattles on a rough road.",
+      "estimated_repair_zar": "R0 - R2,000 (software update or trim refitting)",
+      "source": "Owner reports"
+    },
+    {
+      "fault": "Recalls: EGR valve and seatbelt pretensioner (some markets)",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "MEDIUM",
+      "description": "Hyundai has recalled Venues in some markets for an EGR valve short that can cut drive power and for a seatbelt pretensioner defect. Check whether either applies to SA-market cars.",
+      "what_to_inspect": "Ask a Hyundai SA dealer to run a VIN check for open recalls.",
+      "estimated_repair_zar": "R0 (recall work at no cost)",
+      "source": "NHTSA recall data via The Weekly Driver"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Test DCT models in slow traffic for judder, delayed engagement or temperature warnings",
+    "Run a VIN check with Hyundai SA for open recalls",
+    "Check remaining factory warranty, which transfers to the next owner",
+    "Verify Hyundai service history, which is important for warranty claims",
+    "Test the battery and all electrical functions",
+    "Connect a phone to the infotainment and check for freezes",
+    "Listen for interior rattles on a rough road"
+  ],
+  "owner_sentiment": "Positive. Owners praise the Venue's peppy 1.0 turbo engine (which, being turbocharged, copes well at altitude), its generous standard features, compact size for parking, and Hyundai's warranty. Complaints include a small boot, a firm ride on rough roads, hard cabin plastics and the DCT's behaviour in heavy traffic.",
+  "sources": [
+    "AutoTrader SA",
+    "TimesLIVE Motoring",
+    "TopGear South Africa",
+    "CAR Magazine",
+    "Team-BHP",
+    "The Weekly Driver"
+  ]
+}

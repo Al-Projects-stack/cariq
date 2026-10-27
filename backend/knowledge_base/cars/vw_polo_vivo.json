@@ -12,6 +12,7 @@
     "1.0 TSI GT"
   ],
   "years_covered": "2010-2026",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The VW Polo Vivo is an institution in South Africa, consistently the best-selling passenger vehicle in the country month after month. Based on the Mk5 Polo platform, it is built locally at VW's Kariega plant and offers German engineering at a budget-friendly price point. The second generation (2018+) brought updated styling while retaining proven 1.4 and 1.6 naturally aspirated engines. The 1.0 TSI GT adds a turbocharged option for more performance-oriented buyers. Parts availability is excellent, and the Vivo holds its value remarkably well. It competes directly with the Suzuki Swift, Toyota Starlet, and Hyundai Grand i10.",
   "reliability_score": 7.5,
   "segment": "compact_hatchback",
@@ -24,8 +25,8 @@
       "year_from": 2022,
       "year_to": 2026,
       "low_zar": 190000,
-      "mid_zar": 240000,
-      "high_zar": 310000
+      "mid_zar": 225000,
+      "high_zar": 300000
     },
     {
       "year_from": 2018,
@@ -136,6 +137,7 @@
     "CARmag SA",
     "The Citizen Motoring",
     "WeBuyCars price data",
-    "Lightstone SA vehicle sales"
+    "Lightstone SA vehicle sales",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

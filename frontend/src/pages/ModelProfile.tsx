@@ -139,6 +139,14 @@ export function ModelProfile() {
               </tbody>
             </table>
           </div>
+          {profile.price_freshness?.verified_at && (
+            <p className="mt-3 text-xs text-gray-600">
+              Prices verified {new Date(profile.price_freshness.verified_at).toLocaleDateString("en-ZA", { month: "short", year: "numeric" })}
+              {profile.price_freshness.months_aged > 0 &&
+                `, adjusted for ${profile.price_freshness.months_aged} month${profile.price_freshness.months_aged === 1 ? "" : "s"} of depreciation since`}
+              .
+            </p>
+          )}
         </div>
 
         {marketPos ? (

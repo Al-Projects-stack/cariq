@@ -10,6 +10,7 @@
     "3.0 DDi V-Cross 4x4"
   ],
   "years_covered": "2012-2026",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Isuzu D-Max is the third best-selling bakkie in South Africa behind the Toyota Hilux and Ford Ranger, but earns a reputation as the most reliable and durable of the three. The 7th generation (2022+) is built locally at Isuzu's Struandale plant in Gqeberha. It offers two diesel engines: the 1.9 DDi (110kW/350Nm) and the legendary 3.0 DDi (140kW/450Nm), both known for linear power delivery and exceptional longevity. The D-Max is the preferred choice for farmers and fleet operators who plan to keep their vehicles past 300,000km. Isuzu's 5-year/120,000km warranty and 6-year/90,000km service plan add peace of mind. Resale value is strong though slightly below the Hilux.",
   "reliability_score": 9.0,
   "segment": "bakkie",
@@ -21,30 +22,30 @@
     {
       "year_from": 2022,
       "year_to": 2025,
-      "low_zar": 450000,
-      "mid_zar": 580000,
-      "high_zar": 800000
+      "low_zar": 420000,
+      "mid_zar": 500000,
+      "high_zar": 650000
     },
     {
       "year_from": 2019,
       "year_to": 2021,
-      "low_zar": 350000,
-      "mid_zar": 450000,
-      "high_zar": 600000
+      "low_zar": 320000,
+      "mid_zar": 400000,
+      "high_zar": 520000
     },
     {
       "year_from": 2016,
       "year_to": 2018,
-      "low_zar": 250000,
-      "mid_zar": 330000,
-      "high_zar": 450000
+      "low_zar": 230000,
+      "mid_zar": 290000,
+      "high_zar": 380000
     },
     {
       "year_from": 2012,
       "year_to": 2015,
-      "low_zar": 160000,
-      "mid_zar": 220000,
-      "high_zar": 320000
+      "low_zar": 140000,
+      "mid_zar": 190000,
+      "high_zar": 260000
     }
   ],
   "known_faults": [
@@ -126,6 +127,7 @@
     "SA 4x4 Community",
     "TechBrunch SA",
     "The Citizen Motoring",
-    "Lightstone SA vehicle sales"
+    "Lightstone SA vehicle sales",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

@@ -1,0 +1,103 @@
+{
+  "make": "Nissan",
+  "model": "Magnite",
+  "variants": [
+    "1.0 Visia",
+    "1.0 Acenta",
+    "1.0T Acenta",
+    "1.0T Acenta Plus",
+    "1.0T Acenta Plus CVT",
+    "1.0T Tekna CVT"
+  ],
+  "years_covered": "2021-2026",
+  "prices_verified_at": "2026-10-27",
+  "sa_market_summary": "The Nissan Magnite is an Indian-built budget compact SUV with 2,817 used sales in South Africa in 2025 at an average of R244,745 according to AutoTrader. It comes with a 1.0-litre naturally aspirated three-cylinder (52kW) or a 1.0-litre turbo (74kW) paired with a 5-speed manual or CVT, and the turbo CVT is generally considered the more refined drive. It offers lots of features and a high driving position at a low price, but SA owners frequently report premature brake wear, electrical niggles and rattles, and some report warranty claims being declined as wear and tear.",
+  "reliability_score": 6.5,
+  "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 5.8,
+  "annual_maintenance_zar": 5500,
+  "annual_insurance_zar": 8500,
+  "price_ranges": [
+    {
+      "year_from": 2024,
+      "year_to": 2026,
+      "low_zar": 210000,
+      "mid_zar": 250000,
+      "high_zar": 300000
+    },
+    {
+      "year_from": 2021,
+      "year_to": 2023,
+      "low_zar": 150000,
+      "mid_zar": 190000,
+      "high_zar": 230000
+    }
+  ],
+  "known_faults": [
+    {
+      "fault": "Premature brake pad and disc wear",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "10,000km - 20,000km",
+      "severity": "MEDIUM",
+      "description": "A frequent complaint among SA owners: brake pads and discs wear out far sooner than expected, sometimes by 10,000-20,000km, with a grinding noise in stop-start traffic. Some owners also report weak braking above 100km/h.",
+      "what_to_inspect": "Check pad thickness and disc lip through the wheels, listen for grinding at low speed, and do a firm stop from 100km/h to check for pulling or vibration. Ask how often brakes have been replaced.",
+      "estimated_repair_zar": "R2,500 - R6,000 (pads and discs, front axle)",
+      "source": "AutoTrader SA Nissan Magnite Buyer's Guide, Team-BHP owner reports"
+    },
+    {
+      "fault": "Electrical faults: battery, sensors and infotainment resets",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "Recurring electrical niggles include dying batteries, faulty sensors and the infotainment system resetting itself.",
+      "what_to_inspect": "Test battery health, use the infotainment for several minutes, and check parking sensors and camera. Scan for stored fault codes.",
+      "estimated_repair_zar": "R1,500 - R4,000",
+      "source": "AutoTrader SA (Should you buy a Nissan Magnite?)"
+    },
+    {
+      "fault": "Wheel alignment, camber and suspension wear",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "20,000km+",
+      "severity": "MEDIUM",
+      "description": "SA owners report alignment and camber problems causing uneven tyre wear, plus premature wear of suspension components and squeaks over bumps.",
+      "what_to_inspect": "Check front tyres for uneven inner or outer edge wear and drive straight on a level road to check for pulling. Listen for squeaks and knocks over speed bumps.",
+      "estimated_repair_zar": "R800 - R6,000 (alignment, bushings or links)",
+      "source": "AutoTrader SA, Team-BHP owner reports"
+    },
+    {
+      "fault": "Cabin rattles and build quality",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "Rattles from the dashboard, doors and boot area are commonly reported as the car ages.",
+      "what_to_inspect": "Drive on a rough road with the radio off and listen for rattles from the dash and tailgate.",
+      "estimated_repair_zar": "R0 - R1,500",
+      "source": "AutoTrader SA, owner reports"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Inspect brake pads and discs, and ask for brake replacement records",
+    "Check front tyres for uneven wear that signals alignment or camber issues",
+    "Test all electrics, infotainment and battery health",
+    "Prefer the 1.0 turbo; the 52kW non-turbo is slow, especially at altitude",
+    "On CVT cars, check for smooth pull-away and no excessive droning",
+    "Verify Nissan service history and remaining warranty, and keep records for any claims",
+    "Listen for rattles and suspension squeaks on a rough road"
+  ],
+  "owner_sentiment": "Mixed. Owners like the Magnite's low price, generous equipment, economical turbo engine (5.3-6.0L/100km) and SUV looks. Complaints centre on brakes wearing out early, rattles, electrical faults, engine drone from the CVT under hard acceleration and, in some Hellopeter reviews, frustrating experiences with dealer warranty claims.",
+  "sources": [
+    "AutoTrader SA",
+    "TimesLIVE Motoring",
+    "Team-BHP",
+    "Hellopeter"
+  ]
+}

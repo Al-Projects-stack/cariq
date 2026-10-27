@@ -10,6 +10,7 @@
     "1.0 T-GDi Active"
   ],
   "years_covered": "2014-2024",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Hyundai i20 is one of the most popular compact hatchbacks in South Africa, competing directly with the VW Polo. It offers excellent value for money, generous standard equipment, and low running costs. The second generation i20 (2015-2019) established strong reliability credentials, and the third generation (2020+) added modern technology. Hyundai's 5-year/100,000km warranty on new vehicles transfers to the first used buyer, making certified pre-owned examples especially attractive. Parts are widely available at Hyundai dealers and independent motor spares shops.",
   "reliability_score": 8.0,
   "segment": "compact_hatchback",
@@ -21,23 +22,23 @@
     {
       "year_from": 2021,
       "year_to": 2024,
-      "low_zar": 230000,
-      "mid_zar": 280000,
-      "high_zar": 330000
+      "low_zar": 220000,
+      "mid_zar": 265000,
+      "high_zar": 370000
     },
     {
       "year_from": 2018,
       "year_to": 2020,
-      "low_zar": 155000,
-      "mid_zar": 185000,
-      "high_zar": 225000
+      "low_zar": 125000,
+      "mid_zar": 170000,
+      "high_zar": 215000
     },
     {
       "year_from": 2015,
       "year_to": 2017,
-      "low_zar": 90000,
-      "mid_zar": 120000,
-      "high_zar": 155000
+      "low_zar": 100000,
+      "mid_zar": 140000,
+      "high_zar": 190000
     }
   ],
   "known_faults": [
@@ -111,6 +112,7 @@
     "Cars.co.za i20 reviews",
     "AutoTrader SA",
     "SA Hyundai owners community",
-    "WeBuyCars market data"
+    "WeBuyCars market data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

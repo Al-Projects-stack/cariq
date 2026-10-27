@@ -1,0 +1,134 @@
+{
+  "make": "Volkswagen",
+  "model": "T-Cross",
+  "variants": [
+    "1.0 TSI Trendline (70kW)",
+    "1.0 TSI Comfortline (85kW)",
+    "1.0 TSI Comfortline DSG",
+    "1.0 TSI Highline DSG",
+    "1.5 TSI R-Line DSG (110kW)",
+    "1.0 TSI Life / Style (facelift)"
+  ],
+  "years_covered": "2019-2026",
+  "prices_verified_at": "2026-10-27",
+  "sa_market_summary": "The Volkswagen T-Cross is a Polo-based compact SUV and was South Africa's fourth most popular used SUV in 2025, with 4,193 sales according to AutoTrader. Most cars use a 1.0 TSI three-cylinder turbo (70kW or 85kW), with a 1.5 TSI (110kW) in the R-Line until 2024, and most automatics use the 7-speed DSG. It feels more upmarket and refined than its Indian-built rivals and holds value well, but costs more to buy and maintain. The main risks are the DSG's mechatronic unit and timing chain wear on the 1.0 TSI.",
+  "reliability_score": 7.0,
+  "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 5.6,
+  "annual_maintenance_zar": 8500,
+  "annual_insurance_zar": 12000,
+  "price_ranges": [
+    {
+      "year_from": 2024,
+      "year_to": 2026,
+      "low_zar": 380000,
+      "mid_zar": 440000,
+      "high_zar": 500000
+    },
+    {
+      "year_from": 2023,
+      "year_to": 2023,
+      "low_zar": 360000,
+      "mid_zar": 400000,
+      "high_zar": 450000
+    },
+    {
+      "year_from": 2021,
+      "year_to": 2022,
+      "low_zar": 300000,
+      "mid_zar": 340000,
+      "high_zar": 380000
+    },
+    {
+      "year_from": 2019,
+      "year_to": 2020,
+      "low_zar": 250000,
+      "mid_zar": 285000,
+      "high_zar": 320000
+    }
+  ],
+  "known_faults": [
+    {
+      "fault": "DSG mechatronic unit failure",
+      "affects_variants": [
+        "1.0 TSI Comfortline DSG",
+        "1.0 TSI Highline DSG",
+        "1.5 TSI R-Line DSG"
+      ],
+      "mileage_range": "60,000km - 120,000km",
+      "severity": "HIGH",
+      "description": "The 7-speed DQ200 dry-clutch DSG has a documented history of mechatronic unit failures across the VW Group. Symptoms include harsh or delayed shifts, a flashing gear indicator and sudden loss of drive. Some low-speed jerkiness is normal for a dual-clutch gearbox and is not itself a fault.",
+      "what_to_inspect": "Test in stop-start traffic and on hill pull-aways. Check for a flashing PRNDS display, clunks between gears or a sudden lurch. Ask for proof of DSG software updates and services.",
+      "estimated_repair_zar": "R25,000 - R45,000 (mechatronic unit); R15,000 - R25,000 (clutch pack)",
+      "source": "AutoTrader SA Volkswagen T-Cross Buyer's Guide, CarChecker"
+    },
+    {
+      "fault": "Timing chain rattle on cold start (1.0 TSI)",
+      "affects_variants": [
+        "1.0 TSI Trendline (70kW)",
+        "1.0 TSI Comfortline (85kW)",
+        "1.0 TSI Highline DSG"
+      ],
+      "mileage_range": "60,000km+",
+      "severity": "MEDIUM",
+      "description": "Some owners report a rattle for a few seconds after a cold start, which can indicate timing chain or tensioner wear. Not extremely common, but expensive if ignored.",
+      "what_to_inspect": "Insist on starting the engine completely cold and listen for a rattle in the first few seconds.",
+      "estimated_repair_zar": "R10,000 - R20,000 (chain and tensioner kit)",
+      "source": "AutoTrader SA Volkswagen T-Cross Buyer's Guide"
+    },
+    {
+      "fault": "Turbo actuator fault",
+      "affects_variants": [
+        "1.0 TSI Comfortline (85kW)",
+        "1.0 TSI Highline DSG"
+      ],
+      "mileage_range": "50,000km+",
+      "severity": "MEDIUM",
+      "description": "A faulty turbo wastegate actuator reduces boost, causes flat performance and triggers the check-engine light. It is usually repairable without replacing the whole turbo.",
+      "what_to_inspect": "Check for a check-engine light and for flat spots in acceleration. A diagnostic scan will show boost-related fault codes.",
+      "estimated_repair_zar": "R4,000 - R12,000 (actuator repair or replacement)",
+      "source": "AutoTrader SA Volkswagen T-Cross Buyer's Guide"
+    },
+    {
+      "fault": "Suspension knock from bushings or stabiliser links",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "50,000km+",
+      "severity": "LOW",
+      "description": "Knocking over bumps usually comes from worn bushings or stabiliser links, especially on cars that see potholed roads. Generally inexpensive to fix.",
+      "what_to_inspect": "Drive slowly over speed bumps and a rough surface with the radio off, and listen for knocks from the front.",
+      "estimated_repair_zar": "R1,500 - R5,000",
+      "source": "AutoTrader SA Volkswagen T-Cross Buyer's Guide"
+    },
+    {
+      "fault": "Infotainment freezing and sensor warnings",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The infotainment can freeze or respond slowly, often fixed by a software update. Sensor warning lights are usually calibration issues rather than major faults.",
+      "what_to_inspect": "Use every infotainment function, connect a phone, and check for warning lights. Ask if the software has been updated.",
+      "estimated_repair_zar": "R0 - R2,500 (software update or recalibration)",
+      "source": "AutoTrader SA Volkswagen T-Cross Buyer's Guide"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Test the DSG in traffic and on a hill; check for a flashing gear display or lurching",
+    "Start the engine completely cold and listen for timing chain rattle",
+    "Check for a check-engine light and scan for turbo or boost fault codes",
+    "Run a VIN check with Volkswagen SA for open recalls, including airbag recalls",
+    "Verify full VW service history with regular oil changes",
+    "Drive over bumps to check for suspension knocks",
+    "Test infotainment, air conditioning and driver-assistance features"
+  ],
+  "owner_sentiment": "Positive. Owners like the T-Cross's refined ride, quality cabin, sliding rear bench, practical boot, and economical 1.0 TSI engine. Criticisms include higher purchase and parts prices than Japanese and Korean rivals, the 1.0 TSI feeling strained when fully loaded or overtaking, and touch-sensitive controls that are easy to trigger accidentally.",
+  "sources": [
+    "AutoTrader SA",
+    "TimesLIVE Motoring",
+    "TopGear South Africa",
+    "CarChecker"
+  ]
+}

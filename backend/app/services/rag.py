@@ -7,7 +7,7 @@ from typing import Optional
 from app.services.embeddings import EmbeddingsService
 from app.services.pinecone_client import PineconeClient
 from app.services.claude_client import ClaudeClient, sanitise_for_prompt
-from app.services import tracking
+from app.services import pricing, tracking
 from app.services.cache import rag_query_cache
 from app.db.database import SessionLocal
 from app.db.models import QueryLog
@@ -184,6 +184,8 @@ class RAGService:
             vector=query_embedding,
             top_k=5,
         )
+        # Age price chunks so the answer and price panel quote current prices
+        results = [pricing.age_match(m) for m in results]
 
         # Step 3: Build context from retrieved chunks
         context = self._build_context(results)

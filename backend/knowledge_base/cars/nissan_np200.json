@@ -8,6 +8,7 @@
     "1.5 dCi"
   ],
   "years_covered": "2009-2026",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Nissan NP200 is South Africa's most affordable half-ton bakkie, filling the budget end of the pickup market below the Ford Ranger and Toyota Hilux. It offers the biggest payload in its segment at 800kg and the largest load box volume at 1.26m³. Powered by a simple 1.6-litre 8-valve petrol engine (65kW/147Nm) or a 1.5 dCi diesel, it prioritises reliability and low running costs over sophistication. The NP200 is the successor to the legendary Nissan 1400 and remains a favourite for small businesses, delivery fleets, and tradesmen. Parts are cheap and widely available across South Africa.",
   "reliability_score": 7.0,
   "segment": "bakkie",
@@ -19,23 +20,23 @@
     {
       "year_from": 2021,
       "year_to": 2024,
-      "low_zar": 160000,
-      "mid_zar": 200000,
-      "high_zar": 260000
+      "low_zar": 190000,
+      "mid_zar": 225000,
+      "high_zar": 265000
     },
     {
       "year_from": 2016,
       "year_to": 2020,
       "low_zar": 100000,
-      "mid_zar": 140000,
-      "high_zar": 180000
+      "mid_zar": 145000,
+      "high_zar": 190000
     },
     {
       "year_from": 2012,
       "year_to": 2015,
-      "low_zar": 65000,
-      "mid_zar": 90000,
-      "high_zar": 120000
+      "low_zar": 70000,
+      "mid_zar": 95000,
+      "high_zar": 130000
     },
     {
       "year_from": 2009,
@@ -121,6 +122,7 @@
     "Cars.co.za",
     "SA NP200 owner community",
     "EngineFinder SA",
-    "WeBuyCars price data"
+    "WeBuyCars price data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

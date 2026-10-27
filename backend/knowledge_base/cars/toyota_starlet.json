@@ -1,0 +1,113 @@
+{
+  "make": "Toyota",
+  "model": "Starlet",
+  "variants": [
+    "1.4 Xi",
+    "1.4 Xs",
+    "1.4 Xr",
+    "1.4 Xs AT",
+    "1.5 Xi",
+    "1.5 Xs",
+    "1.5 Xr",
+    "1.5 Xr AT"
+  ],
+  "years_covered": "2020-2026",
+  "prices_verified_at": "2026-10-27",
+  "sa_market_summary": "The Toyota Starlet is a rebadged, Indian-built Suzuki Baleno and one of South Africa's ten best-selling used cars: AutoTrader recorded 595 used Starlet sales in September 2026 at an average of R228,622 and 38,269km. The 2020-2022 cars use a 1.4-litre K14B engine (68kW), while the 2023 facelift moved to a 1.5-litre K15B (77kW), both with a 5-speed manual or a dated 4-speed automatic. It offers Toyota's dealer network and resale value at a budget price, but buyers should check safety specification closely: Global NCAP gave the pre-update car a zero-star adult occupant rating because it had only two airbags, and the AA reports that six airbags became standard only from September 2025.",
+  "reliability_score": 8.0,
+  "segment": "compact_hatchback",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 5.4,
+  "annual_maintenance_zar": 4500,
+  "annual_insurance_zar": 7500,
+  "price_ranges": [
+    {
+      "year_from": 2023,
+      "year_to": 2026,
+      "low_zar": 200000,
+      "mid_zar": 240000,
+      "high_zar": 295000
+    },
+    {
+      "year_from": 2020,
+      "year_to": 2022,
+      "low_zar": 140000,
+      "mid_zar": 175000,
+      "high_zar": 215000
+    }
+  ],
+  "known_faults": [
+    {
+      "fault": "Carbon build-up and pre-ignition (1.4 K14B)",
+      "affects_variants": [
+        "1.4 Xi",
+        "1.4 Xs",
+        "1.4 Xr"
+      ],
+      "mileage_range": "40,000km - 100,000km",
+      "severity": "MEDIUM",
+      "description": "The 1.4-litre K14B engine is reported to suffer carbon build-up and pre-ignition, which shows as knocking under load, hesitation and reduced economy. Running on lower-octane fuel makes it worse; 95 octane is recommended.",
+      "what_to_inspect": "Listen for pinging or knocking when accelerating uphill in a high gear. Ask which fuel the owner used and check for stored knock-sensor or misfire codes.",
+      "estimated_repair_zar": "R2,500 - R6,000 (intake/injector clean, plugs)",
+      "source": "AutoTrader SA Toyota Starlet Buyer's Guide"
+    },
+    {
+      "fault": "Rough idle from blocked idle control valve",
+      "affects_variants": [
+        "1.4 Xi",
+        "1.4 Xs",
+        "1.4 Xr"
+      ],
+      "mileage_range": "50,000km+",
+      "severity": "LOW",
+      "description": "Some 1.4 Starlets develop an unsteady or hunting idle when the idle control valve and throttle body become clogged.",
+      "what_to_inspect": "Let the engine idle with the air conditioning on and off. The rev needle should stay steady with no stumbling.",
+      "estimated_repair_zar": "R1,000 - R3,000 (clean or replace valve)",
+      "source": "AutoTrader SA Toyota Starlet Buyer's Guide"
+    },
+    {
+      "fault": "Sensor faults and warning lights (1.5 K15B)",
+      "affects_variants": [
+        "1.5 Xi",
+        "1.5 Xs",
+        "1.5 Xr"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The newer 1.5-litre K15B has limited long-term local data, but occasional sensor faults that trigger dashboard warning lights have been reported.",
+      "what_to_inspect": "Confirm no warning lights stay on after start-up and request a diagnostic scan for stored codes.",
+      "estimated_repair_zar": "R1,000 - R4,000 (sensor replacement, usually under warranty)",
+      "source": "AutoTrader SA Toyota Starlet Buyer's Guide"
+    },
+    {
+      "fault": "Uneven front tyre wear and suspension creaks",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "30,000km+",
+      "severity": "LOW",
+      "description": "Front tyres can wear unevenly when wheel alignment is neglected, and worn bushings or shocks cause creaking over rough SA roads and speed bumps.",
+      "what_to_inspect": "Check the inner edges of the front tyres for feathering. Drive over speed bumps and listen for creaks or knocks from the front suspension.",
+      "estimated_repair_zar": "R800 - R4,500 (alignment, bushings or shocks)",
+      "source": "AutoTrader SA Toyota Starlet Buyer's Guide"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Check the airbag count: pre-September 2025 cars have two airbags and scored zero stars for adult protection in Global NCAP testing",
+    "Confirm whether it is a 1.4 (2020-2022) or 1.5 (2023+) car, as the 1.5 is stronger and more economical",
+    "Listen for knocking or pinging under load on 1.4 models and ask which fuel octane was used",
+    "Check idle quality with the air conditioning on",
+    "Inspect front tyres for uneven wear and test the suspension over bumps",
+    "Look for stone chips on the bonnet and front bumper",
+    "Verify Toyota service history and remaining warranty or service plan",
+    "Test the 4-speed automatic at highway speed if buying an auto, as it feels slow at full load"
+  ],
+  "owner_sentiment": "Positive. Owners value the Starlet's low running costs, roomy cabin for its size, Toyota badge, and strong resale value. The main criticisms are the dated 4-speed automatic, the 1.4's modest performance at Highveld altitude, light build quality and, on earlier cars, the two-airbag safety specification.",
+  "sources": [
+    "AutoTrader SA",
+    "AA South Africa",
+    "Global NCAP",
+    "Cars.co.za",
+    "TopAuto"
+  ]
+}

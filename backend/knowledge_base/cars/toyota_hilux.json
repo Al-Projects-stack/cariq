@@ -10,6 +10,7 @@
     "2.0 VVTi Petrol"
   ],
   "years_covered": "2010-2024",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Toyota Hilux is the best-selling vehicle in South Africa and arguably the most iconic bakkie on the continent. Its reputation for indestructibility is well earned ,  it is the go-to workhorse for farmers, contractors, and families. Resale value is outstanding and demand vastly outstrips supply for well-maintained examples. The 2.8 GD-6 engine introduced in 2016 is one of the most capable and reliable diesel engines in the bakkie segment. Parts are universally available across SA.",
   "reliability_score": 9.0,
   "segment": "bakkie",
@@ -21,30 +22,30 @@
     {
       "year_from": 2022,
       "year_to": 2024,
-      "low_zar": 620000,
-      "mid_zar": 720000,
-      "high_zar": 850000
+      "low_zar": 560000,
+      "mid_zar": 640000,
+      "high_zar": 760000
     },
     {
       "year_from": 2019,
       "year_to": 2021,
-      "low_zar": 490000,
-      "mid_zar": 580000,
-      "high_zar": 670000
+      "low_zar": 420000,
+      "mid_zar": 500000,
+      "high_zar": 590000
     },
     {
       "year_from": 2016,
       "year_to": 2018,
-      "low_zar": 360000,
-      "mid_zar": 430000,
-      "high_zar": 530000
+      "low_zar": 320000,
+      "mid_zar": 380000,
+      "high_zar": 470000
     },
     {
       "year_from": 2012,
       "year_to": 2015,
-      "low_zar": 220000,
-      "mid_zar": 280000,
-      "high_zar": 360000
+      "low_zar": 200000,
+      "mid_zar": 250000,
+      "high_zar": 320000
     }
   ],
   "known_faults": [
@@ -123,6 +124,7 @@
     "Cars.co.za",
     "AutoTrader SA",
     "4x4 Community South Africa",
-    "WeBuyCars price data"
+    "WeBuyCars price data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

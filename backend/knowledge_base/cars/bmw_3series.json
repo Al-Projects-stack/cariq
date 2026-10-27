@@ -12,6 +12,7 @@
     "M3"
   ],
   "years_covered": "2012-2022",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The BMW 3 Series (F30 2012-2018, G20 2019+) is the quintessential used premium sedan in South Africa. The F30 generation is the most commonly traded used BMW on platforms like AutoTrader and Cars.co.za. It offers genuine German engineering at a used price point that many South Africans find accessible. However, ownership costs can be significantly higher than Japanese alternatives ,  servicing, parts, and tyres all command a premium. Buyer must budget properly. Best bought from a BMW dealer with a certified pre-owned warranty.",
   "reliability_score": 6.5,
   "segment": "premium_hatchback",
@@ -21,32 +22,39 @@
   "annual_insurance_zar": 18000,
   "price_ranges": [
     {
+      "year_from": 2023,
+      "year_to": 2025,
+      "low_zar": 770000,
+      "mid_zar": 900000,
+      "high_zar": 1100000
+    },
+    {
       "year_from": 2020,
       "year_to": 2022,
-      "low_zar": 420000,
-      "mid_zar": 520000,
-      "high_zar": 680000
+      "low_zar": 450000,
+      "mid_zar": 550000,
+      "high_zar": 700000
     },
     {
       "year_from": 2017,
       "year_to": 2019,
       "low_zar": 280000,
-      "mid_zar": 360000,
-      "high_zar": 460000
+      "mid_zar": 370000,
+      "high_zar": 470000
     },
     {
       "year_from": 2014,
       "year_to": 2016,
-      "low_zar": 180000,
-      "mid_zar": 240000,
-      "high_zar": 310000
+      "low_zar": 170000,
+      "mid_zar": 220000,
+      "high_zar": 290000
     },
     {
       "year_from": 2012,
       "year_to": 2013,
-      "low_zar": 130000,
+      "low_zar": 140000,
       "mid_zar": 170000,
-      "high_zar": 220000
+      "high_zar": 210000
     }
   ],
   "known_faults": [
@@ -152,6 +160,7 @@
     "Cars.co.za BMW listings",
     "AutoTrader SA",
     "SA BMW specialist workshops",
-    "WeBuyCars price data"
+    "WeBuyCars price data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

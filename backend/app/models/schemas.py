@@ -120,6 +120,13 @@ class CarPriceRange(BaseModel):
     high_zar: int
 
 
+class PriceFreshness(BaseModel):
+    verified_at: Optional[str] = None
+    months_aged: int = 0
+    days_since_verified: Optional[int] = None
+    stale: bool = True
+
+
 class CarProfile(BaseModel):
     make: str
     model: str
@@ -132,6 +139,7 @@ class CarProfile(BaseModel):
     what_to_inspect_before_buying: list[str]
     owner_sentiment: str
     sources: list[str]
+    price_freshness: Optional[PriceFreshness] = None
 
 
 class CacheStats(BaseModel):

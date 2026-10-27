@@ -1,8 +1,8 @@
-import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from app.models.schemas import MarketPositionResponse, SegmentModelPrice, TCOEstimate
-from app.services.cache import all_models_cache, market_cache, tco_cache
+from app.routers.models import _load_all_cars
+from app.services.cache import market_cache, tco_cache
 
 router = APIRouter(tags=["market"])
 
@@ -16,20 +16,8 @@ SEGMENT_LABELS = {
 }
 
 def _load_all() -> list[dict]:
-    cached = all_models_cache.get("all_cars")
-    if cached is not None:
-        return cached
-    cars = []
-    if not KB_DIR.exists():
-        return cars
-    for fp in sorted(KB_DIR.glob("*.json")):
-        try:
-            with open(fp, encoding="utf-8") as f:
-                cars.append(json.load(f))
-        except Exception:
-            continue
-    all_models_cache.set("all_cars", cars)
-    return cars
+    # Shared loader (and cache entry): prices are aged to today
+    return _load_all_cars()
 
 
 def _latest_mid(raw: dict) -> int | None:

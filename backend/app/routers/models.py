@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from app.models.schemas import CarProfile, CarVariant
+from app.services import pricing
 from app.services.cache import all_models_cache, model_profile_cache
 
 router = APIRouter(tags=["models"])
@@ -19,7 +20,8 @@ def _load_all_cars() -> list[dict]:
     for fp in sorted(KB_DIR.glob("*.json")):
         try:
             with open(fp, encoding="utf-8") as f:
-                cars.append(json.load(f))
+                # Serve prices aged to today, not as of their verification date
+                cars.append(pricing.age_car(json.load(f)))
         except Exception:
             continue
     all_models_cache.set("all_cars", cars)

@@ -9,6 +9,7 @@
     "1.2 GA (previous gen)"
   ],
   "years_covered": "2010-2026",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Suzuki Swift has quietly become one of South Africa's most popular hatchbacks, consistently ranking in the top 3 best-selling passenger cars. The fourth-generation Swift (2024+) introduced a new 1.2-litre three-cylinder engine (60kW/112Nm) that is lighter and 10% more fuel-efficient than its predecessor. Used Swift sales surged 66% year-on-year in 2026, driven by buyers seeking affordable, reliable transport. The Indian-built Swift undercuts the VW Polo Vivo on price while offering impressive standard safety features including six airbags across all trims. The 5-year/200,000km warranty adds peace of mind. The Swift Sport (1.4T, 103kW) offers warm-hatch performance for enthusiasts.",
   "reliability_score": 8.5,
   "segment": "compact_hatchback",
@@ -20,16 +21,16 @@
     {
       "year_from": 2022,
       "year_to": 2026,
-      "low_zar": 140000,
-      "mid_zar": 190000,
-      "high_zar": 260000
+      "low_zar": 150000,
+      "mid_zar": 205000,
+      "high_zar": 265000
     },
     {
       "year_from": 2018,
       "year_to": 2021,
-      "low_zar": 100000,
-      "mid_zar": 140000,
-      "high_zar": 190000
+      "low_zar": 110000,
+      "mid_zar": 150000,
+      "high_zar": 195000
     },
     {
       "year_from": 2014,
@@ -116,6 +117,7 @@
     "The Citizen Motoring",
     "CARmag SA",
     "Lightstone SA vehicle sales",
-    "WeBuyCars price data"
+    "WeBuyCars price data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

@@ -9,6 +9,7 @@
     "2.5 Astina"
   ],
   "years_covered": "2014-2024",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Mazda 3 (BM generation 2014-2018, BP generation 2019+) is an excellent used car choice in South Africa for buyers who prioritise build quality and driving pleasure over brand prestige. Mazda's KODO design language gives the car premium looks and the SkyActiv engines deliver both performance and efficiency. Strong reliability record with fewer electronics-related faults than German competitors. Parts availability is reasonable in major cities. A frequently overlooked gem in the used hatchback and sedan market.",
   "reliability_score": 8.2,
   "segment": "premium_hatchback",
@@ -20,23 +21,23 @@
     {
       "year_from": 2021,
       "year_to": 2024,
-      "low_zar": 350000,
-      "mid_zar": 420000,
-      "high_zar": 510000
+      "low_zar": 270000,
+      "mid_zar": 320000,
+      "high_zar": 420000
     },
     {
       "year_from": 2018,
       "year_to": 2020,
-      "low_zar": 230000,
-      "mid_zar": 285000,
-      "high_zar": 345000
+      "low_zar": 150000,
+      "mid_zar": 210000,
+      "high_zar": 270000
     },
     {
       "year_from": 2015,
       "year_to": 2017,
-      "low_zar": 150000,
-      "mid_zar": 190000,
-      "high_zar": 240000
+      "low_zar": 100000,
+      "mid_zar": 135000,
+      "high_zar": 175000
     }
   ],
   "known_faults": [
@@ -99,6 +100,7 @@
     "Cars.co.za Mazda 3 reviews",
     "AutoTrader SA",
     "SA Mazda owners community",
-    "WeBuyCars market data"
+    "WeBuyCars market data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

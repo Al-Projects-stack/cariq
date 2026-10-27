@@ -112,7 +112,10 @@ def _run_publish(job_id: int, slug: str, snapshot: dict, actor: str) -> None:
             return
         try:
             _set_status(db, job, "embedding")
-            chunks = chunk_car_dict(snapshot, slug)
+            # Publishing is the editor attesting the prices are current today
+            chunks = chunk_car_dict(
+                {**snapshot, "prices_verified_at": _utcnow().date().isoformat()}, slug
+            )
             vectors = _embed_chunks([c["text"] for c in chunks])
 
             _set_status(db, job, "upserting")
@@ -166,6 +169,9 @@ def _run_reindex_all(job_id: int, actor: str) -> None:
             total = 0
             for model in models:
                 snapshot = kb.snapshot_from_db(model)
+                if model.published_at:
+                    # Reindex keeps the original verification date, not today
+                    snapshot["prices_verified_at"] = model.published_at.date().isoformat()
                 chunks = chunk_car_dict(snapshot, model.slug)
                 vectors = _embed_chunks([c["text"] for c in chunks])
                 _set_status(db, job, "upserting")

@@ -1,0 +1,93 @@
+{
+  "make": "Toyota",
+  "model": "Urban Cruiser",
+  "variants": [
+    "1.5 Xi",
+    "1.5 Xs",
+    "1.5 Xs AT",
+    "1.5 Xr",
+    "1.5 Xr AT"
+  ],
+  "years_covered": "2021-2026",
+  "prices_verified_at": "2026-10-27",
+  "sa_market_summary": "The Toyota Urban Cruiser is a Suzuki-built compact SUV with 2,863 used sales in South Africa in 2025 according to AutoTrader. The first generation (2021-2023) was practically identical to the Suzuki Vitara Brezza, with a 1.5-litre K15B petrol (77kW/138Nm) and a 5-speed manual or 4-speed automatic. All first-generation cars had only dual airbags, drum rear brakes and no stability control; the second generation (2024+) is more refined. New prices rose from R247,900-R315,700 at launch to R283,200-R357,100, and most used first-generation stock sells between R200,000 and R300,000.",
+  "reliability_score": 8.0,
+  "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 6.2,
+  "annual_maintenance_zar": 5000,
+  "annual_insurance_zar": 9000,
+  "price_ranges": [
+    {
+      "year_from": 2024,
+      "year_to": 2026,
+      "low_zar": 260000,
+      "mid_zar": 300000,
+      "high_zar": 360000
+    },
+    {
+      "year_from": 2021,
+      "year_to": 2023,
+      "low_zar": 190000,
+      "mid_zar": 250000,
+      "high_zar": 300000
+    }
+  ],
+  "known_faults": [
+    {
+      "fault": "Water pump failure (rough idle at start-up)",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "60,000km - 120,000km",
+      "severity": "MEDIUM",
+      "description": "A rough idle when the engine is first started can point to a failing water pump. Left unattended, a leaking pump can lead to overheating.",
+      "what_to_inspect": "Start the engine cold and watch for unsteady idle. Check for coolant traces or a pink crust around the water pump and confirm the coolant level is correct.",
+      "estimated_repair_zar": "R3,000 - R6,500",
+      "source": "CAR Magazine used case study (Vitara Brezza and Urban Cruiser)"
+    },
+    {
+      "fault": "Difficulty engaging reverse gear (manual)",
+      "affects_variants": [
+        "1.5 Xi",
+        "1.5 Xs",
+        "1.5 Xr"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "Several Indian-built Suzuki models, including the Brezza and Urban Cruiser, can be difficult to engage in reverse. It is more of an inconvenience than a mechanical failure.",
+      "what_to_inspect": "Engage reverse several times from a standstill. It should go in without grinding or excessive force.",
+      "estimated_repair_zar": "R500 - R3,000 (cable adjustment); more if the selector is worn",
+      "source": "CAR Magazine used case study"
+    },
+    {
+      "fault": "Cabin rattles and wind noise",
+      "affects_variants": [
+        "All variants (first generation)"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The first-generation cabin uses a lot of hard plastics that develop small rattles, and wind noise is noticeable at highway speed.",
+      "what_to_inspect": "Drive on a rough road and at 120km/h with the radio off and listen for rattles and excessive wind noise.",
+      "estimated_repair_zar": "R0 - R1,500 (trim refitting)",
+      "source": "Cars.co.za Urban Cruiser Buyer's Guide, AutoTrader SA"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Remember first-generation (2021-2023) cars have only two airbags and no stability control",
+    "Prefer Xs or Xr trims: the base Xi lacks climate control, a rear wiper and seat height adjustment",
+    "Check for rough idle at cold start, which can signal a failing water pump",
+    "Engage reverse repeatedly on manual cars",
+    "Test the 4-speed automatic at highway speed and at altitude if you live on the Highveld",
+    "Check whether the car has Toyota's extended warranty",
+    "Verify Toyota service history"
+  ],
+  "owner_sentiment": "Positive. Owners praise the Urban Cruiser's reliability, low running costs, high driving position and Toyota dealer support, and AutoTrader describes it as fairly reliable with next to no major issues when maintained. The main complaints are weak performance at Highveld altitude (especially with the 4-speed automatic), hard cabin plastics, wind noise and the limited safety equipment on first-generation cars.",
+  "sources": [
+    "AutoTrader SA",
+    "Cars.co.za",
+    "CAR Magazine",
+    "TimesLIVE Motoring",
+    "TopGear South Africa"
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "make": "Ford",
+  "model": "EcoSport",
+  "variants": [
+    "1.5 Ambiente",
+    "1.5 Trend",
+    "1.5 Titanium AT",
+    "1.0 EcoBoost Trend",
+    "1.0 EcoBoost Titanium",
+    "1.5 TDCi Titanium"
+  ],
+  "years_covered": "2013-2022",
+  "prices_verified_at": "2026-10-27",
+  "sa_market_summary": "The Ford EcoSport was South Africa's third most popular used SUV in 2025, with 4,254 sales at an average of R200,812 and 85,243km according to AutoTrader. Sold locally from 2013 until production ended in 2022, it offered a 1.5 naturally aspirated petrol, a 1.0 EcoBoost turbo petrol and a 1.5 TDCi diesel. It is cheap to buy for a crossover and has good ground clearance for SA roads, but the 1.0 EcoBoost has well-documented cooling system and wet timing belt problems, so service history matters more than mileage.",
+  "reliability_score": 6.0,
+  "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 6.5,
+  "annual_maintenance_zar": 7000,
+  "annual_insurance_zar": 9000,
+  "price_ranges": [
+    {
+      "year_from": 2018,
+      "year_to": 2022,
+      "low_zar": 160000,
+      "mid_zar": 210000,
+      "high_zar": 265000
+    },
+    {
+      "year_from": 2013,
+      "year_to": 2017,
+      "low_zar": 85000,
+      "mid_zar": 120000,
+      "high_zar": 160000
+    }
+  ],
+  "known_faults": [
+    {
+      "fault": "Coolant loss and overheating (1.0 EcoBoost)",
+      "affects_variants": [
+        "1.0 EcoBoost Trend",
+        "1.0 EcoBoost Titanium"
+      ],
+      "mileage_range": "40,000km - 120,000km",
+      "severity": "HIGH",
+      "description": "The most reported EcoSport fault. Brittle plastic coolant hose connectors, degas bottle and heater hoses crack, and the plastic thermostat housing can warp. The engine loses coolant, sometimes with no visible leak, and overheating can crack or warp the cylinder head. Ford ran a recall for this on some cars.",
+      "what_to_inspect": "Check the coolant level when cold and look for white residue around hoses and the expansion tank. Watch the temperature gauge on a long test drive and check for white exhaust smoke or a sweet smell. Ask whether recall work was done.",
+      "estimated_repair_zar": "R3,000 - R8,000 (hoses/housing); R35,000 - R80,000 (head or engine)",
+      "source": "UK used-car guides (Motorloom, ClickMechanic), Ford recall notices"
+    },
+    {
+      "fault": "Wet timing belt degradation (1.0 EcoBoost)",
+      "affects_variants": [
+        "1.0 EcoBoost Trend",
+        "1.0 EcoBoost Titanium"
+      ],
+      "mileage_range": "60,000km+",
+      "severity": "HIGH",
+      "description": "The 1.0 EcoBoost's timing belt runs in engine oil. Wrong oil or stretched service intervals make the belt shed rubber that can block the oil pickup, starving the engine of oil.",
+      "what_to_inspect": "Demand a stamped service history showing Ford-spec oil at the correct intervals. Ask whether the belt has been inspected or replaced and check for a low oil pressure warning.",
+      "estimated_repair_zar": "R12,000 - R25,000 (belt and oil pump service)",
+      "source": "UK used-car guides (Motuvo, Enginefinders)"
+    },
+    {
+      "fault": "PowerShift dual-clutch judder (pre-facelift automatic)",
+      "affects_variants": [
+        "1.5 Titanium AT (2013-2017)"
+      ],
+      "mileage_range": "40,000km+",
+      "severity": "MEDIUM",
+      "description": "Pre-facelift automatic EcoSports used Ford's PowerShift dual-clutch gearbox, which is prone to shudder when pulling away and harsh low-speed shifts. Later cars moved to a conventional torque-converter automatic.",
+      "what_to_inspect": "Confirm which gearbox the car has. In traffic, check for juddering from standstill and delayed or jerky shifts between first and second.",
+      "estimated_repair_zar": "R10,000 - R30,000 (clutch pack or control module)",
+      "source": "International Ford PowerShift owner reports and class actions"
+    },
+    {
+      "fault": "Rear spare wheel carrier and tailgate corrosion",
+      "affects_variants": [
+        "All variants"
+      ],
+      "mileage_range": "Any mileage, age-related",
+      "severity": "LOW",
+      "description": "The tailgate-mounted spare wheel carrier and its hinges can corrode, particularly on coastal cars.",
+      "what_to_inspect": "Remove the spare wheel cover and inspect the carrier, hinges and tailgate edges for rust. Check the side-hinged tailgate opens and closes cleanly.",
+      "estimated_repair_zar": "R1,500 - R6,000",
+      "source": "UK used-car guides (Motorloom)"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "On 1.0 EcoBoost cars, check coolant level when cold and look for leaks or white residue",
+    "Demand full service history with correct-spec oil, critical for the wet timing belt",
+    "Run a VIN check for completed Ford recall work",
+    "Watch the temperature gauge during a 20-minute test drive",
+    "Identify the automatic gearbox type and test for judder in stop-start traffic",
+    "Inspect the rear spare wheel carrier and tailgate hinges for rust",
+    "Consider the 1.5 petrol as the lower-risk choice for high-mileage cars"
+  ],
+  "owner_sentiment": "Mixed. Owners like the high driving position, compact size for city parking and good ground clearance for gravel roads, and the 1.0 EcoBoost is punchy and economical when healthy. Complaints centre on EcoBoost cooling problems, the cramped boot, the side-hinged tailgate in tight parking, and fast depreciation since Ford stopped selling it.",
+  "sources": [
+    "AutoTrader SA",
+    "TimesLIVE Motoring",
+    "Motorloom UK",
+    "ClickMechanic",
+    "Ford recall notices"
+  ]
+}

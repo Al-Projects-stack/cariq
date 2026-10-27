@@ -10,6 +10,7 @@
     "Golf 7.5 1.0 TSI"
   ],
   "years_covered": "2013-2022",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Golf 7 (2013-2020) and Golf 7.5 facelift (2018-2022) are among the most sought-after used hatchbacks in South Africa. Excellent build quality relative to competitors and strong brand prestige. GTI models hold value exceptionally well. Widely available and well-supported by VW dealers and independent specialists nationwide. A safe, intelligent purchase for the used car buyer who wants European refinement without supercar running costs.",
   "reliability_score": 7.8,
   "segment": "premium_hatchback",
@@ -21,23 +22,23 @@
     {
       "year_from": 2020,
       "year_to": 2022,
-      "low_zar": 310000,
-      "mid_zar": 380000,
-      "high_zar": 460000
+      "low_zar": 380000,
+      "mid_zar": 480000,
+      "high_zar": 650000
     },
     {
       "year_from": 2017,
       "year_to": 2019,
-      "low_zar": 230000,
-      "mid_zar": 280000,
-      "high_zar": 340000
+      "low_zar": 220000,
+      "mid_zar": 300000,
+      "high_zar": 400000
     },
     {
       "year_from": 2014,
       "year_to": 2016,
-      "low_zar": 160000,
-      "mid_zar": 200000,
-      "high_zar": 250000
+      "low_zar": 150000,
+      "mid_zar": 210000,
+      "high_zar": 290000
     }
   ],
   "known_faults": [
@@ -125,6 +126,7 @@
     "Cars.co.za Golf 7 listings",
     "AutoTrader SA",
     "VW SA dealer network",
-    "WeBuyCars market data"
+    "WeBuyCars market data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

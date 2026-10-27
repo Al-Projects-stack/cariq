@@ -11,6 +11,7 @@
     "C63 AMG"
   ],
   "years_covered": "2014-2022",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Mercedes-Benz C-Class W205 (2014-2021) is the most common used luxury sedan in South Africa. Its design, build quality, and brand perception make it highly aspirational for middle-market buyers. However, the C-Class is one of the most maintenance-intensive vehicles in the SA used market ,  out-of-warranty examples can generate significant unexpected costs. The C220d diesel is the most practical variant for SA conditions due to fuel economy. Any buyer must budget carefully for running costs beyond the sticker price.",
   "reliability_score": 5.8,
   "segment": "premium_hatchback",
@@ -22,23 +23,23 @@
     {
       "year_from": 2020,
       "year_to": 2022,
-      "low_zar": 480000,
+      "low_zar": 470000,
       "mid_zar": 580000,
-      "high_zar": 720000
+      "high_zar": 700000
     },
     {
       "year_from": 2017,
       "year_to": 2019,
-      "low_zar": 310000,
-      "mid_zar": 400000,
-      "high_zar": 520000
+      "low_zar": 300000,
+      "mid_zar": 380000,
+      "high_zar": 480000
     },
     {
       "year_from": 2014,
       "year_to": 2016,
-      "low_zar": 180000,
-      "mid_zar": 250000,
-      "high_zar": 340000
+      "low_zar": 170000,
+      "mid_zar": 230000,
+      "high_zar": 300000
     }
   ],
   "known_faults": [
@@ -144,6 +145,7 @@
     "Cars.co.za C-Class reviews",
     "AutoTrader SA",
     "SA independent Mercedes specialists",
-    "WeBuyCars price data"
+    "WeBuyCars price data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

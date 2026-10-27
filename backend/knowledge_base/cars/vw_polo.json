@@ -10,6 +10,7 @@
     "GTI 2.0 TSI"
   ],
   "years_covered": "2010-2024",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The VW Polo is one of the best-selling used cars in South Africa. Extremely high demand from private buyers and fleet operators keeps prices firm. Parts availability is excellent at both VW dealers and independent specialists. The Polo Vivo (based on the Mk5 platform) offers budget-friendly motoring with low running costs. The newer Mk6 Polo (2018+) brings more tech but also more complexity. A sound choice for city and highway driving, especially in Johannesburg and Cape Town.",
   "reliability_score": 7.5,
   "segment": "compact_hatchback",
@@ -21,9 +22,9 @@
     {
       "year_from": 2021,
       "year_to": 2024,
-      "low_zar": 260000,
-      "mid_zar": 310000,
-      "high_zar": 380000
+      "low_zar": 250000,
+      "mid_zar": 300000,
+      "high_zar": 370000
     },
     {
       "year_from": 2018,
@@ -129,6 +130,7 @@
     "Cars.co.za listings and reviews",
     "AutoTrader SA",
     "SA VW owner communities",
-    "WeBuyCars price data"
+    "WeBuyCars price data",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

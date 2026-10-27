@@ -73,6 +73,22 @@ export interface CarProfile {
   what_to_inspect_before_buying: string[];
   owner_sentiment: string;
   sources: string[];
+  price_freshness?: PriceFreshness | null;
+}
+
+/** Mirrors backend/app/services/pricing.py price_freshness(). */
+export interface PriceFreshness {
+  verified_at: string | null;
+  months_aged: number;
+  days_since_verified: number | null;
+  stale: boolean;
+}
+
+export interface PriceFreshnessReport {
+  stale_after_days: number;
+  max_ageing_months: number;
+  stale_count: number;
+  models: (PriceFreshness & { make: string; model: string })[];
 }
 
 export interface PriceComparison {

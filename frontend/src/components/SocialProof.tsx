@@ -42,7 +42,7 @@ export function SocialProof() {
         <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-orange-500/10 blur-2xl" />
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <p className="font-mono text-xs tracking-widest uppercase text-orange-400">How the knowledge flows</p>
-          <span className="font-mono text-[11px] tracking-widest uppercase text-gray-600">20 models live, growing</span>
+          <span className="font-mono text-[11px] tracking-widest uppercase text-gray-600">27 models live, growing</span>
         </div>
 
         {/* pipeline */}

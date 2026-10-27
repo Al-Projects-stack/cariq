@@ -1,0 +1,99 @@
+{
+  "make": "Kia",
+  "model": "Sonet",
+  "variants": [
+    "1.5 LX",
+    "1.5 EX",
+    "1.5 EX IVT",
+    "1.5 EX+ IVT",
+    "1.0T EX+ DCT",
+    "1.0T SX DCT"
+  ],
+  "years_covered": "2021-2026",
+  "prices_verified_at": "2026-10-27",
+  "sa_market_summary": "The Kia Sonet is an Indian-built compact SUV with 2,542 used sales in South Africa in 2025 at an average of R299,077 according to AutoTrader. Most cars use a 1.5-litre naturally aspirated petrol with a manual or IVT (CVT) automatic, while upper trims offered a 1.0 T-GDi turbo with a 7-speed DCT; Kia discontinued the turbo in September 2026. It is well equipped with a comfortable ride, but the entry-level LX has only two airbags and scored one star for adult protection in AA/Global NCAP testing, while EX+ and SX models have six airbags.",
+  "reliability_score": 7.5,
+  "segment": "compact_suv",
+  "fuel_type": "petrol",
+  "fuel_consumption_l_per_100km": 6.4,
+  "annual_maintenance_zar": 6000,
+  "annual_insurance_zar": 9500,
+  "price_ranges": [
+    {
+      "year_from": 2024,
+      "year_to": 2026,
+      "low_zar": 260000,
+      "mid_zar": 310000,
+      "high_zar": 370000
+    },
+    {
+      "year_from": 2021,
+      "year_to": 2023,
+      "low_zar": 200000,
+      "mid_zar": 245000,
+      "high_zar": 290000
+    }
+  ],
+  "known_faults": [
+    {
+      "fault": "DCT judder and heat in traffic (1.0 T-GDi)",
+      "affects_variants": [
+        "1.0T EX+ DCT",
+        "1.0T SX DCT"
+      ],
+      "mileage_range": "Any mileage, worse with heavy stop-start use",
+      "severity": "MEDIUM",
+      "description": "The 7-speed dry-clutch DCT on turbo models can judder when pulling away and overheat in long traffic jams, an issue shared with other Hyundai and Kia models that use this gearbox.",
+      "what_to_inspect": "Test in slow traffic for 15 minutes. Check for juddering from standstill, delayed engagement and any transmission temperature warning.",
+      "estimated_repair_zar": "R15,000 - R35,000 (clutch pack or actuator)",
+      "source": "Team-BHP owner forum (Hyundai/Kia DCT reports)"
+    },
+    {
+      "fault": "Brake shudder under heavy braking",
+      "affects_variants": [
+        "1.5 LX",
+        "1.5 EX"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "A News24 test car had an intermittent brake shudder when braking hard from 120km/h, usually a sign of uneven disc wear. It was reported on one test vehicle rather than as a widespread fault.",
+      "what_to_inspect": "Do a firm stop from highway speed and feel for vibration through the pedal or steering wheel.",
+      "estimated_repair_zar": "R2,500 - R5,500 (discs and pads)",
+      "source": "News24 Motoring road test"
+    },
+    {
+      "fault": "Strained 1.5 engine at altitude",
+      "affects_variants": [
+        "1.5 LX",
+        "1.5 EX",
+        "1.5 EX IVT",
+        "1.5 EX+ IVT"
+      ],
+      "mileage_range": "Not mileage-related",
+      "severity": "LOW",
+      "description": "Not a mechanical fault, but the naturally aspirated 1.5 loses roughly 17% of its power at Reef altitude and sounds coarse under hard acceleration. A heavily loaded car can struggle on Highveld hills.",
+      "what_to_inspect": "If you live in Gauteng, test drive with passengers on a hill and at highway speed before committing.",
+      "estimated_repair_zar": "N/A (characteristic, not a fault)",
+      "source": "Cars.co.za long-term test, News24 Motoring"
+    }
+  ],
+  "what_to_inspect_before_buying": [
+    "Check the airbag count: entry LX models have two airbags and scored one star for adult protection",
+    "Confirm the service plan: cut from 4-year/60,000km to 3-year/45,000km after the 2024 refresh",
+    "On turbo DCT cars, test in slow traffic for judder or temperature warnings",
+    "Do a firm stop from 120km/h to check for brake shudder",
+    "Verify Kia service history and remaining warranty",
+    "Check whether cruise control is fitted, as lower trims lack it",
+    "Test-drive the 1.5 at altitude with passengers if you live on the Highveld"
+  ],
+  "owner_sentiment": "Positive. Owners like the Sonet's comfortable ride on rough roads, modern features such as wireless Android Auto, and smart styling; one TopAuto owner review called it the happiest they had been with a car. The main criticisms are the weak entry-level safety specification, the 1.5 engine's lack of punch at altitude, missing cruise control on lower trims and the shorter service plan after 2024.",
+  "sources": [
+    "AutoTrader SA",
+    "TimesLIVE Motoring",
+    "AA South Africa",
+    "Global NCAP",
+    "Cars.co.za",
+    "News24 Motoring",
+    "TopAuto"
+  ]
+}

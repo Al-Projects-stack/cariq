@@ -1,10 +1,9 @@
-import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException, Request
 from slowapi import Limiter
 from slowapi.util import get_remote_address
 from pydantic import BaseModel
-from app.services.cache import all_models_cache
+from app.routers.models import _load_all_cars
 
 router = APIRouter(tags=["public"])
 
@@ -26,19 +25,8 @@ class PublicModelItem(BaseModel):
 @router.get("/public/models")
 @limiter.limit("5/minute")
 async def public_list_models(request: Request):
-    cached = all_models_cache.get("all_cars")
-    if cached is None:
-        cars = []
-        if KB_DIR.exists():
-            for fp in sorted(KB_DIR.glob("*.json")):
-                try:
-                    with open(fp, encoding="utf-8") as f:
-                        cars.append(json.load(f))
-                except Exception:
-                    continue
-        all_models_cache.set("all_cars", cars)
-    else:
-        cars = cached
+    # Shared loader (and cache entry): prices are aged to today
+    cars = _load_all_cars()
 
     result = []
     for c in cars:
@@ -65,12 +53,7 @@ async def public_get_model(request: Request, make: str, model: str):
     needle = model.lower().replace(" ", "_")
     if not KB_DIR.exists():
         raise HTTPException(500, detail="Knowledge base not found")
-    for fp in KB_DIR.glob("*.json"):
-        try:
-            with open(fp, encoding="utf-8") as f:
-                data = json.load(f)
-        except Exception:
-            continue
+    for data in _load_all_cars():
         if data["make"].lower() == make.lower() and data["model"].lower().replace(" ", "_") == needle:
             return data
     raise HTTPException(404, detail=f"Model '{make} {model}' not found")

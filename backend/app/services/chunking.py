@@ -10,6 +10,7 @@ fixed — summary, prices, faults, inspection — and matches
 kb_admin.build_chunk_ids().
 """
 from app.services.kb_admin import format_repair_range
+from app.services.pricing import price_chunk_text
 
 
 def chunk_car_dict(car: dict, slug: str) -> list[dict]:
@@ -44,13 +45,9 @@ def chunk_car_dict(car: dict, slug: str) -> list[dict]:
     })
 
     # --- Price range chunks ---
+    verified_at = car.get("prices_verified_at")
     for i, pr in enumerate(car.get("price_ranges", [])):
-        price_text = (
-            f"{make} {model}, Price Range {pr['year_from']}-{pr['year_to']}\n"
-            f"Low: R{pr['low_zar']:,} | Mid: R{pr['mid_zar']:,} | High: R{pr['high_zar']:,}\n"
-            f"These are typical used car prices for this model in the South African market."
-        )
-        chunks.append({
+        chunk = {
             "id": f"{slug}_price_{i}",
             "chunk_type": "price_range",
             "make": make,
@@ -60,9 +57,13 @@ def chunk_car_dict(car: dict, slug: str) -> list[dict]:
             "low_zar": pr["low_zar"],
             "mid_zar": pr["mid_zar"],
             "high_zar": pr["high_zar"],
-            "text": price_text,
+            "text": price_chunk_text(make, model, pr),
             "source": sources_str,
-        })
+        }
+        # Baseline for query-time price ageing (Pinecone rejects null metadata)
+        if verified_at:
+            chunk["prices_verified_at"] = verified_at
+        chunks.append(chunk)
 
     # --- Known fault chunks ---
     for i, fault in enumerate(car.get("known_faults", [])):

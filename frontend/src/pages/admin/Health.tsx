@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { adminSyncHealth, adminListJobs, adminGetJob, adminReindexAll } from "../../api";
-import type { SyncJob } from "../../types";
+import { adminSyncHealth, adminListJobs, adminGetJob, adminReindexAll, adminPriceFreshness } from "../../api";
+import type { PriceFreshnessReport, SyncJob } from "../../types";
 import { Card, Loading, ErrorBox, Toasts, useToasts, btnPrimary, btnGhost } from "../../components/admin/ui";
 import { useAdmin } from "../../contexts/AdminContext";
 
@@ -14,6 +14,7 @@ export function AdminHealth() {
   const { toasts, notify } = useToasts();
   const [health, setHealth] = useState<HealthData | null>(null);
   const [jobs, setJobs] = useState<SyncJob[]>([]);
+  const [prices, setPrices] = useState<PriceFreshnessReport | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [confirmReindex, setConfirmReindex] = useState(false);
@@ -23,9 +24,10 @@ export function AdminHealth() {
     setLoading(true);
     setError(null);
     try {
-      const [h, j] = await Promise.all([adminSyncHealth(), adminListJobs("", 1)]);
+      const [h, j, p] = await Promise.all([adminSyncHealth(), adminListJobs("", 1), adminPriceFreshness()]);
       setHealth(h);
       setJobs(j.items);
+      setPrices(p);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed to load");
     } finally {
@@ -102,6 +104,53 @@ export function AdminHealth() {
 
       {mismatched.length > 0 && (
         <ErrorBox text={`${mismatched.length} model(s) differ between DB and Pinecone: ${mismatched.map((m) => `${m.slug} (${m.found}/${m.expected})`).join(", ")}`} />
+      )}
+
+      {prices && (
+        <Card className="!p-0 overflow-hidden">
+          <div className="px-4 pt-4">
+            <h2 className="text-sm font-semibold text-gray-200">
+              Price freshness{" "}
+              <span className={prices.stale_count ? "text-amber-300" : "text-green-300"}>
+                ({prices.stale_count} of {prices.models.length} need re-verifying)
+              </span>
+            </h2>
+            <p className="mt-1 text-xs text-gray-500">
+              Served prices depreciate automatically between checks (up to {prices.max_ageing_months} months).
+              Re-verify anything older than {prices.stale_after_days} days against current listings: update its price
+              bands and <code>prices_verified_at</code> in the knowledge-base JSON, then re-ingest.
+            </p>
+          </div>
+          <div className="mt-2 max-h-80 overflow-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-y border-gray-800 text-left text-xs uppercase tracking-widest text-gray-500">
+                  <th className="px-4 py-2">Model</th>
+                  <th className="px-4 py-2">Verified</th>
+                  <th className="px-4 py-2">Aged</th>
+                  <th className="px-4 py-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {prices.models.map((m) => (
+                  <tr key={`${m.make}-${m.model}`} className="border-b border-gray-800/50 last:border-0">
+                    <td className="px-4 py-2 text-gray-300">{m.make} {m.model}</td>
+                    <td className="px-4 py-2 text-gray-400">
+                      {m.verified_at ?? "never"}
+                      {m.days_since_verified != null && <span className="text-xs text-gray-600"> ({m.days_since_verified}d ago)</span>}
+                    </td>
+                    <td className="px-4 py-2 text-gray-400">{m.months_aged} mo</td>
+                    <td className="px-4 py-2">
+                      <span className={`rounded-full px-2 py-0.5 text-xs ${m.stale ? "bg-amber-500/15 text-amber-300" : "bg-green-500/15 text-green-300"}`}>
+                        {m.stale ? "stale" : "fresh"}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
       )}
 
       <Card className="!p-0 overflow-hidden">

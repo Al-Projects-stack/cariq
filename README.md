@@ -54,7 +54,7 @@ User asks a question
   Answer + Price Intelligence + Known Faults + Sources
 ```
 
-The knowledge base (20 SA car models) is chunked — one chunk per fault, per price band, per inspection checklist, plus a market summary — embedded with `BAAI/bge-small-en-v1.5`, and stored in Pinecone. The model answers strictly from retrieved chunks: no fabricated prices, verdicts from an approved vocabulary, refusals for models outside the knowledge base.
+The knowledge base (27 SA car models) is chunked — one chunk per fault, per price band, per inspection checklist, plus a market summary — embedded with `BAAI/bge-small-en-v1.5`, and stored in Pinecone. The model answers strictly from retrieved chunks: no fabricated prices, verdicts from an approved vocabulary, refusals for models outside the knowledge base.
 
 ---
 
@@ -109,7 +109,13 @@ docker-compose up --build
 
 ## Knowledge base
 
-Lives in `backend/knowledge_base/cars/` — one JSON file per model covering price ranges, known faults, inspection checklists, reliability scores, and owner sentiment. Run `python scripts/ingest.py` after adding new files. These files also seed the admin-managed database (below).
+Lives in `backend/knowledge_base/cars/` — one JSON file per model covering price ranges, known faults, inspection checklists, reliability scores, and owner sentiment. Run `python scripts/ingest.py` after adding new files (or `python scripts/ingest.py toyota_starlet kia_sonet` for just those). These files also seed the admin-managed database (below).
+
+### Keeping prices current
+
+Each model records `prices_verified_at`, the date its price bands were last checked against the market. Between checks, `app/services/pricing.py` ages every served price month by month along an SA depreciation curve (15%/yr for cars under 3 years old, easing to 6%/yr past 10), so a 2019 band verified in May is cheaper by October. This applies everywhere prices appear: profiles, compare, market position, TCO, recommendations, and chatbot answers (retrieved price chunks are aged at query time, and the answer notes the adjustment).
+
+Ageing is an estimate, not live data: it can't capture market-wide price rises. So any model unverified for 90+ days is flagged on the admin **System Health** page, and ageing stops at 18 months. To re-verify, update the bands and `prices_verified_at` in the JSON and re-ingest that model.
 
 ---
 

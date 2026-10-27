@@ -9,6 +9,7 @@
     "1.6 T-GDI GT Line S"
   ],
   "years_covered": "2016-2026",
+  "prices_verified_at": "2026-10-27",
   "sa_market_summary": "The Kia Sportage is a strong player in South Africa's midsize SUV segment. The fourth-generation (QL, 2016-2022) established the model as a stylish, well-equipped alternative to the Toyota RAV4 and Hyundai Tucson. The fifth-generation (NQ5, 2022+) brought bold styling and a premium interior. Engine options include the 1.6 CRDi diesel (100kW/320Nm) and the punchy 1.6 T-GDI petrol (130kW/265Nm). Kia's 5-year/unlimited kilometre warranty is a major selling point, and the brand has grown significantly in SA. The Sportage competes directly with the Hyundai Tucson, Toyota RAV4, and Haval Jolion Pro.",
   "reliability_score": 8.0,
   "segment": "compact_suv",
@@ -20,23 +21,23 @@
     {
       "year_from": 2022,
       "year_to": 2025,
-      "low_zar": 420000,
-      "mid_zar": 520000,
-      "high_zar": 670000
+      "low_zar": 400000,
+      "mid_zar": 470000,
+      "high_zar": 580000
     },
     {
       "year_from": 2019,
       "year_to": 2021,
-      "low_zar": 300000,
-      "mid_zar": 380000,
-      "high_zar": 490000
+      "low_zar": 180000,
+      "mid_zar": 250000,
+      "high_zar": 310000
     },
     {
       "year_from": 2016,
       "year_to": 2018,
-      "low_zar": 200000,
-      "mid_zar": 270000,
-      "high_zar": 350000
+      "low_zar": 140000,
+      "mid_zar": 190000,
+      "high_zar": 240000
     }
   ],
   "known_faults": [
@@ -114,6 +115,7 @@
     "Cars.co.za",
     "CARmag SA",
     "The Citizen Motoring",
-    "Lightstone SA vehicle sales"
+    "Lightstone SA vehicle sales",
+    "AutoTrader SA listings and sales data (Oct 2026)"
   ]
 }

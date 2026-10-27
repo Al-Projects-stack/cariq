@@ -1,7 +1,7 @@
-import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from app.models.schemas import RecommendRequest, RecommendResponse, RecommendModel
+from app.routers.models import _load_all_cars
 
 router = APIRouter(tags=["recommend"])
 
@@ -17,16 +17,8 @@ BODY_MAP = {
 
 
 def _load_all() -> list[dict]:
-    cars = []
-    if not KB_DIR.exists():
-        return cars
-    for fp in sorted(KB_DIR.glob("*.json")):
-        try:
-            with open(fp, encoding="utf-8") as f:
-                cars.append(json.load(f))
-        except Exception:
-            continue
-    return cars
+    # Shared loader: prices are aged to today
+    return _load_all_cars()
 
 
 def _latest_mid(raw: dict) -> int | None:
