@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import Column, String, Text, DateTime, Integer, Boolean, ForeignKey, Float
 from sqlalchemy.orm import relationship
 from app.db.database import Base
@@ -7,6 +7,14 @@ from app.db.database import Base
 
 def _new_uuid() -> str:
     return str(uuid.uuid4())
+
+
+def utcnow_naive() -> datetime:
+    """Naive UTC, matching how every DateTime column here is stored.
+
+    Replaces the deprecated datetime.utcnow() with identical output.
+    """
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
 class QueryLog(Base):
@@ -27,7 +35,7 @@ class QueryLog(Base):
     vote = Column(String(10), nullable=True)  # up | down
     failure_reason = Column(String(50), nullable=True)
     group_id = Column(Integer, ForeignKey("failed_question_groups.id"), nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
 
 class CarModel(Base):
@@ -38,8 +46,8 @@ class CarModel(Base):
     model = Column(String(100), nullable=False, index=True)
     slug = Column(String(200), nullable=False, unique=True, index=True)
     json_data = Column(Text, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
+    updated_at = Column(DateTime, default=utcnow_naive, onupdate=utcnow_naive)
 
 
 class User(Base):
@@ -49,7 +57,7 @@ class User(Base):
     email = Column(String(255), unique=True, nullable=False, index=True)
     password_hash = Column(String(255), nullable=False)
     display_name = Column(String(100), default="")
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
     watchlist = relationship("Watchlist", back_populates="user", cascade="all, delete-orphan")
     saved_searches = relationship("SavedSearch", back_populates="user", cascade="all, delete-orphan")
@@ -63,7 +71,7 @@ class Watchlist(Base):
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     make = Column(String(100), nullable=False)
     model = Column(String(100), nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
     user = relationship("User", back_populates="watchlist")
 
@@ -76,7 +84,7 @@ class SavedSearch(Base):
     label = Column(String(200), default="")
     query = Column(Text, nullable=False)
     filters = Column(Text, default="{}")
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
     user = relationship("User", back_populates="saved_searches")
 
@@ -91,7 +99,7 @@ class Alert(Base):
     alert_type = Column(String(50), nullable=False)  # price_update, new_fault, general
     message = Column(Text, nullable=False)
     read = Column(Boolean, default=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
     user = relationship("User", back_populates="alerts")
 
@@ -109,7 +117,7 @@ class ClaudeCallLog(Base):
     latency_ms = Column(Integer, default=0)
     status = Column(String(20), default="success")  # success | failed
     error = Column(Text, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
 
 class ClaudeDeadLetter(Base):
@@ -121,7 +129,7 @@ class ClaudeDeadLetter(Base):
     error_type = Column(String(100), nullable=False)
     error_message = Column(Text, nullable=False)
     attempts = Column(Integer, default=0)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
 
 # --- Admin dashboard ---
@@ -137,8 +145,8 @@ class AdminUser(Base):
     failed_attempts = Column(Integer, default=0)
     locked_until = Column(DateTime, nullable=True)
     disabled = Column(Boolean, default=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
+    updated_at = Column(DateTime, default=utcnow_naive, onupdate=utcnow_naive)
 
     refresh_tokens = relationship("AdminRefreshToken", back_populates="admin_user", cascade="all, delete-orphan")
 
@@ -151,7 +159,7 @@ class AdminRefreshToken(Base):
     token_hash = Column(String(128), unique=True, nullable=False, index=True)
     expires_at = Column(DateTime, nullable=False)
     revoked = Column(Boolean, default=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
     admin_user = relationship("AdminUser", back_populates="refresh_tokens")
 
@@ -180,8 +188,8 @@ class KbModel(Base):
     published_version_id = Column(Integer, nullable=True)  # no FK: avoids create cycle with model_versions
     published_at = Column(DateTime, nullable=True)
     chunk_ids = Column(Text, nullable=False, default="[]")  # JSON list of live Pinecone vector IDs
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
+    updated_at = Column(DateTime, default=utcnow_naive, onupdate=utcnow_naive)
 
     faults = relationship("KbFault", back_populates="kb_model", cascade="all, delete-orphan")
     price_ranges = relationship("KbPriceRange", back_populates="kb_model", cascade="all, delete-orphan")
@@ -244,7 +252,7 @@ class ModelVersion(Base):
     kind = Column(String(20), nullable=False)  # draft | published
     snapshot = Column(Text, nullable=False)  # full model JSON, same shape as legacy car files
     created_by = Column(String(255), default="")
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
     kb_model = relationship("KbModel", back_populates="versions")
 
@@ -259,7 +267,7 @@ class AuditLog(Base):
     action = Column(String(100), nullable=False, index=True)
     model_slug = Column(String(200), nullable=True, index=True)
     detail = Column(Text, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=utcnow_naive)
 
 
 class SyncJob(Base):
@@ -272,7 +280,7 @@ class SyncJob(Base):
     # queued | embedding | upserting | done | failed
     error = Column(Text, nullable=True)
     created_by = Column(String(255), default="")
-    started_at = Column(DateTime, default=datetime.utcnow)
+    started_at = Column(DateTime, default=utcnow_naive)
     finished_at = Column(DateTime, nullable=True)
 
 
@@ -286,5 +294,5 @@ class FailedQuestionGroup(Base):
     reason = Column(String(50), nullable=False, index=True)
     status = Column(String(20), nullable=False, default="open", index=True)  # open | resolved
     note = Column(Text, nullable=True)
-    first_seen = Column(DateTime, default=datetime.utcnow)
-    last_seen = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    first_seen = Column(DateTime, default=utcnow_naive)
+    last_seen = Column(DateTime, default=utcnow_naive, onupdate=utcnow_naive)

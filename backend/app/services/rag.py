@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import re
 import time
@@ -60,14 +61,7 @@ class RAGService:
 
         # Step 0: Rewrite follow-ups into a standalone question so the
         # embedding retrieves on full context. No history -> no extra call.
-        standalone_question = question
-        if clean_history:
-            try:
-                rewritten = self.claude.rewrite_standalone_question(question, clean_history)
-                if rewritten.strip():
-                    standalone_question = rewritten.strip()
-            except Exception as exc:
-                logger.warning(f"Query rewrite failed, using original question: {exc}")
+        standalone_question = await self._rewrite(question, clean_history)
 
         # Step 0b: Cache on the rewritten question so identical follow-ups hit
         cache_key = f"q|{standalone_question.strip().lower()}"
@@ -127,14 +121,7 @@ class RAGService:
         """
         started = time.monotonic()
         clean_history = self._clean_history(history)
-        standalone_question = question
-        if clean_history:
-            try:
-                rewritten = self.claude.rewrite_standalone_question(question, clean_history)
-                if rewritten.strip():
-                    standalone_question = rewritten.strip()
-            except Exception as exc:
-                logger.warning(f"Query rewrite failed, using original question: {exc}")
+        standalone_question = await self._rewrite(question, clean_history)
         pipe = await self._run_pipeline(clean_history, standalone_question, feature="playground")
         response = self._parse_response(
             pipe["answer"], pipe["results"], str(uuid.uuid4()), standalone_question
@@ -215,6 +202,21 @@ class RAGService:
             "scores": scores,
             "top_score": max(scores) if scores else None,
         }
+
+    async def _rewrite(self, question: str, clean_history: list[dict]) -> str:
+        """Standalone rewrite of a follow-up. Falls back to the original."""
+        if not clean_history:
+            return question
+        try:
+            # Sync SDK call: keep it off the event loop
+            rewritten = await asyncio.to_thread(
+                self.claude.rewrite_standalone_question, question, clean_history
+            )
+            if rewritten.strip():
+                return rewritten.strip()
+        except Exception as exc:
+            logger.warning(f"Query rewrite failed, using original question: {exc}")
+        return question
 
     @staticmethod
     def _clean_history(history: Optional[list[dict]]) -> list[dict]:

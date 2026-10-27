@@ -192,10 +192,11 @@ Twilio sends incoming WhatsApp message
 - Pydantic validation on every request, unknown fields rejected
 - Prompt injection screening on questions, history, and admin-saved content
 - Cookie-session admin auth: short-lived JWTs, rotating refresh tokens, CSRF tokens, lockout after 10 failed attempts
-- Rate limiting (10 queries/min, 5 admin logins/min per IP)
+- Rate limiting per IP (10 queries/min, 10 user logins/min, 5 signups/min, 5 admin logins/min)
+- User and admin tokens signed with `JWT_SECRET`; auth refuses to run in production on the default value
 - Security headers on every response, `no-store` on admin responses
 - CORS locked to `FRONTEND_URL` in production
-- Salted hashes for user IPs in logs — plain IPs are never stored
+- Salted hashes for user IPs and WhatsApp numbers in logs — plain IPs and phone numbers are never stored
 - Secrets in environment variables only, never committed
 
 ---

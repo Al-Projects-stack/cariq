@@ -12,7 +12,7 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
-from app.db.models import KbChecklistItem, KbFault, KbModel, KbPriceRange, ModelVersion
+from app.db.models import KbChecklistItem, KbFault, KbModel, KbPriceRange, ModelVersion, utcnow_naive
 from app.models.admin_schemas import SEVERITIES
 
 _REPAIR_NUMBERS = re.compile(r"R?\s?(\d[\d\s,]*)")
@@ -312,7 +312,7 @@ def seed_from_json_files(
             db.add(version)
             db.flush()
             model.published_version_id = version.id
-            model.published_at = datetime.utcnow()
+            model.published_at = utcnow_naive()
         db.commit()
         audit(db, actor, "kb.import", model_slug=slug)
         results.append((fp.name, slug, changed))

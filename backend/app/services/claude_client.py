@@ -18,7 +18,7 @@ SYSTEM_PROMPT = """You are CarIQ, a South African used car market intelligence a
 You answer questions about used car prices, reliability, and known faults for the South African market.
 
 CRITICAL RULES:
-1. Answer ONLY from the context provided. If the context does not contain enough information to answer, say: "I don't have enough data on that model yet. Try asking about VW Polo, Toyota Hilux, BMW 3 Series, or Ford Ranger."
+1. Answer ONLY from the context provided. If the context does not contain enough information to answer, say: "I don't have enough data on that model yet. Try asking about another popular SA model, such as the VW Polo Vivo, Toyota Hilux, Suzuki Swift, Ford Ranger, or Haval Jolion."
 2. Never fabricate prices, fault data, or statistics.
 3. Always quote prices in South African Rand (ZAR / R).
 4. When giving a price verdict, use exactly one of: GOOD DEAL / FAIR / ABOVE MARKET / OVERPRICED.
@@ -44,9 +44,11 @@ def sanitise_for_prompt(question: str) -> str:
         r"you are now",
         r"forget everything",
         r"new instructions",
-        r"disregard",
+        # Narrow forms only: bare "disregard" / "act as" also match ordinary
+        # car questions ("does the DPF act as a filter?")
+        r"disregard (all |any |the |your )?(previous |prior |above )?(instructions|rules|prompt)",
         r"jailbreak",
-        r"act as",
+        r"\bact as (if you|an? (ai|assistant|chatbot|language model|different)\b|dan\b)",
         r"pretend (you are|to be)",
     ]
     lower = question.lower()
@@ -162,7 +164,10 @@ Answer the question using only the context provided above. Be specific, practica
 
         for attempt in range(self.max_retries + 1):
             try:
-                message = self.client.messages.create(
+                # The SDK client is synchronous: run it in a worker thread so a
+                # slow answer doesn't block every other request on the loop.
+                message = await asyncio.to_thread(
+                    self.client.messages.create,
                     model=self.model,
                     max_tokens=1024,
                     system=SYSTEM_PROMPT,

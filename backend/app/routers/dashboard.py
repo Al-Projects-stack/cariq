@@ -4,7 +4,7 @@ from sqlalchemy import func, text
 from sqlalchemy.orm import Session
 from app.config import settings
 from app.db.database import get_db
-from app.db.models import ClaudeCallLog, ClaudeDeadLetter
+from app.db.models import ClaudeCallLog, ClaudeDeadLetter, utcnow_naive
 
 router = APIRouter(tags=["dashboard"])
 
@@ -28,7 +28,7 @@ def _require_dashboard_token(x_dashboard_token: str = Header(default="")) -> Non
 def _window_since(window: str) -> datetime:
     if window not in _WINDOWS:
         raise HTTPException(422, detail="window must be today, 7d, or 30d")
-    return _WINDOWS[window](datetime.utcnow())
+    return _WINDOWS[window](utcnow_naive())
 
 
 @router.get("/dashboard/stats")
@@ -179,6 +179,9 @@ async function fetchJson(path) {
   return res.json();
 }
 function fmtUsd(v) { return '$' + (v || 0).toFixed(4); }
+function esc(v) {
+  return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 async function loadStats() {
   const win = document.getElementById('window').value;
   try {
@@ -189,7 +192,7 @@ async function loadStats() {
     document.getElementById('success').textContent = d.success_rate + '%';
     const tbody = document.querySelector('#featureTable tbody');
     tbody.innerHTML = d.per_feature.map(f => `<tr>
-      <td>${f.feature}</td><td>${f.calls}</td>
+      <td>${esc(f.feature)}</td><td>${f.calls}</td>
       <td>${f.avg_latency_ms} ms</td><td>${fmtUsd(f.cost_usd)}</td>
       <td>${f.failures ? '<span class="badge fail">' + f.failures + '</span>' : f.failures}</td></tr>`).join('')
       || '<tr><td colspan="5">No calls in this window</td></tr>';
@@ -202,8 +205,8 @@ async function loadDeadLetters() {
     const tbody = document.querySelector('#deadTable tbody');
     tbody.innerHTML = d.items.map(x => `<tr>
       <td>${new Date(x.created_at).toLocaleString()}</td>
-      <td>${x.feature}</td>
-      <td>${x.error_type}: ${x.error_message}</td>
+      <td>${esc(x.feature)}</td>
+      <td>${esc(x.error_type)}: ${esc(x.error_message)}</td>
       <td>${x.attempts}</td></tr>`).join('')
       || '<tr><td colspan="4">No dead-lettered requests</td></tr>';
     document.getElementById('errorMsg').textContent = '';

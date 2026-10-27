@@ -1,23 +1,18 @@
 """Tests for POST /api/v1/whatsapp (Twilio webhook)."""
-import os
-
-# Must be set before any module that reads Settings() is imported.
-os.environ.setdefault("TWILIO_AUTH_TOKEN", "test-token-12345")
-
 from unittest.mock import AsyncMock, MagicMock, patch
 
-# Prevent RAGService() from connecting to Pinecone at import time.
-_rag_patch = patch("app.services.rag.RAGService", return_value=MagicMock())
-_rag_patch.start()
-
 import pytest
-from fastapi.testclient import TestClient
 from twilio.request_validator import RequestValidator
 
 from tests.conftest import make_test_app
 from app.models.schemas import QueryResponse
-from app.routers import whatsapp
-from app.routers.query import rag_service
+from app.services.tracking import whatsapp_session_id
+
+# Prevent RAGService() from connecting to Pinecone when the query router is
+# first imported. Scoped to the import so other test modules see the real class.
+with patch("app.services.rag.RAGService", return_value=MagicMock()):
+    from app.routers import whatsapp
+    from app.routers.query import rag_service
 
 
 @pytest.fixture
@@ -57,7 +52,9 @@ class TestWhatsAppWebhook:
         assert "Toyota Corolla" in body or "reliable" in body
         _, kwargs = mock_query.call_args
         assert kwargs["question"] == "Tell me about the Toyota Corolla"
-        assert kwargs["session_id"] == "whatsapp:+27820001234"
+        # Phone numbers are never stored: the session id is a salted hash
+        assert kwargs["session_id"] == whatsapp_session_id("whatsapp:+27820001234")
+        assert "27820001234" not in kwargs["session_id"]
 
     def test_invalid_signature_returns_403(self, client):
         data, _ = _signed_request(

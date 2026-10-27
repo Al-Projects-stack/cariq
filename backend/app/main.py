@@ -97,7 +97,15 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["X-XSS-Protection"] = "1; mode=block"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         if settings.environment != "development":
-            response.headers["Content-Security-Policy"] = "default-src 'self'"
+            if request.url.path == "/api/v1/dashboard":
+                # The cost dashboard is a single self-contained HTML page with
+                # inline <style>/<script>; 'self' alone would block both.
+                response.headers["Content-Security-Policy"] = (
+                    "default-src 'self'; script-src 'self' 'unsafe-inline'; "
+                    "style-src 'self' 'unsafe-inline'"
+                )
+            else:
+                response.headers["Content-Security-Policy"] = "default-src 'self'"
         if request.url.path.startswith("/api/v1/admin/"):
             # Admin responses must never be cached anywhere.
             response.headers["Cache-Control"] = "no-store"

@@ -21,6 +21,7 @@ async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {
     headers: { "Content-Type": "application/json", ...(init?.headers as Record<string, string> | undefined) },
   });
   if (!res.ok) {
+    if (res.status === 429) throw new Error("Too many attempts. Please wait a minute and try again.");
     const err = await res.json().catch(() => ({ detail: "Unknown error" }));
     throw new Error(err.detail || `HTTP ${res.status}`);
   }

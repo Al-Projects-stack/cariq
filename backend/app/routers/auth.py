@@ -1,7 +1,7 @@
-import os
-import uuid
-from datetime import datetime, timedelta
-from fastapi import APIRouter, Depends, HTTPException, Header
+from datetime import datetime, timedelta, timezone
+from fastapi import APIRouter, Depends, HTTPException, Header, Request
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 import jwt
@@ -11,18 +11,26 @@ from app.models.schemas import SignupRequest, LoginRequest, AuthResponse, UserPr
 from app.config import settings
 
 router = APIRouter(tags=["auth"])
+limiter = Limiter(key_func=get_remote_address)
 
-SECRET = os.getenv("JWT_SECRET", settings.database_url)
 ALGO = "HS256"
 TOKEN_TTL = timedelta(days=7)
 
 pwd = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
+def _secret() -> str:
+    # Never fall back to a guessable value: a known secret lets anyone forge
+    # user tokens. Same rule as the admin auth service.
+    if settings.environment == "production" and settings.jwt_secret == "change-me":
+        raise HTTPException(503, detail="Authentication is not configured")
+    return settings.jwt_secret
+
+
 def _token_for(user: User) -> str:
     return jwt.encode(
-        {"sub": user.id, "email": user.email, "exp": datetime.utcnow() + TOKEN_TTL},
-        SECRET,
+        {"sub": user.id, "email": user.email, "exp": datetime.now(timezone.utc) + TOKEN_TTL},
+        _secret(),
         algorithm=ALGO,
     )
 
@@ -30,11 +38,12 @@ def _token_for(user: User) -> str:
 def _require_user(authorization: str | None = Header(None), db: Session = Depends(get_db)) -> User:
     if not authorization:
         raise HTTPException(401, detail="Missing authorization header")
+    secret = _secret()
     try:
         scheme, token = authorization.split(" ", 1)
         if scheme.lower() != "bearer":
             raise ValueError
-        payload = jwt.decode(token, SECRET, algorithms=[ALGO])
+        payload = jwt.decode(token, secret, algorithms=[ALGO])
         user = db.query(User).filter(User.id == payload["sub"]).first()
         if not user:
             raise ValueError
@@ -44,7 +53,8 @@ def _require_user(authorization: str | None = Header(None), db: Session = Depend
 
 
 @router.post("/auth/signup", response_model=AuthResponse)
-def signup(body: SignupRequest, db: Session = Depends(get_db)):
+@limiter.limit("5/minute")
+def signup(request: Request, body: SignupRequest, db: Session = Depends(get_db)):
     if db.query(User).filter(User.email == body.email).first():
         raise HTTPException(409, detail="Email already registered")
     user = User(
@@ -61,7 +71,8 @@ def signup(body: SignupRequest, db: Session = Depends(get_db)):
 
 
 @router.post("/auth/login", response_model=AuthResponse)
-def login(body: LoginRequest, db: Session = Depends(get_db)):
+@limiter.limit("10/minute")
+def login(request: Request, body: LoginRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == body.email).first()
     if not user or not pwd.verify(body.password, user.password_hash):
         raise HTTPException(401, detail="Invalid email or password")

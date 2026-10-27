@@ -7,7 +7,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.db.database import get_db
-from app.db.models import AdminUser, FailedQuestionGroup, KbModel, QueryLog
+from app.db.models import AdminUser, FailedQuestionGroup, KbModel, QueryLog, utcnow_naive
 from app.models.admin_schemas import (
     EntryPrefill,
     FailureChunkOut,
@@ -51,8 +51,8 @@ def admin_overview(
     db: Session = Depends(get_db),
 ):
     """Dashboard aggregates: queries, failures, groups, models, daily series."""
-    # Naive UTC to match the created_at columns (datetime.utcnow defaults).
-    now = datetime.utcnow()
+    # Naive UTC to match the created_at columns.
+    now = utcnow_naive()
     q_all = db.query(QueryLog)
     total = q_all.count()
     q7 = q_all.filter(QueryLog.created_at >= now - timedelta(days=7)).count()

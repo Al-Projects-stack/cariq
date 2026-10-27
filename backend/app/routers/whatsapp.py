@@ -6,6 +6,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 from app.config import settings
 from app.routers.query import rag_service
+from app.services.tracking import whatsapp_session_id
 
 logger = logging.getLogger(__name__)
 router = APIRouter(tags=["whatsapp"])
@@ -35,12 +36,14 @@ async def whatsapp_webhook(
     validator = RequestValidator(settings.twilio_auth_token)
     url = str(request.url)
     signature = x_twilio_signature or ""
+    sender = (From or "").strip()
+    session_id = whatsapp_session_id(sender) if sender else "wa:unknown"
+
     if not validator.validate(url, form_dict, signature):
-        logger.warning(f"Invalid Twilio signature from {From}")
+        logger.warning(f"Invalid Twilio signature from {session_id}")
         raise HTTPException(status_code=403, detail="Invalid Twilio signature")
 
     question = (Body or "").strip()
-    session_id = (From or "").strip() or "unknown"
     name = (ProfileName or "").strip()
 
     resp = MessagingResponse()

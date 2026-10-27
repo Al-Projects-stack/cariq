@@ -1,3 +1,5 @@
+import asyncio
+
 from fastembed import TextEmbedding
 
 _model: TextEmbedding | None = None
@@ -14,10 +16,12 @@ class EmbeddingsService:
     def __init__(self):
         _get_model()
 
+    # Inference is CPU-bound and synchronous: run it in a worker thread so it
+    # doesn't block the event loop.
     async def embed(self, text: str) -> list[float]:
         model = _get_model()
-        return list(model.embed([text]))[0].tolist()
+        return await asyncio.to_thread(lambda: list(model.embed([text]))[0].tolist())
 
     async def embed_batch(self, texts: list[str]) -> list[list[float]]:
         model = _get_model()
-        return [v.tolist() for v in model.embed(texts)]
+        return await asyncio.to_thread(lambda: [v.tolist() for v in model.embed(texts)])

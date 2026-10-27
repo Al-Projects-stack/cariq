@@ -1,3 +1,5 @@
+import asyncio
+
 from pinecone import Pinecone
 from app.config import settings
 
@@ -21,7 +23,8 @@ class PineconeClient:
         if filter:
             query_kwargs["filter"] = filter
 
-        result = self.index.query(**query_kwargs)
+        # Sync SDK network call: keep it off the event loop
+        result = await asyncio.to_thread(lambda: self.index.query(**query_kwargs))
         # v6 SDK returns an object with .matches attribute
         matches = result.matches if hasattr(result, "matches") else result.get("matches", [])
         if matches and hasattr(matches[0], "score"):

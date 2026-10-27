@@ -8,6 +8,9 @@ os.environ.setdefault("PINECONE_INDEX", "cariq-kb")
 os.environ.setdefault("DATABASE_URL", "sqlite:///./test.db")
 os.environ.setdefault("ENVIRONMENT", "test")
 os.environ.setdefault("FRONTEND_URL", "http://localhost:3000")
+# Settings() is a singleton built on first import, so every env var any test
+# module relies on must be set here, not in the individual test module.
+os.environ.setdefault("TWILIO_AUTH_TOKEN", "test-token-12345")
 
 
 def make_test_app(*router_prefixes):

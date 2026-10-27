@@ -39,6 +39,16 @@ def hash_ip(ip: str | None) -> str | None:
     return hashlib.sha256(f"{settings.ip_hash_salt}|{ip}".encode()).hexdigest()
 
 
+def whatsapp_session_id(sender: str) -> str:
+    """Stable, non-reversible session id for a WhatsApp sender.
+
+    Phone numbers are personal information (POPIA) and are never stored or
+    logged. Fits QueryLog.session_id (String(36)).
+    """
+    digest = hashlib.sha256(f"{settings.ip_hash_salt}|wa|{sender}".encode()).hexdigest()
+    return f"wa:{digest[:32]}"
+
+
 def normalize_question(question: str) -> str:
     text = (question or "").lower().strip()
     text = re.sub(r"[^a-z0-9\s]", "", text)
