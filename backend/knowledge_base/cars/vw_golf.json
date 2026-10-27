@@ -7,11 +7,12 @@
     "Golf 7 GTD 2.0 TDI",
     "Golf 7 GTI 2.0 TSI",
     "Golf 7 R 2.0 TSI 4Motion",
-    "Golf 7.5 1.0 TSI"
+    "Golf 7.5 1.0 TSI",
+    "Golf 8 R 2.0 TSI 4Motion"
   ],
-  "years_covered": "2013-2022",
+  "years_covered": "2013-2025",
   "prices_verified_at": "2026-10-27",
-  "sa_market_summary": "The Golf 7 (2013-2020) and Golf 7.5 facelift (2018-2022) are among the most sought-after used hatchbacks in South Africa. Excellent build quality relative to competitors and strong brand prestige. GTI models hold value exceptionally well. Widely available and well-supported by VW dealers and independent specialists nationwide. A safe, intelligent purchase for the used car buyer who wants European refinement without supercar running costs.",
+  "sa_market_summary": "The Golf 7 (2013-2020) and Golf 7.5 facelift (2018-2022) are among the most sought-after used hatchbacks in South Africa. Excellent build quality relative to competitors and strong brand prestige. GTI models hold value exceptionally well. Widely available and well-supported by VW dealers and independent specialists nationwide. A safe, intelligent purchase for the used car buyer who wants European refinement without supercar running costs. The Golf 8 R (2.0 TSI 4Motion, 245kW) is the flagship of the range: it reached SA in 2023 at R912,800 new after supply delays, and used 2023-2025 examples list at roughly R800k - R940k.",
   "reliability_score": 7.8,
   "segment": "premium_hatchback",
   "fuel_type": "petrol",
@@ -19,6 +20,13 @@
   "annual_maintenance_zar": 10000,
   "annual_insurance_zar": 14000,
   "price_ranges": [
+    {
+      "year_from": 2023,
+      "year_to": 2025,
+      "low_zar": 780000,
+      "mid_zar": 870000,
+      "high_zar": 950000
+    },
     {
       "year_from": 2020,
       "year_to": 2022,
@@ -108,6 +116,30 @@
       "what_to_inspect": "Check exhaust for blue smoke under acceleration. Listen for turbo whine or whistle. Ask if the car has been mapped or tuned.",
       "estimated_repair_zar": "R15,000 - R35,000",
       "source": "SA performance workshop reports, MyBroadband Golf GTI thread"
+    },
+    {
+      "fault": "Water pump and thermostat housing coolant leak (EA888 Gen 4)",
+      "affects_variants": [
+        "Golf 8 R 2.0 TSI 4Motion"
+      ],
+      "mileage_range": "60,000km - 120,000km",
+      "severity": "MEDIUM",
+      "description": "The plastic water pump and thermostat housing on the EA888 engine can develop slow coolant leaks. Left unchecked, the coolant level drops and the engine can overheat under hard driving - a real risk on a 245kW car that gets driven the way it was designed to.",
+      "what_to_inspect": "Check the coolant level and look for pink crusty residue around the water pump and thermostat housing. A sweet coolant smell after a test drive is a warning sign. Ask whether the pump has been replaced.",
+      "estimated_repair_zar": "R12,000 - R28,000",
+      "source": "VW R Owners Club, European VW specialist buying guides"
+    },
+    {
+      "fault": "Infotainment and driver-assist software glitches (Golf 8)",
+      "affects_variants": [
+        "Golf 8 R 2.0 TSI 4Motion"
+      ],
+      "mileage_range": "Any mileage",
+      "severity": "LOW",
+      "description": "The Golf 8's touch-based infotainment and climate controls can freeze or lag, and adaptive cruise, lane assist and park sensors throw intermittent warnings. Most issues are fixed by dealer software updates; some cars needed infotainment units replaced under warranty.",
+      "what_to_inspect": "Ask a VW dealer to confirm the latest software updates are loaded. Test the infotainment, climate sliders, adaptive cruise and park sensors on the test drive. Check for any stored driver-assist fault codes.",
+      "estimated_repair_zar": "R0 (software update at dealer) to R15,000 (unit replacement out of warranty)",
+      "source": "Cars.co.za Golf 8 R review, VW R Owners Club"
     }
   ],
   "what_to_inspect_before_buying": [
@@ -118,7 +150,8 @@
     "Check for any mapping or performance modifications (affects insurance and warranty)",
     "Inspect for water ingress in the boot through the rear light seals",
     "Check brake disc and pad thickness - performance variants wear brakes faster",
-    "Confirm no outstanding safety or emission recalls via VW SA recall database"
+    "Confirm no outstanding safety or emission recalls via VW SA recall database",
+    "Golf 8 R: confirm the latest software updates with a VW dealer and check for coolant leaks around the water pump"
   ],
   "owner_sentiment": "Highly positive overall. Golf 7 GTI owners are passionate about the car and most report excellent long-term reliability if serviced correctly. Standard 1.4 TSI owners report the DSG as the main concern. Running costs are moderate - not cheap, but predictable. Strong community support via MyBroadband and VW clubs.",
   "sources": [
@@ -127,6 +160,8 @@
     "AutoTrader SA",
     "VW SA dealer network",
     "WeBuyCars market data",
-    "AutoTrader SA listings and sales data (Oct 2026)"
+    "AutoTrader SA listings and sales data (Oct 2026)",
+    "Cars.co.za Golf 8 R review",
+    "VW R Owners Club"
   ]
 }

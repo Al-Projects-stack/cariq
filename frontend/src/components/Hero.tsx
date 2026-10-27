@@ -18,7 +18,7 @@ export function Hero({ modelCount }: { modelCount: number }) {
 
   return (
     <div className="relative overflow-hidden">
-      {/* hero car backdrop - Ford Focus RS, the developer's favourite */}
+      {/* hero car backdrop - VW Golf 8 R, the developer's favourite */}
       <div className="absolute inset-0" aria-hidden>
         <HeroImage className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gray-950/70" />
@@ -84,20 +84,20 @@ export function Hero({ modelCount }: { modelCount: number }) {
           </Link>
         </motion.div>
 
-        {/* hero car nameplate - Ford Focus RS, the developer's favourite */}
+        {/* hero car nameplate - VW Golf 8 R, the developer's favourite */}
         <motion.div variants={item} className="mt-8 mx-auto max-w-xl rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md px-5 py-4 text-left sm:text-center shadow-xl">
           <p className="font-mono text-[11px] tracking-widest uppercase text-orange-400">Meet the hero car</p>
-          <p className="mt-1 text-xl font-extrabold text-white">Ford Focus RS</p>
+          <p className="mt-1 text-xl font-extrabold text-white">Volkswagen Golf 8 R</p>
           <p className="mt-1 text-sm text-gray-300">
-            The developer's personal favourite. Not in the knowledge base - heroes don't do paperwork.
+            The developer's personal favourite. 2.0 TSI, 245kW, 4Motion - and yes, it's in the knowledge base.
           </p>
         </motion.div>
 
-        {/* floating glass cards */}
+        {/* floating glass cards - Golf 8 R facts from backend/knowledge_base/cars/vw_golf.json */}
         <motion.div variants={item} className="mt-10 hidden sm:grid grid-cols-3 gap-3 max-w-3xl mx-auto">
-          <GlassCard title="Price verdict" value="GOOD DEAL" accent="text-green-400 border-green-500/20 bg-green-500/10" sub="Polo 1.0 TSI · 2019" />
-          <GlassCard title="Known fault" value="MEDIUM · DSG" accent="text-amber-400 border-amber-500/20 bg-amber-500/10" sub="Hesitation 50-100k km" delay={0.1} />
-          <GlassCard title="Sources" value="3 cited" accent="text-blue-400 border-blue-500/20 bg-blue-500/10" sub="Cars.co.za + 2" delay={0.2} />
+          <GlassCard title="Price verdict" value="GOOD DEAL" accent="text-green-400 border-green-500/20 bg-green-500/10" sub="Golf 8 R · 2023 · R820k (mid R870k)" />
+          <GlassCard title="Known fault" value="MEDIUM · Coolant leak" accent="text-amber-400 border-amber-500/20 bg-amber-500/10" sub="Water pump 60-120k km" delay={0.1} />
+          <GlassCard title="Sources" value="3 cited" accent="text-blue-400 border-blue-500/20 bg-blue-500/10" sub="AutoTrader SA + 2" delay={0.2} />
         </motion.div>
 
         {/* scroll-down cue */}
