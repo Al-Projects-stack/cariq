@@ -4,7 +4,10 @@ from slowapi import Limiter
 from slowapi.util import get_remote_address
 from sqlalchemy.orm import Session
 from app.db.database import get_db
+from app.db.models import User
 from app.models.schemas import FeedbackRequest, QueryRequest, QueryResponse
+from app.routers.auth import _optional_user
+from app.services import usage_guard
 from app.services.rag import RAGService
 from app.services.claude_client import sanitise_for_prompt
 from app.services.tracking import record_vote
@@ -17,13 +20,20 @@ rag_service = RAGService()
 
 @router.post("/query", response_model=QueryResponse)
 @limiter.limit("10/minute")
-async def query_endpoint(request: Request, body: QueryRequest):
+async def query_endpoint(
+    request: Request,
+    body: QueryRequest,
+    user: User | None = Depends(_optional_user),
+):
     try:
         sanitise_for_prompt(body.question)
         for msg in body.history or []:
             sanitise_for_prompt(msg.content)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+    # Daily spend caps - counted only for requests that will reach the LLM
+    usage_guard.consume_query(user.id if user else None)
 
     try:
         client_ip = request.client.host if request.client else None

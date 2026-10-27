@@ -1,9 +1,12 @@
 from pathlib import Path
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 from app.models.schemas import RecommendRequest, RecommendResponse, RecommendModel
 from app.routers.models import _load_all_cars
 
 router = APIRouter(tags=["recommend"])
+limiter = Limiter(key_func=get_remote_address)
 
 KB_DIR = Path(__file__).parent.parent.parent / "knowledge_base" / "cars"
 
@@ -29,8 +32,10 @@ def _latest_mid(raw: dict) -> int | None:
     return latest.get("mid_zar")
 
 
+# Find My Car stays open to guests, but rate-limited against scraping
 @router.post("/recommend", response_model=RecommendResponse)
-def recommend(body: RecommendRequest):
+@limiter.limit("20/minute")
+def recommend(request: Request, body: RecommendRequest):
     all_cars = _load_all()
 
     segments = BODY_MAP.get(body.body_type or "any")

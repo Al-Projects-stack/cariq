@@ -2,10 +2,6 @@ import type { QueryResponse, CarVariant, CarProfile, CompareResponse, MarketPosi
 
 const API_BASE = import.meta.env.VITE_API_URL || "";
 
-export const DASHBOARD_URL = `${API_BASE}/api/v1/dashboard`;
-
-export const DASHBOARD_PASSCODE = import.meta.env.VITE_DASHBOARD_PASSCODE || "";
-
 export function getAuthToken(): string | null {
   return localStorage.getItem("cariq_token");
 }
@@ -20,26 +16,23 @@ async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: { "Content-Type": "application/json", ...(init?.headers as Record<string, string> | undefined) },
   });
-  if (!res.ok) {
-    if (res.status === 429) throw new Error("Too many attempts. Please wait a minute and try again.");
-    const err = await res.json().catch(() => ({ detail: "Unknown error" }));
-    throw new Error(err.detail || `HTTP ${res.status}`);
-  }
+  if (!res.ok) throw await toError(res);
   return res.json() as Promise<T>;
+}
+
+// 429s carry a `detail` for daily caps ("sign in to keep asking"); per-minute
+// rate limits (slowapi) don't, so fall back to a generic wait message.
+async function toError(res: Response): Promise<Error> {
+  const err = await res.json().catch(() => ({}));
+  if (res.status === 429) return new Error(err.detail || "Too many attempts. Please wait a minute and try again.");
+  if (res.status === 401) return new Error(err.detail || "Unauthorized");
+  return new Error(err.detail || `HTTP ${res.status}`);
 }
 
 async function authFetchJson<T>(path: string, init?: RequestInit): Promise<T> {
   const headers = { "Content-Type": "application/json", ...authHeaders(), ...(init?.headers as Record<string, string> | undefined) };
   const res = await fetch(`${API_BASE}${path}`, { ...init, headers });
-  if (res.status === 401) {
-    // let callers handle, but also clear stale token elsewhere via AuthContext
-    const err = await res.json().catch(() => ({ detail: "Unauthorized" }));
-    throw new Error(err.detail || "Unauthorized");
-  }
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ detail: "Unknown error" }));
-    throw new Error(err.detail || `HTTP ${res.status}`);
-  }
+  if (!res.ok) throw await toError(res);
   // 204 No Content
   if (res.status === 204) return undefined as unknown as T;
   return res.json() as Promise<T>;
@@ -50,7 +43,8 @@ export async function queryCarIQ(
   sessionId?: string,
   history?: ChatMessage[]
 ): Promise<QueryResponse> {
-  return fetchJson<QueryResponse>("/api/v1/query", {
+  // open to guests; the token (if any) gives signed-in users their own daily allowance
+  return authFetchJson<QueryResponse>("/api/v1/query", {
     method: "POST",
     body: JSON.stringify({
       question,
@@ -67,7 +61,7 @@ export async function listModels(): Promise<CarVariant[]> {
 export async function getModelProfile(make: string, model: string): Promise<CarProfile> {
   const encodedMake = encodeURIComponent(make);
   const encodedModel = encodeURIComponent(model.replace(/ /g, "_"));
-  return fetchJson<CarProfile>(`/api/v1/models/${encodedMake}/${encodedModel}`);
+  return authFetchJson<CarProfile>(`/api/v1/models/${encodedMake}/${encodedModel}`);
 }
 
 export async function compareModels(
@@ -76,7 +70,7 @@ export async function compareModels(
   makeB: string,
   modelB: string
 ): Promise<CompareResponse> {
-  return fetchJson<CompareResponse>("/api/v1/compare", {
+  return authFetchJson<CompareResponse>("/api/v1/compare", {
     method: "POST",
     body: JSON.stringify({ make_a: makeA, model_a: modelA, make_b: makeB, model_b: modelB }),
   });
@@ -85,13 +79,13 @@ export async function compareModels(
 export async function getMarketPosition(make: string, model: string): Promise<MarketPosition> {
   const encodedMake = encodeURIComponent(make);
   const encodedModel = encodeURIComponent(model.replace(/ /g, "_"));
-  return fetchJson<MarketPosition>(`/api/v1/models/${encodedMake}/${encodedModel}/market-position`);
+  return authFetchJson<MarketPosition>(`/api/v1/models/${encodedMake}/${encodedModel}/market-position`);
 }
 
 export async function getTCO(make: string, model: string): Promise<TCOEstimate> {
   const encodedMake = encodeURIComponent(make);
   const encodedModel = encodeURIComponent(model.replace(/ /g, "_"));
-  return fetchJson<TCOEstimate>(`/api/v1/models/${encodedMake}/${encodedModel}/tco`);
+  return authFetchJson<TCOEstimate>(`/api/v1/models/${encodedMake}/${encodedModel}/tco`);
 }
 
 export async function getRecommendations(params: {

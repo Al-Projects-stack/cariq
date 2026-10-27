@@ -52,6 +52,11 @@ except Exception as exc:
 
 # One-line admin auth readiness so misconfiguration is visible at startup
 # instead of surfacing as a bare 500 on first login.
+if settings.environment == "production":
+    for _name in ("jwt_secret", "dashboard_token", "ip_hash_salt"):
+        if getattr(settings, _name) in ("", "change-me"):
+            logger.warning(f"SECURITY: {_name.upper()} is not set - set a long random value in Render")
+
 try:
     from app.services.admin_auth import auth_status
 
@@ -81,7 +86,15 @@ try:
 except Exception as exc:
     logger.warning(f"KB seed skipped: {exc}")
 
-app = FastAPI(title="CarIQ API", version="1.0.0", docs_url="/docs", redoc_url="/redoc")
+# Interactive docs + schema are a full map of the API - development only
+_dev = settings.environment == "development"
+app = FastAPI(
+    title="CarIQ API",
+    version="1.0.0",
+    docs_url="/docs" if _dev else None,
+    redoc_url="/redoc" if _dev else None,
+    openapi_url="/openapi.json" if _dev else None,
+)
 
 # Rate limiter
 limiter = Limiter(key_func=get_remote_address)

@@ -1,8 +1,10 @@
 from pathlib import Path
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request
 from slowapi import Limiter
 from slowapi.util import get_remote_address
 from pydantic import BaseModel
+from app.db.models import User
+from app.routers.auth import _require_user
 from app.routers.models import _load_all_cars
 
 router = APIRouter(tags=["public"])
@@ -24,7 +26,8 @@ class PublicModelItem(BaseModel):
 
 @router.get("/public/models")
 @limiter.limit("5/minute")
-async def public_list_models(request: Request):
+async def public_list_models(request: Request, user: User = Depends(_require_user)):
+    # Includes prices for every model in one call - signed-in users only
     # Shared loader (and cache entry): prices are aged to today
     cars = _load_all_cars()
 
@@ -49,7 +52,7 @@ async def public_list_models(request: Request):
 
 @router.get("/public/models/{make}/{model}")
 @limiter.limit("5/minute")
-async def public_get_model(request: Request, make: str, model: str):
+async def public_get_model(request: Request, make: str, model: str, user: User = Depends(_require_user)):
     needle = model.lower().replace(" ", "_")
     if not KB_DIR.exists():
         raise HTTPException(500, detail="Knowledge base not found")

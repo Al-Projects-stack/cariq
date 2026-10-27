@@ -35,6 +35,9 @@ services:
         sync: false
       - key: TWILIO_AUTH_TOKEN
         sync: false
+      # Daily LLM spend caps (defaults in app/config.py)
+      - key: TOTAL_DAILY_QUERY_LIMIT
+        value: 600
 
   - type: web
     name: cariq-frontend
@@ -50,5 +53,4 @@ services:
     envVars:
       - key: VITE_API_URL
         sync: false
-      - key: VITE_DASHBOARD_PASSCODE
-        sync: false
+      # Never put secrets in VITE_* vars: they are baked into the public JS bundle

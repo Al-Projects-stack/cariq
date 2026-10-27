@@ -1,6 +1,8 @@
 from pathlib import Path
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from app.db.models import User
 from app.models.schemas import MarketPositionResponse, SegmentModelPrice, TCOEstimate
+from app.routers.auth import _require_user
 from app.routers.models import _load_all_cars
 from app.services.cache import market_cache, tco_cache
 
@@ -29,7 +31,7 @@ def _latest_mid(raw: dict) -> int | None:
 
 
 @router.get("/models/{make}/{model}/market-position", response_model=MarketPositionResponse)
-def market_position(make: str, model: str):
+def market_position(make: str, model: str, user: User = Depends(_require_user)):
     cache_key = f"mp|{make.lower()}|{model.lower()}"
     cached = market_cache.get(cache_key)
     if cached is not None:
@@ -119,7 +121,7 @@ def _find_model(all_cars: list[dict], make: str, model: str) -> dict | None:
 
 
 @router.get("/models/{make}/{model}/tco", response_model=TCOEstimate)
-def tco_estimate(make: str, model: str):
+def tco_estimate(make: str, model: str, user: User = Depends(_require_user)):
     cache_key = f"tco|{make.lower()}|{model.lower()}"
     cached = tco_cache.get(cache_key)
     if cached is not None:

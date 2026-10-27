@@ -6,6 +6,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 from app.config import settings
 from app.routers.query import rag_service
+from app.services import usage_guard
 from app.services.tracking import whatsapp_session_id
 
 logger = logging.getLogger(__name__)
@@ -56,6 +57,12 @@ async def whatsapp_webhook(
               "car model (e.g. 'Tell me about the Toyota Corolla') and I'll look "
               "it up for you."
         )
+        return Response(str(resp), media_type="application/xml")
+
+    try:
+        usage_guard.consume(f"wa:{session_id}", settings.whatsapp_daily_query_limit)
+    except HTTPException as e:
+        resp.message("Sorry, " + e.detail[0].lower() + e.detail[1:])
         return Response(str(resp), media_type="application/xml")
 
     try:

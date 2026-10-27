@@ -9,6 +9,7 @@ from app.db.database import get_db
 from app.db.models import User
 from app.models.schemas import SignupRequest, LoginRequest, AuthResponse, UserProfile
 from app.config import settings
+from app.services import usage_guard
 
 router = APIRouter(tags=["auth"])
 limiter = Limiter(key_func=get_remote_address)
@@ -52,11 +53,22 @@ def _require_user(authorization: str | None = Header(None), db: Session = Depend
         raise HTTPException(401, detail="Invalid or expired token")
 
 
+def _optional_user(authorization: str | None = Header(None), db: Session = Depends(get_db)) -> User | None:
+    """Signed-in user if a valid token was sent, else None (never raises)."""
+    if not authorization:
+        return None
+    try:
+        return _require_user(authorization, db)
+    except HTTPException:
+        return None
+
+
 @router.post("/auth/signup", response_model=AuthResponse)
 @limiter.limit("5/minute")
 def signup(request: Request, body: SignupRequest, db: Session = Depends(get_db)):
     if db.query(User).filter(User.email == body.email).first():
         raise HTTPException(409, detail="Email already registered")
+    usage_guard.consume_signup()
     user = User(
         email=body.email,
         password_hash=pwd.hash(body.password),

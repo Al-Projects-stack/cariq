@@ -1,5 +1,4 @@
 ﻿import { useState, useRef, useEffect, type KeyboardEvent } from "react";
-import { DASHBOARD_URL, DASHBOARD_PASSCODE } from "../api";
 
 interface Props {
   onSubmit: (question: string) => void;
@@ -78,10 +77,6 @@ export function QueryInput({ onSubmit, isLoading }: Props) {
 
   function handleSubmit() {
     const trimmed = value.trim();
-    if (DASHBOARD_PASSCODE && trimmed === DASHBOARD_PASSCODE) {
-      window.location.href = DASHBOARD_URL;
-      return;
-    }
     const err = validate(value);
     if (err) { setError(err); return; }
     setError(null);

@@ -4,8 +4,11 @@ from app.db.database import get_db
 from app.db.models import User, Watchlist
 from app.models.schemas import WatchlistItem, WatchlistCreate, WatchlistResponse
 from app.routers.auth import _require_user
+from app.routers.models import _load_all_cars
 
 router = APIRouter(tags=["watchlist"])
+
+MAX_WATCHLIST_ITEMS = 100
 
 
 @router.get("/watchlist", response_model=WatchlistResponse)
@@ -19,6 +22,14 @@ def list_watchlist(user: User = Depends(_require_user), db: Session = Depends(ge
 
 @router.post("/watchlist", response_model=WatchlistItem)
 def add_watchlist(body: WatchlistCreate, user: User = Depends(_require_user), db: Session = Depends(get_db)):
+    # Only real KB models - stops the table being filled with junk rows
+    if not any(
+        c["make"].lower() == body.make.lower() and c["model"].lower() == body.model.lower()
+        for c in _load_all_cars()
+    ):
+        raise HTTPException(404, detail="Unknown model")
+    if db.query(Watchlist).filter(Watchlist.user_id == user.id).count() >= MAX_WATCHLIST_ITEMS:
+        raise HTTPException(400, detail=f"Watchlist is full ({MAX_WATCHLIST_ITEMS} models)")
     existing = db.query(Watchlist).filter(
         Watchlist.user_id == user.id,
         Watchlist.make == body.make,

@@ -1,5 +1,7 @@
 from pathlib import Path
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from app.db.models import User
+from app.routers.auth import _require_user
 from app.routers.models import _load_all_cars
 from app.models.schemas import (
     CompareRequest,
@@ -43,7 +45,7 @@ def _extract_zar(raw: str | int) -> int:
 
 
 @router.post("/compare", response_model=CompareResponse)
-def compare_models(body: CompareRequest):
+def compare_models(body: CompareRequest, user: User = Depends(_require_user)):
     a_raw = _load_profile(body.make_a, body.model_a)
     b_raw = _load_profile(body.make_b, body.model_b)
 

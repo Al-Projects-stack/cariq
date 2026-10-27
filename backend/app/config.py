@@ -19,6 +19,12 @@ class Settings(BaseSettings):
     # Retrieval top-score below this marks a query as weak/failed.
     failure_score_threshold: float = 0.45
     twilio_auth_token: str = ""
+    # Daily LLM spend caps (see app/services/usage_guard.py)
+    anon_daily_query_limit: int = 300
+    user_daily_query_limit: int = 50
+    whatsapp_daily_query_limit: int = 20  # per sender
+    total_daily_query_limit: int = 600
+    daily_signup_limit: int = 200
 
     class Config:
         env_file = ".env"

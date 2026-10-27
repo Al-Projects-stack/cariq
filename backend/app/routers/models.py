@@ -1,11 +1,16 @@
 import json
 from pathlib import Path
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
+from slowapi import Limiter
+from slowapi.util import get_remote_address
+from app.db.models import User
 from app.models.schemas import CarProfile, CarVariant
+from app.routers.auth import _require_user
 from app.services import pricing
 from app.services.cache import all_models_cache, model_profile_cache
 
 router = APIRouter(tags=["models"])
+limiter = Limiter(key_func=get_remote_address)
 
 KB_DIR = Path(__file__).parent.parent.parent / "knowledge_base" / "cars"
 
@@ -28,8 +33,10 @@ def _load_all_cars() -> list[dict]:
     return cars
 
 
+# Landing page list (names, years, reliability only - no prices): public
 @router.get("/models", response_model=list[CarVariant])
-def list_models():
+@limiter.limit("60/minute")
+def list_models(request: Request):
     cars = _load_all_cars()
     return [
         CarVariant(
@@ -44,8 +51,9 @@ def list_models():
     ]
 
 
+# Full profile (prices, faults, checklist): signed-in users only
 @router.get("/models/{make}/{model}", response_model=CarProfile)
-def get_model_profile(make: str, model: str):
+def get_model_profile(make: str, model: str, user: User = Depends(_require_user)):
     cache_key = f"{make.lower()}|{model.lower()}"
     cached = model_profile_cache.get(cache_key)
     if cached is not None:

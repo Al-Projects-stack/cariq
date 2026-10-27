@@ -26,7 +26,8 @@ class ChatMessage(BaseModel):
 class QueryRequest(BaseModel):
     question: str = Field(min_length=3, max_length=500)
     session_id: Optional[str] = Field(default=None)
-    history: Optional[list[ChatMessage]] = Field(default=None)
+    # Only the last MAX_HISTORY_MESSAGES are used; reject oversized payloads outright
+    history: Optional[list[ChatMessage]] = Field(default=None, max_length=20)
 
     @field_validator("question")
     @classmethod
@@ -161,10 +162,10 @@ class HealthResponse(BaseModel):
 
 class CompareRequest(BaseModel):
     model_config = {"protected_namespaces": ()}
-    make_a: str
-    model_a: str
-    make_b: str
-    model_b: str
+    make_a: str = Field(max_length=50)
+    model_a: str = Field(max_length=50)
+    make_b: str = Field(max_length=50)
+    model_b: str = Field(max_length=50)
 
 
 class PriceComparison(BaseModel):
@@ -240,11 +241,11 @@ class TCOEstimate(BaseModel):
 
 
 class RecommendRequest(BaseModel):
-    budget_max: int
-    budget_min: int = 0
-    body_type: str | None = None
-    priorities: list[str] = []
-    family_size: int = 1
+    budget_max: int = Field(ge=0, le=20_000_000)
+    budget_min: int = Field(default=0, ge=0, le=20_000_000)
+    body_type: str | None = Field(default=None, max_length=20)
+    priorities: list[str] = Field(default=[], max_length=10)
+    family_size: int = Field(default=1, ge=1, le=12)
 
 
 class RecommendModel(BaseModel):
@@ -265,14 +266,15 @@ class RecommendResponse(BaseModel):
 # --- Auth ---
 
 class SignupRequest(BaseModel):
-    email: str
-    password: str = Field(min_length=6)
-    display_name: str = ""
+    email: str = Field(max_length=254, pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    # bcrypt only uses the first 72 bytes; the cap also stops huge-payload CPU burn
+    password: str = Field(min_length=6, max_length=128)
+    display_name: str = Field(default="", max_length=50)
 
 
 class LoginRequest(BaseModel):
-    email: str
-    password: str
+    email: str = Field(max_length=254)
+    password: str = Field(max_length=128)
 
 
 class AuthResponse(BaseModel):
@@ -299,8 +301,8 @@ class WatchlistItem(BaseModel):
 
 
 class WatchlistCreate(BaseModel):
-    make: str
-    model: str
+    make: str = Field(min_length=1, max_length=50)
+    model: str = Field(min_length=1, max_length=50)
 
 
 class WatchlistResponse(BaseModel):
@@ -319,9 +321,9 @@ class SavedSearchItem(BaseModel):
 
 
 class SavedSearchCreate(BaseModel):
-    label: str = ""
-    query: str
-    filters: str = "{}"
+    label: str = Field(default="", max_length=100)
+    query: str = Field(min_length=1, max_length=500)
+    filters: str = Field(default="{}", max_length=1000)
 
 
 class SavedSearchResponse(BaseModel):

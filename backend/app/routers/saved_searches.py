@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db.database import get_db
 from app.db.models import User, SavedSearch
@@ -6,6 +6,8 @@ from app.models.schemas import SavedSearchItem, SavedSearchCreate, SavedSearchRe
 from app.routers.auth import _require_user
 
 router = APIRouter(tags=["saved_searches"])
+
+MAX_SAVED_SEARCHES = 200
 
 
 @router.get("/saved-searches", response_model=SavedSearchResponse)
@@ -19,6 +21,8 @@ def list_saved(user: User = Depends(_require_user), db: Session = Depends(get_db
 
 @router.post("/saved-searches", response_model=SavedSearchItem)
 def save_search(body: SavedSearchCreate, user: User = Depends(_require_user), db: Session = Depends(get_db)):
+    if db.query(SavedSearch).filter(SavedSearch.user_id == user.id).count() >= MAX_SAVED_SEARCHES:
+        raise HTTPException(400, detail=f"You can save up to {MAX_SAVED_SEARCHES} searches - delete some first")
     entry = SavedSearch(user_id=user.id, label=body.label, query=body.query, filters=body.filters)
     db.add(entry)
     db.commit()

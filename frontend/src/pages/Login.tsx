@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { login } from "../api";
 import { loadFavoriteCar } from "../utils/favorite";
+import { safeNext } from "../utils/safeNext";
 import { useAuth } from "../contexts/AuthContext";
 import { Header } from "../components/Header";
 
@@ -13,7 +14,7 @@ export function Login() {
   const { login: authLogin } = useAuth();
   const navigate = useNavigate();
   const [params] = useSearchParams();
-  const next = params.get("next") || "/";
+  const next = safeNext(params.get("next"));
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

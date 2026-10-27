@@ -1,3 +1,4 @@
+import hmac
 from datetime import datetime, timedelta
 from fastapi import APIRouter, Depends, HTTPException, Header, Response
 from sqlalchemy import func, text
@@ -19,9 +20,8 @@ def _require_dashboard_token(x_dashboard_token: str = Header(default="")) -> Non
     if settings.environment != "development":
         if not settings.dashboard_token or settings.dashboard_token == "change-me":
             raise HTTPException(500, detail="DASHBOARD_TOKEN not configured")
-        if x_dashboard_token != settings.dashboard_token:
-            raise HTTPException(401, detail="Invalid dashboard token")
-    elif x_dashboard_token != settings.dashboard_token:
+    # constant-time compare so the token can't be recovered by timing
+    if not hmac.compare_digest(x_dashboard_token.encode(), settings.dashboard_token.encode()):
         raise HTTPException(401, detail="Invalid dashboard token")
 
 

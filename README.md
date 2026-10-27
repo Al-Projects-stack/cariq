@@ -199,6 +199,11 @@ Twilio sends incoming WhatsApp message
 - Prompt injection screening on questions, history, and admin-saved content
 - Cookie-session admin auth: short-lived JWTs, rotating refresh tokens, CSRF tokens, lockout after 10 failed attempts
 - Rate limiting per IP (10 queries/min, 10 user logins/min, 5 signups/min, 5 admin logins/min)
+- Daily LLM spend caps that IP rotation can't bypass: a shared guest pool, a per-account allowance, a per-WhatsApp-sender allowance, a hard total, and a daily sign-up cap (`app/services/usage_guard.py`)
+- Model profiles, compare, market position, TCO and the full-price API require a signed-in user; guests get the landing list (no prices), the chatbot and Find My Car
+- Size limits on every user-submitted field, per-user caps on watchlist and saved searches, watchlist entries must be real KB models
+- API docs (`/docs`, `/redoc`, `/openapi.json`) disabled outside development
+- No secrets in `VITE_*` variables: they ship in the public JS bundle
 - User and admin tokens signed with `JWT_SECRET`; auth refuses to run in production on the default value
 - Security headers on every response, `no-store` on admin responses
 - CORS locked to `FRONTEND_URL` in production
