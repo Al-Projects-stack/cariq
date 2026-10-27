@@ -1,5 +1,5 @@
 ﻿import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { QueryInput } from "../components/QueryInput";
 import { AnswerPanel } from "../components/AnswerPanel";
@@ -46,13 +46,24 @@ export function Home() {
   const [visible, setVisible] = useState(true);
   const [lastQuestion, setLastQuestion] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [modelsError, setModelsError] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     listModels()
       .then(setModels)
-      .catch(() => {})
+      .catch(() => setModelsError(true))
       .finally(() => setModelsLoading(false));
   }, []);
+
+  // React Router doesn't scroll to #hash targets (header "Models" / "How it works"
+  // links); do it once the page has rendered. location.key re-fires on repeat clicks.
+  useEffect(() => {
+    if (modelsLoading || !location.hash) return;
+    document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: "smooth" });
+  }, [modelsLoading, location.hash, location.key]);
+
+  const modelCount = models.length;
 
   useEffect(() => {
     if (!modelsLoading) return;
@@ -134,11 +145,11 @@ export function Home() {
       <FavoriteBackdrop />
 
       {/* Exciting hero */}
-      <Hero />
+      <Hero modelCount={modelCount} />
 
       {/* everything below floats above the favourite-car backdrop */}
       <div className="relative z-10">
-      <SocialProof />
+      <SocialProof modelCount={modelCount} />
 
       {/* Example demo - how it works */}
       <LiveDemo />
@@ -230,7 +241,7 @@ export function Home() {
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h2 className="text-xl font-bold text-gray-100">Not sure what to look for?</h2>
-              <p className="mt-1 text-sm text-gray-500">Take a quick quiz - we’ll match you with the most lekker car for your budget and vibe.</p>
+              <p className="mt-1 text-sm text-gray-500">Take a quick quiz - we'll match you with the most lekker car for your budget and vibe.</p>
             </div>
             <Link to="/recommend" className="shrink-0 rounded-xl bg-orange-500 px-6 py-3 text-sm font-bold text-white hover:bg-orange-400 transition-all text-center shadow-lg shadow-orange-500/20">
               Find My Car
@@ -239,28 +250,37 @@ export function Home() {
         </motion.div>
 
         {/* Model browser */}
-        <div id="models">
-          <ModelSearch models={models} />
+        <div id="models" className="scroll-mt-24">
+          {modelsError ? (
+            <div role="alert" className="mt-16 rounded-xl border border-red-800/60 bg-red-950/40 px-5 py-4 text-sm text-red-300 flex items-center justify-between gap-4">
+              <span>Couldn't load the model list. The server may be waking up - give it a few seconds.</span>
+              <button onClick={() => window.location.reload()} className="shrink-0 rounded-lg border border-red-700/60 px-3 py-1.5 text-xs font-semibold hover:bg-red-900/40">
+                Retry
+              </button>
+            </div>
+          ) : (
+            <ModelSearch models={models} />
+          )}
         </div>
 
         {/* How It Works - auth-gated */}
         {user && (
-          <div id="how-it-works">
-            <HowItWorks />
+          <div id="how-it-works" className="scroll-mt-24">
+            <HowItWorks modelCount={modelCount} />
           </div>
         )}
         {!user && (
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-10 rounded-2xl border border-gray-800 bg-gray-900 p-6 text-center">
             <p className="text-sm text-gray-300 font-medium">Pssst… the secret sauce is behind the velvet rope</p>
-            <p className="text-xs text-gray-500 mt-1">How CarIQ Works - the full pipeline with vectors, Pinecone, and grounded AI answers - shows once you’re in. Sneaky, hey?</p>
+            <p className="text-xs text-gray-500 mt-1">How CarIQ Works - the full pipeline with vectors, Pinecone, and grounded AI answers - shows once you're in. Sneaky, hey?</p>
             <Link to="/signup" className="mt-4 inline-flex rounded-full border border-orange-500/40 bg-orange-500/10 px-5 py-2 text-xs font-semibold text-orange-400 hover:bg-orange-500/20">Unlock it</Link>
           </motion.div>
         )}
       </main>
 
       <footer className="border-t border-gray-900 px-6 py-8 text-center">
-        <p className="text-xs text-gray-700 font-mono">CarIQ · Built for the SA used car market · 20 models at launch</p>
-        <p className="mt-1 text-xs text-gray-800">Data: MyBroadband · Cars.co.za · AutoTrader SA · SA owner communities</p>
+        <p className="text-xs text-gray-700 font-mono">CarIQ · Built for the SA used car market{modelCount > 0 && ` · ${modelCount} models`}</p>
+        <p className="mt-1 text-xs text-gray-800">Data: MyBroadband · Cars.co.za · AutoTrader SA · WeBuyCars · SA owner communities</p>
       </footer>
       </div>
     </div>

@@ -11,7 +11,7 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-export function Hero() {
+export function Hero({ modelCount }: { modelCount: number }) {
   function scrollDown() {
     document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" });
   }
@@ -53,7 +53,7 @@ export function Hero() {
         <motion.div variants={item} className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 mb-6 backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse-slow" />
           <span className="font-mono text-xs text-orange-400 tracking-widest uppercase">
-            RAG-powered · 27 models · SA market data
+            RAG-powered{modelCount > 0 && ` · ${modelCount} models`} · SA market data
           </span>
         </motion.div>
 
@@ -74,13 +74,13 @@ export function Hero() {
             href="#demo"
             className="w-full sm:w-auto rounded-xl bg-orange-500 px-8 py-3.5 text-sm font-bold text-white hover:bg-orange-400 transition-all shadow-lg shadow-orange-500/20"
           >
-            See example - it’s fun, promise
+            See example - it's fun, promise
           </a>
           <Link
             to="/signup"
             className="w-full sm:w-auto rounded-xl border border-gray-700 bg-gray-900/60 backdrop-blur px-8 py-3.5 text-sm font-semibold text-gray-200 hover:border-orange-500/40 hover:text-white transition-all"
           >
-            Sign in to save your cars
+            Sign up to save your cars
           </Link>
         </motion.div>
 
@@ -96,7 +96,7 @@ export function Hero() {
         {/* floating glass cards */}
         <motion.div variants={item} className="mt-10 hidden sm:grid grid-cols-3 gap-3 max-w-3xl mx-auto">
           <GlassCard title="Price verdict" value="GOOD DEAL" accent="text-green-400 border-green-500/20 bg-green-500/10" sub="Polo 1.0 TSI · 2019" />
-          <GlassCard title="Known fault" value="HIGH · DSG" accent="text-red-400 border-red-500/20 bg-red-500/10" sub="Hesitation 60-90k km" delay={0.1} />
+          <GlassCard title="Known fault" value="MEDIUM · DSG" accent="text-amber-400 border-amber-500/20 bg-amber-500/10" sub="Hesitation 50-100k km" delay={0.1} />
           <GlassCard title="Sources" value="3 cited" accent="text-blue-400 border-blue-500/20 bg-blue-500/10" sub="Cars.co.za + 2" delay={0.2} />
         </motion.div>
 

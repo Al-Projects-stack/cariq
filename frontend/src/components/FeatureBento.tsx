@@ -7,7 +7,7 @@ export function FeatureBento() {
         title="Price Intelligence"
         desc="Low / Mid / High with a verdict - GOOD DEAL, FAIR, ABOVE MARKET, OVERPRICED. No vibes, just ZAR."
         accent="from-green-500/10 via-blue-500/10 to-red-500/10"
-        icon="₿"
+        icon="R"
         delay={0}
       />
       <BentoCard

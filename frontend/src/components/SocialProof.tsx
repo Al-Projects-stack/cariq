@@ -1,35 +1,38 @@
 import { motion } from "framer-motion";
 
-const STEPS = [
-  {
-    value: "20",
-    label: "SA models",
-    sub: "curated in Pretoria, not scraped",
-    icon: "🚗",
-  },
-  {
-    value: "101",
-    label: "Pinecone vectors",
-    sub: "each fault and price, embedded",
-    icon: "◈",
-  },
-  {
-    value: "384",
-    label: "embedding dims",
-    sub: "how we hear is it a good deal?",
-    icon: "≋",
-  },
-  {
-    value: "5",
-    label: "chunks / query",
-    sub: "top matches per question",
-    icon: "◫",
-  },
-];
+function buildSteps(modelCount: number) {
+  return [
+    {
+      value: modelCount > 0 ? String(modelCount) : "SA",
+      label: "SA models",
+      sub: "curated in Pretoria, not scraped",
+      icon: "🚗",
+    },
+    {
+      value: "4",
+      label: "chunk types",
+      sub: "summary, prices, faults, checks",
+      icon: "◈",
+    },
+    {
+      value: "384",
+      label: "embedding dims",
+      sub: "how we tell if it's a good deal",
+      icon: "≋",
+    },
+    {
+      value: "5",
+      label: "chunks / query",
+      sub: "top matches per question",
+      icon: "◫",
+    },
+  ];
+}
 
 const SOURCES = ["MyBroadband", "Cars.co.za", "AutoTrader SA", "WeBuyCars"];
 
-export function SocialProof() {
+export function SocialProof({ modelCount }: { modelCount: number }) {
+  const steps = buildSteps(modelCount);
   return (
     <div className="mx-auto max-w-5xl px-6 mt-8">
       <motion.div
@@ -42,7 +45,9 @@ export function SocialProof() {
         <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-orange-500/10 blur-2xl" />
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <p className="font-mono text-xs tracking-widest uppercase text-orange-400">How the knowledge flows</p>
-          <span className="font-mono text-[11px] tracking-widest uppercase text-gray-600">27 models live, growing</span>
+          <span className="font-mono text-[11px] tracking-widest uppercase text-gray-600">
+            {modelCount > 0 ? `${modelCount} models live, growing` : "Models live, growing"}
+          </span>
         </div>
 
         {/* pipeline */}
@@ -59,7 +64,7 @@ export function SocialProof() {
           />
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {STEPS.map((s, i) => (
+            {steps.map((s, i) => (
               <motion.div
                 key={s.label}
                 initial={{ opacity: 0, y: 10, scale: 0.98 }}
