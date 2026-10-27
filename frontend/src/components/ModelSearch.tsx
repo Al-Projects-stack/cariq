@@ -65,7 +65,10 @@ export function ModelSearch({ models }: Props) {
             <p className="mt-1 text-sm text-gray-500">{models.length} models in the knowledge base</p>
           </div>
           <button
-            onClick={() => { setCompareMode((v) => !v); if (compareMode) setSelected([]); }}
+            onClick={() => {
+              if (!user) { navigate(`/login?next=${encodeURIComponent("/#models")}`); return; }
+              setCompareMode((v) => !v); if (compareMode) setSelected([]);
+            }}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all duration-150 ${
               compareMode
                 ? "bg-orange-500/20 border-orange-500 text-orange-400"
@@ -107,6 +110,9 @@ export function ModelSearch({ models }: Props) {
             {filtered.map((car) => {
             const key = `${car.make}|${car.model}`;
             const isSelected = selected.includes(key);
+            const modelPath = `/model/${encodeURIComponent(car.make)}/${encodeURIComponent(car.model.replace(/ /g, "_"))}`;
+            // signed-out visitors go to sign in (with a sign-up link) and come back to this model
+            const href = compareMode ? "#" : user ? modelPath : `/login?next=${encodeURIComponent(modelPath)}`;
             return (
               <div key={key} className="relative">
                 {compareMode && (
@@ -130,7 +136,7 @@ export function ModelSearch({ models }: Props) {
                   <WatchButton make={car.make} model={car.model} />
                 </div>
                 <Link
-                  to={compareMode ? "#" : `/model/${encodeURIComponent(car.make)}/${encodeURIComponent(car.model.replace(/ /g, "_"))}`}
+                  to={href}
                   onClick={compareMode ? (e) => { e.preventDefault(); toggleSelect(key); } : undefined}
                   className={`group rounded-xl border overflow-hidden transition-all duration-200 block ${
                     isSelected
@@ -151,7 +157,10 @@ export function ModelSearch({ models }: Props) {
                     <ArrowIcon />
                   </div>
                   <ReliabilityBar score={car.reliability_score} />
-                  <p className="mt-1 text-xs text-gray-600">Reliability</p>
+                  <p className="mt-1 text-xs text-gray-600">
+                    Reliability
+                    {!user && <span className="float-right text-gray-500 group-hover:text-orange-400 transition-colors">Sign in to view</span>}
+                  </p>
                   </div>
                 </Link>
               </div>
@@ -164,7 +173,7 @@ export function ModelSearch({ models }: Props) {
           {showGate && (
             <div className="absolute inset-x-0 bottom-0 flex justify-center pb-2">
               <Link to="/signup" className="pointer-events-auto rounded-full bg-orange-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-orange-500/20 hover:bg-orange-400 transition-colors">
-                Sign up to browse all {filteredAll.length} - it's lekker
+                Sign in or sign up to browse all {filteredAll.length} - it's lekker
               </Link>
             </div>
           )}

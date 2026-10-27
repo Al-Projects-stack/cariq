@@ -42,8 +42,9 @@ export default function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<RequireFavorite><Home /></RequireFavorite>} />
-          <Route path="/model/:make/:model" element={<RequireFavorite><ModelProfile /></RequireFavorite>} />
-          <Route path="/compare" element={<RequireFavorite><ComparePage /></RequireFavorite>} />
+          {/* model pages + compare need an account (sign in or sign up) */}
+          <Route path="/model/:make/:model" element={<AuthGuard><RequireFavorite><ModelProfile /></RequireFavorite></AuthGuard>} />
+          <Route path="/compare" element={<AuthGuard><RequireFavorite><ComparePage /></RequireFavorite></AuthGuard>} />
           <Route path="/recommend" element={<RequireFavorite><RecommendPage /></RequireFavorite>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

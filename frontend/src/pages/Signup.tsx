@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { signup } from "../api";
 import { loadFavoriteCar } from "../utils/favorite";
 import { useAuth } from "../contexts/AuthContext";
@@ -13,6 +13,8 @@ export function Signup() {
   const [loading, setLoading] = useState(false);
   const { login: authLogin } = useAuth();
   const navigate = useNavigate();
+  const [params] = useSearchParams();
+  const next = params.get("next") || "/";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -30,7 +32,7 @@ export function Signup() {
       const data = await signup(email.trim(), password, displayName.trim());
       authLogin(data);
       // new account - pick a favourite car first
-      navigate(loadFavoriteCar() ? "/" : "/choose-favorite?next=%2F", { replace: true });
+      navigate(loadFavoriteCar() ? next : `/choose-favorite?next=${encodeURIComponent(next)}`, { replace: true });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Signup failed.");
     } finally {
@@ -63,7 +65,7 @@ export function Signup() {
           </button>
         </form>
         <p className="mt-6 text-center text-sm text-gray-500">
-          Already have an account? <Link to="/login" className="text-orange-400 hover:text-orange-300">Log in</Link>
+          Already have an account? <Link to={`/login?next=${encodeURIComponent(next)}`} className="text-orange-400 hover:text-orange-300">Log in</Link>
         </p>
       </main>
     </div>

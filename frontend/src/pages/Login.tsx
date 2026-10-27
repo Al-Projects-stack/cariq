@@ -56,7 +56,7 @@ export function Login() {
           </button>
         </form>
         <p className="mt-6 text-center text-sm text-gray-500">
-          No account? <Link to="/signup" className="text-orange-400 hover:text-orange-300">Sign up</Link>
+          No account? <Link to={`/signup?next=${encodeURIComponent(next)}`} className="text-orange-400 hover:text-orange-300">Sign up</Link>
         </p>
       </main>
     </div>
